@@ -9,8 +9,10 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Custom Search Engine Flutter Demo',
       home: Scaffold(
-        appBar:
-            new AppBar(leading: new Icon(Icons.search), title: new SearchInputBox()),
+        appBar: new AppBar(
+          leading: new Icon(Icons.search),
+          title: new SearchInputBox(),
+        ),
       ),
     );
   }

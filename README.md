@@ -17,4 +17,4 @@ samples, guidance on mobile development, and a full API reference.
 
 ## Example
 
-![20181213](/res/imgs/20181213.png)
+![20181213](/res/imgs/examples/20181213_2.png)

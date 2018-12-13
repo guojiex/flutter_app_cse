@@ -8,9 +8,8 @@ class SearchInputBox extends StatefulWidget {
 class _SearchInputBoxState extends State<SearchInputBox> {
   // Create a text controller. We will use it to retrieve the current value
   // of the TextField!
-  static final String startSearchValue = 'Click to start search';
-  final myController = TextEditingController(text: startSearchValue);
-  bool startTyping = false;
+  static final String startSearchValue = 'Google Custom Search';
+  final myController = TextEditingController();
 
   @override
   void dispose() {
@@ -21,32 +20,19 @@ class _SearchInputBoxState extends State<SearchInputBox> {
 
   @override
   Widget build(BuildContext context) {
-    return new Container(
-        child: new Row(
+    return new Row(
       children: <Widget>[
         new Expanded(
-          child: new Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              TextField(
-                controller: myController,
-                onTap: () {
-                  if (!startTyping) {
-                    myController.clear();
-                    startTyping = true;
-                  }
-                },
-                onSubmitted: (text) {
-                  if (text.isEmpty) {
-                    startTyping = false;
-                    myController.text = startSearchValue;
-                  }
-                },
-              ),
-            ],
+          child: new TextField(
+            decoration: InputDecoration(
+              border: InputBorder.none,
+              hintText: startSearchValue,
+            ),
+            controller: myController,
+            textInputAction: TextInputAction.search,
           ),
         ),
       ],
-    ));
+    );
   }
 }
