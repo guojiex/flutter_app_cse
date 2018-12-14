@@ -1,5 +1,8 @@
 name: flutter_app_cse
-description: A new Flutter application. For CSE
+description: >-
+  A Flutter Custom Search demo. For CSE(Custom Search Engine) from Google.
+  This is not a Google official product. This is an explore project.
+author: Jiexin Guo <jiexing.jg@gmail.com>
 
 # The following defines the version and build number for your application.
 # A version number is three numbers separated by dots, like 1.2.43
