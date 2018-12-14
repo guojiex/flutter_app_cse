@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 
-/**
- *
- */
+/// A Search Input Box that are mainly designed for [Custom Search Engine](https://cse.google.com).
 class SearchInputBox extends StatefulWidget {
   final String startSearchValue;
   final bool enablePrefixIcon;
@@ -16,10 +14,10 @@ class SearchInputBox extends StatefulWidget {
 }
 
 class _SearchInputBoxState extends State<SearchInputBox> {
-  TextEditingController _searchInputBoxController;
   final bool enablePrefixIcon;
   final String startSearchValue;
   FocusNode _textFieldFocusNode;
+  TextEditingController _searchInputBoxController;
 
   _SearchInputBoxState(this.enablePrefixIcon, this.startSearchValue);
 
@@ -51,7 +49,6 @@ class _SearchInputBoxState extends State<SearchInputBox> {
                     icon: Icon(Icons.search),
                     tooltip: 'Click to focus on the text edit field.',
                     onPressed: () {
-
                       FocusScope.of(context)
                           .requestFocus(this._textFieldFocusNode);
                     }),
