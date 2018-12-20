@@ -1,4 +1,9 @@
 import 'package:meta/meta.dart';
+import 'dart:async';
+
+import "package:googleapis_auth/auth_io.dart" as auth;
+import 'package:googleapis/customsearch/v1.dart';
+import 'package:_discoveryapis_commons/_discoveryapis_commons.dart';
 
 // TODO: Use https://pub.dartlang.org/packages/url_launcher to let SearchResult capable to open apps.
 @immutable
@@ -22,13 +27,25 @@ class FakeSearchDataSource implements SearchDataSource {
   }
 }
 
-class CustomSearchJsonDataSource implements SearchDataSource {
+class CustomSearchJsonDataSource {
   final String cx;
+  final String apiKey;
+  var api;
 
-  CustomSearchJsonDataSource(this.cx);
+  CustomSearchJsonDataSource({@required this.cx, @required this.apiKey}) {
+    var client = auth.clientViaApiKey(apiKey);
+    this.api = new CustomsearchApi(client);
+  }
 
-  @override
-  List<SearchResult> search(String query) {}
+  void search(String query) async {
+    await this.api.cse.list(query, cx: this.cx).then((Search search) {
+      if (search.items != null) {
+        for (var result in search.items) {
+          print(result.snippet);
+        }
+      }
+    });
+  }
 }
 
 abstract class AutoCompleteDataSource {

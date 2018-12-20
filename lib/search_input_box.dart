@@ -25,7 +25,6 @@ class _SearchInputBoxState extends State<SearchInputBox> {
   void initState() {
     super.initState();
     this._textFieldFocusNode = FocusNode();
-    print(this._textFieldFocusNode);
     this._searchInputBoxController = TextEditingController();
   }
 

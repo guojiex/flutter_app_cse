@@ -4,6 +4,7 @@ import 'package:flutter_app_cse/search_input_box.dart';
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
