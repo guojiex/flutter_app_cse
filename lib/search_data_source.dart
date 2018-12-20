@@ -2,28 +2,19 @@ import 'package:meta/meta.dart';
 import 'dart:async';
 
 import "package:googleapis_auth/auth_io.dart" as auth;
-import 'package:googleapis/customsearch/v1.dart';
-import 'package:_discoveryapis_commons/_discoveryapis_commons.dart';
+import 'package:googleapis/customsearch/v1.dart' as customsearch;
 
 // TODO: Use https://pub.dartlang.org/packages/url_launcher to let SearchResult capable to open apps.
-@immutable
-class SearchResult {
-  final String title;
-  final String link;
-  final String snippet;
-
-  SearchResult(this.title, this.link, this.snippet);
-}
+class SearchResult extends customsearch.Result {}
 
 abstract class SearchDataSource {
-  List<SearchResult> search(String query);
+  Future<List<SearchResult>> search(String query);
 }
 
 class FakeSearchDataSource implements SearchDataSource {
   @override
-  List<SearchResult> search(String query) {
-    return [new SearchResult('title', 'www.google.com', 'A fake test example')]
-        .toList();
+  Future<List<SearchResult>> search(String query) {
+    return Future.value(List<SearchResult>(2));
   }
 }
 
@@ -34,11 +25,23 @@ class CustomSearchJsonDataSource {
 
   CustomSearchJsonDataSource({@required this.cx, @required this.apiKey}) {
     var client = auth.clientViaApiKey(apiKey);
-    this.api = new CustomsearchApi(client);
+    this.api = new customsearch.CustomsearchApi(client);
   }
 
-  void search(String query) async {
-    await this.api.cse.list(query, cx: this.cx).then((Search search) {
+  Future<List<customsearch.Result>> search(String query) async {
+    return this.api.cse.list(query, cx: this.cx).then((
+        customsearch.Search search) {
+      if (search.items != null) {
+        return search.items;
+      } else {
+        return new List<customsearch.Result>();
+      }
+    });
+  }
+
+  void _blockingSearch(String query) async {
+    await this.api.cse.list(query, cx: this.cx).then((
+        customsearch.Search search) {
       if (search.items != null) {
         for (var result in search.items) {
           print(result.snippet);

@@ -25,7 +25,6 @@ dependencies:
   meta: ^1.1.6
   googleapis: any
   googleapis_auth: ^0.2.6
-  _discoveryapis_commons: ^0.1.8+1
 
 dev_dependencies:
   test: ^1.5.1+1
@@ -45,7 +44,8 @@ flutter:
   uses-material-design: true
 
   # To add assets to your application, add an assets section, like this:
-  # assets:
+  assets:
+     - res/sampledata/
   #  - images/a_dot_burr.jpeg
   #  - images/a_dot_ham.jpeg
 

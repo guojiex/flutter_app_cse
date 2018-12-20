@@ -1,0 +1,237 @@
+{
+  "kind": "customsearch#search",
+  "url": {
+    "type": "application/json",
+    "template": "https://www.googleapis.com/customsearch/v1?q={searchTerms}&num={count?}&start={startIndex?}&lr={language?}&safe={safe?}&cx={cx?}&sort={sort?}&filter={filter?}&gl={gl?}&cr={cr?}&googlehost={googleHost?}&c2coff={disableCnTwTranslation?}&hq={hq?}&hl={hl?}&siteSearch={siteSearch?}&siteSearchFilter={siteSearchFilter?}&exactTerms={exactTerms?}&excludeTerms={excludeTerms?}&linkSite={linkSite?}&orTerms={orTerms?}&relatedSite={relatedSite?}&dateRestrict={dateRestrict?}&lowRange={lowRange?}&highRange={highRange?}&searchType={searchType}&fileType={fileType?}&rights={rights?}&imgSize={imgSize?}&imgType={imgType?}&imgColorType={imgColorType?}&imgDominantColor={imgDominantColor?}&alt=json"
+  },
+  "queries": {
+    "request": [
+      {
+        "title": "Google Custom Search - test",
+        "totalResults": "3",
+        "searchTerms": "test",
+        "count": 3,
+        "startIndex": 1,
+        "inputEncoding": "utf8",
+        "outputEncoding": "utf8",
+        "safe": "off",
+        "cx": "008795855128244970711:yafufe8jjt8"
+      }
+    ]
+  },
+  "context": {
+    "title": "Guojiex.github.io"
+  },
+  "searchInformation": {
+    "searchTime": 0.168218,
+    "formattedSearchTime": "0.17",
+    "totalResults": "3",
+    "formattedTotalResults": "3"
+  },
+  "items": [
+    {
+      "kind": "customsearch#result",
+      "title": "Python 类级和函数级Decorator | 节瓜的博客",
+      "htmlTitle": "Python 类级和函数级Decorator | 节瓜的博客",
+      "link": "http://guojiex.github.io/2016/10/28/pythonDecorator/",
+      "displayLink": "guojiex.github.io",
+      "snippet": "2016年10月28日 ... 一般来说，我们如果想在某些函数前后添加一些log语句，或者像unit test中每一个\ntest之前之后都会自动执行的setUp或者tearDown函数，最笨的办法 ...",
+      "htmlSnippet": "2016年10月28日 \u003cb\u003e...\u003c/b\u003e 一般来说，我们如果想在某些函数前后添加一些log语句，或者像unit \u003cb\u003etest\u003c/b\u003e中每一个\u003cbr\u003e\n\u003cb\u003etest\u003c/b\u003e之前之后都会自动执行的setUp或者tearDown函数，最笨的办法&nbsp;...",
+      "cacheId": "nC2o3oO9PDoJ",
+      "formattedUrl": "guojiex.github.io/2016/10/28/pythonDecorator/",
+      "htmlFormattedUrl": "guojiex.github.io/2016/10/28/pythonDecorator/",
+      "pagemap": {
+        "metatags": [
+          {
+            "viewport": "width=device-width, initial-scale=1, maximum-scale=1",
+            "theme-color": "#222",
+            "og:type": "article",
+            "og:title": "Python 类级和函数级 Decorator",
+            "og:url": "http://guojiex.github.io/2016/10/28/pythonDecorator/index.html",
+            "og:site_name": "节瓜的博客",
+            "og:description": "在工作中遇见的Python装饰器使用，特地记录一下。",
+            "og:locale": "zh-Hans",
+            "og:updated_time": "2018-08-19T23:24:47.597Z",
+            "twitter:card": "summary",
+            "twitter:title": "Python 类级和函数级 Decorator",
+            "twitter:description": "在工作中遇见的Python装饰器使用，特地记录一下。"
+          }
+        ],
+        "article": [
+          {
+            "mainentityofpage": "http://guojiex.github.io/2016/10/28/pythonDecorator/",
+            "name": "Python 类级和函数级Decorator",
+            "headline": "Python 类级和函数级Decorator",
+            "datecreated": "2016-10-28T10:30:45-04:00",
+            "datepublished": "2016-10-28T10:30:45-04:00",
+            "articlebody": "装饰器应用场景一般来说，我们如果想在某些函数前后添加一些log语句，或者像unit test中每一个test之前之后都会自动执行的setUp或者tearDown函数，最笨..."
+          }
+        ],
+        "person": [
+          {
+            "name": "Jiexin Guo",
+            "image": "https://en.gravatar.com/userimage/109257336/8230436ce0a0ee89b609c99ef9bf18fa.jpg"
+          },
+          {
+            "image": "https://en.gravatar.com/userimage/109257336/8230436ce0a0ee89b609c99ef9bf18fa.jpg",
+            "name": "Jiexin Guo",
+            "description": "你是要做一辈子的懦夫，还是要做英雄，哪怕只是几分钟"
+          }
+        ],
+        "organization": [
+          {
+            "name": "节瓜的博客"
+          }
+        ],
+        "webpage": [
+          {
+            "copyrightyear": "2018",
+            "copyrightholder": "Jiexin Guo"
+          }
+        ],
+        "thing": [
+          {
+            "url": "python从零单排",
+            "name": "python从零单排"
+          }
+        ]
+      }
+    },
+    {
+      "kind": "customsearch#result",
+      "title": "模拟面试| 节瓜的博客",
+      "htmlTitle": "模拟面试| 节瓜的博客",
+      "link": "http://guojiex.github.io/2016/05/27/google%E6%A8%A1%E6%8B%9F%E9%9D%A2%E8%AF%95/",
+      "displayLink": "guojiex.github.io",
+      "snippet": "2016年5月27日 ... 当你写完了代码，面试官有可能要你自己准备一些test case用以测试你程序的正确性\n，以及看你对测试的理解是否足够。 在这里我给出一个思路，把 ...",
+      "htmlSnippet": "2016年5月27日 \u003cb\u003e...\u003c/b\u003e 当你写完了代码，面试官有可能要你自己准备一些\u003cb\u003etest\u003c/b\u003e case用以测试你程序的正确性\u003cbr\u003e\n，以及看你对测试的理解是否足够。 在这里我给出一个思路，把&nbsp;...",
+      "cacheId": "qhW8PFs7TKcJ",
+      "formattedUrl": "guojiex.github.io/2016/05/27/google模拟面试/",
+      "htmlFormattedUrl": "guojiex.github.io/2016/05/27/google模拟面试/",
+      "pagemap": {
+        "metatags": [
+          {
+            "viewport": "width=device-width, initial-scale=1, maximum-scale=1",
+            "theme-color": "#222",
+            "og:type": "article",
+            "og:title": "模拟面试",
+            "og:url": "http://guojiex.github.io/2016/05/27/google模拟面试/index.html",
+            "og:site_name": "节瓜的博客",
+            "og:description": "以我经历过的面试为基础改写而成的面试分析",
+            "og:locale": "zh-Hans",
+            "og:updated_time": "2018-08-19T23:24:47.475Z",
+            "twitter:card": "summary",
+            "twitter:title": "模拟面试",
+            "twitter:description": "以我经历过的面试为基础改写而成的面试分析"
+          }
+        ],
+        "article": [
+          {
+            "mainentityofpage": "http://guojiex.github.io/2016/05/27/google%E6%A8%A1%E6%8B%9F%E9%9D%A2%E8%AF%95/",
+            "name": "模拟面试",
+            "headline": "模拟面试",
+            "datecreated": "2016-05-27T21:45:41-04:00",
+            "datepublished": "2016-05-27T21:45:41-04:00",
+            "articlebody": "面试一定要自信，自信，自信！重要的事情说三遍！ 这篇文章是为了让大家对面试有所了解而写\u003cbr\u003e以我经历过的google面试为基础改写而成（顺便锻炼..."
+          }
+        ],
+        "person": [
+          {
+            "name": "Jiexin Guo",
+            "image": "https://en.gravatar.com/userimage/109257336/8230436ce0a0ee89b609c99ef9bf18fa.jpg"
+          },
+          {
+            "image": "https://en.gravatar.com/userimage/109257336/8230436ce0a0ee89b609c99ef9bf18fa.jpg",
+            "name": "Jiexin Guo",
+            "description": "你是要做一辈子的懦夫，还是要做英雄，哪怕只是几分钟"
+          }
+        ],
+        "organization": [
+          {
+            "name": "节瓜的博客"
+          }
+        ],
+        "webpage": [
+          {
+            "copyrightyear": "2018",
+            "copyrightholder": "Jiexin Guo"
+          }
+        ],
+        "thing": [
+          {
+            "url": "面试",
+            "name": "面试"
+          }
+        ]
+      }
+    },
+    {
+      "kind": "customsearch#result",
+      "title": "美国游记| 节瓜的博客",
+      "htmlTitle": "美国游记| 节瓜的博客",
+      "link": "http://guojiex.github.io/2016/08/25/%E7%BE%8E%E5%9B%BD%E6%B8%B8%E8%AE%B0/",
+      "displayLink": "guojiex.github.io",
+      "snippet": "2016年8月25日 ... 如果你做过了体检，那个tb testing记得选你做过测试没有结核病. 记得找人接机，\ncssa有相关服务快去找。快多加微信群找小伙伴，我们jie本来就是 ...",
+      "htmlSnippet": "2016年8月25日 \u003cb\u003e...\u003c/b\u003e 如果你做过了体检，那个tb \u003cb\u003etesting\u003c/b\u003e记得选你做过测试没有结核病. 记得找人接机，\u003cbr\u003e\ncssa有相关服务快去找。快多加微信群找小伙伴，我们jie本来就是&nbsp;...",
+      "cacheId": "ImAgWkojgssJ",
+      "formattedUrl": "guojiex.github.io/2016/08/25/美国游记/",
+      "htmlFormattedUrl": "guojiex.github.io/2016/08/25/美国游记/",
+      "pagemap": {
+        "metatags": [
+          {
+            "viewport": "width=device-width, initial-scale=1, maximum-scale=1",
+            "theme-color": "#222",
+            "og:type": "article",
+            "og:title": "美国游记",
+            "og:url": "http://guojiex.github.io/2016/08/25/美国游记/index.html",
+            "og:site_name": "节瓜的博客",
+            "og:description": "你是要做一辈子的懦夫，还是要做英雄，哪怕只是几分钟",
+            "og:locale": "zh-Hans",
+            "og:updated_time": "2018-08-19T23:24:47.635Z",
+            "twitter:card": "summary",
+            "twitter:title": "美国游记",
+            "twitter:description": "你是要做一辈子的懦夫，还是要做英雄，哪怕只是几分钟"
+          }
+        ],
+        "article": [
+          {
+            "mainentityofpage": "http://guojiex.github.io/2016/08/25/%E7%BE%8E%E5%9B%BD%E6%B8%B8%E8%AE%B0/",
+            "name": "美国游记",
+            "headline": "美国游记",
+            "datecreated": "2016-08-25T15:20:03-04:00",
+            "datepublished": "2016-08-25T15:20:03-04:00",
+            "articlebody": "你是要做一辈子的懦夫，还是要做英雄，哪怕只是几分钟。——搏击俱乐部 This is your life, and it’s ending one minute at a time. 前言我是JIE双学位项目第一..."
+          }
+        ],
+        "person": [
+          {
+            "name": "Jiexin Guo",
+            "image": "https://en.gravatar.com/userimage/109257336/8230436ce0a0ee89b609c99ef9bf18fa.jpg"
+          },
+          {
+            "image": "https://en.gravatar.com/userimage/109257336/8230436ce0a0ee89b609c99ef9bf18fa.jpg",
+            "name": "Jiexin Guo",
+            "description": "你是要做一辈子的懦夫，还是要做英雄，哪怕只是几分钟"
+          }
+        ],
+        "organization": [
+          {
+            "name": "节瓜的博客"
+          }
+        ],
+        "webpage": [
+          {
+            "copyrightyear": "2018",
+            "copyrightholder": "Jiexin Guo"
+          }
+        ],
+        "thing": [
+          {
+            "url": "日常",
+            "name": "日常"
+          }
+        ]
+      }
+    }
+  ]
+}
