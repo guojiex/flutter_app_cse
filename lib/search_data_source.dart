@@ -12,6 +12,9 @@ abstract class SearchDataSource {
 }
 
 class FakeSearchDataSource implements SearchDataSource {
+
+  const FakeSearchDataSource();
+
   @override
   Future<List<SearchResult>> search(String query) {
     return Future.value(List<SearchResult>(2));
@@ -28,7 +31,7 @@ class CustomSearchJsonDataSource {
     this.api = new customsearch.CustomsearchApi(client);
   }
 
-  Future<List<customsearch.Result>> search(String query) async {
+  Future<List<customsearch.Result>> search(String query) {
     return this.api.cse.list(query, cx: this.cx).then((
         customsearch.Search search) {
       if (search.items != null) {
@@ -39,7 +42,7 @@ class CustomSearchJsonDataSource {
     });
   }
 
-  void _blockingSearch(String query) async {
+  void _blockingSearchPrint(String query) async {
     await this.api.cse.list(query, cx: this.cx).then((
         customsearch.Search search) {
       if (search.items != null) {

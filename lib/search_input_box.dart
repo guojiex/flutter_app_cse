@@ -1,25 +1,31 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app_cse/search_data_source.dart';
 
 /// A Search Input Box that are mainly designed for [Custom Search Engine](https://cse.google.com).
 class SearchInputBox extends StatefulWidget {
   final String startSearchValue;
   final bool enablePrefixIcon;
+  final SearchDataSource searchDataSource;
   @override
   _SearchInputBoxState createState() =>
-      _SearchInputBoxState(this.enablePrefixIcon, this.startSearchValue);
+      _SearchInputBoxState(
+          this.enablePrefixIcon, this.startSearchValue, this.searchDataSource);
 
   SearchInputBox(
       {this.enablePrefixIcon = true,
-      this.startSearchValue = 'Google Custom Search'});
+        this.startSearchValue = 'Google Custom Search',
+        this.searchDataSource = const FakeSearchDataSource()});
 }
 
 class _SearchInputBoxState extends State<SearchInputBox> {
   final bool enablePrefixIcon;
   final String startSearchValue;
+  final SearchDataSource searchDataSource;
   FocusNode _textFieldFocusNode;
   TextEditingController _searchInputBoxController;
 
-  _SearchInputBoxState(this.enablePrefixIcon, this.startSearchValue);
+  _SearchInputBoxState(this.enablePrefixIcon, this.startSearchValue,
+      this.searchDataSource);
 
   @override
   void initState() {
@@ -61,6 +67,7 @@ class _SearchInputBoxState extends State<SearchInputBox> {
             ),
             controller: this._searchInputBoxController,
             textInputAction: TextInputAction.search,
+//            onSubmitted: this.searchDataSource.search(query);
             focusNode: this._textFieldFocusNode,
           ),
         ),

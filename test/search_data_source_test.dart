@@ -11,6 +11,6 @@ void main() {
 //    final apiKey = '<please-fill-in>';
 //    var data_source = CustomSearchJsonDataSource(
 //        cx: '008795855128244970711:yafufe8jjt8', apiKey: apiKey);
-//    data_source.search('test');
+//    data_source._blockingSearchPrint('test');
 //  });
 }
