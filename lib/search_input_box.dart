@@ -14,7 +14,7 @@ class SearchInputBox extends StatefulWidget {
   SearchInputBox(
       {this.enablePrefixIcon = true,
         this.startSearchValue = 'Google Custom Search',
-        this.searchDataSource = const FakeSearchDataSource()});
+        this.searchDataSource});
 }
 
 class _SearchInputBoxState extends State<SearchInputBox> {

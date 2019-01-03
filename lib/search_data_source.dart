@@ -1,5 +1,6 @@
 import 'package:meta/meta.dart';
 import 'dart:async';
+import 'dart:convert';
 
 import "package:googleapis_auth/auth_io.dart" as auth;
 import 'package:googleapis/customsearch/v1.dart' as customsearch;
@@ -12,12 +13,15 @@ abstract class SearchDataSource {
 }
 
 class FakeSearchDataSource implements SearchDataSource {
+  final String jsonString;
 
-  const FakeSearchDataSource();
+  FakeSearchDataSource(this.jsonString);
 
   @override
   Future<List<SearchResult>> search(String query) {
-    return Future.value(List<SearchResult>(2));
+    Map searchMap = jsonDecode(jsonString);
+    customsearch.Search search = customsearch.Search.fromJson(searchMap);
+    return Future.value(search.items);
   }
 }
 
@@ -32,8 +36,11 @@ class CustomSearchJsonDataSource {
   }
 
   Future<List<customsearch.Result>> search(String query) {
-    return this.api.cse.list(query, cx: this.cx).then((
-        customsearch.Search search) {
+    return this
+        .api
+        .cse
+        .list(query, cx: this.cx)
+        .then((customsearch.Search search) {
       if (search.items != null) {
         return search.items;
       } else {
@@ -43,8 +50,11 @@ class CustomSearchJsonDataSource {
   }
 
   void _blockingSearchPrint(String query) async {
-    await this.api.cse.list(query, cx: this.cx).then((
-        customsearch.Search search) {
+    await this
+        .api
+        .cse
+        .list(query, cx: this.cx)
+        .then((customsearch.Search search) {
       if (search.items != null) {
         for (var result in search.items) {
           print(result.snippet);
