@@ -8,19 +8,18 @@ void main() {
     expect(data_source.getAutoCompletions(query: ''),
         ['abcd', 'efgh', 'efdfsjd'].toList());
   });
-  test('json file test', () async {
-    await new File('test_search_result.json')
-        .readAsString()
-        .then((String contents) {
-      print(contents);
-    });
-  });
+//  test('json file test', () async {
+//    await new File('test_search_result.json')
+//        .readAsString()
+//        .then((String contents) {
+//      print(contents);
+//    });
+//  });
   test('json decode test', () async {
     await new File('test_search_result.json')
         .readAsString()
         .then((String contents) {
       var dataSource = FakeSearchDataSource(contents);
-      print('here');
       dataSource.search('whatever').then((searchResult) {
         searchResult.forEach((result) => print(result));
       });

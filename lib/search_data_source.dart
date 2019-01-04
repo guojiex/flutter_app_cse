@@ -6,7 +6,17 @@ import "package:googleapis_auth/auth_io.dart" as auth;
 import 'package:googleapis/customsearch/v1.dart' as customsearch;
 
 // TODO: Use https://pub.dartlang.org/packages/url_launcher to let SearchResult capable to open apps.
-class SearchResult extends customsearch.Result {}
+class SearchResult {
+  final customsearch.Result _result;
+
+  SearchResult(this._result);
+
+  @override
+  String toString() {
+    return 'title:${this._result.htmlTitle}\nsnippet:${this._result
+        .htmlSnippet}';
+  }
+}
 
 abstract class SearchDataSource {
   Future<List<SearchResult>> search(String query);
@@ -18,10 +28,12 @@ class FakeSearchDataSource implements SearchDataSource {
   FakeSearchDataSource(this.jsonString);
 
   @override
-  Future<List<SearchResult>> search(String query) {
+  Future<List<SearchResult>> search(String query) async {
     Map searchMap = jsonDecode(jsonString);
     customsearch.Search search = customsearch.Search.fromJson(searchMap);
-    return Future.value(search.items);
+    var results = List<SearchResult>();
+    search.items.forEach((item) => results.add(SearchResult(item)));
+    return results;
   }
 }
 
@@ -35,7 +47,7 @@ class CustomSearchJsonDataSource {
     this.api = new customsearch.CustomsearchApi(client);
   }
 
-  Future<List<customsearch.Result>> search(String query) {
+  Future<List<SearchResult>> search(String query) {
     return this
         .api
         .cse
@@ -45,20 +57,6 @@ class CustomSearchJsonDataSource {
         return search.items;
       } else {
         return new List<customsearch.Result>();
-      }
-    });
-  }
-
-  void _blockingSearchPrint(String query) async {
-    await this
-        .api
-        .cse
-        .list(query, cx: this.cx)
-        .then((customsearch.Search search) {
-      if (search.items != null) {
-        for (var result in search.items) {
-          print(result.snippet);
-        }
       }
     });
   }
