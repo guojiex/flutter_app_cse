@@ -1,20 +1,22 @@
 import 'package:meta/meta.dart';
 import 'dart:async';
 import 'dart:convert';
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart' show rootBundle;
 
 import "package:googleapis_auth/auth_io.dart" as auth;
 import 'package:googleapis/customsearch/v1.dart' as customsearch;
 
+
 // TODO: Use https://pub.dartlang.org/packages/url_launcher to let SearchResult capable to open apps.
 class SearchResult {
-  final customsearch.Result _result;
+  final customsearch.Result result;
 
-  SearchResult(this._result);
+  SearchResult(this.result);
 
   @override
   String toString() {
-    return 'title:${this._result.htmlTitle}\nsnippet:${this._result
-        .htmlSnippet}';
+    return 'title:${this.result.htmlTitle}\nsnippet:${this.result.htmlSnippet}';
   }
 }
 
@@ -23,9 +25,18 @@ abstract class SearchDataSource {
 }
 
 class FakeSearchDataSource implements SearchDataSource {
-  final String jsonString;
+  String jsonString;
 
   FakeSearchDataSource(this.jsonString);
+
+  void initFromAsset() {
+    loadAsset().then((loadedStr) => this.jsonString = loadedStr);
+  }
+
+  Future<String> loadAsset() async {
+    return await rootBundle.loadString(
+        'res/sampledata/test_search_result.json');
+  }
 
   @override
   Future<List<SearchResult>> search(String query) async {
