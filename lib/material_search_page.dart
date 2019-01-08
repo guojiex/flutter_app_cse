@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app_cse/search_result_page.dart';
 
 void main() => runApp(SearchDemoApp());
 
