@@ -16,7 +16,7 @@ class SearchResult {
 
   @override
   String toString() {
-    return 'title:${this.result.htmlTitle}\nsnippet:${this.result.htmlSnippet}';
+    return 'title:${this.result.title}\nsnippet:${this.result.snippet}';
   }
 }
 
@@ -36,8 +36,10 @@ class FakeSearchDataSource implements SearchDataSource {
   }
 
   Future<String> loadAsset() async {
+//    return await rootBundle.loadString(
+//        'res/sampledata/test_search_result.json');
     return await rootBundle.loadString(
-        'res/sampledata/test_search_result.json');
+        'res/sampledata/nytimes_sample_data.json');
   }
 
   @override
@@ -46,6 +48,7 @@ class FakeSearchDataSource implements SearchDataSource {
     customsearch.Search search = customsearch.Search.fromJson(searchMap);
     var results = List<SearchResult>();
     search.items.forEach((item) => results.add(SearchResult(item)));
+    print(results.length);
     return results;
   }
 }

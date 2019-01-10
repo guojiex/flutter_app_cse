@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app_cse/search_result_page.dart';
+import 'package:flutter_app_cse/search_data_source.dart';
 
 void main() => runApp(SearchDemoApp());
 
@@ -20,18 +21,11 @@ class _SearchDemoState extends State<SearchDemo> {
   final FakeJsonSearchDelegate _delegate = new FakeJsonSearchDelegate();
   final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
 
-  String _inputQuery;
-
   void triggerShowSearch() async {
-    final String input = await showSearch<String>(
+    await showSearch<SearchResult>(
       context: context,
       delegate: _delegate,
     );
-    if (input != null && input != _inputQuery) {
-      setState(() {
-        _inputQuery = input;
-      });
-    }
   }
 
   @override
@@ -57,6 +51,7 @@ class _SearchDemoState extends State<SearchDemo> {
           ),
           onTap: triggerShowSearch,
           textInputAction: TextInputAction.search,
+
         ),
         actions: <Widget>[
           new IconButton(
@@ -88,8 +83,7 @@ class _SearchDemoState extends State<SearchDemo> {
                       const Text(' icon in the AppBar'),
                     ],
                   ),
-                  const Text(
-                      'and search for a word.'),
+                  const Text('and search for a word.'),
                 ],
               ),
             ),

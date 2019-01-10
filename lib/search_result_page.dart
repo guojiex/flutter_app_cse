@@ -5,24 +5,30 @@ class ResultCard extends StatelessWidget {
   const ResultCard({this.searchResult, this.searchDelegate});
 
   final SearchResult searchResult;
-  final SearchDelegate<String> searchDelegate;
+  final SearchDelegate<SearchResult> searchDelegate;
 
   @override
   Widget build(BuildContext context) {
     final ThemeData theme = Theme.of(context);
     return new GestureDetector(
       onTap: () {
-        searchDelegate.close(context, searchResult.toString());
+        searchDelegate.close(context, searchResult);
       },
       child: new Card(
         child: new Padding(
           padding: const EdgeInsets.all(8.0),
           child: new Column(
             children: <Widget>[
-              new Text(this.searchResult.result.htmlTitle),
+              new Image.network(
+                  this.searchResult.result.pagemap['thumbnail'][0]['src']),
               new Text(
-                this.searchResult.result.htmlSnippet,
-                style: theme.textTheme.headline.copyWith(fontSize: 72.0),
+                this.searchResult.result.title,
+                style: theme.textTheme.headline
+                    .copyWith(fontSize: 12.0, fontWeight: FontWeight.bold),
+              ),
+              new Text(
+                this.searchResult.result.snippet,
+                style: theme.textTheme.body1.copyWith(fontSize: 12.0),
               ),
             ],
           ),
@@ -32,7 +38,7 @@ class ResultCard extends StatelessWidget {
   }
 }
 
-class FakeJsonSearchDelegate extends SearchDelegate<String> {
+class FakeJsonSearchDelegate extends SearchDelegate<SearchResult> {
   FakeSearchDataSource _datasource = FakeSearchDataSource('');
 
   FakeJsonSearchDelegate() {
@@ -41,8 +47,9 @@ class FakeJsonSearchDelegate extends SearchDelegate<String> {
 
   @override
   Widget buildSuggestions(BuildContext context) {
-    return Center(child: Text(
-        'not implemented suggestion.', textAlign: TextAlign.center));
+    return Center(
+        child:
+        Text('not implemented suggestion.', textAlign: TextAlign.center));
   }
 
   @override
@@ -59,8 +66,11 @@ class FakeJsonSearchDelegate extends SearchDelegate<String> {
           : new IconButton(
         tooltip: 'Clear',
         icon: const Icon(Icons.clear),
-        onPressed: () {
-          query = '';
+        onPressed: () async {
+          await showSearch<SearchResult>(
+            context: context,
+            delegate: this,
+          );
         },
       )
     ];
@@ -97,7 +107,7 @@ class FakeJsonSearchDelegate extends SearchDelegate<String> {
             if (snapshot.hasError) return Text('Error: ${snapshot.error}');
             return ListView.builder(
                 itemCount: snapshot.data.length,
-                itemBuilder: (BuildContext ctxt, int index) {
+                itemBuilder: (BuildContext context, int index) {
                   return new ResultCard(
                       searchResult: snapshot.data[index], searchDelegate: this);
                 });

@@ -1,0 +1,1158 @@
+{
+  "kind": "customsearch#search",
+  "url": {
+    "type": "application/json",
+    "template": "https://www.googleapis.com/customsearch/v1?q={searchTerms}&num={count?}&start={startIndex?}&lr={language?}&safe={safe?}&cx={cx?}&sort={sort?}&filter={filter?}&gl={gl?}&cr={cr?}&googlehost={googleHost?}&c2coff={disableCnTwTranslation?}&hq={hq?}&hl={hl?}&siteSearch={siteSearch?}&siteSearchFilter={siteSearchFilter?}&exactTerms={exactTerms?}&excludeTerms={excludeTerms?}&linkSite={linkSite?}&orTerms={orTerms?}&relatedSite={relatedSite?}&dateRestrict={dateRestrict?}&lowRange={lowRange?}&highRange={highRange?}&searchType={searchType}&fileType={fileType?}&rights={rights?}&imgSize={imgSize?}&imgType={imgType?}&imgColorType={imgColorType?}&imgDominantColor={imgDominantColor?}&alt=json"
+  },
+  "queries": {
+    "request": [
+      {
+        "title": "Google Custom Search - 2019",
+        "totalResults": "11500000",
+        "searchTerms": "2019",
+        "count": 10,
+        "startIndex": 1,
+        "inputEncoding": "utf8",
+        "outputEncoding": "utf8",
+        "safe": "off",
+        "cx": "008795855128244970711:p_mnqgfm9dq"
+      }
+    ],
+    "nextPage": [
+      {
+        "title": "Google Custom Search - 2019",
+        "totalResults": "11500000",
+        "searchTerms": "2019",
+        "count": 10,
+        "startIndex": 11,
+        "inputEncoding": "utf8",
+        "outputEncoding": "utf8",
+        "safe": "off",
+        "cx": "008795855128244970711:p_mnqgfm9dq"
+      }
+    ]
+  },
+  "context": {
+    "title": "Nytimes"
+  },
+  "searchInformation": {
+    "searchTime": 0.598765,
+    "formattedSearchTime": "0.60",
+    "totalResults": "11500000",
+    "formattedTotalResults": "11,500,000"
+  },
+  "items": [
+    {
+      "kind": "customsearch#result",
+      "title": "52 Places to Go in 2019 - The New York Times",
+      "htmlTitle": "52 Places to Go in \u003cb\u003e2019\u003c/b\u003e - The New York Times",
+      "link": "https://www.nytimes.com/interactive/2019/travel/places-to-visit.html",
+      "displayLink": "www.nytimes.com",
+      "snippet": "4 hours ago ... A starter kit for escaping into the world.",
+      "htmlSnippet": "4 hours ago \u003cb\u003e...\u003c/b\u003e A starter kit for escaping into the world.",
+      "formattedUrl": "https://www.nytimes.com/interactive/2019/travel/places-to-visit.html",
+      "htmlFormattedUrl": "https://www.nytimes.com/interactive/\u003cb\u003e2019\u003c/b\u003e/travel/places-to-visit.html",
+      "pagemap": {
+        "thumbnail": [
+          {
+            "src": "https://static01.nyt.com/images/2019/01/07/travel/52-PROMO/52-PROMO-thumbStandard-v2.jpg"
+          }
+        ],
+        "metatags": [
+          {
+            "viewport": "width=device-width, initial-scale=1, maximum-scale=1",
+            "fb:app_id": "9869919170",
+            "sourceapp": "nyt-v5",
+            "applicationname": "newsdev",
+            "foundation-build-id": "nyt-v5",
+            "pt": "Multimedia",
+            "pst": "Interactive",
+            "tom": "interactive_feature",
+            "hdl": "52 Places to Go in 2019",
+            "slug": "places-to-visit",
+            "lp": "A starter kit for escaping into the world.",
+            "dfp-ad-unit-path": "travel",
+            "article:collection": "https://static01.nyt.com/services/json/sectionfronts/travel/index.jsonp",
+            "displaydate": "Jan. 8, 2019",
+            "dat": "Jan. 8, 2019",
+            "article:published": "2019-01-08T21:28:13.000Z",
+            "article:modified": "2019-01-10T14:26:28.631Z",
+            "articleid": "100000006294609",
+            "nyt_uri": "nyt://interactive/37c640d0-9565-5885-b30c-f40a3becb5f3",
+            "pubp_event_id": "pubp://event/df5beb03797b458b97b7af4f4923a301",
+            "image": "https://static01.nyt.com/images/2019/01/07/travel/52-PROMO/52-PROMO-facebookJumbo.jpg",
+            "thumbnail": "https://static01.nyt.com/images/2019/01/07/travel/52-PROMO/52-PROMO-thumbStandard-v2.jpg",
+            "news_keywords": "Travel",
+            "usageterms": "http://www.nytimes.com/content/help/rights/sale/terms-of-sale.html",
+            "pdate": "20190108",
+            "og:url": "https://www.nytimes.com/interactive/2019/travel/places-to-visit.html",
+            "og:type": "article",
+            "og:title": "52 Places to Go in 2019",
+            "og:image": "https://static01.nyt.com/images/2019/01/07/travel/52-PROMO/52-PROMO-facebookJumbo.jpg",
+            "og:description": "A starter kit for escaping into the world.",
+            "twitter:url": "https://www.nytimes.com/interactive/2019/travel/places-to-visit.html",
+            "twitter:title": "52 Places to Go in 2019",
+            "twitter:description": "A starter kit for escaping into the world.",
+            "twitter:image": "https://static01.nyt.com/images/2019/01/07/travel/52-PROMO/52-PROMO-videoSixteenByNineJumbo1600-v2.jpg",
+            "twitter:card": "summary_large_image",
+            "article:section": "Travel",
+            "article:tag": "Travel and Vacations",
+            "cg": "travel",
+            "hostapp": "vi",
+            "typ": "int",
+            "template": "interactive",
+            "si_section": "travel",
+            "plat": "mweb",
+            "edn": "us",
+            "des": "travelandvacations",
+            "coll": "travel",
+            "id": "100000006294609",
+            "als_test": "1547137150720",
+            "brandsensitive": "false"
+          }
+        ],
+        "newsarticle": [
+          {
+            "inlanguage": "en-US",
+            "datepublished": "2019-01-08T21:28:13.000Z",
+            "datemodified": "2019-01-10T14:26:28.631Z",
+            "identifier": "100000006294609",
+            "description": "A starter kit for escaping into the world.",
+            "image": "https://static01.nyt.com/images/2019/01/07/travel/52-PROMO/52-PROMO-facebookJumbo.jpg",
+            "thumbnailurl": "https://static01.nyt.com/images/2019/01/07/travel/52-PROMO/52-PROMO-thumbStandard-v2.jpg",
+            "usageterms": "http://www.nytimes.com/content/help/rights/sale/terms-of-sale.html",
+            "articlesection": "Travel",
+            "headline": "52 Places to Go in 2019",
+            "copyrightnotice": "© 2019 The New York Times Company",
+            "copyrightyear": "2019"
+          }
+        ],
+        "organization": [
+          {
+            "name": "The New York Times Company",
+            "tickersymbol": "NYSE NYT"
+          }
+        ],
+        "cse_image": [
+          {
+            "src": "https://static01.nyt.com/images/2019/01/07/travel/52-PROMO/52-PROMO-thumbStandard-v2.jpg",
+            "type": "1",
+            "width": "75",
+            "height": "75"
+          }
+        ]
+      }
+    },
+    {
+      "kind": "customsearch#result",
+      "title": "CES 2019: It's the Year of Virtual Assistants and 5G - The New York ...",
+      "htmlTitle": "CES \u003cb\u003e2019\u003c/b\u003e: It&#39;s the Year of Virtual Assistants and 5G - The New York ...",
+      "link": "https://www.nytimes.com/2019/01/09/technology/ces.html",
+      "displayLink": "www.nytimes.com",
+      "snippet": "1 day ago ... A visual tour of the world's most important tech conference offers a window into \nthe year's trends, including next-generation wireless networks ...",
+      "htmlSnippet": "1 day ago \u003cb\u003e...\u003c/b\u003e A visual tour of the world&#39;s most important tech conference offers a window into \u003cbr\u003e\nthe year&#39;s trends, including next-generation wireless networks&nbsp;...",
+      "formattedUrl": "https://www.nytimes.com/2019/01/09/technology/ces.html",
+      "htmlFormattedUrl": "https://www.nytimes.com/\u003cb\u003e2019\u003c/b\u003e/01/09/technology/ces.html",
+      "pagemap": {
+        "thumbnail": [
+          {
+            "src": "https://static01.nyt.com/images/2019/01/10/business/10techfix-print-jump-2/merlin_148917909_87e0f37f-224f-46a7-837f-3bc3fe765fba-thumbStandard.jpg"
+          }
+        ],
+        "metatags": [
+          {
+            "article:published": "2019-01-09T20:11:38.000Z",
+            "article:modified": "2019-01-10T05:24:07.911Z",
+            "articleid": "100000006297014",
+            "nyt_uri": "nyt://article/1e697e73-f828-5615-a0ea-2dc2061e2165",
+            "pubp_event_id": "pubp://event/6fa408de62574345ba4e4f69e505736f",
+            "image": "https://static01.nyt.com/images/2019/01/10/business/10techfix-print-jump-2/10TECHFIX04-facebookJumbo.jpg",
+            "byl": "By Brian X. Chen",
+            "thumbnail": "https://static01.nyt.com/images/2019/01/10/business/10techfix-print-jump-2/merlin_148917909_87e0f37f-224f-46a7-837f-3bc3fe765fba-thumbStandard.jpg",
+            "news_keywords": "Computers and the Internet,Cars,Driverless Cars",
+            "usageterms": "http://www.nytimes.com/content/help/rights/sale/terms-of-sale.html",
+            "pdate": "20190109",
+            "og:url": "https://www.nytimes.com/2019/01/09/technology/ces.html",
+            "og:type": "article",
+            "og:title": "CES 2019: It’s the Year of Virtual Assistants and 5G",
+            "og:image": "https://static01.nyt.com/images/2019/01/10/business/10techfix-print-jump-2/10TECHFIX04-facebookJumbo.jpg",
+            "og:description": "A visual tour of the world’s most important tech conference offers a window into the year’s trends, including next-generation wireless networks and the invasion of A.I.",
+            "twitter:url": "https://www.nytimes.com/2019/01/09/technology/ces.html",
+            "twitter:title": "CES 2019: It’s the Year of Virtual Assistants and 5G",
+            "twitter:description": "A visual tour of the world’s most important tech conference offers a window into the year’s trends, including next-generation wireless networks and the invasion of A.I.",
+            "twitter:image": "https://static01.nyt.com/images/2019/01/10/business/10techfix-print-jump-2/10TECHFIX04-videoSixteenByNineJumbo1600.jpg",
+            "twitter:image:alt": "DJI's virtual-reality headset connected to a drone was among the thousands of products on display at the CES tech conference in Las Vegas.",
+            "twitter:card": "summary_large_image",
+            "article:section": "Technology",
+            "article:tag": "Computers and the Internet",
+            "cg": "technology",
+            "cn": "tech-fix",
+            "pt": "article",
+            "pst": "News",
+            "genre": "News",
+            "url": "https://www.nytimes.com/2019/01/09/technology/ces.html",
+            "msapplication-starturl": "https://www.nytimes.com",
+            "al:android:url": "nytimes://reader/id/100000006297014",
+            "al:android:package": "com.nytimes.android",
+            "al:android:app_name": "NYTimes",
+            "twitter:app:name:googleplay": "NYTimes",
+            "twitter:app:id:googleplay": "com.nytimes.android",
+            "twitter:app:url:googleplay": "nytimes://reader/id/100000006297014",
+            "al:iphone:url": "nytimes://www.nytimes.com/2019/01/09/technology/ces.html",
+            "al:iphone:app_store_id": "284862083"
+          }
+        ],
+        "videoobject": [
+          {
+            "caption": "Guests walk through a display for the consumer electronics company LG at CES.CreditCreditVideo by Joe Buglewicz",
+            "description": "Guests walk through a display for the consumer electronics company LG at CES.CreditCreditVideo by Joe Buglewicz",
+            "name": "Guests walk through a display for the consumer electronics company LG at CES.CreditCreditVideo by Joe Buglewicz",
+            "copyrightholder": "CreditVideo by Joe Buglewicz"
+          }
+        ],
+        "newsarticle": [
+          {
+            "inlanguage": "en-US",
+            "datepublished": "2019-01-09T20:11:38.000Z",
+            "datemodified": "2019-01-10T05:24:07.911Z",
+            "identifier": "100000006297014",
+            "description": "A visual tour of the world’s most important tech conference offers a window into the year’s trends, including next-generation wireless networks and the invasion of A.I.",
+            "image": "https://static01.nyt.com/images/2019/01/10/business/10techfix-print-jump-2/10TECHFIX04-facebookJumbo.jpg",
+            "thumbnailurl": "https://static01.nyt.com/images/2019/01/10/business/10techfix-print-jump-2/merlin_148917909_87e0f37f-224f-46a7-837f-3bc3fe765fba-thumbStandard.jpg",
+            "usageterms": "http://www.nytimes.com/content/help/rights/sale/terms-of-sale.html",
+            "articlesection": "Technology",
+            "genre": "News",
+            "url": "https://www.nytimes.com/2019/01/09/technology/ces.html",
+            "headline": "CES 2019: It’s the Year of Virtual Assistants and 5G CES 2019: It’s the Year of Virtual Assistants and 5G",
+            "copyrightholder": "CreditJoe Buglewicz for The New York Times",
+            "name": "Brian X. Chen",
+            "articlebody": "LAS VEGAS — The show must go on. That sentiment couldn’t have been stronger this week at CES, the largest consumer electronics convention in the country. The conference, which brought more...",
+            "copyrightyear": "2019"
+          }
+        ],
+        "imageobject": [
+          {
+            "url": "https://static01.nyt.com/images/2019/01/10/business/10techfix-print-jump-2/merlin_148917909_87e0f37f-224f-46a7-837f-3bc3fe765fba-articleLarge.jpg?quality=75&auto=webp&disable=upscale",
+            "caption": "DJI's virtual-reality headset connected to a drone was among the thousands of products on display at the CES tech conference in Las Vegas.CreditCreditJoe Buglewicz for The New York Times",
+            "description": "DJI's virtual-reality headset connected to a drone was among the thousands of products on display at the CES tech conference in Las Vegas.CreditCreditJoe Buglewicz for The New York Times",
+            "copyrightholder": "CreditCreditJoe Buglewicz for The New York Times"
+          },
+          {
+            "url": "https://static01.nyt.com/images/2019/01/10/business/10TECHFIX02/merlin_148912293_5a5d2f08-95c2-41d2-98c3-c60105f813db-articleLarge.jpg?quality=75&auto=webp&disable=upscale",
+            "caption": "CreditJoe Buglewicz for The New York Times",
+            "description": "CreditJoe Buglewicz for The New York Times",
+            "copyrightholder": "CreditJoe Buglewicz for The New York Times"
+          },
+          {
+            "url": "https://static01.nyt.com/images/2019/01/10/business/10techfix-print-jump-3/merlin_148917906_09f27614-5f96-4bcd-b650-5384c5f2bf9a-articleLarge.jpg?quality=75&auto=webp&disable=upscale",
+            "caption": "Mengze Han taking a break in the South Hall.CreditJoe Buglewicz for The New York Times",
+            "description": "Mengze Han taking a break in the South Hall.CreditJoe Buglewicz for The New York Times",
+            "copyrightholder": "CreditJoe Buglewicz for The New York Times"
+          },
+          {
+            "url": "https://static01.nyt.com/images/2019/01/10/business/10techfix10/merlin_148912326_ee218eb7-6a3c-48e4-8d39-e41158b32af0-articleLarge.jpg?quality=75&auto=webp&disable=upscale",
+            "caption": "Exploring the Qualcomm 5G booth.CreditJoe Buglewicz for The New York Times",
+            "description": "Exploring the Qualcomm 5G booth.CreditJoe Buglewicz for The New York Times",
+            "copyrightholder": "CreditJoe Buglewicz for The New York Times"
+          },
+          {
+            "url": "https://static01.nyt.com/images/2019/01/10/business/10techfix-print-jump-5/merlin_148917897_fc485111-7e1b-449d-8bd7-6cf93010a8f3-articleLarge.jpg?quality=75&auto=webp&disable=upscale",
+            "caption": "Interacting with facial-recognition software.CreditJoe Buglewicz for The New York Times",
+            "description": "Interacting with facial-recognition software.CreditJoe Buglewicz for The New York Times",
+            "copyrightholder": "CreditJoe Buglewicz for The New York Times"
+          },
+          {
+            "url": "https://static01.nyt.com/images/2019/01/10/business/10TECHFIX15/merlin_148917891_e1b9b085-4818-415f-93da-1de164ac9d77-articleLarge.jpg?quality=75&auto=webp&disable=upscale",
+            "caption": "Amazon's Alexa technology made its way into car dashboards.CreditJoe Buglewicz for The New York Times",
+            "description": "Amazon's Alexa technology made its way into car dashboards.CreditJoe Buglewicz for The New York Times",
+            "copyrightholder": "CreditJoe Buglewicz for The New York Times"
+          }
+        ],
+        "organization": [
+          {
+            "name": "The New York Times Company"
+          }
+        ],
+        "cse_image": [
+          {
+            "src": "https://static01.nyt.com/images/2019/01/10/business/10techfix-print-jump-2/10TECHFIX04-facebookJumbo.jpg"
+          }
+        ]
+      }
+    },
+    {
+      "kind": "customsearch#result",
+      "title": "4 Ways to Be Better at Money in 2019 - The New York Times",
+      "htmlTitle": "4 Ways to Be Better at Money in \u003cb\u003e2019\u003c/b\u003e - The New York Times",
+      "link": "https://www.nytimes.com/2018/12/26/smarter-living/4-ways-to-be-better-at-money-in-2019.html",
+      "displayLink": "www.nytimes.com",
+      "snippet": "Dec 26, 2018 ... As we reach the end of December, the time has come for the annual tradition that \nbinds together Americans of every stripe: resolve to save ...",
+      "htmlSnippet": "Dec 26, 2018 \u003cb\u003e...\u003c/b\u003e As we reach the end of December, the time has come for the annual tradition that \u003cbr\u003e\nbinds together Americans of every stripe: resolve to save&nbsp;...",
+      "formattedUrl": "https://www.nytimes.com/.../4-ways-to-be-better-at-money-in-2019.html",
+      "htmlFormattedUrl": "https://www.nytimes.com/.../4-ways-to-be-better-at-money-in-\u003cb\u003e2019\u003c/b\u003e.html",
+      "pagemap": {
+        "thumbnail": [
+          {
+            "src": "https://static01.nyt.com/images/2018/12/17/autossell/00sl_EOYmoney/00sl_EOYmoney-thumbStandard.jpg"
+          }
+        ],
+        "metatags": [
+          {
+            "article:published": "2018-12-27T01:27:20.000Z",
+            "article:modified": "2018-12-31T15:26:04.313Z",
+            "articleid": "100000006261763",
+            "nyt_uri": "nyt://article/01fd07ac-a1d9-56ed-872b-018584b4e345",
+            "pubp_event_id": "pubp://event/50f91518e4d7423bb53bf6e39e3175f9",
+            "image": "https://static01.nyt.com/images/2018/12/17/autossell/00sl_EOYmoney/00sl_EOYmoney-facebookJumbo.jpg",
+            "byl": "By Wirecutter Staff",
+            "thumbnail": "https://static01.nyt.com/images/2018/12/17/autossell/00sl_EOYmoney/00sl_EOYmoney-thumbStandard.jpg",
+            "usageterms": "http://www.nytimes.com/content/help/rights/sale/terms-of-sale.html",
+            "pdate": "20181226",
+            "og:url": "https://www.nytimes.com/2018/12/26/smarter-living/4-ways-to-be-better-at-money-in-2019.html",
+            "og:type": "article",
+            "og:title": "4 Ways to Be Better at Money in 2019",
+            "og:image": "https://static01.nyt.com/images/2018/12/17/autossell/00sl_EOYmoney/00sl_EOYmoney-facebookJumbo.jpg",
+            "og:description": "Just to sum things up.",
+            "twitter:url": "https://www.nytimes.com/2018/12/26/smarter-living/4-ways-to-be-better-at-money-in-2019.html",
+            "twitter:title": "4 Ways to Be Better at Money in 2019",
+            "twitter:description": "Just to sum things up.",
+            "twitter:image": "https://static01.nyt.com/images/2018/12/17/autossell/00sl_EOYmoney/00sl_EOYmoney-videoSixteenByNineJumbo1600.jpg",
+            "twitter:card": "summary_large_image",
+            "article:section": "Smarter Living",
+            "cg": "smarter-living",
+            "pt": "article",
+            "pst": "News",
+            "genre": "News",
+            "url": "https://www.nytimes.com/2018/12/26/smarter-living/4-ways-to-be-better-at-money-in-2019.html",
+            "msapplication-starturl": "https://www.nytimes.com",
+            "al:android:url": "nytimes://reader/id/100000006261763",
+            "al:android:package": "com.nytimes.android",
+            "al:android:app_name": "NYTimes",
+            "twitter:app:name:googleplay": "NYTimes",
+            "twitter:app:id:googleplay": "com.nytimes.android",
+            "twitter:app:url:googleplay": "nytimes://reader/id/100000006261763",
+            "al:iphone:url": "nytimes://www.nytimes.com/2018/12/26/smarter-living/4-ways-to-be-better-at-money-in-2019.html",
+            "al:iphone:app_store_id": "284862083",
+            "al:iphone:app_name": "NYTimes",
+            "al:ipad:url": "nytimes://www.nytimes.com/2018/12/26/smarter-living/4-ways-to-be-better-at-money-in-2019.html",
+            "al:ipad:app_store_id": "357066198",
+            "al:ipad:app_name": "NYTimes",
+            "viewport": "width=device-width, initial-scale=1, maximum-scale=1",
+            "fb:app_id": "9869919170"
+          }
+        ],
+        "newsarticle": [
+          {
+            "inlanguage": "en-US",
+            "datepublished": "2018-12-27T01:27:20.000Z",
+            "datemodified": "2018-12-31T15:26:04.313Z",
+            "identifier": "100000006261763",
+            "description": "Just to sum things up.",
+            "image": "https://static01.nyt.com/images/2018/12/17/autossell/00sl_EOYmoney/00sl_EOYmoney-facebookJumbo.jpg",
+            "thumbnailurl": "https://static01.nyt.com/images/2018/12/17/autossell/00sl_EOYmoney/00sl_EOYmoney-thumbStandard.jpg",
+            "usageterms": "http://www.nytimes.com/content/help/rights/sale/terms-of-sale.html",
+            "articlesection": "Smarter Living",
+            "genre": "News",
+            "url": "https://www.nytimes.com/2018/12/26/smarter-living/4-ways-to-be-better-at-money-in-2019.html",
+            "articlebody": "4 Ways to Be Better at Money in 20194 Ways to Be Better at Money in 2019Just to sum things up.CreditJay Daniel WrightImageCreditJay Daniel WrightBy Wirecutter StaffDec. 26, 2018As we reach...",
+            "headline": "4 Ways to Be Better at Money in 20194 Ways to Be Better at Money in 2019",
+            "copyrightholder": "CreditJay Daniel Wright",
+            "name": "Wirecutter Staff",
+            "copyrightyear": "2019"
+          }
+        ],
+        "imageobject": [
+          {
+            "url": "https://static01.nyt.com/images/2018/12/17/autossell/00sl_EOYmoney/00sl_EOYmoney-articleLarge.jpg?quality=75&auto=webp&disable=upscale",
+            "caption": "CreditJay Daniel Wright",
+            "description": "CreditJay Daniel Wright",
+            "copyrightholder": "CreditJay Daniel Wright"
+          }
+        ],
+        "organization": [
+          {
+            "name": "The New York Times Company"
+          }
+        ],
+        "cse_image": [
+          {
+            "src": "https://static01.nyt.com/images/2018/12/17/autossell/00sl_EOYmoney/00sl_EOYmoney-thumbStandard.jpg",
+            "type": "1",
+            "width": "75",
+            "height": "75"
+          }
+        ]
+      }
+    },
+    {
+      "kind": "customsearch#result",
+      "title": "11 Ways to Be a Better Person in 2019 - The New York Times",
+      "htmlTitle": "11 Ways to Be a Better Person in \u003cb\u003e2019\u003c/b\u003e - The New York Times",
+      "link": "https://www.nytimes.com/2018/12/27/style/11-ways-to-be-a-better-person-in-2019.html",
+      "displayLink": "www.nytimes.com",
+      "snippet": "Dec 27, 2018 ... In short: more sex and CBD, less spending and screen time.",
+      "htmlSnippet": "Dec 27, 2018 \u003cb\u003e...\u003c/b\u003e In short: more sex and CBD, less spending and screen time.",
+      "formattedUrl": "https://www.nytimes.com/.../11-ways-to-be-a-better-person-in-2019.html",
+      "htmlFormattedUrl": "https://www.nytimes.com/.../11-ways-to-be-a-better-person-in-\u003cb\u003e2019\u003c/b\u003e.html",
+      "pagemap": {
+        "thumbnail": [
+          {
+            "src": "https://static01.nyt.com/images/2019/01/02/style/27betterperson-promo/27betterperson-promo-thumbStandard.jpg"
+          }
+        ],
+        "metatags": [
+          {
+            "article:published": "2018-12-27T10:00:05.000Z",
+            "articleid": "100000006268176",
+            "nyt_uri": "nyt://article/733b9059-bb02-5e42-b3ed-db7a1401f46d",
+            "pubp_event_id": "pubp://event/60aaf51607544b4bb095cc67bf15a412",
+            "image": "https://static01.nyt.com/images/2019/01/02/style/27betterperson-promo/27betterperson-promo-facebookJumbo.jpg",
+            "byl": "By Anya Strzemien",
+            "thumbnail": "https://static01.nyt.com/images/2019/01/02/style/27betterperson-promo/27betterperson-promo-thumbStandard.jpg",
+            "news_keywords": "2018,Sleep,Dating,Smartphone,Cannabis Foods and Products,News media",
+            "usageterms": "http://www.nytimes.com/content/help/rights/sale/terms-of-sale.html",
+            "pdate": "20181227",
+            "og:url": "https://www.nytimes.com/2018/12/27/style/11-ways-to-be-a-better-person-in-2019.html",
+            "og:type": "article",
+            "og:title": "11 Ways to Be a Better Person in 2019",
+            "og:image": "https://static01.nyt.com/images/2019/01/02/style/27betterperson-promo/27betterperson-promo-facebookJumbo.jpg",
+            "og:description": "In short: more sex and CBD, less spending and screen time.",
+            "twitter:url": "https://www.nytimes.com/2018/12/27/style/11-ways-to-be-a-better-person-in-2019.html",
+            "twitter:title": "11 Ways to Be a Better Person in 2019",
+            "twitter:description": "In short: more sex and CBD, less spending and screen time.",
+            "twitter:image": "https://static01.nyt.com/images/2019/01/02/style/27betterperson-promo/27betterperson-promo-videoSixteenByNineJumbo1600.jpg",
+            "twitter:card": "summary_large_image",
+            "article:section": "Style",
+            "article:tag": "Two Thousand Eighteen",
+            "cg": "style",
+            "cn": "self-care-beauty",
+            "ct": "spotlight",
+            "pt": "article",
+            "pst": "News",
+            "genre": "News",
+            "url": "https://www.nytimes.com/2018/12/27/style/11-ways-to-be-a-better-person-in-2019.html",
+            "msapplication-starturl": "https://www.nytimes.com",
+            "al:android:url": "nytimes://reader/id/100000006268176",
+            "al:android:package": "com.nytimes.android",
+            "al:android:app_name": "NYTimes",
+            "twitter:app:name:googleplay": "NYTimes",
+            "twitter:app:id:googleplay": "com.nytimes.android",
+            "twitter:app:url:googleplay": "nytimes://reader/id/100000006268176",
+            "al:iphone:url": "nytimes://www.nytimes.com/2018/12/27/style/11-ways-to-be-a-better-person-in-2019.html",
+            "al:iphone:app_store_id": "284862083",
+            "al:iphone:app_name": "NYTimes",
+            "al:ipad:url": "nytimes://www.nytimes.com/2018/12/27/style/11-ways-to-be-a-better-person-in-2019.html",
+            "al:ipad:app_store_id": "357066198",
+            "al:ipad:app_name": "NYTimes",
+            "viewport": "width=device-width, initial-scale=1, maximum-scale=1",
+            "fb:app_id": "9869919170",
+            "article:modified": "2018-12-27T17:44:01.399Z"
+          }
+        ],
+        "newsarticle": [
+          {
+            "inlanguage": "en-US",
+            "datepublished": "2018-12-27T10:00:05.000Z",
+            "identifier": "100000006268176",
+            "description": "In short: more sex and CBD, less spending and screen time.",
+            "image": "https://static01.nyt.com/images/2019/01/02/style/27betterperson-promo/27betterperson-promo-facebookJumbo.jpg",
+            "thumbnailurl": "https://static01.nyt.com/images/2019/01/02/style/27betterperson-promo/27betterperson-promo-thumbStandard.jpg",
+            "usageterms": "http://www.nytimes.com/content/help/rights/sale/terms-of-sale.html",
+            "articlesection": "Style",
+            "genre": "News",
+            "url": "https://www.nytimes.com/2018/12/27/style/11-ways-to-be-a-better-person-in-2019.html",
+            "datemodified": "2018-12-27T17:44:01.399Z",
+            "headline": "11 Ways to Be a Better Person in 201911 Ways to Be a Better Person in 2019",
+            "name": "Anya Strzemien",
+            "articlebody": "As we look back on the mania that was 2018, one thing is clear: We can do better! Enter our annual guide to the lessons we learned, based on which Styles stories you read most this year, and...",
+            "copyrightholder": "CreditIllustrations by Ruohan Wang",
+            "copyrightyear": "2019"
+          }
+        ],
+        "imageobject": [
+          {
+            "url": "https://static01.nyt.com/images/2019/01/02/style/02better-person-slideshow-slide-UD3M/02better-person-slideshow-slide-UD3M-articleLarge.jpg?quality=75&auto=webp&disable=upscale",
+            "caption": "CreditIllustrations by Ruohan Wang",
+            "description": "CreditIllustrations by Ruohan Wang",
+            "copyrightholder": "CreditIllustrations by Ruohan Wang"
+          },
+          {
+            "url": "https://static01.nyt.com/images/2018/12/03/fashion/09WEDDINGMAKEUPTIPS-COMBO/-09WEDDINGMAKEUPTIPS3-thumbLarge.jpg?quality=75&auto=webp&disable=upscale"
+          },
+          {
+            "url": "https://static01.nyt.com/images/2018/12/09/fashion/09ORBITING/09ORBITING-thumbLarge-v2.jpg?quality=75&auto=webp&disable=upscale"
+          },
+          {
+            "url": "https://static01.nyt.com/images/2018/11/18/style/self-care/18Rites-hair-1/15Rites-hair-1-thumbLarge.jpg?quality=75&auto=webp&disable=upscale"
+          },
+          {
+            "url": "https://static01.nyt.com/images/2019/01/02/style/02better-person-slideshow-slide-89DO/02better-person-slideshow-slide-89DO-articleLarge.jpg?quality=75&auto=webp&disable=upscale"
+          },
+          {
+            "url": "https://static01.nyt.com/images/2019/01/02/style/02better-person-slideshow-slide-S52Q/02better-person-slideshow-slide-S52Q-articleLarge.jpg?quality=75&auto=webp&disable=upscale"
+          },
+          {
+            "url": "https://static01.nyt.com/images/2019/01/02/style/02better-person-slideshow-slide-OE5W/02better-person-slideshow-slide-OE5W-articleLarge.jpg?quality=75&auto=webp&disable=upscale"
+          },
+          {
+            "url": "https://static01.nyt.com/images/2019/01/02/style/02better-person-slideshow-slide-FU9T/02better-person-slideshow-slide-FU9T-articleLarge.jpg?quality=75&auto=webp&disable=upscale"
+          },
+          {
+            "url": "https://static01.nyt.com/images/2019/01/02/style/02better-person-slideshow-slide-5HA6/02better-person-slideshow-slide-5HA6-articleLarge.jpg?quality=75&auto=webp&disable=upscale"
+          },
+          {
+            "url": "https://static01.nyt.com/images/2019/01/02/style/02better-person-slideshow-slide-0K68/02better-person-slideshow-slide-0K68-articleLarge.jpg?quality=75&auto=webp&disable=upscale"
+          },
+          {
+            "url": "https://static01.nyt.com/images/2019/01/02/style/02better-person-slideshow-slide-Z06W/02better-person-slideshow-slide-Z06W-articleLarge.jpg?quality=75&auto=webp&disable=upscale"
+          },
+          {
+            "url": "https://static01.nyt.com/images/2019/01/02/style/02better-person-slideshow-slide-SIA5/02better-person-slideshow-slide-SIA5-articleLarge.jpg?quality=75&auto=webp&disable=upscale"
+          },
+          {
+            "url": "https://static01.nyt.com/images/2019/01/02/style/02better-person-slideshow-slide-8ASP/02better-person-slideshow-slide-8ASP-articleLarge.jpg?quality=75&auto=webp&disable=upscale"
+          },
+          {
+            "url": "https://static01.nyt.com/images/2019/01/02/style/02better-person-slideshow-slide-L8MV/02better-person-slideshow-slide-L8MV-articleLarge.jpg?quality=75&auto=webp&disable=upscale"
+          }
+        ],
+        "organization": [
+          {
+            "name": "The New York Times Company"
+          }
+        ],
+        "cse_image": [
+          {
+            "src": "https://static01.nyt.com/images/2019/01/02/style/27betterperson-promo/27betterperson-promo-thumbStandard.jpg",
+            "type": "1",
+            "width": "75",
+            "height": "75"
+          }
+        ]
+      }
+    },
+    {
+      "kind": "customsearch#result",
+      "title": "Meet the 52 Places Traveler for 2019 - The New York Times",
+      "htmlTitle": "Meet the 52 Places Traveler for \u003cb\u003e2019\u003c/b\u003e - The New York Times",
+      "link": "https://www.nytimes.com/2019/01/09/travel/2019-52-places-traveler-sebastian-modak.html",
+      "displayLink": "www.nytimes.com",
+      "snippet": "1 day ago ... Last year, for the first time, we sent one intrepid traveler, Jada Yuan, to all 52 \ndestinations on our Places to Go list. This year, we decided to do it ...",
+      "htmlSnippet": "1 day ago \u003cb\u003e...\u003c/b\u003e Last year, for the first time, we sent one intrepid traveler, Jada Yuan, to all 52 \u003cbr\u003e\ndestinations on our Places to Go list. This year, we decided to do it&nbsp;...",
+      "formattedUrl": "https://www.nytimes.com/2019/.../2019-52-places-traveler-sebastian-modak. html",
+      "htmlFormattedUrl": "https://www.nytimes.com/\u003cb\u003e2019\u003c/b\u003e/.../\u003cb\u003e2019\u003c/b\u003e-52-places-traveler-sebastian-modak. html",
+      "pagemap": {
+        "thumbnail": [
+          {
+            "src": "https://static01.nyt.com/images/2019/01/13/travel/13places-traveler/merlin_148539987_751bfa6e-cb37-4399-a99d-7ce4b5e4ee00-thumbStandard.jpg"
+          }
+        ],
+        "metatags": [
+          {
+            "article:published": "2019-01-09T10:00:05.000Z",
+            "article:modified": "2019-01-10T07:17:06.496Z",
+            "articleid": "100000006283393",
+            "nyt_uri": "nyt://article/95b8b8ab-d8e1-58b0-8ff8-25775c642ebe",
+            "pubp_event_id": "pubp://event/03314749ca084508a9ab5428bbfcda8e",
+            "image": "https://static01.nyt.com/images/2019/01/13/travel/13places-traveler/merlin_148539987_751bfa6e-cb37-4399-a99d-7ce4b5e4ee00-facebookJumbo.jpg",
+            "thumbnail": "https://static01.nyt.com/images/2019/01/13/travel/13places-traveler/merlin_148539987_751bfa6e-cb37-4399-a99d-7ce4b5e4ee00-thumbStandard.jpg",
+            "news_keywords": "Travel",
+            "usageterms": "http://www.nytimes.com/content/help/rights/sale/terms-of-sale.html",
+            "pdate": "20190109",
+            "og:url": "https://www.nytimes.com/2019/01/09/travel/2019-52-places-traveler-sebastian-modak.html",
+            "og:type": "article",
+            "og:title": "Meet the 52 Places Traveler for 2019",
+            "og:image": "https://static01.nyt.com/images/2019/01/13/travel/13places-traveler/merlin_148539987_751bfa6e-cb37-4399-a99d-7ce4b5e4ee00-facebookJumbo.jpg",
+            "og:description": "“I’m ready to embrace all the uncertainty that comes with an opportunity like this and see where it takes me.”",
+            "twitter:url": "https://www.nytimes.com/2019/01/09/travel/2019-52-places-traveler-sebastian-modak.html",
+            "twitter:title": "Meet the 52 Places Traveler for 2019",
+            "twitter:description": "“I’m ready to embrace all the uncertainty that comes with an opportunity like this and see where it takes me.”",
+            "twitter:image": "https://static01.nyt.com/images/2019/01/13/travel/13places-traveler/merlin_148539987_751bfa6e-cb37-4399-a99d-7ce4b5e4ee00-videoSixteenByNineJumbo1600.jpg",
+            "twitter:image:alt": "Sebastian Modak, the new 52 Places Traveler, contemplates his upcoming year of travel: \"The sheer scope of what I'm doing won't hit me until I make landfall in the first destination.\"",
+            "twitter:card": "summary_large_image",
+            "article:section": "Travel",
+            "article:tag": "Travel and Vacations",
+            "cg": "travel",
+            "cn": "the-52-places-traveler",
+            "pt": "article",
+            "pst": "News",
+            "genre": "News",
+            "url": "https://www.nytimes.com/2019/01/09/travel/2019-52-places-traveler-sebastian-modak.html",
+            "msapplication-starturl": "https://www.nytimes.com",
+            "al:android:url": "nytimes://reader/id/100000006283393",
+            "al:android:package": "com.nytimes.android",
+            "al:android:app_name": "NYTimes",
+            "twitter:app:name:googleplay": "NYTimes",
+            "twitter:app:id:googleplay": "com.nytimes.android",
+            "twitter:app:url:googleplay": "nytimes://reader/id/100000006283393",
+            "al:iphone:url": "nytimes://www.nytimes.com/2019/01/09/travel/2019-52-places-traveler-sebastian-modak.html",
+            "al:iphone:app_store_id": "284862083",
+            "al:iphone:app_name": "NYTimes",
+            "al:ipad:url": "nytimes://www.nytimes.com/2019/01/09/travel/2019-52-places-traveler-sebastian-modak.html",
+            "al:ipad:app_store_id": "357066198",
+            "al:ipad:app_name": "NYTimes",
+            "viewport": "width=device-width, initial-scale=1, maximum-scale=1",
+            "fb:app_id": "9869919170"
+          }
+        ],
+        "newsarticle": [
+          {
+            "inlanguage": "en-US",
+            "datepublished": "2019-01-09T10:00:05.000Z",
+            "datemodified": "2019-01-10T07:17:06.496Z",
+            "identifier": "100000006283393",
+            "description": "“I’m ready to embrace all the uncertainty that comes with an opportunity like this and see where it takes me.”",
+            "image": "https://static01.nyt.com/images/2019/01/13/travel/13places-traveler/merlin_148539987_751bfa6e-cb37-4399-a99d-7ce4b5e4ee00-facebookJumbo.jpg",
+            "thumbnailurl": "https://static01.nyt.com/images/2019/01/13/travel/13places-traveler/merlin_148539987_751bfa6e-cb37-4399-a99d-7ce4b5e4ee00-thumbStandard.jpg",
+            "usageterms": "http://www.nytimes.com/content/help/rights/sale/terms-of-sale.html",
+            "articlesection": "Travel",
+            "genre": "News",
+            "url": "https://www.nytimes.com/2019/01/09/travel/2019-52-places-traveler-sebastian-modak.html",
+            "headline": "Meet the 52 Places Traveler for 2019Meet the 52 Places Traveler for 2019",
+            "copyrightholder": "CreditAnnie Tritt for The New York Times",
+            "articlebody": "Last year, for the first time, we sent one intrepid traveler, Jada Yuan, to all 52 destinations on our Places to Go list. This year, we decided to do it again. Once again, we got applicants...",
+            "copyrightyear": "2019"
+          }
+        ],
+        "imageobject": [
+          {
+            "url": "https://static01.nyt.com/images/2019/01/13/travel/13places-traveler/merlin_148539987_751bfa6e-cb37-4399-a99d-7ce4b5e4ee00-articleLarge.jpg?quality=75&auto=webp&disable=upscale",
+            "caption": "Sebastian Modak, the new 52 Places Traveler, contemplates his upcoming year of travel: \"The sheer scope of what I'm doing won't hit me until I make landfall in the first destination.\"CreditCreditAn...",
+            "description": "Sebastian Modak, the new 52 Places Traveler, contemplates his upcoming year of travel: \"The sheer scope of what I'm doing won't hit me until I make landfall in the first destination.\"CreditCreditAn...",
+            "copyrightholder": "CreditCreditAnnie Tritt for The New York Times"
+          }
+        ],
+        "organization": [
+          {
+            "name": "The New York Times Company"
+          }
+        ],
+        "cse_image": [
+          {
+            "src": "https://static01.nyt.com/images/2019/01/13/travel/13places-traveler/merlin_148539987_751bfa6e-cb37-4399-a99d-7ce4b5e4ee00-thumbStandard.jpg",
+            "type": "1",
+            "width": "75",
+            "height": "75"
+          }
+        ]
+      }
+    },
+    {
+      "kind": "customsearch#result",
+      "title": "Three New Year's Resolutions for Better Travel in 2019 - The New ...",
+      "htmlTitle": "Three New Year&#39;s Resolutions for Better Travel in \u003cb\u003e2019\u003c/b\u003e - The New ...",
+      "link": "https://www.nytimes.com/2019/01/01/travel/three-new-years-resolutions-for-better-travel-in-2019.html",
+      "displayLink": "www.nytimes.com",
+      "snippet": "Jan 1, 2019 ... Changing your approach to traveling can go a long way in making you happier \nand healthier in the New Year. Here are three ways to get the ...",
+      "htmlSnippet": "Jan 1, 2019 \u003cb\u003e...\u003c/b\u003e Changing your approach to traveling can go a long way in making you happier \u003cbr\u003e\nand healthier in the New Year. Here are three ways to get the&nbsp;...",
+      "formattedUrl": "https://www.nytimes.com/2019/.../three-new-years-resolutions-for-better- travel-in-2019.html",
+      "htmlFormattedUrl": "https://www.nytimes.com/\u003cb\u003e2019\u003c/b\u003e/.../three-new-years-resolutions-for-better- travel-in-\u003cb\u003e2019\u003c/b\u003e.html",
+      "pagemap": {
+        "thumbnail": [
+          {
+            "src": "https://static01.nyt.com/images/2019/01/06/travel/06TIPS/06TIPS-thumbStandard.jpg"
+          }
+        ],
+        "metatags": [
+          {
+            "article:published": "2019-01-01T10:00:06.000Z",
+            "article:modified": "2019-01-03T07:34:47.576Z",
+            "articleid": "100000006267366",
+            "nyt_uri": "nyt://article/f6a1f729-5b44-52ff-8a90-abf30aaa1e66",
+            "pubp_event_id": "pubp://event/f1831b15068942028ca767860815b329",
+            "image": "https://static01.nyt.com/images/2019/01/06/travel/06TIPS/06TIPS-facebookJumbo.jpg",
+            "byl": "By Justin Sablich",
+            "thumbnail": "https://static01.nyt.com/images/2019/01/06/travel/06TIPS/06TIPS-thumbStandard.jpg",
+            "usageterms": "http://www.nytimes.com/content/help/rights/sale/terms-of-sale.html",
+            "pdate": "20190101",
+            "og:url": "https://www.nytimes.com/2019/01/01/travel/three-new-years-resolutions-for-better-travel-in-2019.html",
+            "og:type": "article",
+            "og:title": "Three New Year’s Resolutions for Better Travel in 2019",
+            "og:image": "https://static01.nyt.com/images/2019/01/06/travel/06TIPS/06TIPS-facebookJumbo.jpg",
+            "og:description": "Changing your approach to traveling can go a long way in making you happier and healthier in the New Year. Here are three ways to get the most out of your trips in 2019.",
+            "twitter:url": "https://www.nytimes.com/2019/01/01/travel/three-new-years-resolutions-for-better-travel-in-2019.html",
+            "twitter:title": "Three New Year’s Resolutions for Better Travel in 2019",
+            "twitter:description": "Changing your approach to traveling can go a long way in making you happier and healthier in the New Year. Here are three ways to get the most out of your trips in 2019.",
+            "twitter:image": "https://static01.nyt.com/images/2019/01/06/travel/06TIPS/06TIPS-videoSixteenByNineJumbo1600.jpg",
+            "twitter:card": "summary_large_image",
+            "article:section": "Travel",
+            "cg": "travel",
+            "pt": "article",
+            "pst": "News",
+            "genre": "News",
+            "url": "https://www.nytimes.com/2019/01/01/travel/three-new-years-resolutions-for-better-travel-in-2019.html",
+            "msapplication-starturl": "https://www.nytimes.com",
+            "al:android:url": "nytimes://reader/id/100000006267366",
+            "al:android:package": "com.nytimes.android",
+            "al:android:app_name": "NYTimes",
+            "twitter:app:name:googleplay": "NYTimes",
+            "twitter:app:id:googleplay": "com.nytimes.android",
+            "twitter:app:url:googleplay": "nytimes://reader/id/100000006267366",
+            "al:iphone:url": "nytimes://www.nytimes.com/2019/01/01/travel/three-new-years-resolutions-for-better-travel-in-2019.html",
+            "al:iphone:app_store_id": "284862083",
+            "al:iphone:app_name": "NYTimes",
+            "al:ipad:url": "nytimes://www.nytimes.com/2019/01/01/travel/three-new-years-resolutions-for-better-travel-in-2019.html",
+            "al:ipad:app_store_id": "357066198",
+            "al:ipad:app_name": "NYTimes",
+            "viewport": "width=device-width, initial-scale=1, maximum-scale=1",
+            "fb:app_id": "9869919170"
+          }
+        ],
+        "newsarticle": [
+          {
+            "inlanguage": "en-US",
+            "datepublished": "2019-01-01T10:00:06.000Z",
+            "datemodified": "2019-01-03T07:34:47.576Z",
+            "identifier": "100000006267366",
+            "description": "Changing your approach to traveling can go a long way in making you happier and healthier in the New Year. Here are three ways to get the most out of your trips in 2019.",
+            "image": "https://static01.nyt.com/images/2019/01/06/travel/06TIPS/06TIPS-facebookJumbo.jpg",
+            "thumbnailurl": "https://static01.nyt.com/images/2019/01/06/travel/06TIPS/06TIPS-thumbStandard.jpg",
+            "usageterms": "http://www.nytimes.com/content/help/rights/sale/terms-of-sale.html",
+            "articlesection": "Travel",
+            "genre": "News",
+            "url": "https://www.nytimes.com/2019/01/01/travel/three-new-years-resolutions-for-better-travel-in-2019.html",
+            "headline": "Three New Year’s Resolutions for Better Travel in 2019Three New Year’s Resolutions for Better Travel in 2019",
+            "copyrightholder": "CreditLars Leetaru",
+            "name": "Justin Sablich",
+            "articlebody": "It’s not uncommon for people to set unrealistic expectations when making New Year’s resolutions, which likely contributes to most of them failing. Over 90 percent of them do, according...",
+            "copyrightyear": "2019"
+          }
+        ],
+        "imageobject": [
+          {
+            "url": "https://static01.nyt.com/images/2019/01/06/travel/06TIPS/06TIPS-articleLarge.jpg?quality=75&auto=webp&disable=upscale",
+            "caption": "CreditCreditLars Leetaru",
+            "description": "CreditCreditLars Leetaru",
+            "copyrightholder": "CreditCreditLars Leetaru"
+          }
+        ],
+        "organization": [
+          {
+            "name": "The New York Times Company"
+          }
+        ],
+        "cse_image": [
+          {
+            "src": "https://static01.nyt.com/images/2019/01/06/travel/06TIPS/06TIPS-thumbStandard.jpg",
+            "type": "1",
+            "width": "75",
+            "height": "75"
+          }
+        ]
+      }
+    },
+    {
+      "kind": "customsearch#result",
+      "title": "10 Artists to Watch in 2019 - The New York Times",
+      "htmlTitle": "10 Artists to Watch in \u003cb\u003e2019\u003c/b\u003e - The New York Times",
+      "link": "https://www.nytimes.com/2019/01/10/arts/music/artists-to-watch-2019.html",
+      "displayLink": "www.nytimes.com",
+      "snippet": "5 hours ago ... The dream of the '90s is alive in Rat Boy's punk rock. Here are 10 more artists our \npop music critics will be keeping an eye on in 2019.",
+      "htmlSnippet": "5 hours ago \u003cb\u003e...\u003c/b\u003e The dream of the &#39;90s is alive in Rat Boy&#39;s punk rock. Here are 10 more artists our \u003cbr\u003e\npop music critics will be keeping an eye on in \u003cb\u003e2019\u003c/b\u003e.",
+      "formattedUrl": "https://www.nytimes.com/2019/01/10/arts/music/artists-to-watch-2019.html",
+      "htmlFormattedUrl": "https://www.nytimes.com/\u003cb\u003e2019\u003c/b\u003e/01/10/arts/music/artists-to-watch-\u003cb\u003e2019\u003c/b\u003e.html",
+      "pagemap": {
+        "thumbnail": [
+          {
+            "src": "https://static01.nyt.com/images/2019/01/13/arts/13POPNEWYEAR-COMBO/13POPNEWYEAR-COMBO-thumbStandard.jpg"
+          }
+        ],
+        "metatags": [
+          {
+            "article:published": "2019-01-10T15:13:52.776Z",
+            "article:modified": "2019-01-10T15:13:52.776Z",
+            "articleid": "100000006288733",
+            "nyt_uri": "nyt://article/cf46d331-1bcb-5b2c-b101-55f2e90e34aa",
+            "pubp_event_id": "pubp://event/21bab8e8d0ee43caae58f87e1d21791f",
+            "image": "https://static01.nyt.com/images/2019/01/13/arts/13POPNEWYEAR-COMBO/13POPNEWYEAR-COMBO-facebookJumbo.jpg",
+            "byl": "By Jon Pareles and Jon Caramanica",
+            "thumbnail": "https://static01.nyt.com/images/2019/01/13/arts/13POPNEWYEAR-COMBO/13POPNEWYEAR-COMBO-thumbStandard.jpg",
+            "news_keywords": "Pop Rock Music,Rap and Hip-Hop,Jade Bird,Billie Eilish,Lil Tjay,YBN Cordae,,,,,,",
+            "usageterms": "http://www.nytimes.com/content/help/rights/sale/terms-of-sale.html",
+            "pdate": "20190110",
+            "og:url": "https://www.nytimes.com/2019/01/10/arts/music/artists-to-watch-2019.html",
+            "og:type": "article",
+            "og:title": "10 Artists to Watch in 2019",
+            "og:image": "https://static01.nyt.com/images/2019/01/13/arts/13POPNEWYEAR-COMBO/13POPNEWYEAR-COMBO-facebookJumbo.jpg",
+            "og:description": "From Billie Eilish’s quiet storms to Lil Tjay’s sweetly sung raps to Nakhane’s tenacious hybrid pop, hear who’s coming up next.",
+            "twitter:url": "https://www.nytimes.com/2019/01/10/arts/music/artists-to-watch-2019.html",
+            "twitter:title": "10 Artists to Watch in 2019",
+            "twitter:description": "From Billie Eilish’s quiet storms to Lil Tjay’s sweetly sung raps to Nakhane’s tenacious hybrid pop, hear who’s coming up next.",
+            "twitter:image": "https://static01.nyt.com/images/2019/01/13/arts/13POPNEWYEAR-COMBO/13POPNEWYEAR-COMBO-videoSixteenByNineJumbo1600.jpg",
+            "twitter:image:alt": "Our pop music critics are keeping an eye on Billie Eilish, Nakhane and Nicola Cruz this year.",
+            "twitter:card": "summary_large_image",
+            "article:section": "Arts",
+            "article:tag": "Pop and Rock Music",
+            "cg": "arts",
+            "scg": "music",
+            "pt": "article",
+            "pst": "News",
+            "genre": "News",
+            "url": "https://www.nytimes.com/2019/01/10/arts/music/artists-to-watch-2019.html",
+            "msapplication-starturl": "https://www.nytimes.com",
+            "al:android:url": "nytimes://reader/id/100000006288733",
+            "al:android:package": "com.nytimes.android",
+            "al:android:app_name": "NYTimes",
+            "twitter:app:name:googleplay": "NYTimes",
+            "twitter:app:id:googleplay": "com.nytimes.android",
+            "twitter:app:url:googleplay": "nytimes://reader/id/100000006288733",
+            "al:iphone:url": "nytimes://www.nytimes.com/2019/01/10/arts/music/artists-to-watch-2019.html",
+            "al:iphone:app_store_id": "284862083"
+          }
+        ],
+        "newsarticle": [
+          {
+            "inlanguage": "en-US",
+            "datepublished": "2019-01-10T15:13:52.776Z",
+            "datemodified": "2019-01-10T15:13:52.776Z",
+            "identifier": "100000006288733",
+            "description": "From Billie Eilish’s quiet storms to Lil Tjay’s sweetly sung raps to Nakhane’s tenacious hybrid pop, hear who’s coming up next.",
+            "image": "https://static01.nyt.com/images/2019/01/13/arts/13POPNEWYEAR-COMBO/13POPNEWYEAR-COMBO-facebookJumbo.jpg",
+            "thumbnailurl": "https://static01.nyt.com/images/2019/01/13/arts/13POPNEWYEAR-COMBO/13POPNEWYEAR-COMBO-thumbStandard.jpg",
+            "usageterms": "http://www.nytimes.com/content/help/rights/sale/terms-of-sale.html",
+            "articlesection": "Arts",
+            "genre": "News",
+            "url": "https://www.nytimes.com/2019/01/10/arts/music/artists-to-watch-2019.html",
+            "headline": "10 Artists to Watch in 201910 Artists to Watch in 2019",
+            "copyrightholder": "CreditFrom left: Roger Kisby for The New York Times; Tarryn Hatchett; Hanna Quevedo",
+            "name": "Jon Pareles",
+            "articlebody": "The dream of the ’90s is alive in Rat Boy’s punk rock. Here are 10 more artists our pop music critics will be keeping an eye on in 2019.[Never miss a pop music story: Get our weekly newsletter,...",
+            "caption": "Jade Bird - \"Love Has All Been Done Before\"CreditCreditVideo by JadeBirdVEVO",
+            "copyrightyear": "2019"
+          }
+        ],
+        "imageobject": [
+          {
+            "url": "https://static01.nyt.com/images/2019/01/13/arts/13POPNEWYEAR-COMBO/13POPNEWYEAR-COMBO-articleLarge.jpg?quality=75&auto=webp&disable=upscale",
+            "caption": "Our pop music critics are keeping an eye on Billie Eilish, Nakhane and Nicola Cruz this year.CreditCreditFrom left: Roger Kisby for The New York Times; Tarryn Hatchett; Hanna Quevedo",
+            "description": "Our pop music critics are keeping an eye on Billie Eilish, Nakhane and Nicola Cruz this year.CreditCreditFrom left: Roger Kisby for The New York Times; Tarryn Hatchett; Hanna Quevedo",
+            "copyrightholder": "CreditCreditFrom left: Roger Kisby for The New York Times; Tarryn Hatchett; Hanna Quevedo"
+          },
+          {
+            "url": "https://static01.nyt.com/images/2019/01/13/arts/13ratboy1/13ratboy1-thumbLarge.jpg?quality=75&auto=webp&disable=upscale"
+          }
+        ],
+        "organization": [
+          {
+            "name": "The New York Times Company"
+          }
+        ],
+        "cse_image": [
+          {
+            "src": "https://static01.nyt.com/images/2019/01/13/arts/13POPNEWYEAR-COMBO/13POPNEWYEAR-COMBO-facebookJumbo.jpg"
+          }
+        ]
+      }
+    },
+    {
+      "kind": "customsearch#result",
+      "title": "Meet the Applicants for 2019's 52 Places to Go Traveler - The New ...",
+      "htmlTitle": "Meet the Applicants for \u003cb\u003e2019&#39;s\u003c/b\u003e 52 Places to Go Traveler - The New ...",
+      "link": "https://www.nytimes.com/2018/12/27/travel/meet-the-applicants-for-2019s-52-places-to-go-traveler.html",
+      "displayLink": "www.nytimes.com",
+      "snippet": "Dec 27, 2018 ... For the second year in a row, we're sending one lucky traveler to all 52 \ndestinations on our annual Places to Go list. (Jada Yuan, our first ...",
+      "htmlSnippet": "Dec 27, 2018 \u003cb\u003e...\u003c/b\u003e For the second year in a row, we&#39;re sending one lucky traveler to all 52 \u003cbr\u003e\ndestinations on our annual Places to Go list. (Jada Yuan, our first&nbsp;...",
+      "formattedUrl": "https://www.nytimes.com/.../meet-the-applicants-for-2019s-52-places-to-go- traveler.html",
+      "htmlFormattedUrl": "https://www.nytimes.com/.../meet-the-applicants-for-\u003cb\u003e2019\u003c/b\u003es-52-places-to-go- traveler.html",
+      "pagemap": {
+        "thumbnail": [
+          {
+            "src": "https://static01.nyt.com/images/2018/12/28/autossell/52-Places-Thumbnail-STILL/52-Places-Thumbnail-STILL-thumbStandard.jpg"
+          }
+        ],
+        "metatags": [
+          {
+            "article:published": "2018-12-27T10:00:04.000Z",
+            "article:modified": "2018-12-28T05:04:14.369Z",
+            "articleid": "100000006273946",
+            "nyt_uri": "nyt://article/7f9ac8a1-63f4-5327-9465-a503b2804d8c",
+            "pubp_event_id": "pubp://event/facf98cdcb064bdcaeffca53242f6cda",
+            "image": "https://static01.nyt.com/images/2018/12/28/autossell/52-Places-Thumbnail-STILL/52-Places-Thumbnail-STILL-facebookJumbo.jpg",
+            "byl": "By The New York Times",
+            "thumbnail": "https://static01.nyt.com/images/2018/12/28/autossell/52-Places-Thumbnail-STILL/52-Places-Thumbnail-STILL-thumbStandard.jpg",
+            "news_keywords": "Travel",
+            "usageterms": "http://www.nytimes.com/content/help/rights/sale/terms-of-sale.html",
+            "pdate": "20181227",
+            "og:url": "https://www.nytimes.com/2018/12/27/travel/meet-the-applicants-for-2019s-52-places-to-go-traveler.html",
+            "og:type": "article",
+            "og:title": "Meet the Applicants for 2019’s 52 Places to Go Traveler",
+            "og:image": "https://static01.nyt.com/images/2018/12/28/autossell/52-Places-Thumbnail-STILL/52-Places-Thumbnail-STILL-facebookJumbo.jpg",
+            "og:description": "The trip so nice we’re doing it twice.",
+            "twitter:url": "https://www.nytimes.com/2018/12/27/travel/meet-the-applicants-for-2019s-52-places-to-go-traveler.html",
+            "twitter:title": "Meet the Applicants for 2019’s 52 Places to Go Traveler",
+            "twitter:description": "The trip so nice we’re doing it twice.",
+            "twitter:image": "https://static01.nyt.com/images/2018/12/28/autossell/52-Places-Thumbnail-STILL/52-Places-Thumbnail-STILL-videoSixteenByNineJumbo1600.jpg",
+            "twitter:card": "summary_large_image",
+            "article:section": "Travel",
+            "article:tag": "Travel and Vacations",
+            "cg": "travel",
+            "pt": "article",
+            "pst": "News",
+            "genre": "News",
+            "url": "https://www.nytimes.com/2018/12/27/travel/meet-the-applicants-for-2019s-52-places-to-go-traveler.html",
+            "msapplication-starturl": "https://www.nytimes.com",
+            "al:android:url": "nytimes://reader/id/100000006273946",
+            "al:android:package": "com.nytimes.android",
+            "al:android:app_name": "NYTimes",
+            "twitter:app:name:googleplay": "NYTimes",
+            "twitter:app:id:googleplay": "com.nytimes.android",
+            "twitter:app:url:googleplay": "nytimes://reader/id/100000006273946",
+            "al:iphone:url": "nytimes://www.nytimes.com/2018/12/27/travel/meet-the-applicants-for-2019s-52-places-to-go-traveler.html",
+            "al:iphone:app_store_id": "284862083",
+            "al:iphone:app_name": "NYTimes",
+            "al:ipad:url": "nytimes://www.nytimes.com/2018/12/27/travel/meet-the-applicants-for-2019s-52-places-to-go-traveler.html",
+            "al:ipad:app_store_id": "357066198",
+            "al:ipad:app_name": "NYTimes",
+            "viewport": "width=device-width, initial-scale=1, maximum-scale=1",
+            "fb:app_id": "9869919170"
+          }
+        ],
+        "videoobject": [
+          {
+            "transcript": "[screaming] “Hola. Buenos dias.” “Aloha.” “Hey.” “Hi.” “Hey, New York Times.” “My name is Mony Boyce.” “My name is Abby Simon.” “Hi, I’m Karima.” “And I...",
+            "caption": "A lot of people applied. Only one will be chosen to travel around the world.Published OnDec. 27, 2018",
+            "description": "A lot of people applied. Only one will be chosen to travel around the world.Published OnDec. 27, 2018",
+            "name": "A lot of people applied. Only one will be chosen to travel around the world.Published OnDec. 27, 2018"
+          }
+        ],
+        "newsarticle": [
+          {
+            "inlanguage": "en-US",
+            "datepublished": "2018-12-27T10:00:04.000Z",
+            "datemodified": "2018-12-28T05:04:14.369Z",
+            "identifier": "100000006273946",
+            "description": "The trip so nice we’re doing it twice.",
+            "image": "https://static01.nyt.com/images/2018/12/28/autossell/52-Places-Thumbnail-STILL/52-Places-Thumbnail-STILL-facebookJumbo.jpg",
+            "thumbnailurl": "https://static01.nyt.com/images/2018/12/28/autossell/52-Places-Thumbnail-STILL/52-Places-Thumbnail-STILL-thumbStandard.jpg",
+            "usageterms": "http://www.nytimes.com/content/help/rights/sale/terms-of-sale.html",
+            "articlesection": "Travel",
+            "genre": "News",
+            "url": "https://www.nytimes.com/2018/12/27/travel/meet-the-applicants-for-2019s-52-places-to-go-traveler.html",
+            "headline": "Meet the Applicants for 2019’s 52 Places to Go TravelerMeet the Applicants for 2019’s 52 Places to Go Traveler",
+            "name": "The New York Times",
+            "articlebody": "Video⚠There was an error loading the player. Please refresh to try again.A lot of people applied. Only one will be chosen to travel around the world.Published OnDec. 27, 2018For the second...",
+            "copyrightyear": "2019"
+          }
+        ],
+        "organization": [
+          {
+            "name": "The New York Times Company"
+          }
+        ],
+        "cse_image": [
+          {
+            "src": "https://static01.nyt.com/images/2018/12/28/autossell/52-Places-Thumbnail-STILL/52-Places-Thumbnail-STILL-facebookJumbo.jpg"
+          }
+        ]
+      }
+    },
+    {
+      "kind": "customsearch#result",
+      "title": "6 Ways to Be an Effective Parent in 2019 - The New York Times",
+      "htmlTitle": "6 Ways to Be an Effective Parent in \u003cb\u003e2019\u003c/b\u003e - The New York Times",
+      "link": "https://www.nytimes.com/2018/12/25/well/family/6-ways-to-be-an-effective-parent-in-2019.html",
+      "displayLink": "www.nytimes.com",
+      "snippet": "Dec 25, 2018 ... Expert advice on how to raise children who are resilient, confident and able to \nhandle stress.",
+      "htmlSnippet": "Dec 25, 2018 \u003cb\u003e...\u003c/b\u003e Expert advice on how to raise children who are resilient, confident and able to \u003cbr\u003e\nhandle stress.",
+      "formattedUrl": "https://www.nytimes.com/.../6-ways-to-be-an-effective-parent-in-2019.html",
+      "htmlFormattedUrl": "https://www.nytimes.com/.../6-ways-to-be-an-effective-parent-in-\u003cb\u003e2019\u003c/b\u003e.html",
+      "pagemap": {
+        "thumbnail": [
+          {
+            "src": "https://static01.nyt.com/images/2018/08/13/autossell/00sl_discipline/00sl_discipline-thumbStandard.jpg"
+          }
+        ],
+        "metatags": [
+          {
+            "article:published": "2018-12-25T10:00:02.000Z",
+            "article:modified": "2018-12-27T16:06:06.013Z",
+            "articleid": "100000006272045",
+            "nyt_uri": "nyt://article/f4712821-e88e-55f8-a8fe-05ec29a87731",
+            "pubp_event_id": "pubp://event/ebfefc32e54041b98a7752909ee8bf15",
+            "image": "https://static01.nyt.com/images/2018/08/13/autossell/00sl_discipline/00sl_discipline-facebookJumbo.jpg",
+            "byl": "By The New York Times",
+            "thumbnail": "https://static01.nyt.com/images/2018/08/13/autossell/00sl_discipline/00sl_discipline-thumbStandard.jpg",
+            "news_keywords": "Children,Anxiety and Stress,Parenting,Emotion,Family",
+            "usageterms": "http://www.nytimes.com/content/help/rights/sale/terms-of-sale.html",
+            "pdate": "20181225",
+            "og:url": "https://www.nytimes.com/2018/12/25/well/family/6-ways-to-be-an-effective-parent-in-2019.html",
+            "og:type": "article",
+            "og:title": "6 Ways to Be an Effective Parent in 2019",
+            "og:image": "https://static01.nyt.com/images/2018/08/13/autossell/00sl_discipline/00sl_discipline-facebookJumbo.jpg",
+            "og:description": "Expert advice on how to raise children who are resilient, confident and able to handle stress.",
+            "twitter:url": "https://www.nytimes.com/2018/12/25/well/family/6-ways-to-be-an-effective-parent-in-2019.html",
+            "twitter:title": "6 Ways to Be an Effective Parent in 2019",
+            "twitter:description": "Expert advice on how to raise children who are resilient, confident and able to handle stress.",
+            "twitter:image": "https://static01.nyt.com/images/2018/08/13/autossell/00sl_discipline/00sl_discipline-videoSixteenByNineJumbo1600.jpg",
+            "twitter:card": "summary_large_image",
+            "article:section": "Well",
+            "article:tag": "Children and Childhood",
+            "cg": "well",
+            "scg": "family",
+            "pt": "article",
+            "pst": "News",
+            "genre": "News",
+            "url": "https://www.nytimes.com/2018/12/25/well/family/6-ways-to-be-an-effective-parent-in-2019.html",
+            "msapplication-starturl": "https://www.nytimes.com",
+            "al:android:url": "nytimes://reader/id/100000006272045",
+            "al:android:package": "com.nytimes.android",
+            "al:android:app_name": "NYTimes",
+            "twitter:app:name:googleplay": "NYTimes",
+            "twitter:app:id:googleplay": "com.nytimes.android",
+            "twitter:app:url:googleplay": "nytimes://reader/id/100000006272045",
+            "al:iphone:url": "nytimes://www.nytimes.com/2018/12/25/well/family/6-ways-to-be-an-effective-parent-in-2019.html",
+            "al:iphone:app_store_id": "284862083",
+            "al:iphone:app_name": "NYTimes",
+            "al:ipad:url": "nytimes://www.nytimes.com/2018/12/25/well/family/6-ways-to-be-an-effective-parent-in-2019.html",
+            "al:ipad:app_store_id": "357066198",
+            "al:ipad:app_name": "NYTimes",
+            "viewport": "width=device-width, initial-scale=1, maximum-scale=1",
+            "fb:app_id": "9869919170"
+          }
+        ],
+        "newsarticle": [
+          {
+            "inlanguage": "en-US",
+            "datepublished": "2018-12-25T10:00:02.000Z",
+            "datemodified": "2018-12-27T16:06:06.013Z",
+            "identifier": "100000006272045",
+            "description": "Expert advice on how to raise children who are resilient, confident and able to handle stress.",
+            "image": "https://static01.nyt.com/images/2018/08/13/autossell/00sl_discipline/00sl_discipline-facebookJumbo.jpg",
+            "thumbnailurl": "https://static01.nyt.com/images/2018/08/13/autossell/00sl_discipline/00sl_discipline-thumbStandard.jpg",
+            "usageterms": "http://www.nytimes.com/content/help/rights/sale/terms-of-sale.html",
+            "articlesection": "Well",
+            "genre": "News",
+            "url": "https://www.nytimes.com/2018/12/25/well/family/6-ways-to-be-an-effective-parent-in-2019.html",
+            "headline": "6 Ways to Be an Effective Parent in 20196 Ways to Be an Effective Parent in 2019",
+            "copyrightholder": "CreditPeter Gamlen",
+            "name": "The New York Times",
+            "articlebody": "Following are some popular articles from the past year packed with advice that may help parents in the year ahead.Which Is Better, Rewards or Punishments? NeitherBy Heather TurgeonMany parents...",
+            "copyrightyear": "2019"
+          }
+        ],
+        "imageobject": [
+          {
+            "url": "https://static01.nyt.com/images/2018/08/13/autossell/00sl_discipline/merlin_142321614_2976216c-ca7f-443d-b823-407c3349cb33-articleLarge.jpg?quality=75&auto=webp&disable=upscale",
+            "caption": "CreditCreditPeter Gamlen",
+            "description": "CreditCreditPeter Gamlen",
+            "copyrightholder": "CreditCreditPeter Gamlen"
+          }
+        ],
+        "organization": [
+          {
+            "name": "The New York Times Company"
+          }
+        ],
+        "cse_image": [
+          {
+            "src": "https://static01.nyt.com/images/2018/08/13/autossell/00sl_discipline/00sl_discipline-facebookJumbo.jpg"
+          }
+        ]
+      }
+    },
+    {
+      "kind": "customsearch#result",
+      "title": "6 Ways to Have Better Relationships in 2019 - The New York Times",
+      "htmlTitle": "6 Ways to Have Better Relationships in \u003cb\u003e2019\u003c/b\u003e - The New York Times",
+      "link": "https://www.nytimes.com/2018/12/26/smarter-living/6-ways-to-have-better-relationships-in-2019.html",
+      "displayLink": "www.nytimes.com",
+      "snippet": "Dec 26, 2018 ... Even if the foundation of your relationship has long been built on trial and error, a \nrelationship is nothing more than small growths and ...",
+      "htmlSnippet": "Dec 26, 2018 \u003cb\u003e...\u003c/b\u003e Even if the foundation of your relationship has long been built on trial and error, a \u003cbr\u003e\nrelationship is nothing more than small growths and&nbsp;...",
+      "formattedUrl": "https://www.nytimes.com/.../6-ways-to-have-better-relationships-in-2019. html",
+      "htmlFormattedUrl": "https://www.nytimes.com/.../6-ways-to-have-better-relationships-in-\u003cb\u003e2019\u003c/b\u003e. html",
+      "pagemap": {
+        "thumbnail": [
+          {
+            "src": "https://static01.nyt.com/images/2018/12/17/autossell/00sl_EOYrelationships/00sl_EOYrelationships-thumbStandard.jpg"
+          }
+        ],
+        "metatags": [
+          {
+            "article:published": "2018-12-26T15:26:21.000Z",
+            "article:modified": "2018-12-26T21:36:00.719Z",
+            "articleid": "100000006262903",
+            "nyt_uri": "nyt://article/0f14bd93-bf4b-5cdd-bbe0-517f23a9373d",
+            "pubp_event_id": "pubp://event/38035c576669401d88ae697e1d1b421d",
+            "image": "https://static01.nyt.com/images/2018/12/17/autossell/00sl_EOYrelationships/00sl_EOYrelationships-facebookJumbo.jpg",
+            "byl": "By Smarter Living editors",
+            "thumbnail": "https://static01.nyt.com/images/2018/12/17/autossell/00sl_EOYrelationships/00sl_EOYrelationships-thumbStandard.jpg",
+            "usageterms": "http://www.nytimes.com/content/help/rights/sale/terms-of-sale.html",
+            "pdate": "20181226",
+            "og:url": "https://www.nytimes.com/2018/12/26/smarter-living/6-ways-to-have-better-relationships-in-2019.html",
+            "og:type": "article",
+            "og:title": "6 Ways to Have Better Relationships in 2019",
+            "og:image": "https://static01.nyt.com/images/2018/12/17/autossell/00sl_EOYrelationships/00sl_EOYrelationships-facebookJumbo.jpg",
+            "og:description": "Say I do … to fulfillment.",
+            "twitter:url": "https://www.nytimes.com/2018/12/26/smarter-living/6-ways-to-have-better-relationships-in-2019.html",
+            "twitter:title": "6 Ways to Have Better Relationships in 2019",
+            "twitter:description": "Say I do … to fulfillment.",
+            "twitter:image": "https://static01.nyt.com/images/2018/12/17/autossell/00sl_EOYrelationships/00sl_EOYrelationships-videoSixteenByNineJumbo1600.jpg",
+            "twitter:card": "summary_large_image",
+            "article:section": "Smarter Living",
+            "cg": "smarter-living",
+            "pt": "article",
+            "pst": "News",
+            "genre": "News",
+            "url": "https://www.nytimes.com/2018/12/26/smarter-living/6-ways-to-have-better-relationships-in-2019.html",
+            "msapplication-starturl": "https://www.nytimes.com",
+            "al:android:url": "nytimes://reader/id/100000006262903",
+            "al:android:package": "com.nytimes.android",
+            "al:android:app_name": "NYTimes",
+            "twitter:app:name:googleplay": "NYTimes",
+            "twitter:app:id:googleplay": "com.nytimes.android",
+            "twitter:app:url:googleplay": "nytimes://reader/id/100000006262903",
+            "al:iphone:url": "nytimes://www.nytimes.com/2018/12/26/smarter-living/6-ways-to-have-better-relationships-in-2019.html",
+            "al:iphone:app_store_id": "284862083",
+            "al:iphone:app_name": "NYTimes",
+            "al:ipad:url": "nytimes://www.nytimes.com/2018/12/26/smarter-living/6-ways-to-have-better-relationships-in-2019.html",
+            "al:ipad:app_store_id": "357066198",
+            "al:ipad:app_name": "NYTimes",
+            "viewport": "width=device-width, initial-scale=1, maximum-scale=1",
+            "fb:app_id": "9869919170"
+          }
+        ],
+        "newsarticle": [
+          {
+            "inlanguage": "en-US",
+            "datepublished": "2018-12-26T15:26:21.000Z",
+            "datemodified": "2018-12-26T21:36:00.719Z",
+            "identifier": "100000006262903",
+            "description": "Say I do … to fulfillment.",
+            "image": "https://static01.nyt.com/images/2018/12/17/autossell/00sl_EOYrelationships/00sl_EOYrelationships-facebookJumbo.jpg",
+            "thumbnailurl": "https://static01.nyt.com/images/2018/12/17/autossell/00sl_EOYrelationships/00sl_EOYrelationships-thumbStandard.jpg",
+            "usageterms": "http://www.nytimes.com/content/help/rights/sale/terms-of-sale.html",
+            "articlesection": "Smarter Living",
+            "genre": "News",
+            "url": "https://www.nytimes.com/2018/12/26/smarter-living/6-ways-to-have-better-relationships-in-2019.html",
+            "articlebody": "6 Ways to Have Better Relationships in 20196 Ways to Have Better Relationships in 2019Say I do … to fulfillment.CreditJay Daniel WrightImageCreditJay Daniel WrightBy Smarter Living editorsDec....",
+            "headline": "6 Ways to Have Better Relationships in 20196 Ways to Have Better Relationships in 2019",
+            "copyrightholder": "CreditJay Daniel Wright",
+            "name": "Smarter Living editors",
+            "copyrightyear": "2019"
+          }
+        ],
+        "imageobject": [
+          {
+            "url": "https://static01.nyt.com/images/2018/12/17/autossell/00sl_EOYrelationships/merlin_148262934_6d3a9b1b-6b63-42d5-98e5-9ddf8080855c-articleLarge.jpg?quality=75&auto=webp&disable=upscale",
+            "caption": "CreditJay Daniel Wright",
+            "description": "CreditJay Daniel Wright",
+            "copyrightholder": "CreditJay Daniel Wright"
+          }
+        ],
+        "organization": [
+          {
+            "name": "The New York Times Company"
+          }
+        ],
+        "cse_image": [
+          {
+            "src": "https://static01.nyt.com/images/2018/12/17/autossell/00sl_EOYrelationships/00sl_EOYrelationships-thumbStandard.jpg",
+            "type": "1",
+            "width": "75",
+            "height": "75"
+          }
+        ]
+      }
+    }
+  ]
+}
