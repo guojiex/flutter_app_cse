@@ -5,14 +5,14 @@ class ResultCard extends StatelessWidget {
   const ResultCard({this.searchResult, this.searchDelegate});
 
   final SearchResult searchResult;
-  final SearchDelegate<SearchResult> searchDelegate;
+  final SearchDelegate<String> searchDelegate;
 
   @override
   Widget build(BuildContext context) {
     final ThemeData theme = Theme.of(context);
     return new GestureDetector(
       onTap: () {
-        searchDelegate.close(context, searchResult);
+        searchDelegate.close(context, searchResult.toString());
       },
       child: new Card(
         child: new Padding(
@@ -32,7 +32,7 @@ class ResultCard extends StatelessWidget {
   }
 }
 
-class FakeJsonSearchDelegate extends SearchDelegate<SearchResult> {
+class FakeJsonSearchDelegate extends SearchDelegate<String> {
   FakeSearchDataSource _datasource = FakeSearchDataSource('');
 
   FakeJsonSearchDelegate() {
@@ -41,11 +41,30 @@ class FakeJsonSearchDelegate extends SearchDelegate<SearchResult> {
 
   @override
   Widget buildSuggestions(BuildContext context) {
-    return null;
+    return Center(child: Text(
+        'not implemented suggestion.', textAlign: TextAlign.center));
   }
 
   @override
-  List<Widget> buildActions(BuildContext context) {}
+  List<Widget> buildActions(BuildContext context) {
+    return <Widget>[
+      query.isEmpty
+          ? new IconButton(
+        tooltip: 'Voice Search',
+        icon: const Icon(Icons.mic),
+        onPressed: () {
+          query = 'TODO: implement voice input';
+        },
+      )
+          : new IconButton(
+        tooltip: 'Clear',
+        icon: const Icon(Icons.clear),
+        onPressed: () {
+          query = '';
+        },
+      )
+    ];
+  }
 
   @override
   Widget buildLeading(BuildContext context) {
@@ -65,7 +84,7 @@ class FakeJsonSearchDelegate extends SearchDelegate<SearchResult> {
   Widget buildResults(BuildContext context) {
     return FutureBuilder<List<SearchResult>>(
       future: _datasource.search(
-          'query'), // a previously-obtained Future<List<SearchResult>> or null
+          query), // a previously-obtained Future<List<SearchResult>> or null
       builder:
           (BuildContext context, AsyncSnapshot<List<SearchResult>> snapshot) {
         switch (snapshot.connectionState) {

@@ -31,6 +31,8 @@ class FakeSearchDataSource implements SearchDataSource {
 
   void initFromAsset() {
     loadAsset().then((loadedStr) => this.jsonString = loadedStr);
+    print('here');
+    print(this.jsonString);
   }
 
   Future<String> loadAsset() async {
