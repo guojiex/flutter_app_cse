@@ -17,21 +17,34 @@ class ResultCard extends StatelessWidget {
       child: new Card(
         child: new Padding(
           padding: const EdgeInsets.all(8.0),
-          child: new Column(
-            children: <Widget>[
-              new Image.network(
+          child: new ListTile(
+            leading: new Image.network(
                   this.searchResult.result.pagemap['thumbnail'][0]['src']),
-              new Text(
+            title: new Text(
                 this.searchResult.result.title,
                 style: theme.textTheme.headline
                     .copyWith(fontSize: 12.0, fontWeight: FontWeight.bold),
               ),
-              new Text(
+            subtitle: new Text(
                 this.searchResult.result.snippet,
                 style: theme.textTheme.body1.copyWith(fontSize: 12.0),
               ),
-            ],
           ),
+//          child: new Column(
+//            children: <Widget>[
+//              new Image.network(
+//                  this.searchResult.result.pagemap['thumbnail'][0]['src']),
+//              new Text(
+//                this.searchResult.result.title,
+//                style: theme.textTheme.headline
+//                    .copyWith(fontSize: 12.0, fontWeight: FontWeight.bold),
+//              ),
+//              new Text(
+//                this.searchResult.result.snippet,
+//                style: theme.textTheme.body1.copyWith(fontSize: 12.0),
+//              ),
+//            ],
+//          ),
         ),
       ),
     );
