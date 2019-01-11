@@ -4,12 +4,12 @@ import 'dart:io';
 
 void main() {
   test('fake autocomplete data source test', () {
-    var data_source = FakeAutoCompleteDataSource();
-    expect(data_source.getAutoCompletions(query: ''),
+    var _dataSource = FakeAutoCompleteDataSource();
+    expect(_dataSource.getAutoCompletions(query: ''),
         ['abcd', 'efgh', 'efdfsjd'].toList());
   });
   test('json decode test', () async {
-    await new File('../res/sampledata/test_search_result.json')
+    await new File('../res/sampledata/nytimes_sample_data.json')
         .readAsString()
         .then((String contents) {
       var dataSource = FakeSearchDataSource(contents);

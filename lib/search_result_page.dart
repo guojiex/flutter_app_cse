@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app_cse/search_data_source.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class ResultCard extends StatelessWidget {
   const ResultCard({this.searchResult, this.searchDelegate});
@@ -11,40 +12,27 @@ class ResultCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final ThemeData theme = Theme.of(context);
     return new GestureDetector(
-      onTap: () {
-        searchDelegate.close(context, searchResult);
+      onTap: () async {
+        if (await canLaunch(searchResult.result.link)) {
+          await launch(searchResult.result.link);
+        }
       },
       child: new Card(
         child: new Padding(
           padding: const EdgeInsets.all(8.0),
           child: new ListTile(
             leading: new Image.network(
-                  this.searchResult.result.pagemap['thumbnail'][0]['src']),
+                this.searchResult.result.pagemap['thumbnail'][0]['src']),
             title: new Text(
-                this.searchResult.result.title,
-                style: theme.textTheme.headline
-                    .copyWith(fontSize: 12.0, fontWeight: FontWeight.bold),
-              ),
+              this.searchResult.result.title,
+              style: theme.textTheme.headline
+                  .copyWith(fontSize: 12.0, fontWeight: FontWeight.bold),
+            ),
             subtitle: new Text(
-                this.searchResult.result.snippet,
-                style: theme.textTheme.body1.copyWith(fontSize: 12.0),
-              ),
+              this.searchResult.result.snippet,
+              style: theme.textTheme.body1.copyWith(fontSize: 12.0),
+            ),
           ),
-//          child: new Column(
-//            children: <Widget>[
-//              new Image.network(
-//                  this.searchResult.result.pagemap['thumbnail'][0]['src']),
-//              new Text(
-//                this.searchResult.result.title,
-//                style: theme.textTheme.headline
-//                    .copyWith(fontSize: 12.0, fontWeight: FontWeight.bold),
-//              ),
-//              new Text(
-//                this.searchResult.result.snippet,
-//                style: theme.textTheme.body1.copyWith(fontSize: 12.0),
-//              ),
-//            ],
-//          ),
         ),
       ),
     );
@@ -52,17 +40,24 @@ class ResultCard extends StatelessWidget {
 }
 
 class FakeJsonSearchDelegate extends SearchDelegate<SearchResult> {
-  FakeSearchDataSource _datasource = FakeSearchDataSource('');
+  FakeSearchDataSource _dataSource = FakeSearchDataSource('');
+  FakeAutoCompleteDataSource _autoCompleteDataSource =
+  FakeAutoCompleteDataSource();
 
   FakeJsonSearchDelegate() {
-    _datasource.initFromAsset();
+    _dataSource.initFromAsset();
   }
 
   @override
   Widget buildSuggestions(BuildContext context) {
-    return Center(
-        child:
-        Text('not implemented suggestion.', textAlign: TextAlign.center));
+    return _SuggestionList(
+      suggestions: _autoCompleteDataSource.getAutoCompletions(query: query),
+      query: query,
+      onSelected: (String suggestion) {
+        query = suggestion;
+        showResults(context);
+      },
+    );
   }
 
   @override
@@ -106,7 +101,7 @@ class FakeJsonSearchDelegate extends SearchDelegate<SearchResult> {
   @override
   Widget buildResults(BuildContext context) {
     return FutureBuilder<List<SearchResult>>(
-      future: _datasource.search(
+      future: _dataSource.search(
           query), // a previously-obtained Future<List<SearchResult>> or null
       builder:
           (BuildContext context, AsyncSnapshot<List<SearchResult>> snapshot) {
@@ -126,6 +121,44 @@ class FakeJsonSearchDelegate extends SearchDelegate<SearchResult> {
                 });
         }
         return null; // unreachable
+      },
+    );
+  }
+}
+
+class _SuggestionList extends StatelessWidget {
+  const _SuggestionList({this.suggestions, this.query, this.onSelected});
+
+  final List<String> suggestions;
+  final String query;
+  final ValueChanged<String> onSelected;
+
+  @override
+  Widget build(BuildContext context) {
+    final ThemeData theme = Theme.of(context);
+    return new ListView.builder(
+      itemCount: suggestions.length,
+      itemBuilder: (BuildContext context, int i) {
+        final String suggestion = suggestions[i];
+        return new ListTile(
+          leading: query.isEmpty ? const Icon(Icons.history) : const Icon(null),
+          title: new RichText(
+            text: new TextSpan(
+              text: suggestion.substring(0, query.length),
+              style:
+              theme.textTheme.subhead.copyWith(fontWeight: FontWeight.bold),
+              children: <TextSpan>[
+                new TextSpan(
+                  text: suggestion.substring(query.length),
+                  style: theme.textTheme.subhead,
+                ),
+              ],
+            ),
+          ),
+          onTap: () {
+            onSelected(suggestion);
+          },
+        );
       },
     );
   }

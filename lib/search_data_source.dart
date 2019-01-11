@@ -31,13 +31,9 @@ class FakeSearchDataSource implements SearchDataSource {
 
   void initFromAsset() {
     loadAsset().then((loadedStr) => this.jsonString = loadedStr);
-    print('here');
-    print(this.jsonString);
   }
 
   Future<String> loadAsset() async {
-//    return await rootBundle.loadString(
-//        'res/sampledata/test_search_result.json');
     return await rootBundle.loadString(
         'res/sampledata/nytimes_sample_data.json');
   }
@@ -53,7 +49,7 @@ class FakeSearchDataSource implements SearchDataSource {
   }
 }
 
-class CustomSearchJsonDataSource {
+class CustomSearchJsonDataSource implements SearchDataSource {
   final String cx;
   final String apiKey;
   var api;
@@ -63,6 +59,7 @@ class CustomSearchJsonDataSource {
     this.api = new customsearch.CustomsearchApi(client);
   }
 
+  @override
   Future<List<SearchResult>> search(String query) {
     return this
         .api
@@ -87,6 +84,6 @@ class FakeAutoCompleteDataSource implements AutoCompleteDataSource {
   List<String> getAutoCompletions(
       {@required String query, int resultNumber = 3}) {
     assert(resultNumber > 0);
-    return ['abcd', 'efgh', 'efdfsjd'].sublist(0, resultNumber);
+    return ['an apple', 'a', 'day'].sublist(0, resultNumber);
   }
 }
