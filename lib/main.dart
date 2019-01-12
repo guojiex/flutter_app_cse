@@ -48,7 +48,7 @@ class _SearchDemoState extends State<SearchDemo> {
         title: new TextField(
           decoration: InputDecoration(
             border: InputBorder.none,
-            hintText: 'Custom search engine',
+            hintText: 'Google Custom Search Engine',
           ),
           onTap: triggerShowSearch,
           textInputAction: TextInputAction.search,

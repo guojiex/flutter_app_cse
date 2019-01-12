@@ -6,7 +6,7 @@ import 'package:flutter/services.dart' show rootBundle;
 
 import "package:googleapis_auth/auth_io.dart" as auth;
 import 'package:googleapis/customsearch/v1.dart' as customsearch;
-
+import 'package:english_words/english_words.dart';
 
 // TODO: Use https://pub.dartlang.org/packages/url_launcher to let SearchResult capable to open apps.
 class SearchResult {
@@ -34,8 +34,8 @@ class FakeSearchDataSource implements SearchDataSource {
   }
 
   Future<String> loadAsset() async {
-    return await rootBundle.loadString(
-        'res/sampledata/nytimes_sample_data.json');
+    return await rootBundle
+        .loadString('res/sampledata/nytimes_sample_data.json');
   }
 
   @override
@@ -82,8 +82,19 @@ abstract class AutoCompleteDataSource {
 class FakeAutoCompleteDataSource implements AutoCompleteDataSource {
   @override
   List<String> getAutoCompletions(
-      {@required String query, int resultNumber = 3}) {
+      {@required String query, int resultNumber = 10}) {
     assert(resultNumber > 0);
-    return ['an apple', 'a', 'day'].sublist(0, resultNumber);
+    return ['car', 'a', 'day'].sublist(0, resultNumber);
+  }
+}
+
+class CommonEnglishWordAutoCompleteDataSource
+    implements AutoCompleteDataSource {
+  @override
+  List<String> getAutoCompletions({String query, int resultNumber = 10}) {
+    var results = all.where((String word) => word.startsWith(query)).toList();
+    return results.length > resultNumber
+        ? results.sublist(0, resultNumber)
+        : results;
   }
 }

@@ -41,8 +41,8 @@ class ResultCard extends StatelessWidget {
 
 class FakeJsonSearchDelegate extends SearchDelegate<SearchResult> {
   FakeSearchDataSource _dataSource = FakeSearchDataSource('');
-  FakeAutoCompleteDataSource _autoCompleteDataSource =
-  FakeAutoCompleteDataSource();
+  CommonEnglishWordAutoCompleteDataSource _autoCompleteDataSource =
+  CommonEnglishWordAutoCompleteDataSource();
 
   FakeJsonSearchDelegate() {
     _dataSource.initFromAsset();
