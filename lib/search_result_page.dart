@@ -43,13 +43,14 @@ class ResultCard extends StatelessWidget {
 }
 
 class FakeJsonSearchDelegate extends SearchDelegate<SearchResult> {
-  FakeSearchDataSource _dataSource = FakeSearchDataSource('');
+  CustomSearchJsonDataSource _dataSource = CustomSearchJsonDataSource(
+      cx: '', apiKey: '');
   CommonEnglishWordAutoCompleteDataSource _autoCompleteDataSource =
   CommonEnglishWordAutoCompleteDataSource();
 
-  FakeJsonSearchDelegate() {
-    _dataSource.initFromAsset();
-  }
+//  FakeJsonSearchDelegate() {
+//    _dataSource.initFromAsset();
+//  }
 
   @override
   Widget buildSuggestions(BuildContext context) {
