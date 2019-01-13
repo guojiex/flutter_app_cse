@@ -21,8 +21,11 @@ class ResultCard extends StatelessWidget {
         child: new Padding(
           padding: const EdgeInsets.all(8.0),
           child: new ListTile(
-            leading: new Image.network(
-                this.searchResult.result.pagemap['thumbnail'][0]['src']),
+            leading:
+            this.searchResult.result.pagemap['thumbnail'][0]['src'] != null
+                ? new Image.network(
+                this.searchResult.result.pagemap['thumbnail'][0]['src'])
+                : null,
             title: new Text(
               this.searchResult.result.title,
               style: theme.textTheme.headline

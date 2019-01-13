@@ -44,7 +44,6 @@ class FakeSearchDataSource implements SearchDataSource {
     customsearch.Search search = customsearch.Search.fromJson(searchMap);
     var results = List<SearchResult>();
     search.items.forEach((item) => results.add(SearchResult(item)));
-    print(results.length);
     return results;
   }
 }
