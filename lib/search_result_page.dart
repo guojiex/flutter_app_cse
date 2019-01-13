@@ -21,8 +21,7 @@ class ResultCard extends StatelessWidget {
         child: new Padding(
           padding: const EdgeInsets.all(8.0),
           child: new ListTile(
-            leading:
-            this.searchResult.result.pagemap['thumbnail'] != null
+            leading: this.searchResult.result.pagemap['thumbnail'] != null
                 ? new Image.network(
                 this.searchResult.result.pagemap['thumbnail'][0]['src'])
                 : null,
@@ -42,20 +41,21 @@ class ResultCard extends StatelessWidget {
   }
 }
 
-class FakeJsonSearchDelegate extends SearchDelegate<SearchResult> {
-  CustomSearchJsonDataSource _dataSource = CustomSearchJsonDataSource(
-      cx: '', apiKey: '');
-  CommonEnglishWordAutoCompleteDataSource _autoCompleteDataSource =
-  CommonEnglishWordAutoCompleteDataSource();
+class CustomSearchSearchDelegate extends SearchDelegate<SearchResult> {
+  SearchDataSource dataSource;
+  AutoCompleteDataSource autoCompleteDataSource;
 
-//  FakeJsonSearchDelegate() {
-//    _dataSource.initFromAsset();
-//  }
+  CustomSearchSearchDelegate({this.dataSource, this.autoCompleteDataSource});
+
+  CustomSearchSearchDelegate.fakeStaticSource() {
+    this.dataSource = FakeSearchDataSource.loadFromAsset();
+    this.autoCompleteDataSource = FakeAutoCompleteDataSource();
+  }
 
   @override
   Widget buildSuggestions(BuildContext context) {
     return _SuggestionList(
-      suggestions: _autoCompleteDataSource.getAutoCompletions(query: query),
+      suggestions: autoCompleteDataSource.getAutoCompletions(query: query),
       query: query,
       onSelected: (String suggestion) {
         query = suggestion;
@@ -105,7 +105,7 @@ class FakeJsonSearchDelegate extends SearchDelegate<SearchResult> {
   @override
   Widget buildResults(BuildContext context) {
     return FutureBuilder<List<SearchResult>>(
-      future: _dataSource.search(
+      future: dataSource.search(
           query), // a previously-obtained Future<List<SearchResult>> or null
       builder:
           (BuildContext context, AsyncSnapshot<List<SearchResult>> snapshot) {

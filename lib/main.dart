@@ -8,8 +8,7 @@ class SearchDemoApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        title: 'Custom Search Engine Flutter Demo',
-        home: SearchDemo());
+        title: 'Custom Search Engine Flutter Demo', home: SearchDemo());
   }
 }
 
@@ -19,7 +18,9 @@ class SearchDemo extends StatefulWidget {
 }
 
 class _SearchDemoState extends State<SearchDemo> {
-  final FakeJsonSearchDelegate _delegate = new FakeJsonSearchDelegate();
+  final CustomSearchSearchDelegate _delegate = new CustomSearchSearchDelegate(
+      dataSource: CustomSearchJsonDataSource(cx: '', apiKey: ''),
+      autoCompleteDataSource: CommonEnglishWordAutoCompleteDataSource());
   final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
 
   void triggerShowSearch() async {
@@ -52,7 +53,6 @@ class _SearchDemoState extends State<SearchDemo> {
           ),
           onTap: triggerShowSearch,
           textInputAction: TextInputAction.search,
-
         ),
         actions: <Widget>[
           new IconButton(

@@ -27,7 +27,11 @@ abstract class SearchDataSource {
 class FakeSearchDataSource implements SearchDataSource {
   String jsonString;
 
-  FakeSearchDataSource(this.jsonString);
+  FakeSearchDataSource({this.jsonString}) {}
+
+  FakeSearchDataSource.loadFromAsset() {
+    this.initFromAsset();
+  }
 
   void initFromAsset() {
     loadAsset().then((loadedStr) => this.jsonString = loadedStr);

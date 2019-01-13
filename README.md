@@ -23,4 +23,4 @@ samples, guidance on mobile development, and a full API reference.
 
 ### material_search_page.dart
 
-![material_search_page](/res/imgs/examples/20190110.gif)
+![material_search_page](/res/imgs/examples/20190112.gif)
