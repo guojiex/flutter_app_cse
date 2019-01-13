@@ -59,18 +59,13 @@ class CustomSearchJsonDataSource implements SearchDataSource {
   }
 
   @override
-  Future<List<SearchResult>> search(String query) {
-    return this
-        .api
-        .cse
-        .list(query, cx: this.cx)
-        .then((customsearch.Search search) {
-      if (search.items != null) {
-        return search.items;
-      } else {
-        return new List<customsearch.Result>();
-      }
-    });
+  Future<List<SearchResult>> search(String query) async {
+    var results = List<SearchResult>();
+    customsearch.Search search = await this.api.cse.list(query, cx: this.cx);
+    if (search.items != null) {
+      search.items.forEach((item) => results.add(SearchResult(item)));
+    }
+    return results;
   }
 }
 

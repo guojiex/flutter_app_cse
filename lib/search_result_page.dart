@@ -22,7 +22,7 @@ class ResultCard extends StatelessWidget {
           padding: const EdgeInsets.all(8.0),
           child: new ListTile(
             leading:
-            this.searchResult.result.pagemap['thumbnail'][0]['src'] != null
+            this.searchResult.result.pagemap['thumbnail'] != null
                 ? new Image.network(
                 this.searchResult.result.pagemap['thumbnail'][0]['src'])
                 : null,
