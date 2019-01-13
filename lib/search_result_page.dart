@@ -49,7 +49,7 @@ class CustomSearchSearchDelegate extends SearchDelegate<SearchResult> {
 
   CustomSearchSearchDelegate.fakeStaticSource() {
     this.dataSource = FakeSearchDataSource.loadFromAsset();
-    this.autoCompleteDataSource = FakeAutoCompleteDataSource();
+    this.autoCompleteDataSource = CommonEnglishWordAutoCompleteDataSource();
   }
 
   @override

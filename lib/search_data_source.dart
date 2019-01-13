@@ -82,7 +82,10 @@ class FakeAutoCompleteDataSource implements AutoCompleteDataSource {
   List<String> getAutoCompletions(
       {@required String query, int resultNumber = 10}) {
     assert(resultNumber > 0);
-    return ['car', 'a', 'day'].sublist(0, resultNumber);
+    List<String> results = ['car', 'a', 'day'];
+    return results.length > resultNumber
+        ? results.sublist(0, resultNumber)
+        : results;
   }
 }
 

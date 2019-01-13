@@ -8,9 +8,12 @@ class CustomWebSearchDemo extends StatefulWidget {
 }
 
 class _CustomWebSearchDemoState extends State<CustomWebSearchDemo> {
-  final CustomSearchSearchDelegate _delegate = new CustomSearchSearchDelegate(
-      dataSource: CustomSearchJsonDataSource(cx: '', apiKey: ''),
-      autoCompleteDataSource: CommonEnglishWordAutoCompleteDataSource());
+  final CustomSearchSearchDelegate _delegate = CustomSearchSearchDelegate
+      .fakeStaticSource();
+
+//  final CustomSearchSearchDelegate _delegate = new CustomSearchSearchDelegate(
+//      dataSource: CustomSearchJsonDataSource(cx: '', apiKey: ''),
+//      autoCompleteDataSource: CommonEnglishWordAutoCompleteDataSource());
   final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
 
   void triggerShowSearch() async {
