@@ -9,6 +9,7 @@ import 'package:googleapis/customsearch/v1.dart' as customsearch;
 import 'package:english_words/english_words.dart';
 
 // TODO: Use https://pub.dartlang.org/packages/url_launcher to let SearchResult capable to open apps.
+/// A wrapper class for [customsearch.Result].
 class SearchResult {
   final customsearch.Result result;
 
@@ -20,26 +21,33 @@ class SearchResult {
   }
 }
 
+/// Abstract class for Search Data Source.
 abstract class SearchDataSource {
+
   Future<List<SearchResult>> search(String query);
 }
 
 class FakeSearchDataSource implements SearchDataSource {
   String jsonString;
+  static const String _webSearchAssetPath = 'res/sampledata/nytimes_sample_data.json';
+  static const String _imageSearchAssetPath = 'res/sampledata/nytimes_image_sample_data.json';
 
   FakeSearchDataSource({this.jsonString}) {}
 
-  FakeSearchDataSource.loadFromAsset() {
-    this.initFromAsset();
+  FakeSearchDataSource.loadWebSearchResultFromAsset() {
+    this._initFromAsset(_webSearchAssetPath);
   }
 
-  void initFromAsset() {
-    loadAsset().then((loadedStr) => this.jsonString = loadedStr);
+  FakeSearchDataSource.loadImageSearchResultFromAsset() {
+    this._initFromAsset(_imageSearchAssetPath);
   }
 
-  Future<String> loadAsset() async {
-    return await rootBundle
-        .loadString('res/sampledata/nytimes_sample_data.json');
+  void _initFromAsset(String assetPath) {
+    loadAsset(assetPath).then((loadedStr) => this.jsonString = loadedStr);
+  }
+
+  Future<String> loadAsset(String assetPath) async {
+    return await rootBundle.loadString(assetPath);
   }
 
   @override
@@ -77,20 +85,9 @@ abstract class AutoCompleteDataSource {
   List<String> getAutoCompletions({String query, int resultNumber});
 }
 
-class FakeAutoCompleteDataSource implements AutoCompleteDataSource {
-  @override
-  List<String> getAutoCompletions(
-      {@required String query, int resultNumber = 10}) {
-    assert(resultNumber > 0);
-    List<String> results = ['car', 'a', 'day'];
-    return results.length > resultNumber
-        ? results.sublist(0, resultNumber)
-        : results;
-  }
-}
-
 class CommonEnglishWordAutoCompleteDataSource
     implements AutoCompleteDataSource {
+
   @override
   List<String> getAutoCompletions({String query, int resultNumber = 10}) {
     var results = all.where((String word) => word.startsWith(query)).toList();

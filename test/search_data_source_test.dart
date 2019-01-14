@@ -3,11 +3,6 @@ import 'package:flutter_app_cse/search_data_source.dart';
 import 'dart:io';
 
 void main() {
-  test('fake autocomplete data source test', () {
-    var _dataSource = FakeAutoCompleteDataSource();
-    expect(_dataSource.getAutoCompletions(query: ''),
-        ['abcd', 'efgh', 'efdfsjd'].toList());
-  });
   test('json decode test', () async {
     await new File('../res/sampledata/nytimes_sample_data.json')
         .readAsString()

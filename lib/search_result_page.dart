@@ -2,8 +2,43 @@ import 'package:flutter/material.dart';
 import 'package:flutter_app_cse/search_data_source.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class ResultCard extends StatelessWidget {
-  const ResultCard({this.searchResult, this.searchDelegate});
+class ImageSearchResultCard extends StatelessWidget {
+  const ImageSearchResultCard({this.searchResult, this.searchDelegate});
+
+  final SearchResult searchResult;
+  final SearchDelegate<SearchResult> searchDelegate;
+
+  @override
+  Widget build(BuildContext context) {
+    final ThemeData theme = Theme.of(context);
+    print(this.searchResult.result.link);
+    return new GestureDetector(
+      onTap: () async {
+        if (await canLaunch(searchResult.result.image.contextLink)) {
+          await launch(searchResult.result.image.contextLink);
+        }
+      },
+      child: new Card(
+        child: new Padding(
+          padding: const EdgeInsets.all(6.0),
+          child: new ListTile(
+            leading: new Image.network(
+                this.searchResult.result.image.thumbnailLink
+            ),
+            title: new Text(
+              this.searchResult.result.title,
+              style: theme.textTheme.headline
+                  .copyWith(fontSize: 12.0, fontWeight: FontWeight.bold),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class WebSearchResultCard extends StatelessWidget {
+  const WebSearchResultCard({this.searchResult, this.searchDelegate});
 
   final SearchResult searchResult;
   final SearchDelegate<SearchResult> searchDelegate;
@@ -41,15 +76,26 @@ class ResultCard extends StatelessWidget {
   }
 }
 
+enum SearchType { web, image }
+
 class CustomSearchSearchDelegate extends SearchDelegate<SearchResult> {
   SearchDataSource dataSource;
   AutoCompleteDataSource autoCompleteDataSource;
+  SearchType searchType;
 
-  CustomSearchSearchDelegate({this.dataSource, this.autoCompleteDataSource});
+  CustomSearchSearchDelegate(
+      {this.dataSource, this.autoCompleteDataSource, this.searchType});
 
-  CustomSearchSearchDelegate.fakeStaticSource() {
-    this.dataSource = FakeSearchDataSource.loadFromAsset();
+  CustomSearchSearchDelegate.fakeStaticWebSearchSource() {
+    this.dataSource = FakeSearchDataSource.loadWebSearchResultFromAsset();
     this.autoCompleteDataSource = CommonEnglishWordAutoCompleteDataSource();
+    this.searchType = SearchType.web;
+  }
+
+  CustomSearchSearchDelegate.fakeStaticImageSearchSource() {
+    this.dataSource = FakeSearchDataSource.loadImageSearchResultFromAsset();
+    this.autoCompleteDataSource = CommonEnglishWordAutoCompleteDataSource();
+    this.searchType = SearchType.image;
   }
 
   @override
@@ -120,8 +166,16 @@ class CustomSearchSearchDelegate extends SearchDelegate<SearchResult> {
             return ListView.builder(
                 itemCount: snapshot.data.length,
                 itemBuilder: (BuildContext context, int index) {
-                  return new ResultCard(
-                      searchResult: snapshot.data[index], searchDelegate: this);
+                  switch (this.searchType) {
+                    case SearchType.web:
+                      return new WebSearchResultCard(
+                          searchResult: snapshot.data[index],
+                          searchDelegate: this);
+                    case SearchType.image:
+                      return new ImageSearchResultCard(
+                          searchResult: snapshot.data[index],
+                          searchDelegate: this);
+                  }
                 });
         }
         return null; // unreachable

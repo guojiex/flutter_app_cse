@@ -9,7 +9,7 @@ class CustomWebSearchDemo extends StatefulWidget {
 
 class _CustomWebSearchDemoState extends State<CustomWebSearchDemo> {
   final CustomSearchSearchDelegate _delegate = CustomSearchSearchDelegate
-      .fakeStaticSource();
+      .fakeStaticWebSearchSource();
 
 //  final CustomSearchSearchDelegate _delegate = new CustomSearchSearchDelegate(
 //      dataSource: CustomSearchJsonDataSource(cx: '', apiKey: ''),
@@ -42,14 +42,14 @@ class _CustomWebSearchDemoState extends State<CustomWebSearchDemo> {
         title: new TextField(
           decoration: InputDecoration(
             border: InputBorder.none,
-            hintText: 'Google Custom Search',
+            hintText: 'Google Custom Web Search',
           ),
           onTap: triggerShowSearch,
           textInputAction: TextInputAction.search,
         ),
         actions: <Widget>[
           new IconButton(
-            tooltip: 'Search',
+            tooltip: 'Image Search',
             icon: const Icon(Icons.search),
             onPressed: triggerShowSearch,
           ),
@@ -111,9 +111,12 @@ class _CustomWebSearchDemoState extends State<CustomWebSearchDemo> {
               context: context,
               // DrawerHeader consumes top MediaQuery padding.
               removeTop: true,
-              child: const ListTile(
+              child: ListTile(
                 leading: const Icon(Icons.payment),
-                title: const Text('Placeholder'),
+                title: const Text('Custom Image Search Demo'),
+                onTap: () {
+                  Navigator.pushNamed(context, '/imagesearch');
+                },
               ),
             ),
           ],

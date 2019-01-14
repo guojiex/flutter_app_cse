@@ -1,6 +1,7 @@
 # flutter_app_cse
 
-A new Flutter application. For CSE
+A sample [Google Custom Search](https://developers.google.com/custom-search/) Flutter demo.
+It uses [Custom Search JSON API](https://developers.google.com/custom-search/v1/overview) to get search result.
 
 ## Getting Started
 
