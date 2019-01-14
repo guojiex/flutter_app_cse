@@ -152,7 +152,9 @@ class CustomSearchSearchDelegate extends SearchDelegate<SearchResult> {
   Widget buildResults(BuildContext context) {
     return FutureBuilder<List<SearchResult>>(
       future: dataSource.search(
-          query), // a previously-obtained Future<List<SearchResult>> or null
+          query,
+          searchType: this.searchType == SearchType.web ? null : 'image'),
+      // a previously-obtained Future<List<SearchResult>> or null
       builder:
           (BuildContext context, AsyncSnapshot<List<SearchResult>> snapshot) {
         switch (snapshot.connectionState) {

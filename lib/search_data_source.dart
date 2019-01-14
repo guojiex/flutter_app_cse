@@ -23,7 +23,7 @@ class SearchResult {
 
 /// Abstract class for Search Data Source.
 abstract class SearchDataSource {
-  Future<List<SearchResult>> search(String query);
+  Future<List<SearchResult>> search(String query, {String searchType});
 }
 
 class FakeSearchDataSource implements SearchDataSource {
@@ -50,7 +50,7 @@ class FakeSearchDataSource implements SearchDataSource {
   }
 
   @override
-  Future<List<SearchResult>> search(String query) async {
+  Future<List<SearchResult>> search(String query, {String searchType}) async {
     Map searchMap = jsonDecode(jsonString);
     customsearch.Search search = customsearch.Search.fromJson(searchMap);
     var results = List<SearchResult>();
@@ -71,9 +71,10 @@ class CustomSearchDataSource implements SearchDataSource {
   }
 
   @override
-  Future<List<SearchResult>> search(String query) async {
+  Future<List<SearchResult>> search(String query, {String searchType}) async {
     var results = List<SearchResult>();
-    customsearch.Search search = await this.api.cse.list(query, cx: this.cx);
+    customsearch.Search search = await this.api.cse.list(
+        query, cx: this.cx, searchType: searchType);
     if (search.items != null) {
       search.items.forEach((item) => results.add(SearchResult(item)));
     }
