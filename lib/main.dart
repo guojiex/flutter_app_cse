@@ -11,9 +11,7 @@ class SearchDemoApp extends StatelessWidget {
         home: CustomWebSearchDemo(),
         initialRoute: '/websearch',
         routes: {
-          // When we navigate to the "/cse/websearch" route, build the FirstScreen Widget
           '/websearch': (context) => CustomWebSearchDemo(),
-          // When we navigate to the "/cse/imagesearch" route, build the SecondScreen Widget
           '/imagesearch': (context) => CustomImageSearchDemo(),
         },
         title: 'Custom Search Engine Flutter Demo');

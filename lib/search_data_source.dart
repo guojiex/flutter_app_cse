@@ -23,7 +23,6 @@ class SearchResult {
 
 /// Abstract class for Search Data Source.
 abstract class SearchDataSource {
-
   Future<List<SearchResult>> search(String query);
 }
 
@@ -60,12 +59,13 @@ class FakeSearchDataSource implements SearchDataSource {
   }
 }
 
-class CustomSearchJsonDataSource implements SearchDataSource {
+/// The search data source that uses Custom Search API.
+class CustomSearchDataSource implements SearchDataSource {
   final String cx;
   final String apiKey;
   var api;
 
-  CustomSearchJsonDataSource({@required this.cx, @required this.apiKey}) {
+  CustomSearchDataSource({@required this.cx, @required this.apiKey}) {
     var client = auth.clientViaApiKey(apiKey);
     this.api = new customsearch.CustomsearchApi(client);
   }
