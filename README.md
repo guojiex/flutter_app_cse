@@ -20,8 +20,4 @@ samples, guidance on mobile development, and a full API reference.
 
 ### main.dart
 
-![20181213](/res/imgs/examples/20181213_2.png)
-
-### material_search_page.dart
-
-![material_search_page](/res/imgs/examples/20190112.gif)
+![search_demo_gif](/res/imgs/examples/20190114.gif)

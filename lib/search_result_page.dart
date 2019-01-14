@@ -3,7 +3,7 @@ import 'package:flutter_app_cse/search_data_source.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class ImageSearchResultCard extends StatelessWidget {
-  const ImageSearchResultCard({this.searchResult, this.searchDelegate});
+  ImageSearchResultCard({this.searchResult, this.searchDelegate});
 
   final SearchResult searchResult;
   final SearchDelegate<SearchResult> searchDelegate;
@@ -11,27 +11,21 @@ class ImageSearchResultCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final ThemeData theme = Theme.of(context);
-    print(this.searchResult.result.link);
-    return new GestureDetector(
+    return GestureDetector(
       onTap: () async {
         if (await canLaunch(searchResult.result.image.contextLink)) {
           await launch(searchResult.result.image.contextLink);
         }
       },
-      child: new Card(
-        child: new Padding(
-          padding: const EdgeInsets.all(6.0),
-          child: new ListTile(
-            leading: new Image.network(
-                this.searchResult.result.image.thumbnailLink
-            ),
-            title: new Text(
-              this.searchResult.result.title,
-              style: theme.textTheme.headline
-                  .copyWith(fontSize: 12.0, fontWeight: FontWeight.bold),
-            ),
-          ),
-        ),
+      child: GridTile(
+        child: Image.network(this.searchResult.result.link, fit: BoxFit.cover),
+        footer: GridTileBar(
+            backgroundColor: Colors.black45,
+            title: FittedBox(
+              fit: BoxFit.scaleDown,
+              alignment: Alignment.centerLeft,
+              child: Text(this.searchResult.result.title),
+            )),
       ),
     );
   }
@@ -58,7 +52,7 @@ class WebSearchResultCard extends StatelessWidget {
           child: new ListTile(
             leading: this.searchResult.result.pagemap['thumbnail'] != null
                 ? new Image.network(
-                this.searchResult.result.pagemap['thumbnail'][0]['src'])
+                    this.searchResult.result.pagemap['thumbnail'][0]['src'])
                 : null,
             title: new Text(
               this.searchResult.result.title,
@@ -84,7 +78,15 @@ class CustomSearchSearchDelegate extends SearchDelegate<SearchResult> {
   SearchType searchType;
 
   CustomSearchSearchDelegate(
-      {this.dataSource, this.autoCompleteDataSource, this.searchType});
+      {this.dataSource,
+      this.autoCompleteDataSource,
+      this.searchType = SearchType.web});
+
+  CustomSearchSearchDelegate.imageSearch(
+      {this.dataSource,
+        this.autoCompleteDataSource,
+        this.searchType = SearchType.image});
+
 
   CustomSearchSearchDelegate.fakeStaticWebSearchSource() {
     this.dataSource = FakeSearchDataSource.loadWebSearchResultFromAsset();
@@ -115,22 +117,22 @@ class CustomSearchSearchDelegate extends SearchDelegate<SearchResult> {
     return <Widget>[
       query.isEmpty
           ? new IconButton(
-        tooltip: 'Voice Search',
-        icon: const Icon(Icons.mic),
-        onPressed: () {
-          query = 'TODO: implement voice input';
-        },
-      )
+              tooltip: 'Voice Search',
+              icon: const Icon(Icons.mic),
+              onPressed: () {
+                query = 'TODO: implement voice input';
+              },
+            )
           : new IconButton(
-        tooltip: 'Clear',
-        icon: const Icon(Icons.clear),
-        onPressed: () async {
-          await showSearch<SearchResult>(
-            context: context,
-            delegate: this,
-          );
-        },
-      )
+              tooltip: 'Clear',
+              icon: const Icon(Icons.clear),
+              onPressed: () async {
+                await showSearch<SearchResult>(
+                  context: context,
+                  delegate: this,
+                );
+              },
+            )
     ];
   }
 
@@ -151,8 +153,7 @@ class CustomSearchSearchDelegate extends SearchDelegate<SearchResult> {
   @override
   Widget buildResults(BuildContext context) {
     return FutureBuilder<List<SearchResult>>(
-      future: dataSource.search(
-          query,
+      future: dataSource.search(query,
           searchType: this.searchType == SearchType.web ? null : 'image'),
       // a previously-obtained Future<List<SearchResult>> or null
       builder:
@@ -165,20 +166,30 @@ class CustomSearchSearchDelegate extends SearchDelegate<SearchResult> {
             return Text('Awaiting result...');
           case ConnectionState.done:
             if (snapshot.hasError) return Text('Error: ${snapshot.error}');
-            return ListView.builder(
-                itemCount: snapshot.data.length,
-                itemBuilder: (BuildContext context, int index) {
-                  switch (this.searchType) {
-                    case SearchType.web:
-                      return new WebSearchResultCard(
-                          searchResult: snapshot.data[index],
-                          searchDelegate: this);
-                    case SearchType.image:
+            switch (this.searchType) {
+              case SearchType.image:
+                return GridView.count(
+                    crossAxisCount: 1,
+                    mainAxisSpacing: 4.0,
+                    crossAxisSpacing: 4.0,
+                    padding: const EdgeInsets.all(4.0),
+                    children: List.generate(snapshot.data.length, (index) {
                       return new ImageSearchResultCard(
                           searchResult: snapshot.data[index],
                           searchDelegate: this);
-                  }
-                });
+                    }));
+              case SearchType.web:
+                return ListView.builder(
+                    itemCount: snapshot.data.length,
+                    itemBuilder: (BuildContext context, int index) {
+                      return new WebSearchResultCard(
+                          searchResult: snapshot.data[index],
+                          searchDelegate: this);
+                    });
+              default:
+                print('should not reach here!');
+            }
+            ;
         }
         return null; // unreachable
       },
@@ -206,7 +217,7 @@ class _SuggestionList extends StatelessWidget {
             text: new TextSpan(
               text: suggestion.substring(0, query.length),
               style:
-              theme.textTheme.subhead.copyWith(fontWeight: FontWeight.bold),
+                  theme.textTheme.subhead.copyWith(fontWeight: FontWeight.bold),
               children: <TextSpan>[
                 new TextSpan(
                   text: suggestion.substring(query.length),

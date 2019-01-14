@@ -12,9 +12,12 @@ class _CustomImageSearchDemoState extends State<CustomImageSearchDemo> {
   final CustomSearchSearchDelegate _delegate =
       CustomSearchSearchDelegate.fakeStaticImageSearchSource();
 
-//  final CustomSearchSearchDelegate _delegate = new CustomSearchSearchDelegate(
-//      dataSource: CustomSearchJsonDataSource(cx: '', apiKey: ''),
-//      autoCompleteDataSource: CommonEnglishWordAutoCompleteDataSource());
+//  final CustomSearchSearchDelegate _delegate =
+//      new CustomSearchSearchDelegate.imageSearch(
+//          dataSource: CustomSearchDataSource(
+//              cx: '',
+//              apiKey: ''),
+//          autoCompleteDataSource: CommonEnglishWordAutoCompleteDataSource());
   final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
 
   void triggerShowSearch() async {

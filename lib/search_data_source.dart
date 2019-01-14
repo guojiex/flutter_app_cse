@@ -31,7 +31,7 @@ class FakeSearchDataSource implements SearchDataSource {
   static const String _webSearchAssetPath = 'res/sampledata/nytimes_sample_data.json';
   static const String _imageSearchAssetPath = 'res/sampledata/nytimes_image_sample_data.json';
 
-  FakeSearchDataSource({this.jsonString}) {}
+  FakeSearchDataSource({this.jsonString});
 
   FakeSearchDataSource.loadWebSearchResultFromAsset() {
     this._initFromAsset(_webSearchAssetPath);

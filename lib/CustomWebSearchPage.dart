@@ -12,7 +12,7 @@ class _CustomWebSearchDemoState extends State<CustomWebSearchDemo> {
       .fakeStaticWebSearchSource();
 
 //  final CustomSearchSearchDelegate _delegate = new CustomSearchSearchDelegate(
-//      dataSource: CustomSearchJsonDataSource(cx: '', apiKey: ''),
+//      dataSource: CustomSearchDataSource(cx: '', apiKey: ''),
 //      autoCompleteDataSource: CommonEnglishWordAutoCompleteDataSource());
   final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
 
