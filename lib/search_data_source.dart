@@ -8,8 +8,9 @@ import "package:googleapis_auth/auth_io.dart" as auth;
 import 'package:googleapis/customsearch/v1.dart' as customsearch;
 import 'package:english_words/english_words.dart';
 
-// TODO: Use https://pub.dartlang.org/packages/url_launcher to let SearchResult capable to open apps.
 /// A wrapper class for [customsearch.Result].
+/// [SearchResult] will use the landing page link to measure if two results are
+/// the same. This is useful for deduplicate image search result.
 class SearchResult {
   final customsearch.Result result;
 
@@ -19,6 +20,26 @@ class SearchResult {
   String toString() {
     return 'title:${this.result.title}\nsnippet:${this.result.snippet}';
   }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    // Use landing page link to see if two results are the same.
+    if (this.result.image != null) {
+      return other is SearchResult &&
+          runtimeType == other.runtimeType &&
+          result.image.contextLink == other.result.image.contextLink;
+    } else {
+      return other is SearchResult &&
+          runtimeType == other.runtimeType &&
+          result.link == other.result.link;
+    }
+  }
+
+  @override
+  int get hashCode => result.image == null ? result.link.hashCode : result.image.contextLink.hashCode;
 }
 
 /// Abstract class for Search Data Source.
@@ -28,8 +49,10 @@ abstract class SearchDataSource {
 
 class FakeSearchDataSource implements SearchDataSource {
   String jsonString;
-  static const String _webSearchAssetPath = 'res/sampledata/nytimes_sample_data.json';
-  static const String _imageSearchAssetPath = 'res/sampledata/nytimes_image_sample_data.json';
+  static const String _webSearchAssetPath =
+      'res/sampledata/nytimes_sample_data.json';
+  static const String _imageSearchAssetPath =
+      'res/sampledata/nytimes_image_sample_data.json';
 
   FakeSearchDataSource({this.jsonString});
 
@@ -55,7 +78,7 @@ class FakeSearchDataSource implements SearchDataSource {
     customsearch.Search search = customsearch.Search.fromJson(searchMap);
     var results = List<SearchResult>();
     search.items.forEach((item) => results.add(SearchResult(item)));
-    return results;
+    return Set<SearchResult>.from(results).toList();
   }
 }
 
@@ -73,12 +96,12 @@ class CustomSearchDataSource implements SearchDataSource {
   @override
   Future<List<SearchResult>> search(String query, {String searchType}) async {
     var results = List<SearchResult>();
-    customsearch.Search search = await this.api.cse.list(
-        query, cx: this.cx, searchType: searchType);
+    customsearch.Search search =
+        await this.api.cse.list(query, cx: this.cx, searchType: searchType);
     if (search.items != null) {
       search.items.forEach((item) => results.add(SearchResult(item)));
     }
-    return results;
+    return Set<SearchResult>.from(results).toList();
   }
 }
 
@@ -88,7 +111,6 @@ abstract class AutoCompleteDataSource {
 
 class CommonEnglishWordAutoCompleteDataSource
     implements AutoCompleteDataSource {
-
   @override
   List<String> getAutoCompletions({String query, int resultNumber = 10}) {
     var results = all.where((String word) => word.startsWith(query)).toList();
