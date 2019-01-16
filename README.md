@@ -18,6 +18,10 @@ samples, guidance on mobile development, and a full API reference.
 
 ## Example
 
-### main.dart
+### demo
 
-![search_demo_gif](/res/imgs/examples/20190114.gif)
+![demo_gif](/res/imgs/examples/20190114.gif)
+
+### new CSE websearch layout
+
+![cse_websearch_layout_gif](/res/imgs/examples/20190116.gif)

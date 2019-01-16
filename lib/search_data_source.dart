@@ -16,6 +16,10 @@ class SearchResult {
 
   SearchResult(this.result);
 
+  SearchResult.escapeLineBreakInSnippet(this.result) {
+    this.result.snippet = this.result.snippet.replaceAll("\n", "");
+  }
+
   @override
   String toString() {
     return 'title:${this.result.title}\nsnippet:${this.result.snippet}';
@@ -39,7 +43,10 @@ class SearchResult {
   }
 
   @override
-  int get hashCode => result.image == null ? result.link.hashCode : result.image.contextLink.hashCode;
+  int get hashCode =>
+      result.image == null
+          ? result.link.hashCode
+          : result.image.contextLink.hashCode;
 }
 
 /// Abstract class for Search Data Source.
@@ -77,7 +84,8 @@ class FakeSearchDataSource implements SearchDataSource {
     Map searchMap = jsonDecode(jsonString);
     customsearch.Search search = customsearch.Search.fromJson(searchMap);
     var results = List<SearchResult>();
-    search.items.forEach((item) => results.add(SearchResult(item)));
+    search.items.forEach(
+            (item) => results.add(SearchResult.escapeLineBreakInSnippet(item)));
     return Set<SearchResult>.from(results).toList();
   }
 }
