@@ -33,7 +33,6 @@ class _CustomWebSearchDemoState extends State<CustomWebSearchDemo> {
           tooltip: 'Navigation menu',
           icon: new AnimatedIcon(
             icon: AnimatedIcons.menu_arrow,
-            color: Colors.white,
             progress: _delegate.transitionAnimation,
           ),
           onPressed: () {
