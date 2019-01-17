@@ -176,6 +176,21 @@ class CustomSearchSearchDelegate extends SearchDelegate<SearchResult> {
   }
 
   @override
+  ThemeData appBarTheme(BuildContext context) {
+    final ThemeData theme = Theme.of(context);
+    return theme.copyWith(
+        inputDecorationTheme: InputDecorationTheme(
+            hintStyle: TextStyle(color: theme.primaryTextTheme.title.color)),
+        primaryColor: theme.primaryColor,
+        primaryIconTheme: theme.primaryIconTheme,
+        primaryColorBrightness: theme.primaryColorBrightness,
+        primaryTextTheme: theme.primaryTextTheme,
+        textTheme: theme.textTheme.copyWith(
+            title: theme.textTheme.title
+                .copyWith(color: theme.primaryTextTheme.title.color)));
+  }
+
+  @override
   Widget buildSuggestions(BuildContext context) {
     return _SuggestionList(
       suggestions: autoCompleteDataSource.getAutoCompletions(query: query),

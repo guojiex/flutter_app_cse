@@ -29,6 +29,7 @@ class _CustomImageSearchDemoState extends State<CustomImageSearchDemo> {
 
   @override
   Widget build(BuildContext context) {
+    final ThemeData theme = Theme.of(context);
     return new Scaffold(
       key: _scaffoldKey,
       appBar: new AppBar(
@@ -47,6 +48,7 @@ class _CustomImageSearchDemoState extends State<CustomImageSearchDemo> {
           decoration: InputDecoration(
             border: InputBorder.none,
             hintText: 'Google Custom Image Search',
+            hintStyle: new TextStyle(color: theme.primaryTextTheme.title.color),
           ),
           onTap: triggerShowSearch,
           textInputAction: TextInputAction.search,

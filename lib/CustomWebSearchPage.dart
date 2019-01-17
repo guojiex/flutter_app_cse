@@ -25,6 +25,7 @@ class _CustomWebSearchDemoState extends State<CustomWebSearchDemo> {
 
   @override
   Widget build(BuildContext context) {
+    final ThemeData theme = Theme.of(context);
     return new Scaffold(
       key: _scaffoldKey,
       appBar: new AppBar(
@@ -43,6 +44,7 @@ class _CustomWebSearchDemoState extends State<CustomWebSearchDemo> {
           decoration: InputDecoration(
             border: InputBorder.none,
             hintText: 'Google Custom Web Search',
+            hintStyle: new TextStyle(color: theme.primaryTextTheme.title.color),
           ),
           onTap: triggerShowSearch,
           textInputAction: TextInputAction.search,
