@@ -16,8 +16,7 @@ class _CustomImageSearchDemoState extends State<CustomImageSearchDemo> {
 //      new CustomSearchSearchDelegate.imageSearch(
 //          dataSource: CustomSearchDataSource(
 //              cx: '',
-//              apiKey: ''),
-//          autoCompleteDataSource: CommonEnglishWordAutoCompleteDataSource());
+//              apiKey: ''));
   final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
 
   void triggerShowSearch() async {
