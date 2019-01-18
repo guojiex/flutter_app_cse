@@ -8,8 +8,8 @@ void main() {
         .readAsString()
         .then((String contents) {
       var dataSource = FakeSearchDataSource();
-      dataSource.search('whatever').then((searchResult) {
-        searchResult.forEach((result) => print(result));
+      dataSource.search('whatever').then((searchResults) {
+        searchResults.searchResults.forEach((result) => print(result));
       });
     });
   });

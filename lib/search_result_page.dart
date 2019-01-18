@@ -253,12 +253,11 @@ class CustomSearchSearchDelegate extends SearchDelegate<SearchResult> {
 
   @override
   Widget buildResults(BuildContext context) {
-    return FutureBuilder<List<SearchResult>>(
+    return FutureBuilder<SearchResults>(
       future: dataSource.search(query,
           searchType: this.searchType == SearchType.web ? null : 'image'),
       // a previously-obtained Future<List<SearchResult>> or null
-      builder:
-          (BuildContext context, AsyncSnapshot<List<SearchResult>> snapshot) {
+      builder: (BuildContext context, AsyncSnapshot<SearchResults> snapshot) {
         switch (snapshot.connectionState) {
           case ConnectionState.none:
             return Text('Press button to start.');
@@ -274,18 +273,18 @@ class CustomSearchSearchDelegate extends SearchDelegate<SearchResult> {
                     mainAxisSpacing: 4.0,
                     crossAxisSpacing: 4.0,
                     padding: const EdgeInsets.all(4.0),
-                    children: List.generate(snapshot.data.length, (index) {
+                    children: List.generate(snapshot.data.searchResults.length,
+                            (index) {
                       return new ImageSearchResultCard(
-                          searchResult: snapshot.data[index],
+                          searchResult: snapshot.data.searchResults[index],
                           searchDelegate: this);
                     }));
               case SearchType.web:
-                print(snapshot.data.length);
                 return ListView.builder(
-                    itemCount: snapshot.data.length,
+                    itemCount: snapshot.data.searchResults.length,
                     itemBuilder: (BuildContext context, int index) {
                       return new WebSearchResultCard(
-                          searchResult: snapshot.data[index],
+                          searchResult: snapshot.data.searchResults[index],
                           searchDelegate: this);
                     });
               default:

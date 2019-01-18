@@ -49,9 +49,26 @@ class SearchResult {
           : result.image.contextLink.hashCode;
 }
 
+class Promotion {
+  final customsearch.Promotion promotion;
+
+  Promotion(this.promotion);
+}
+
+/// A wrapper class to aggregate all the search result fields that we need.
+class SearchResults {
+  List<SearchResult> searchResults;
+  List<Promotion> promotions;
+
+  SearchResults({this.searchResults, this.promotions}) {
+    this.searchResults ??= List<SearchResult>();
+    this.promotions ??= List<Promotion>();
+  }
+}
+
 /// Abstract class for Search Data Source.
 abstract class SearchDataSource {
-  Future<List<SearchResult>> search(String query, {String searchType});
+  Future<SearchResults> search(String query, {String searchType});
 }
 
 class _StaticSearchResponse {
@@ -63,9 +80,7 @@ class _StaticSearchResponse {
       {this.assetPath, this.searchType, this.searchResponseJsonString});
 }
 
-
 class FakeSearchDataSource implements SearchDataSource {
-
   final Map<String, _StaticSearchResponse> searchResponses = {
     'web': _StaticSearchResponse(
         assetPath: 'res/sampledata/nytimes_sample_data.json'),
@@ -75,7 +90,6 @@ class FakeSearchDataSource implements SearchDataSource {
     'promotion': _StaticSearchResponse(
         assetPath: 'res/sampledata/nytimes_with_promotion.json'),
   };
-
 
   FakeSearchDataSource() {
     searchResponses.keys.forEach((key) {
@@ -89,19 +103,20 @@ class FakeSearchDataSource implements SearchDataSource {
   }
 
   @override
-  Future<List<SearchResult>> search(String query, {String searchType}) async {
-    var results = List<SearchResult>();
+  Future<SearchResults> search(String query, {String searchType}) async {
     if (!searchResponses.containsKey(query)) {
-      return results;
+      return SearchResults();
     }
     if (searchResponses[query].searchType != searchType) {
-      return results;
+      return SearchResults();
     }
+    var results = List<SearchResult>();
     Map searchMap = jsonDecode(searchResponses[query].searchResponseJsonString);
     customsearch.Search search = customsearch.Search.fromJson(searchMap);
     search.items.forEach(
             (item) => results.add(SearchResult.escapeLineBreakInSnippet(item)));
-    return Set<SearchResult>.from(results).toList();
+    return SearchResults(
+        searchResults: Set<SearchResult>.from(results).toList());
   }
 }
 
@@ -117,14 +132,15 @@ class CustomSearchDataSource implements SearchDataSource {
   }
 
   @override
-  Future<List<SearchResult>> search(String query, {String searchType}) async {
+  Future<SearchResults> search(String query, {String searchType}) async {
     var results = List<SearchResult>();
     customsearch.Search search =
         await this.api.cse.list(query, cx: this.cx, searchType: searchType);
     if (search.items != null) {
       search.items.forEach((item) => results.add(SearchResult(item)));
     }
-    return Set<SearchResult>.from(results).toList();
+    return SearchResults(
+        searchResults: Set<SearchResult>.from(results).toList());
   }
 }
 
