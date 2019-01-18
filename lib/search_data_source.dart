@@ -55,14 +55,23 @@ class Promotion {
   Promotion(this.promotion);
 }
 
+class NextPage {
+  final customsearch.Query query;
+
+  NextPage(this.query);
+}
+
 /// A wrapper class to aggregate all the search result fields that we need.
 class SearchResults {
-  List<SearchResult> searchResults;
-  List<Promotion> promotions;
+  List<SearchResult> searchResults = List<SearchResult>();
+  List<Promotion> promotions = List<Promotion>();
 
-  SearchResults({this.searchResults, this.promotions}) {
-    this.searchResults ??= List<SearchResult>();
-    this.promotions ??= List<Promotion>();
+  SearchResults.empty();
+
+  SearchResults(customsearch.Search search) {
+    search.items.forEach(
+            (item) =>
+            searchResults.add(SearchResult.escapeLineBreakInSnippet(item)));
   }
 }
 
@@ -105,18 +114,15 @@ class FakeSearchDataSource implements SearchDataSource {
   @override
   Future<SearchResults> search(String query, {String searchType}) async {
     if (!searchResponses.containsKey(query)) {
-      return SearchResults();
+      return SearchResults.empty();
     }
     if (searchResponses[query].searchType != searchType) {
-      return SearchResults();
+      return SearchResults.empty();
     }
     var results = List<SearchResult>();
     Map searchMap = jsonDecode(searchResponses[query].searchResponseJsonString);
     customsearch.Search search = customsearch.Search.fromJson(searchMap);
-    search.items.forEach(
-            (item) => results.add(SearchResult.escapeLineBreakInSnippet(item)));
-    return SearchResults(
-        searchResults: Set<SearchResult>.from(results).toList());
+    return SearchResults(search);
   }
 }
 
@@ -125,6 +131,7 @@ class CustomSearchDataSource implements SearchDataSource {
   final String cx;
   final String apiKey;
   var api;
+  int searchCount = 0;
 
   CustomSearchDataSource({@required this.cx, @required this.apiKey}) {
     var client = auth.clientViaApiKey(apiKey);
@@ -133,14 +140,15 @@ class CustomSearchDataSource implements SearchDataSource {
 
   @override
   Future<SearchResults> search(String query, {String searchType}) async {
+    if (query.isEmpty) {
+      return SearchResults.empty();
+    }
     var results = List<SearchResult>();
     customsearch.Search search =
-        await this.api.cse.list(query, cx: this.cx, searchType: searchType);
-    if (search.items != null) {
-      search.items.forEach((item) => results.add(SearchResult(item)));
-    }
-    return SearchResults(
-        searchResults: Set<SearchResult>.from(results).toList());
+    await this.api.cse.list(query, cx: this.cx, searchType: searchType);
+    searchCount += 1;
+    print("search count: $searchCount");
+    return SearchResults(search);
   }
 }
 

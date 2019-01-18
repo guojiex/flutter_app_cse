@@ -68,7 +68,7 @@ class WebSearchResultCard extends StatelessWidget {
           bottom: 8.0,
         ),
         child: Container(
-            padding: const EdgeInsets.only(right: 6.0),
+            padding: const EdgeInsets.only(right: 10.0),
             child: Text(
               this.searchResult.result.snippet,
               style: theme.textTheme.body1,
@@ -251,8 +251,11 @@ class CustomSearchSearchDelegate extends SearchDelegate<SearchResult> {
     );
   }
 
+  int buildResultCount = 0;
   @override
   Widget buildResults(BuildContext context) {
+    buildResultCount += 1;
+    print(buildResultCount);
     return FutureBuilder<SearchResults>(
       future: dataSource.search(query,
           searchType: this.searchType == SearchType.web ? null : 'image'),
@@ -275,10 +278,10 @@ class CustomSearchSearchDelegate extends SearchDelegate<SearchResult> {
                     padding: const EdgeInsets.all(4.0),
                     children: List.generate(snapshot.data.searchResults.length,
                             (index) {
-                      return new ImageSearchResultCard(
-                          searchResult: snapshot.data.searchResults[index],
-                          searchDelegate: this);
-                    }));
+                          return new ImageSearchResultCard(
+                              searchResult: snapshot.data.searchResults[index],
+                              searchDelegate: this);
+                        }));
               case SearchType.web:
                 return ListView.builder(
                     itemCount: snapshot.data.searchResults.length,
