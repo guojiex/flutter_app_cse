@@ -42,10 +42,13 @@ class WebSearchResultCard extends StatelessWidget {
   Widget _generateTitleTile(BuildContext context) {
     final ThemeData theme = Theme.of(context);
     return ListTile(
-      title: Text(
-        this.searchResult.result.title,
-        style: theme.textTheme.headline.copyWith(
-            fontSize: 15.0, fontWeight: FontWeight.bold, color: Colors.blue),
+      title: Padding(
+        padding: EdgeInsets.only(top: 6.0),
+        child: Text(
+          this.searchResult.result.title,
+          style: theme.textTheme.headline.copyWith(
+              fontSize: 15.0, fontWeight: FontWeight.bold, color: Colors.blue),
+        ),
       ),
       subtitle: new Text(
         this.searchResult.result.link,
@@ -57,26 +60,41 @@ class WebSearchResultCard extends StatelessWidget {
 
   Widget _generateBodyTile(BuildContext context) {
     final ThemeData theme = Theme.of(context);
-    return new Container(
-      padding: const EdgeInsets.only(
-        left: 15.0,
-        bottom: 8.0,
-      ),
-      child: new Row(children: [
-        this.searchResult.result.pagemap['thumbnail'] != null
-            ? new Image.network(
-            this.searchResult.result.pagemap['thumbnail'][0]['src'])
-            : null,
-        Expanded(
-            child: Container(
-                padding: const EdgeInsets.only(left: 10.0, right: 12.0),
-                child: Text(
-                  this.searchResult.result.snippet,
-                  style: theme.textTheme.body1,
-                  textAlign: TextAlign.left,
-                ))),
-      ]),
-    );
+    bool haveThumbnail = this.searchResult.result.pagemap['thumbnail'] != null;
+    if (!haveThumbnail) {
+      return Container(
+        padding: const EdgeInsets.only(
+          left: 14.0,
+          bottom: 8.0,
+        ),
+        child: Container(
+            padding: const EdgeInsets.only(right: 6.0),
+            child: Text(
+              this.searchResult.result.snippet,
+              style: theme.textTheme.body1,
+              textAlign: TextAlign.left,
+            )),
+      );
+    } else {
+      return Container(
+        padding: const EdgeInsets.only(
+          left: 15.0,
+          bottom: 8.0,
+        ),
+        child: new Row(children: [
+          Image.network(
+              this.searchResult.result.pagemap['thumbnail'][0]['src']),
+          Expanded(
+              child: Container(
+                  padding: const EdgeInsets.only(left: 10.0, right: 12.0),
+                  child: Text(
+                    this.searchResult.result.snippet,
+                    style: theme.textTheme.body1,
+                    textAlign: TextAlign.left,
+                  ))),
+        ]),
+      );
+    }
   }
 
   Widget _buildSimpleLayout(BuildContext context) {
@@ -163,18 +181,11 @@ class CustomSearchSearchDelegate extends SearchDelegate<SearchResult> {
         this.autoCompleteDataSource,
         this.searchType = SearchType.image});
 
-  CustomSearchSearchDelegate.fakeStaticWebSearchSource() {
-    this.dataSource = FakeSearchDataSource.loadWebSearchResultFromAsset();
+  CustomSearchSearchDelegate.fakeStaticSource() {
+    this.dataSource = FakeSearchDataSource();
     this.autoCompleteDataSource = CommonEnglishWordAutoCompleteDataSource();
     this.searchType = SearchType.web;
   }
-
-  CustomSearchSearchDelegate.fakeStaticImageSearchSource() {
-    this.dataSource = FakeSearchDataSource.loadImageSearchResultFromAsset();
-    this.autoCompleteDataSource = CommonEnglishWordAutoCompleteDataSource();
-    this.searchType = SearchType.image;
-  }
-
   @override
   ThemeData appBarTheme(BuildContext context) {
     final ThemeData theme = Theme.of(context);
@@ -269,6 +280,7 @@ class CustomSearchSearchDelegate extends SearchDelegate<SearchResult> {
                           searchDelegate: this);
                     }));
               case SearchType.web:
+                print(snapshot.data.length);
                 return ListView.builder(
                     itemCount: snapshot.data.length,
                     itemBuilder: (BuildContext context, int index) {

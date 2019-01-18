@@ -10,7 +10,7 @@ class CustomImageSearchDemo extends StatefulWidget {
 
 class _CustomImageSearchDemoState extends State<CustomImageSearchDemo> {
   final CustomSearchSearchDelegate _delegate =
-      CustomSearchSearchDelegate.fakeStaticImageSearchSource();
+  CustomSearchSearchDelegate.fakeStaticSource();
 
 //  final CustomSearchSearchDelegate _delegate =
 //      new CustomSearchSearchDelegate.imageSearch(

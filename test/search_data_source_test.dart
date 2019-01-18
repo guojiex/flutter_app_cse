@@ -7,7 +7,7 @@ void main() {
     await new File('../res/sampledata/nytimes_sample_data.json')
         .readAsString()
         .then((String contents) {
-      var dataSource = FakeSearchDataSource(jsonString: contents);
+      var dataSource = FakeSearchDataSource();
       dataSource.search('whatever').then((searchResult) {
         searchResult.forEach((result) => print(result));
       });

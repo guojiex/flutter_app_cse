@@ -9,7 +9,7 @@ class CustomWebSearchDemo extends StatefulWidget {
 
 class _CustomWebSearchDemoState extends State<CustomWebSearchDemo> {
   final CustomSearchSearchDelegate _delegate = CustomSearchSearchDelegate
-      .fakeStaticWebSearchSource();
+      .fakeStaticSource();
 
 //  final CustomSearchSearchDelegate _delegate = new CustomSearchSearchDelegate(
 //      dataSource: CustomSearchDataSource(cx: '', apiKey: ''),

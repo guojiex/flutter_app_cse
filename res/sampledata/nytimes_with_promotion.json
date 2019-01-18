@@ -1,0 +1,1490 @@
+{
+  "kind": "customsearch#search",
+  "url": {
+    "type": "application/json",
+    "template": "https://www.googleapis.com/customsearch/v1?q={searchTerms}&num={count?}&start={startIndex?}&lr={language?}&safe={safe?}&cx={cx?}&sort={sort?}&filter={filter?}&gl={gl?}&cr={cr?}&googlehost={googleHost?}&c2coff={disableCnTwTranslation?}&hq={hq?}&hl={hl?}&siteSearch={siteSearch?}&siteSearchFilter={siteSearchFilter?}&exactTerms={exactTerms?}&excludeTerms={excludeTerms?}&linkSite={linkSite?}&orTerms={orTerms?}&relatedSite={relatedSite?}&dateRestrict={dateRestrict?}&lowRange={lowRange?}&highRange={highRange?}&searchType={searchType}&fileType={fileType?}&rights={rights?}&imgSize={imgSize?}&imgType={imgType?}&imgColorType={imgColorType?}&imgDominantColor={imgDominantColor?}&alt=json"
+  },
+  "queries": {
+    "request": [
+      {
+        "title": "Google Custom Search - promotion",
+        "totalResults": "8790000",
+        "searchTerms": "promotion",
+        "count": 10,
+        "startIndex": 1,
+        "inputEncoding": "utf8",
+        "outputEncoding": "utf8",
+        "safe": "off",
+        "cx": "008795855128244970711:kjakhreto4s"
+      }
+    ],
+    "nextPage": [
+      {
+        "title": "Google Custom Search - promotion",
+        "totalResults": "8790000",
+        "searchTerms": "promotion",
+        "count": 10,
+        "startIndex": 11,
+        "inputEncoding": "utf8",
+        "outputEncoding": "utf8",
+        "safe": "off",
+        "cx": "008795855128244970711:kjakhreto4s"
+      }
+    ]
+  },
+  "promotions": [
+    {
+      "title": "test promotion",
+      "htmlTitle": "test \u003cb\u003epromotion\u003c/b\u003e",
+      "link": "http://guojiex.github.io/",
+      "displayLink": "guojiex.github.io",
+      "bodyLines": [
+        {
+          "title": "a test promotion desp",
+          "htmlTitle": "a test \u003cb\u003epromotion\u003c/b\u003e desp",
+          "url": "",
+          "link": ""
+        }
+      ],
+      "image": {
+        "source": "//images1-prose-opensocial.googleusercontent.com/gadgets/proxy?url=https://avatars2.githubusercontent.com/u/5022480%3Fs%3D400%26u%3D4e1d662c77ac14e14f7a0387aca08728a22ee587%26v%3D4&container=prose&gadget=a&rewriteMime=image/*&resize_w=40&resize_h=40&no_expand=1",
+        "width": 40,
+        "height": 40
+      }
+    }
+  ],
+  "context": {
+    "title": "Nytimes with promotion"
+  },
+  "searchInformation": {
+    "searchTime": 0.364843,
+    "formattedSearchTime": "0.36",
+    "totalResults": "8790000",
+    "formattedTotalResults": "8,790,000"
+  },
+  "items": [
+    {
+      "kind": "customsearch#result",
+      "title": "Congratulations on the Promotion. But Did Science Get a Demotion ...",
+      "htmlTitle": "Congratulations on the \u003cb\u003ePromotion\u003c/b\u003e. But Did Science Get a Demotion ...",
+      "link": "https://www.nytimes.com/2018/12/31/upshot/congratulations-on-the-promotion-but-did-science-get-a-demotion.html",
+      "displayLink": "www.nytimes.com",
+      "snippet": "Dec 31, 2018 ... The incentives of grant funding and career advancement, even the potential for \nfame, can influence researchers.",
+      "htmlSnippet": "Dec 31, 2018 \u003cb\u003e...\u003c/b\u003e The incentives of grant funding and career advancement, even the potential for \u003cbr\u003e\nfame, can influence researchers.",
+      "formattedUrl": "https://www.nytimes.com/.../congratulations-on-the-promotion-but-did- science-get-a-demotion.html",
+      "htmlFormattedUrl": "https://www.nytimes.com/.../congratulations-on-the-\u003cb\u003epromotion\u003c/b\u003e-but-did- science-get-a-demotion.html",
+      "pagemap": {
+        "thumbnail": [
+          {
+            "src": "https://static01.nyt.com/images/2018/12/25/upshot/up-healthbias6/up-healthbias6-thumbStandard.jpg"
+          }
+        ],
+        "metatags": [
+          {
+            "article:published": "2018-12-31T10:00:01.000Z",
+            "article:modified": "2019-01-01T07:40:05.970Z",
+            "articleid": "100000006270955",
+            "nyt_uri": "nyt://article/4e688752-27ee-597b-866a-396dfb87dc60",
+            "pubp_event_id": "pubp://event/af2688c5d6134f729206d1042d286810",
+            "image": "https://static01.nyt.com/images/2018/12/25/upshot/up-healthbias6/up-healthbias6-facebookJumbo.jpg",
+            "byl": "By Aaron E. Carroll",
+            "thumbnail": "https://static01.nyt.com/images/2018/12/25/upshot/up-healthbias6/up-healthbias6-thumbStandard.jpg",
+            "news_keywords": "Research,Conflict of interest,Academic and Scientific Journals",
+            "usageterms": "http://www.nytimes.com/content/help/rights/sale/terms-of-sale.html",
+            "pdate": "20181231",
+            "og:url": "https://www.nytimes.com/2018/12/31/upshot/congratulations-on-the-promotion-but-did-science-get-a-demotion.html",
+            "og:type": "article",
+            "og:title": "Congratulations on the Promotion. But Did Science Get a Demotion?",
+            "og:image": "https://static01.nyt.com/images/2018/12/25/upshot/up-healthbias6/up-healthbias6-facebookJumbo.jpg",
+            "og:description": "The incentives of grant funding and career advancement, even the potential for fame, can influence researchers.",
+            "twitter:url": "https://www.nytimes.com/2018/12/31/upshot/congratulations-on-the-promotion-but-did-science-get-a-demotion.html",
+            "twitter:title": "Congratulations on the Promotion. But Did Science Get a Demotion?",
+            "twitter:description": "The incentives of grant funding and career advancement, even the potential for fame, can influence researchers.",
+            "twitter:image": "https://static01.nyt.com/images/2018/12/25/upshot/up-healthbias6/up-healthbias6-videoSixteenByNineJumbo1600.jpg",
+            "twitter:image:alt": "Research itself has been coming under scrutiny.",
+            "twitter:card": "summary_large_image",
+            "article:section": "The Upshot",
+            "article:tag": "Research",
+            "cg": "upshot",
+            "cn": "the-new-health-care",
+            "pt": "article",
+            "pst": "News",
+            "genre": "News",
+            "url": "https://www.nytimes.com/2018/12/31/upshot/congratulations-on-the-promotion-but-did-science-get-a-demotion.html",
+            "msapplication-starturl": "https://www.nytimes.com",
+            "al:android:url": "nytimes://reader/id/100000006270955",
+            "al:android:package": "com.nytimes.android",
+            "al:android:app_name": "NYTimes",
+            "twitter:app:name:googleplay": "NYTimes",
+            "twitter:app:id:googleplay": "com.nytimes.android",
+            "twitter:app:url:googleplay": "nytimes://reader/id/100000006270955",
+            "al:iphone:url": "nytimes://www.nytimes.com/2018/12/31/upshot/congratulations-on-the-promotion-but-did-science-get-a-demotion.html",
+            "al:iphone:app_store_id": "284862083",
+            "al:iphone:app_name": "NYTimes",
+            "al:ipad:url": "nytimes://www.nytimes.com/2018/12/31/upshot/congratulations-on-the-promotion-but-did-science-get-a-demotion.html",
+            "al:ipad:app_store_id": "357066198",
+            "al:ipad:app_name": "NYTimes",
+            "viewport": "width=device-width, initial-scale=1, maximum-scale=1",
+            "fb:app_id": "9869919170"
+          }
+        ],
+        "newsarticle": [
+          {
+            "inlanguage": "en-US",
+            "datepublished": "2018-12-31T10:00:01.000Z",
+            "datemodified": "2019-01-01T07:40:05.970Z",
+            "identifier": "100000006270955",
+            "description": "The incentives of grant funding and career advancement, even the potential for fame, can influence researchers.",
+            "image": "https://static01.nyt.com/images/2018/12/25/upshot/up-healthbias6/up-healthbias6-facebookJumbo.jpg",
+            "thumbnailurl": "https://static01.nyt.com/images/2018/12/25/upshot/up-healthbias6/up-healthbias6-thumbStandard.jpg",
+            "usageterms": "http://www.nytimes.com/content/help/rights/sale/terms-of-sale.html",
+            "articlesection": "The Upshot",
+            "genre": "News",
+            "url": "https://www.nytimes.com/2018/12/31/upshot/congratulations-on-the-promotion-but-did-science-get-a-demotion.html",
+            "headline": "Congratulations on the Promotion. But Did Science Get a Demotion?Congratulations on the Promotion. But Did Science Get a Demotion?",
+            "copyrightholder": "CreditGeorge Etheredge for The New York Times",
+            "name": "Aaron E. Carroll",
+            "articlebody": "A number of recent news articles have brought renewed attention to financial conflicts of interest in medical science. Physicians and medical administrators had financial links to companies...",
+            "copyrightyear": "2019"
+          }
+        ],
+        "imageobject": [
+          {
+            "url": "https://static01.nyt.com/images/2018/12/25/upshot/up-healthbias6/up-healthbias6-articleLarge.jpg?quality=75&auto=webp&disable=upscale",
+            "caption": "Research itself has been coming under scrutiny. CreditCreditGeorge Etheredge for The New York Times",
+            "description": "Research itself has been coming under scrutiny. CreditCreditGeorge Etheredge for The New York Times",
+            "copyrightholder": "CreditCreditGeorge Etheredge for The New York Times"
+          },
+          {
+            "url": "https://static01.nyt.com/images/2018/12/25/upshot/25up-healthbias1/merlin_144044454_444f69b6-779d-4ebf-9c23-ea32c96c83d7-articleLarge.jpg?quality=75&auto=webp&disable=upscale",
+            "caption": "In 2018, Cornell University removed Brian Wansink from all teaching and research positions, saying he had committed academic misconduct. He had gained a measure of fame as a food researcher....",
+            "description": "In 2018, Cornell University removed Brian Wansink from all teaching and research positions, saying he had committed academic misconduct. He had gained a measure of fame as a food researcher....",
+            "copyrightholder": "CreditMike Groll/Associated Press"
+          }
+        ],
+        "organization": [
+          {
+            "name": "The New York Times Company"
+          }
+        ],
+        "cse_image": [
+          {
+            "src": "https://static01.nyt.com/images/2018/12/25/upshot/up-healthbias6/up-healthbias6-thumbStandard.jpg",
+            "type": "1",
+            "width": "75",
+            "height": "75"
+          }
+        ]
+      }
+    },
+    {
+      "kind": "customsearch#result",
+      "title": "Opinion | The DeVos School for the Promotion of Student Debt - The ...",
+      "htmlTitle": "Opinion | The DeVos School for the \u003cb\u003ePromotion\u003c/b\u003e of Student Debt - The ...",
+      "link": "https://www.nytimes.com/2018/08/26/opinion/editorials/betsy-devos-student-debt.html",
+      "displayLink": "www.nytimes.com",
+      "snippet": "Aug 26, 2018 ... The rules also require for-profit programs to make clear in their promotional \nmaterials whether or not they meet federal job-placement standards ...",
+      "htmlSnippet": "Aug 26, 2018 \u003cb\u003e...\u003c/b\u003e The rules also require for-profit programs to make clear in their \u003cb\u003epromotional\u003c/b\u003e \u003cbr\u003e\nmaterials whether or not they meet federal job-placement standards&nbsp;...",
+      "formattedUrl": "https://www.nytimes.com/2018/08/26/.../betsy-devos-student-debt.html",
+      "htmlFormattedUrl": "https://www.nytimes.com/2018/08/26/.../betsy-devos-student-debt.html",
+      "pagemap": {
+        "thumbnail": [
+          {
+            "src": "https://static01.nyt.com/images/2018/09/26/opinion/26devos/26devos-thumbStandard.jpg"
+          }
+        ],
+        "metatags": [
+          {
+            "article:published": "2018-08-27T00:49:23.000Z",
+            "article:modified": "2018-08-30T04:37:37.157Z",
+            "articleid": "100000006065477",
+            "nyt_uri": "nyt://article/43876111-45d7-55bb-ae88-2ef773a4e4d1",
+            "pubp_event_id": "pubp://event/2c0549a7d4574548b0f698d8315a375b",
+            "image": "https://static01.nyt.com/images/2018/09/26/opinion/26devos/26devos-facebookJumbo.jpg",
+            "byl": "By The Editorial Board",
+            "thumbnail": "https://static01.nyt.com/images/2018/09/26/opinion/26devos/26devos-thumbStandard.jpg",
+            "news_keywords": "For-profit education,College,US Politics,US Department of Education,Betsy Devos,Student loan",
+            "usageterms": "http://www.nytimes.com/content/help/rights/sale/terms-of-sale.html",
+            "pdate": "20180826",
+            "og:url": "https://www.nytimes.com/2018/08/26/opinion/editorials/betsy-devos-student-debt.html",
+            "og:type": "article",
+            "og:title": "Opinion | The DeVos School for the Promotion of Student Debt",
+            "og:image": "https://static01.nyt.com/images/2018/09/26/opinion/26devos/26devos-facebookJumbo.jpg",
+            "og:description": "The education secretary is working hard to protect the scandal-ridden for-profit education industry from accountability.",
+            "twitter:url": "https://www.nytimes.com/2018/08/26/opinion/editorials/betsy-devos-student-debt.html",
+            "twitter:title": "Opinion | The DeVos School for the Promotion of Student Debt",
+            "twitter:description": "The education secretary is working hard to protect the scandal-ridden for-profit education industry from accountability.",
+            "twitter:image": "https://static01.nyt.com/images/2018/09/26/opinion/26devos/26devos-videoSixteenByNineJumbo1600.jpg",
+            "twitter:card": "summary_large_image",
+            "article:section": "Opinion",
+            "article:author": "http://www.nytimes.com/interactive/opinion/editorialboard.html",
+            "article:tag": "For-Profit Schools",
+            "cg": "opinion",
+            "scg": "editorials",
+            "pt": "article",
+            "pst": "Editorial",
+            "genre": "Editorial",
+            "url": "https://www.nytimes.com/2018/08/26/opinion/editorials/betsy-devos-student-debt.html",
+            "msapplication-starturl": "https://www.nytimes.com",
+            "al:android:url": "nytimes://reader/id/100000006065477",
+            "al:android:package": "com.nytimes.android",
+            "al:android:app_name": "NYTimes",
+            "twitter:app:name:googleplay": "NYTimes",
+            "twitter:app:id:googleplay": "com.nytimes.android",
+            "twitter:app:url:googleplay": "nytimes://reader/id/100000006065477",
+            "al:iphone:url": "nytimes://www.nytimes.com/2018/08/26/opinion/editorials/betsy-devos-student-debt.html",
+            "al:iphone:app_store_id": "284862083",
+            "al:iphone:app_name": "NYTimes",
+            "al:ipad:url": "nytimes://www.nytimes.com/2018/08/26/opinion/editorials/betsy-devos-student-debt.html",
+            "al:ipad:app_store_id": "357066198",
+            "al:ipad:app_name": "NYTimes",
+            "viewport": "width=device-width, initial-scale=1, maximum-scale=1",
+            "fb:app_id": "9869919170"
+          }
+        ],
+        "newsarticle": [
+          {
+            "inlanguage": "en-US",
+            "datepublished": "2018-08-27T00:49:23.000Z",
+            "datemodified": "2018-08-30T04:37:37.157Z",
+            "identifier": "100000006065477",
+            "description": "The education secretary is working hard to protect the scandal-ridden for-profit education industry from accountability.",
+            "image": "https://static01.nyt.com/images/2018/09/26/opinion/26devos/26devos-facebookJumbo.jpg",
+            "thumbnailurl": "https://static01.nyt.com/images/2018/09/26/opinion/26devos/26devos-thumbStandard.jpg",
+            "usageterms": "http://www.nytimes.com/content/help/rights/sale/terms-of-sale.html",
+            "articlesection": "Opinion",
+            "genre": "Editorial",
+            "url": "https://www.nytimes.com/2018/08/26/opinion/editorials/betsy-devos-student-debt.html",
+            "headline": "The DeVos School for the Promotion of Student DebtThe DeVos School for the Promotion of Student Debt",
+            "name": "The Editorial Board",
+            "copyrightholder": "CreditGrace Heejung Kim",
+            "articlebody": "Say this for Betsy DeVos: The secretary of education has shown an impressive commitment to rescuing her friends in the for-profit college business from pesky measures to rein in their predatory...",
+            "copyrightyear": "2019"
+          }
+        ],
+        "imageobject": [
+          {
+            "url": "https://static01.nyt.com/images/2018/09/26/opinion/26devos/merlin_142928514_28cb997b-a075-4ff4-bae4-e7e612d73ff8-articleLarge.jpg?quality=75&auto=webp&disable=upscale",
+            "caption": "CreditCreditGrace Heejung Kim",
+            "description": "CreditCreditGrace Heejung Kim",
+            "copyrightholder": "CreditCreditGrace Heejung Kim"
+          }
+        ],
+        "organization": [
+          {
+            "name": "The New York Times Company"
+          }
+        ],
+        "cse_image": [
+          {
+            "src": "https://static01.nyt.com/images/2018/09/26/opinion/26devos/26devos-thumbStandard.jpg",
+            "type": "1",
+            "width": "75",
+            "height": "75"
+          }
+        ]
+      }
+    },
+    {
+      "kind": "customsearch#result",
+      "title": "Tackling 'the Thin File' That Can Prevent a Promotion - The New ...",
+      "htmlTitle": "Tackling &#39;the Thin File&#39; That Can Prevent a \u003cb\u003ePromotion\u003c/b\u003e - The New ...",
+      "link": "https://www.nytimes.com/2017/10/03/business/women-minority-promotion.html",
+      "displayLink": "www.nytimes.com",
+      "snippet": "Oct 3, 2017 ... Evidence points to a promotion gap between white men and other groups, \nindicating preferential treatment for those who most resemble the ...",
+      "htmlSnippet": "Oct 3, 2017 \u003cb\u003e...\u003c/b\u003e Evidence points to a \u003cb\u003epromotion\u003c/b\u003e gap between white men and other groups, \u003cbr\u003e\nindicating preferential treatment for those who most resemble the&nbsp;...",
+      "formattedUrl": "https://www.nytimes.com/2017/10/03/.../women-minority-promotion.html",
+      "htmlFormattedUrl": "https://www.nytimes.com/2017/10/03/.../women-minority-\u003cb\u003epromotion\u003c/b\u003e.html",
+      "pagemap": {
+        "thumbnail": [
+          {
+            "src": "https://static01.nyt.com/images/2017/10/04/world/04IRIS-INYT/04IRIS-INYT-thumbStandard.jpg"
+          }
+        ],
+        "metatags": [
+          {
+            "article:published": "2017-10-03T09:00:26.000Z",
+            "article:modified": "2017-12-22T08:37:39.714Z",
+            "articleid": "100000005350404",
+            "nyt_uri": "nyt://article/266690bd-032b-55ad-8ce7-00f484063da6",
+            "pubp_event_id": "pubp://event/840e45dedb0541588e67432346c41675",
+            "image": "https://static01.nyt.com/images/2017/10/04/world/04IRIS-INYT/04IRIS-INYT-facebookJumbo.jpg",
+            "byl": "By Iris Bohnet",
+            "thumbnail": "https://static01.nyt.com/images/2017/10/04/world/04IRIS-INYT/04IRIS-INYT-thumbStandard.jpg",
+            "news_keywords": "Job Recruiting and Hiring,Women and Girls,Careers and Professions,Workplace",
+            "usageterms": "http://www.nytimes.com/content/help/rights/sale/terms-of-sale.html",
+            "pdate": "20171003",
+            "og:url": "https://www.nytimes.com/2017/10/03/business/women-minority-promotion.html",
+            "og:type": "article",
+            "og:title": "Tackling ‘the Thin File’ That Can Prevent a Promotion",
+            "og:image": "https://static01.nyt.com/images/2017/10/04/world/04IRIS-INYT/04IRIS-INYT-facebookJumbo.jpg",
+            "og:description": "Evidence points to a promotion gap between white men and other groups, indicating preferential treatment for those who most resemble the people in charge.",
+            "twitter:url": "https://www.nytimes.com/2017/10/03/business/women-minority-promotion.html",
+            "twitter:title": "Tackling ‘the Thin File’ That Can Prevent a Promotion",
+            "twitter:description": "Evidence points to a promotion gap between white men and other groups, indicating preferential treatment for those who most resemble the people in charge.",
+            "twitter:image": "https://static01.nyt.com/images/2017/10/04/world/04IRIS-INYT/04IRIS-INYT-videoSixteenByNineJumbo1600.jpg",
+            "twitter:image:alt": "A class at Harvard Law School. Data shows a promotion gap in law firms between white men and traditionally disadvantaged groups.",
+            "twitter:card": "summary_large_image",
+            "article:section": "Business",
+            "article:tag": "Hiring and Promotion",
+            "cg": "business",
+            "cn": "women-today",
+            "ct": "spotlight",
+            "pt": "article",
+            "pst": "News",
+            "genre": "News",
+            "url": "https://www.nytimes.com/2017/10/03/business/women-minority-promotion.html",
+            "msapplication-starturl": "https://www.nytimes.com",
+            "al:android:url": "nytimes://reader/id/100000005350404",
+            "al:android:package": "com.nytimes.android",
+            "al:android:app_name": "NYTimes",
+            "twitter:app:name:googleplay": "NYTimes",
+            "twitter:app:id:googleplay": "com.nytimes.android",
+            "twitter:app:url:googleplay": "nytimes://reader/id/100000005350404",
+            "al:iphone:url": "nytimes://www.nytimes.com/2017/10/03/business/women-minority-promotion.html",
+            "al:iphone:app_store_id": "284862083",
+            "al:iphone:app_name": "NYTimes",
+            "al:ipad:url": "nytimes://www.nytimes.com/2017/10/03/business/women-minority-promotion.html",
+            "al:ipad:app_store_id": "357066198",
+            "al:ipad:app_name": "NYTimes",
+            "viewport": "width=device-width, initial-scale=1, maximum-scale=1",
+            "fb:app_id": "9869919170"
+          }
+        ],
+        "newsarticle": [
+          {
+            "inlanguage": "en-US",
+            "datepublished": "2017-10-03T09:00:26.000Z",
+            "datemodified": "2017-12-22T08:37:39.714Z",
+            "identifier": "100000005350404",
+            "description": "Evidence points to a promotion gap between white men and other groups, indicating preferential treatment for those who most resemble the people in charge.",
+            "image": "https://static01.nyt.com/images/2017/10/04/world/04IRIS-INYT/04IRIS-INYT-facebookJumbo.jpg",
+            "thumbnailurl": "https://static01.nyt.com/images/2017/10/04/world/04IRIS-INYT/04IRIS-INYT-thumbStandard.jpg",
+            "usageterms": "http://www.nytimes.com/content/help/rights/sale/terms-of-sale.html",
+            "articlesection": "Business",
+            "genre": "News",
+            "url": "https://www.nytimes.com/2017/10/03/business/women-minority-promotion.html",
+            "headline": "Tackling ‘the Thin File’ That Can Prevent a PromotionTackling ‘the Thin File’ That Can Prevent a Promotion",
+            "copyrightholder": "CreditBrooks Kraft LLC/Corbis, via Getty Images",
+            "name": "Iris Bohnet",
+            "articlebody": "Recently, I have worked with a number of professional services firms committed to equality, diversity and inclusion. Many offer diversity training and leadership development programs, and many...",
+            "copyrightyear": "2019"
+          }
+        ],
+        "imageobject": [
+          {
+            "url": "https://static01.nyt.com/images/2017/10/04/world/04IRIS-INYT/04IRIS-INYT-articleInline.jpg?quality=75&auto=webp&disable=upscale",
+            "caption": "A class at Harvard Law School. Data shows a promotion gap in law firms between white men and traditionally disadvantaged groups.CreditCreditBrooks Kraft LLC/Corbis, via Getty Images",
+            "description": "A class at Harvard Law School. Data shows a promotion gap in law firms between white men and traditionally disadvantaged groups.CreditCreditBrooks Kraft LLC/Corbis, via Getty Images",
+            "copyrightholder": "CreditCreditBrooks Kraft LLC/Corbis, via Getty Images"
+          },
+          {
+            "url": "https://static01.nyt.com/images/2017/10/04/world/04IRIS-INYT1/04IRIS-INYT1-articleInline.jpg?quality=75&auto=webp&disable=upscale",
+            "caption": "Iris Bohnet is a behavioral economist and professor at Harvard Kennedy School.CreditTony Luong for The New York Times",
+            "description": "Iris Bohnet is a behavioral economist and professor at Harvard Kennedy School.CreditTony Luong for The New York Times",
+            "copyrightholder": "CreditTony Luong for The New York Times"
+          },
+          {
+            "url": "https://static01.nyt.com/images/2017/10/04/arts/04IRISQANDA-INYT/04IRISQANDA-INYT-thumbLarge.jpg?quality=75&auto=webp&disable=upscale"
+          },
+          {
+            "url": "https://static01.nyt.com/images/2017/01/25/business/00WOMENWORK1/00WOMENWORK1-thumbLarge.jpg?quality=75&auto=webp&disable=upscale"
+          },
+          {
+            "url": "https://static01.nyt.com/images/2017/05/15/business/17up-paygap-illo/00up-paygap-illo-thumbLarge.jpg?quality=75&auto=webp&disable=upscale"
+          }
+        ],
+        "organization": [
+          {
+            "name": "The New York Times Company"
+          }
+        ],
+        "cse_image": [
+          {
+            "src": "https://static01.nyt.com/images/2017/10/04/world/04IRIS-INYT/04IRIS-INYT-thumbStandard.jpg",
+            "type": "1",
+            "width": "75",
+            "height": "75"
+          }
+        ]
+      }
+    },
+    {
+      "kind": "customsearch#result",
+      "title": "A Sudden Promotion Raises Questions in the Brussels Bubble - The ...",
+      "htmlTitle": "A Sudden \u003cb\u003ePromotion\u003c/b\u003e Raises Questions in the Brussels Bubble - The ...",
+      "link": "https://www.nytimes.com/2018/03/11/world/europe/eu-martin-selmayr-commission.html",
+      "displayLink": "www.nytimes.com",
+      "snippet": "Mar 11, 2018 ... BRUSSELS — Martin Selmayr is hardly a household name, but his personality \nand his ambitions are preoccupying the Brussels bubble of the ...",
+      "htmlSnippet": "Mar 11, 2018 \u003cb\u003e...\u003c/b\u003e BRUSSELS — Martin Selmayr is hardly a household name, but his personality \u003cbr\u003e\nand his ambitions are preoccupying the Brussels bubble of the&nbsp;...",
+      "formattedUrl": "https://www.nytimes.com/2018/03/11/.../eu-martin-selmayr-commission.html",
+      "htmlFormattedUrl": "https://www.nytimes.com/2018/03/11/.../eu-martin-selmayr-commission.html",
+      "pagemap": {
+        "thumbnail": [
+          {
+            "src": "https://static01.nyt.com/images/2018/03/12/world/12Selmayr1/12Selmayr1-thumbStandard.jpg"
+          }
+        ],
+        "metatags": [
+          {
+            "article:published": "2018-03-11T14:21:56.000Z",
+            "article:modified": "2018-10-10T21:44:07.302Z",
+            "articleid": "100000005787871",
+            "nyt_uri": "nyt://article/03180700-da64-5453-9afc-cd5aee89f10b",
+            "pubp_event_id": "pubp://event/ff961f1d469b43e3af6571aa5a638a81",
+            "image": "https://static01.nyt.com/images/2018/03/12/world/12Selmayr1/12Selmayr1-facebookJumbo.jpg",
+            "byl": "By Steven Erlanger",
+            "thumbnail": "https://static01.nyt.com/images/2018/03/12/world/12Selmayr1/12Selmayr1-thumbStandard.jpg",
+            "news_keywords": "Martin Selmayr,European Commission,Appointments and Executive Changes,Politics,Job Recruiting and Hiring,Europe",
+            "usageterms": "http://www.nytimes.com/content/help/rights/sale/terms-of-sale.html",
+            "pdate": "20180311",
+            "og:url": "https://www.nytimes.com/2018/03/11/world/europe/eu-martin-selmayr-commission.html",
+            "og:type": "article",
+            "og:title": "A Sudden Promotion Raises Questions in the Brussels Bubble",
+            "og:image": "https://static01.nyt.com/images/2018/03/12/world/12Selmayr1/12Selmayr1-facebookJumbo.jpg",
+            "og:description": "The quick, quiet rise of Martin Selmayr, a German lawyer, to become secretary general of the European Commission has raised eyebrows — and hackles.",
+            "twitter:url": "https://www.nytimes.com/2018/03/11/world/europe/eu-martin-selmayr-commission.html",
+            "twitter:title": "A Sudden Promotion Raises Questions in the Brussels Bubble",
+            "twitter:description": "The quick, quiet rise of Martin Selmayr, a German lawyer, to become secretary general of the European Commission has raised eyebrows — and hackles.",
+            "twitter:image": "https://static01.nyt.com/images/2018/03/12/world/12Selmayr1/12Selmayr1-videoSixteenByNineJumbo1600.jpg",
+            "twitter:image:alt": "The European Parliament is scheduled to debate on Monday the quick, quiet rise of Martin Selmayr, the chief of staff of the European Commission&rsquo",
+            "twitter:card": "summary_large_image",
+            "article:section": "World",
+            "article:tag": "Selmayr, Martin",
+            "cg": "world",
+            "scg": "europe",
+            "pt": "article",
+            "pst": "News",
+            "genre": "News",
+            "url": "https://www.nytimes.com/2018/03/11/world/europe/eu-martin-selmayr-commission.html",
+            "msapplication-starturl": "https://www.nytimes.com",
+            "al:android:url": "nytimes://reader/id/100000005787871",
+            "al:android:package": "com.nytimes.android",
+            "al:android:app_name": "NYTimes",
+            "twitter:app:name:googleplay": "NYTimes",
+            "twitter:app:id:googleplay": "com.nytimes.android",
+            "twitter:app:url:googleplay": "nytimes://reader/id/100000005787871",
+            "al:iphone:url": "nytimes://www.nytimes.com/2018/03/11/world/europe/eu-martin-selmayr-commission.html",
+            "al:iphone:app_store_id": "284862083",
+            "al:iphone:app_name": "NYTimes",
+            "al:ipad:url": "nytimes://www.nytimes.com/2018/03/11/world/europe/eu-martin-selmayr-commission.html",
+            "al:ipad:app_store_id": "357066198",
+            "al:ipad:app_name": "NYTimes",
+            "viewport": "width=device-width, initial-scale=1, maximum-scale=1",
+            "fb:app_id": "9869919170"
+          }
+        ],
+        "newsarticle": [
+          {
+            "inlanguage": "en-US",
+            "datepublished": "2018-03-11T14:21:56.000Z",
+            "datemodified": "2018-10-10T21:44:07.302Z",
+            "identifier": "100000005787871",
+            "description": "The quick, quiet rise of Martin Selmayr, a German lawyer, to become secretary general of the European Commission has raised eyebrows — and hackles.",
+            "image": "https://static01.nyt.com/images/2018/03/12/world/12Selmayr1/12Selmayr1-facebookJumbo.jpg",
+            "thumbnailurl": "https://static01.nyt.com/images/2018/03/12/world/12Selmayr1/12Selmayr1-thumbStandard.jpg",
+            "usageterms": "http://www.nytimes.com/content/help/rights/sale/terms-of-sale.html",
+            "articlesection": "World",
+            "genre": "News",
+            "url": "https://www.nytimes.com/2018/03/11/world/europe/eu-martin-selmayr-commission.html",
+            "headline": "A Sudden Promotion Raises Questions in the Brussels BubbleA Sudden Promotion Raises Questions in the Brussels Bubble",
+            "copyrightholder": "CreditEric Vidal/Reuters",
+            "name": "Steven Erlanger",
+            "articlebody": "BRUSSELS — Martin Selmayr is hardly a household name, but his personality and his ambitions are preoccupying the Brussels bubble of the European Union in the twilight years of Jean-Claude...",
+            "copyrightyear": "2019"
+          }
+        ],
+        "imageobject": [
+          {
+            "url": "https://static01.nyt.com/images/2018/03/12/world/12Selmayr1/merlin_135124704_f8a2dc68-362e-4d3b-9148-4eb01f25f06a-articleLarge.jpg?quality=75&auto=webp&disable=upscale",
+            "caption": "The European Parliament is scheduled to debate on Monday the quick, quiet rise of Martin Selmayr, the chief of staff of the European Commission’s president.CreditCreditEric Vidal/Reuters",
+            "description": "The European Parliament is scheduled to debate on Monday the quick, quiet rise of Martin Selmayr, the chief of staff of the European Commission’s president.CreditCreditEric Vidal/Reuters",
+            "copyrightholder": "CreditCreditEric Vidal/Reuters"
+          },
+          {
+            "url": "https://static01.nyt.com/images/2018/03/12/world/12Selmayr2/merlin_134757402_b241cf41-7e9e-4756-9f62-a8d0a34c0199-articleLarge.jpg?quality=75&auto=webp&disable=upscale",
+            "caption": "Jean-Claude Juncker, right, the European Commission president, is expected to step down next year.CreditDimitar Dilkoff/Agence France-Presse — Getty Images",
+            "description": "Jean-Claude Juncker, right, the European Commission president, is expected to step down next year.CreditDimitar Dilkoff/Agence France-Presse — Getty Images",
+            "copyrightholder": "CreditDimitar Dilkoff/Agence France-Presse — Getty Images"
+          },
+          {
+            "url": "https://static01.nyt.com/images/2017/10/18/world/18konstandaras-inyt/18konstandaras-inyt-thumbLarge.jpg?quality=75&auto=webp&disable=upscale"
+          },
+          {
+            "url": "https://static01.nyt.com/images/2014/09/11/business/11eucommission-pic1/11eucommission-pic1-thumbLarge.jpg?quality=75&auto=webp&disable=upscale"
+          }
+        ],
+        "organization": [
+          {
+            "name": "The New York Times Company"
+          }
+        ],
+        "cse_image": [
+          {
+            "src": "https://static01.nyt.com/images/2018/03/12/world/12Selmayr1/12Selmayr1-thumbStandard.jpg",
+            "type": "1",
+            "width": "75",
+            "height": "75"
+          }
+        ]
+      }
+    },
+    {
+      "kind": "customsearch#result",
+      "title": "Misty Copeland Is Promoted to Principal Dancer at American Ballet ...",
+      "htmlTitle": "Misty Copeland Is \u003cb\u003ePromoted\u003c/b\u003e to Principal Dancer at American Ballet ...",
+      "link": "https://www.nytimes.com/2015/07/01/arts/dance/misty-copeland-is-promoted-to-principal-dancer-at-american-ballet-theater.html",
+      "displayLink": "www.nytimes.com",
+      "snippet": "Jun 30, 2015 ... Even as her promotion was celebrated by her many fans, it raised all-too-familiar \nquestions about why African-American dancers, particularly ...",
+      "htmlSnippet": "Jun 30, 2015 \u003cb\u003e...\u003c/b\u003e Even as her \u003cb\u003epromotion\u003c/b\u003e was celebrated by her many fans, it raised all-too-familiar \u003cbr\u003e\nquestions about why African-American dancers, particularly&nbsp;...",
+      "formattedUrl": "https://www.nytimes.com/.../misty-copeland-is-promoted-to-principal-dancer- at-american-ballet-theater.html",
+      "htmlFormattedUrl": "https://www.nytimes.com/.../misty-copeland-is-\u003cb\u003epromoted\u003c/b\u003e-to-principal-dancer- at-american-ballet-theater.html",
+      "pagemap": {
+        "thumbnail": [
+          {
+            "src": "https://static01.nyt.com/images/2015/06/30/arts/30COPELANDWEB1/30COPELANDWEB1-thumbStandard-v3.jpg"
+          }
+        ],
+        "metatags": [
+          {
+            "article:published": "2015-06-30T16:01:33.000Z",
+            "article:modified": "2017-12-21T08:19:35.812Z",
+            "articleid": "100000003772888",
+            "nyt_uri": "nyt://article/2a7937c3-6fee-52be-a305-b57c9442428f",
+            "pubp_event_id": "pubp://event/c080896e42dc4cc5b60d54a8e28ae68e",
+            "image": "https://static01.nyt.com/images/2015/06/30/arts/30COPELANDWEB1/30COPELANDWEB1-facebookJumbo-v3.jpg",
+            "byl": "By Michael Cooper",
+            "thumbnail": "https://static01.nyt.com/images/2015/06/30/arts/30COPELANDWEB1/30COPELANDWEB1-thumbStandard-v3.jpg",
+            "news_keywords": "Misty Copeland,,Dance,Blacks",
+            "usageterms": "http://www.nytimes.com/content/help/rights/sale/terms-of-sale.html",
+            "pdate": "20150630",
+            "og:url": "https://www.nytimes.com/2015/07/01/arts/dance/misty-copeland-is-promoted-to-principal-dancer-at-american-ballet-theater.html",
+            "og:type": "article",
+            "og:title": "Misty Copeland Is Promoted to Principal Dancer at American Ballet Theater",
+            "og:image": "https://static01.nyt.com/images/2015/06/30/arts/30COPELANDWEB1/30COPELANDWEB1-facebookJumbo-v3.jpg",
+            "og:description": "She becomes the first African-American female principal dancer in the company’s 75-year history.",
+            "twitter:url": "https://www.nytimes.com/2015/07/01/arts/dance/misty-copeland-is-promoted-to-principal-dancer-at-american-ballet-theater.html",
+            "twitter:title": "Misty Copeland Is Promoted to Principal Dancer at American Ballet Theater",
+            "twitter:description": "She becomes the first African-American female principal dancer in the company’s 75-year history.",
+            "twitter:image": "https://static01.nyt.com/images/2015/06/30/arts/30COPELANDWEB1/30COPELANDWEB1-articleLarge-v2.jpg",
+            "twitter:image:alt": "Misty Copeland and James Whiteside in “Swan Lake.”",
+            "twitter:card": "summary_large_image",
+            "article:section": "Arts",
+            "article:author": "http://www.nytimes.com/by/michael-cooper",
+            "article:tag": "Copeland, Misty",
+            "cg": "arts",
+            "scg": "dance",
+            "pt": "article",
+            "pst": "News",
+            "genre": "News",
+            "url": "https://www.nytimes.com/2015/07/01/arts/dance/misty-copeland-is-promoted-to-principal-dancer-at-american-ballet-theater.html",
+            "msapplication-starturl": "https://www.nytimes.com",
+            "al:android:url": "nytimes://reader/id/100000003772888",
+            "al:android:package": "com.nytimes.android",
+            "al:android:app_name": "NYTimes",
+            "twitter:app:name:googleplay": "NYTimes",
+            "twitter:app:id:googleplay": "com.nytimes.android",
+            "twitter:app:url:googleplay": "nytimes://reader/id/100000003772888",
+            "al:iphone:url": "nytimes://www.nytimes.com/2015/07/01/arts/dance/misty-copeland-is-promoted-to-principal-dancer-at-american-ballet-theater.html",
+            "al:iphone:app_store_id": "284862083",
+            "al:iphone:app_name": "NYTimes",
+            "al:ipad:url": "nytimes://www.nytimes.com/2015/07/01/arts/dance/misty-copeland-is-promoted-to-principal-dancer-at-american-ballet-theater.html",
+            "al:ipad:app_store_id": "357066198",
+            "al:ipad:app_name": "NYTimes",
+            "viewport": "width=device-width, initial-scale=1, maximum-scale=1"
+          }
+        ],
+        "newsarticle": [
+          {
+            "inlanguage": "en-US",
+            "datepublished": "2015-06-30T16:01:33.000Z",
+            "datemodified": "2017-12-21T08:19:35.812Z",
+            "identifier": "100000003772888",
+            "description": "She becomes the first African-American female principal dancer in the company’s 75-year history.",
+            "image": "https://static01.nyt.com/images/2015/06/30/arts/30COPELANDWEB1/30COPELANDWEB1-facebookJumbo-v3.jpg",
+            "thumbnailurl": "https://static01.nyt.com/images/2015/06/30/arts/30COPELANDWEB1/30COPELANDWEB1-thumbStandard-v3.jpg",
+            "usageterms": "http://www.nytimes.com/content/help/rights/sale/terms-of-sale.html",
+            "articlesection": "Arts",
+            "genre": "News",
+            "url": "https://www.nytimes.com/2015/07/01/arts/dance/misty-copeland-is-promoted-to-principal-dancer-at-american-ballet-theater.html",
+            "headline": "Misty Copeland Is Promoted to Principal Dancer at American Ballet TheaterMisty Copeland Is Promoted to Principal Dancer at American Ballet Theater",
+            "copyrightholder": "CreditJulieta Cervantes for The New York Times",
+            "name": "Michael Cooper",
+            "articlebody": "Misty Copeland was fast becoming the most famous ballerina in the United States — making the cover of Time magazine, being profiled by “60 Minutes,” growing into a social media sensation...",
+            "copyrightyear": "2019"
+          }
+        ],
+        "imageobject": [
+          {
+            "url": "https://static01.nyt.com/images/2015/06/30/arts/30COPELANDWEB1/30COPELANDWEB1-articleLarge-v2.jpg?quality=75&auto=webp&disable=upscale",
+            "caption": "Misty Copeland and James Whiteside in “Swan Lake.”CreditCreditJulieta Cervantes for The New York Times",
+            "description": "Misty Copeland and James Whiteside in “Swan Lake.”CreditCreditJulieta Cervantes for The New York Times",
+            "copyrightholder": "CreditCreditJulieta Cervantes for The New York Times"
+          },
+          {
+            "url": "https://static01.nyt.com/images/2015/07/01/arts/01BALLET4/01BALLET4-articleLarge.jpg?quality=75&auto=webp&disable=upscale",
+            "caption": "Fans of Ms. Copeland waiting at the stage entrance earlier this month.CreditJulieta Cervantes for The New York Times",
+            "description": "Fans of Ms. Copeland waiting at the stage entrance earlier this month.CreditJulieta Cervantes for The New York Times",
+            "copyrightholder": "CreditJulieta Cervantes for The New York Times"
+          },
+          {
+            "url": "https://static01.nyt.com/images/2015/04/17/arts/16MISTYTIMEWEB/16MISTYTIMEWEB-articleLarge.jpg?quality=75&auto=webp&disable=upscale",
+            "caption": "Ms. Copeland was featured on one of the five different covers for Time magazine's “100 most influential people” issue.",
+            "description": "Ms. Copeland was featured on one of the five different covers for Time magazine's “100 most influential people” issue."
+          },
+          {
+            "url": "https://static01.nyt.com/images/2015/07/01/arts/01BALLETJP1/01BALLETJP1-articleLarge.jpg?quality=75&auto=webp&disable=upscale",
+            "caption": "Ms. Copeland and Mr/ Whiteside in the world premiere of “With a Chance of Rain” in 2014 at the David H. Koch Theater.CreditAndrea Mohin/The New York Times",
+            "description": "Ms. Copeland and Mr/ Whiteside in the world premiere of “With a Chance of Rain” in 2014 at the David H. Koch Theater.CreditAndrea Mohin/The New York Times",
+            "copyrightholder": "CreditAndrea Mohin/The New York Times"
+          },
+          {
+            "url": "https://static01.nyt.com/images/2015/06/26/arts/0626COPELAND/0626COPELAND-thumbLarge.jpg?quality=75&auto=webp&disable=upscale"
+          }
+        ],
+        "organization": [
+          {
+            "name": "The New York Times Company"
+          }
+        ],
+        "cse_image": [
+          {
+            "src": "https://static01.nyt.com/images/2015/07/01/arts/01BALLERINAS3/01BALLERINAS3-videoLarge.jpg",
+            "type": "1",
+            "width": "276",
+            "height": "182"
+          }
+        ]
+      }
+    },
+    {
+      "kind": "customsearch#result",
+      "title": "In Her New Book, Michelle Obama Denounces Trump's Sexism and ...",
+      "htmlTitle": "In Her New Book, Michelle Obama Denounces Trump&#39;s Sexism and ...",
+      "link": "https://www.nytimes.com/2018/11/09/books/michelle-obama-book-becoming.html",
+      "displayLink": "www.nytimes.com",
+      "snippet": "Nov 9, 2018 ... Mrs. Obama denounces President Trump for his sexism and misogyny and, most \nforcefully, for his part in promoting the “birther” conspiracy ...",
+      "htmlSnippet": "Nov 9, 2018 \u003cb\u003e...\u003c/b\u003e Mrs. Obama denounces President Trump for his sexism and misogyny and, most \u003cbr\u003e\nforcefully, for his part in \u003cb\u003epromoting\u003c/b\u003e the “birther” conspiracy&nbsp;...",
+      "formattedUrl": "https://www.nytimes.com/2018/11/.../michelle-obama-book-becoming.html",
+      "htmlFormattedUrl": "https://www.nytimes.com/2018/11/.../michelle-obama-book-becoming.html",
+      "pagemap": {
+        "thumbnail": [
+          {
+            "src": "https://static01.nyt.com/images/2018/11/10/books/review/10Obama-print/09Obama1-thumbStandard.jpg"
+          }
+        ],
+        "metatags": [
+          {
+            "article:published": "2018-11-09T17:26:58.000Z",
+            "article:modified": "2018-11-15T09:26:29.433Z",
+            "articleid": "100000006207438",
+            "nyt_uri": "nyt://article/a40f86fe-2165-57b9-85f8-61fe77056aa9",
+            "pubp_event_id": "pubp://event/97e57cd644a443d888421bd7535a861c",
+            "image": "https://static01.nyt.com/images/2018/11/10/books/review/10Obama-print/09Obama1-facebookJumbo.jpg",
+            "byl": "By Alexandra Alter",
+            "thumbnail": "https://static01.nyt.com/images/2018/11/10/books/review/10Obama-print/09Obama1-thumbStandard.jpg",
+            "news_keywords": "Books,Becoming,Michelle Obama,Donald Trump,Barack Obama,US Politics",
+            "usageterms": "http://www.nytimes.com/content/help/rights/sale/terms-of-sale.html",
+            "pdate": "20181109",
+            "og:url": "https://www.nytimes.com/2018/11/09/books/michelle-obama-book-becoming.html",
+            "og:type": "article",
+            "og:title": "In Her New Book, Michelle Obama Denounces Trump’s Sexism and His Promotion of the ‘Birther’ Conspiracy",
+            "og:image": "https://static01.nyt.com/images/2018/11/10/books/review/10Obama-print/09Obama1-facebookJumbo.jpg",
+            "og:description": "In “Becoming,” she talked about suffering a miscarriage, relying on IVF to conceive and the challenges of being the first African-American first lady.",
+            "twitter:url": "https://www.nytimes.com/2018/11/09/books/michelle-obama-book-becoming.html",
+            "twitter:title": "In Her New Book, Michelle Obama Denounces Trump’s Sexism and His Promotion of the ‘Birther’ Conspiracy",
+            "twitter:description": "In “Becoming,” she talked about suffering a miscarriage, relying on IVF to conceive and the challenges of being the first African-American first lady.",
+            "twitter:image": "https://static01.nyt.com/images/2018/11/10/books/review/10Obama-print/09Obama1-videoSixteenByNineJumbo1600.jpg",
+            "twitter:image:alt": "Michelle Obama&rsquo",
+            "twitter:card": "summary_large_image",
+            "article:section": "Books",
+            "article:tag": "Books and Literature",
+            "cg": "books",
+            "pt": "article",
+            "pst": "News",
+            "genre": "News",
+            "url": "https://www.nytimes.com/2018/11/09/books/michelle-obama-book-becoming.html",
+            "msapplication-starturl": "https://www.nytimes.com",
+            "al:android:url": "nytimes://reader/id/100000006207438",
+            "al:android:package": "com.nytimes.android",
+            "al:android:app_name": "NYTimes",
+            "twitter:app:name:googleplay": "NYTimes",
+            "twitter:app:id:googleplay": "com.nytimes.android",
+            "twitter:app:url:googleplay": "nytimes://reader/id/100000006207438",
+            "al:iphone:url": "nytimes://www.nytimes.com/2018/11/09/books/michelle-obama-book-becoming.html",
+            "al:iphone:app_store_id": "284862083",
+            "al:iphone:app_name": "NYTimes",
+            "al:ipad:url": "nytimes://www.nytimes.com/2018/11/09/books/michelle-obama-book-becoming.html",
+            "al:ipad:app_store_id": "357066198",
+            "al:ipad:app_name": "NYTimes",
+            "viewport": "width=device-width, initial-scale=1, maximum-scale=1",
+            "fb:app_id": "9869919170"
+          }
+        ],
+        "newsarticle": [
+          {
+            "inlanguage": "en-US",
+            "datepublished": "2018-11-09T17:26:58.000Z",
+            "datemodified": "2018-11-15T09:26:29.433Z",
+            "identifier": "100000006207438",
+            "description": "In “Becoming,” she talked about suffering a miscarriage, relying on IVF to conceive and the challenges of being the first African-American first lady.",
+            "image": "https://static01.nyt.com/images/2018/11/10/books/review/10Obama-print/09Obama1-facebookJumbo.jpg",
+            "thumbnailurl": "https://static01.nyt.com/images/2018/11/10/books/review/10Obama-print/09Obama1-thumbStandard.jpg",
+            "usageterms": "http://www.nytimes.com/content/help/rights/sale/terms-of-sale.html",
+            "articlesection": "Books",
+            "genre": "News",
+            "url": "https://www.nytimes.com/2018/11/09/books/michelle-obama-book-becoming.html",
+            "headline": "In Her New Book, Michelle Obama Denounces Trump’s Sexism and His Promotion of the ‘Birther’ ConspiracyIn Her New Book, Michelle Obama Denounces Trump’s Sexism and His Promotion of the...",
+            "copyrightholder": "CreditDamon Winter/The New York Times",
+            "name": "Alexandra Alter",
+            "articlebody": "In her highly anticipated memoir, “Becoming,” former first lady Michelle Obama mostly sticks to her long-stated principle of staying positive in the face of political and personal attacks:...",
+            "copyrightyear": "2019"
+          }
+        ],
+        "imageobject": [
+          {
+            "url": "https://static01.nyt.com/images/2018/11/10/books/review/10Obama-print/merlin_52735458_1bdb6bf9-350c-458d-85a6-b6f10be043d2-articleLarge.jpg?quality=75&auto=webp&disable=upscale",
+            "caption": "Michelle Obama’s memoir comes at a moment when the Obamas (seen here at the Congressional Black Caucus Dinner in 2009) have returned to public life after mostly lying low in the months following...",
+            "description": "Michelle Obama’s memoir comes at a moment when the Obamas (seen here at the Congressional Black Caucus Dinner in 2009) have returned to public life after mostly lying low in the months following...",
+            "copyrightholder": "CreditCreditDamon Winter/The New York Times"
+          },
+          {
+            "url": "https://static01.nyt.com/images/2018/11/12/arts/12bookobama-cover/09bookobama-cover-articleLarge.jpg?quality=75&auto=webp&disable=upscale",
+            "caption": "CreditSonny Figueroa/The New York Times",
+            "description": "CreditSonny Figueroa/The New York Times",
+            "copyrightholder": "CreditSonny Figueroa/The New York Times"
+          },
+          {
+            "url": "https://static01.nyt.com/images/2018/11/09/books/review/09Obama2/09Obama2-articleLarge.jpg?quality=75&auto=webp&disable=upscale",
+            "caption": "“It’s been distressing to see how the behavior and the political agenda of the current president have caused many Americans to doubt themselves and to doubt and fear one another,” writes...",
+            "description": "“It’s been distressing to see how the behavior and the political agenda of the current president have caused many Americans to doubt themselves and to doubt and fear one another,” writes...",
+            "copyrightholder": "CreditDoug Mills/The New York Times"
+          },
+          {
+            "url": "https://static01.nyt.com/images/2018/11/09/books/review/09bookobama-copy/09bookobama-thumbLarge.jpg?quality=75&auto=webp&disable=upscale"
+          }
+        ],
+        "organization": [
+          {
+            "name": "The New York Times Company"
+          }
+        ],
+        "cse_image": [
+          {
+            "src": "https://static01.nyt.com/images/2018/11/10/books/review/10Obama-print/09Obama1-thumbStandard.jpg",
+            "type": "1",
+            "width": "75",
+            "height": "75"
+          }
+        ]
+      }
+    },
+    {
+      "kind": "customsearch#result",
+      "title": "P.&G. PROMOTION: A SOAP DIAMOND - The New York Times",
+      "htmlTitle": "P.&amp;G. \u003cb\u003ePROMOTION\u003c/b\u003e: A SOAP DIAMOND - The New York Times",
+      "link": "https://www.nytimes.com/1985/01/19/business/p-g-promotion-a-soap-diamond.html",
+      "displayLink": "www.nytimes.com",
+      "snippet": "Jan 19, 1985 ... As part of a $10 million promotion to celebrate the 60th anniversary of Spic and \nSpan, P.&G. has put a one-third-carat diamond worth $600 ...",
+      "htmlSnippet": "Jan 19, 1985 \u003cb\u003e...\u003c/b\u003e As part of a $10 million \u003cb\u003epromotion\u003c/b\u003e to celebrate the 60th anniversary of Spic and \u003cbr\u003e\nSpan, P.&amp;G. has put a one-third-carat diamond worth $600&nbsp;...",
+      "formattedUrl": "https://www.nytimes.com/1985/01/.../p-g-promotion-a-soap-diamond.html",
+      "htmlFormattedUrl": "https://www.nytimes.com/1985/01/.../p-g-\u003cb\u003epromotion\u003c/b\u003e-a-soap-diamond.html",
+      "pagemap": {
+        "cse_thumbnail": [
+          {
+            "width": "191",
+            "height": "264",
+            "src": "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcRTaK1UbRLNEetGDgypMridQzimk3cmzFEGFSYFGjZF-qSaWrmQ2TX9C8Nf"
+          }
+        ],
+        "metatags": [
+          {
+            "viewport": "width=device-width, initial-scale=1, maximum-scale=1",
+            "sourceapp": "nyt-v5",
+            "applicationname": "article",
+            "hdl_p": "P.&G. PROMOTION: A SOAP DIAMOND",
+            "genre": "News",
+            "articleid": "1985011900000227362",
+            "usageterms": "https://help.nytimes.com/hc/en-us/articles/115014893968-Terms-of-sale",
+            "hdl": "P.&G. PROMOTION: A SOAP DIAMOND",
+            "col": "1985",
+            "pdate": "19850119",
+            "utime": "19850119000000",
+            "ptime": "19850119000000",
+            "displaydate": "Jan. 19, 1985",
+            "dat": "Jan. 19, 1985",
+            "msapplication-starturl": "http://www.nytimes.com",
+            "cre": "The New York Times",
+            "slug": "p-g-promotion-a-soap-diamond",
+            "article:collection": "https://static01.nyt.com/services/json/sectionfronts/business/index.jsonp",
+            "sectionfront_jsonp": "https://static01.nyt.com/services/json/sectionfronts/business/index.jsonp",
+            "og:url": "https://www.nytimes.com/1985/01/19/business/p-g-promotion-a-soap-diamond.html",
+            "og:type": "article",
+            "og:title": "P.&G. PROMOTION: A SOAP DIAMOND",
+            "article:published": "1985-01-19T00:00:00-05:00",
+            "article:modified": "1985-01-19T00:00:00-05:00",
+            "article:section": "Business Day",
+            "article:section-taxonomy-id": "104D1E63-9701-497B-8CF4-A4D120C9014E",
+            "article:section_url": "https://www.nytimes.com/pages/business/index.html",
+            "article:top-level-section": "business",
+            "fb:app_id": "9869919170",
+            "twitter:url": "https://www.nytimes.com/1985/01/19/business/p-g-promotion-a-soap-diamond.html",
+            "twitter:title": "P.&G. PROMOTION: A SOAP DIAMOND",
+            "author": "Pamela G. Hollie",
+            "tone": "news",
+            "isfulltext": "1",
+            "isshorttext": "1",
+            "pdfurl": "https://timesmachine.nytimes.com/svc/tmach/v1/refer?res=9E03E4D8143BF93AA25752C0A963948260&pdf=true",
+            "reskey": "9E03E4D8143BF93AA25752C0A963948260",
+            "byl": "By PAMELA G. HOLLIE",
+            "pt": "article",
+            "cg": "business",
+            "scg": "full-text",
+            "pst": "News",
+            "tom": "News",
+            "edt": "Late City Final Edition",
+            "og:image": "https://s1.nyt.com/timesmachine/pages/1/1985/01/19/227362_360W.png",
+            "twitter:image": "https://s1.nyt.com/timesmachine/pages/1/1985/01/19/227362_360W.png",
+            "article:tag": "PROCTOR & GAMBLE CO",
+            "org": "PROCTOR & GAMBLE CO",
+            "des": "ADVERTISING"
+          }
+        ],
+        "newsarticle": [
+          {
+            "alternativeheadline": "P.&G. PROMOTION: A SOAP DIAMOND",
+            "genre": "News",
+            "identifier": "1985011900000227362",
+            "usageterms": "https://help.nytimes.com/hc/en-us/articles/115014893968-Terms-of-sale",
+            "inlanguage": "en-US",
+            "datepublished": "1985-01-19T00:00:00-05:00",
+            "datemodified": "1985-01-19T00:00:00-05:00",
+            "articlesection": "Business Day",
+            "headline": "P.&G. PROMOTION: A SOAP DIAMOND",
+            "printedition": "National edition",
+            "copyrightnotice": "© 2019 The New York Times Company",
+            "copyrightyear": "2019"
+          }
+        ],
+        "imageobject": [
+          {
+            "caption": "January 19, 1985, Page 001033 The New York Times Archives",
+            "description": "January 19, 1985, Page 001033 The New York Times Archives",
+            "copyrightholder": "January 19, 1985, Page 001033 The New York Times Archives"
+          }
+        ],
+        "person": [
+          {
+            "name": "PAMELA G. HOLLIE"
+          }
+        ],
+        "organization": [
+          {
+            "name": "The New York Times Company",
+            "tickersymbol": "NYSE NYT"
+          }
+        ],
+        "cse_image": [
+          {
+            "src": "https://s1.nyt.com/timesmachine/pages/1/1985/01/19/227362_360W.png"
+          }
+        ]
+      }
+    },
+    {
+      "kind": "customsearch#result",
+      "title": "Oscar Munoz Won't Get Planned Promotion to Chairman of United ...",
+      "htmlTitle": "Oscar Munoz Won&#39;t Get Planned \u003cb\u003ePromotion\u003c/b\u003e to Chairman of United ...",
+      "link": "https://www.nytimes.com/2017/04/21/business/united-airlines-ceo.html",
+      "displayLink": "www.nytimes.com",
+      "snippet": "Apr 21, 2017 ... The chief executive of United Airlines, Oscar Munoz, became a casualty of the \npublic relations crisis gripping the air carrier, as the company that ...",
+      "htmlSnippet": "Apr 21, 2017 \u003cb\u003e...\u003c/b\u003e The chief executive of United Airlines, Oscar Munoz, became a casualty of the \u003cbr\u003e\npublic relations crisis gripping the air carrier, as the company that&nbsp;...",
+      "formattedUrl": "https://www.nytimes.com/2017/04/21/business/united-airlines-ceo.html",
+      "htmlFormattedUrl": "https://www.nytimes.com/2017/04/21/business/united-airlines-ceo.html",
+      "pagemap": {
+        "thumbnail": [
+          {
+            "src": "https://static01.nyt.com/images/2017/04/22/business/22united1/22united1-thumbStandard.jpg"
+          }
+        ],
+        "metatags": [
+          {
+            "article:published": "2017-04-21T22:06:26.000Z",
+            "article:modified": "2017-12-22T05:22:37.969Z",
+            "articleid": "100000005057911",
+            "nyt_uri": "nyt://article/afc9331f-2a1d-542e-9293-124dfc62df20",
+            "pubp_event_id": "pubp://event/ee50dc26f9b24c42aaf722343539c832",
+            "image": "https://static01.nyt.com/images/2017/04/22/business/22united1/22united1-facebookJumbo.jpg",
+            "byl": "By Barry Meier",
+            "thumbnail": "https://static01.nyt.com/images/2017/04/22/business/22united1/22united1-thumbStandard.jpg",
+            "news_keywords": "Oscar Munoz,United Airlines,Airlines,Appointments and Executive Changes",
+            "usageterms": "http://www.nytimes.com/content/help/rights/sale/terms-of-sale.html",
+            "pdate": "20170421",
+            "og:url": "https://www.nytimes.com/2017/04/21/business/united-airlines-ceo.html",
+            "og:type": "article",
+            "og:title": "Oscar Munoz Won’t Get Planned Promotion to Chairman of United",
+            "og:image": "https://static01.nyt.com/images/2017/04/22/business/22united1/22united1-facebookJumbo.jpg",
+            "og:description": "The company also said it would revise executive compensation based on the airline’s customer performance after a high-profile misstep.",
+            "twitter:url": "https://www.nytimes.com/2017/04/21/business/united-airlines-ceo.html",
+            "twitter:title": "Oscar Munoz Won’t Get Planned Promotion to Chairman of United",
+            "twitter:description": "The company also said it would revise executive compensation based on the airline’s customer performance after a high-profile misstep.",
+            "twitter:image": "https://static01.nyt.com/images/2017/04/22/business/22united1/22united1-videoSixteenByNineJumbo1600.jpg",
+            "twitter:image:alt": "Oscar Munoz, chief executive of United Airlines.",
+            "twitter:card": "summary_large_image",
+            "article:section": "Business",
+            "article:author": "http://www.nytimes.com/by/barry-meier",
+            "article:tag": "Munoz, Oscar (1959- )",
+            "cg": "business",
+            "pt": "article",
+            "pst": "News",
+            "genre": "News",
+            "url": "https://www.nytimes.com/2017/04/21/business/united-airlines-ceo.html",
+            "msapplication-starturl": "https://www.nytimes.com",
+            "al:android:url": "nytimes://reader/id/100000005057911",
+            "al:android:package": "com.nytimes.android",
+            "al:android:app_name": "NYTimes",
+            "twitter:app:name:googleplay": "NYTimes",
+            "twitter:app:id:googleplay": "com.nytimes.android",
+            "twitter:app:url:googleplay": "nytimes://reader/id/100000005057911",
+            "al:iphone:url": "nytimes://www.nytimes.com/2017/04/21/business/united-airlines-ceo.html",
+            "al:iphone:app_store_id": "284862083",
+            "al:iphone:app_name": "NYTimes",
+            "al:ipad:url": "nytimes://www.nytimes.com/2017/04/21/business/united-airlines-ceo.html",
+            "al:ipad:app_store_id": "357066198",
+            "al:ipad:app_name": "NYTimes",
+            "viewport": "width=device-width, initial-scale=1, maximum-scale=1",
+            "fb:app_id": "9869919170"
+          }
+        ],
+        "newsarticle": [
+          {
+            "inlanguage": "en-US",
+            "datepublished": "2017-04-21T22:06:26.000Z",
+            "datemodified": "2017-12-22T05:22:37.969Z",
+            "identifier": "100000005057911",
+            "description": "The company also said it would revise executive compensation based on the airline’s customer performance after a high-profile misstep.",
+            "image": "https://static01.nyt.com/images/2017/04/22/business/22united1/22united1-facebookJumbo.jpg",
+            "thumbnailurl": "https://static01.nyt.com/images/2017/04/22/business/22united1/22united1-thumbStandard.jpg",
+            "usageterms": "http://www.nytimes.com/content/help/rights/sale/terms-of-sale.html",
+            "articlesection": "Business",
+            "genre": "News",
+            "url": "https://www.nytimes.com/2017/04/21/business/united-airlines-ceo.html",
+            "headline": "Oscar Munoz Won’t Get Planned Promotion to Chairman of UnitedOscar Munoz Won’t Get Planned Promotion to Chairman of United",
+            "copyrightholder": "CreditRichard Drew/Associated Press",
+            "name": "Barry Meier",
+            "articlebody": "The chief executive of United Airlines, Oscar Munoz, became a casualty of the public relations crisis gripping the air carrier, as the company that runs the airline said on Friday that he would...",
+            "copyrightyear": "2019"
+          }
+        ],
+        "imageobject": [
+          {
+            "url": "https://static01.nyt.com/images/2017/04/22/business/22united1/22united1-articleLarge.jpg?quality=75&auto=webp&disable=upscale",
+            "caption": "Oscar Munoz, chief executive of United Airlines.CreditCreditRichard Drew/Associated Press",
+            "description": "Oscar Munoz, chief executive of United Airlines.CreditCreditRichard Drew/Associated Press",
+            "copyrightholder": "CreditCreditRichard Drew/Associated Press"
+          },
+          {
+            "url": "https://static01.nyt.com/images/2017/04/17/business/airline-fly-squeezed-with-gif/airline-fly-squeezed-with-gif-thumbLarge.png?quality=75&auto=webp&disable=upscale"
+          },
+          {
+            "url": "https://static01.nyt.com/images/2017/04/15/us/15xp-united/15xp-united-thumbLarge.jpg?quality=75&auto=webp&disable=upscale"
+          },
+          {
+            "url": "https://static01.nyt.com/images/2017/04/14/business/14UNITED-print/14UNITED-print-thumbLarge.jpg?quality=75&auto=webp&disable=upscale"
+          }
+        ],
+        "organization": [
+          {
+            "name": "The New York Times Company"
+          }
+        ],
+        "cse_image": [
+          {
+            "src": "https://static01.nyt.com/images/2017/04/22/business/22united1/22united1-thumbStandard.jpg",
+            "type": "1",
+            "width": "75",
+            "height": "75"
+          }
+        ]
+      }
+    },
+    {
+      "kind": "customsearch#result",
+      "title": "White Sox' 'Disco Demolition' Promotion Still Echoes in Baseball Lore",
+      "htmlTitle": "White Sox&#39; &#39;Disco Demolition&#39; \u003cb\u003ePromotion\u003c/b\u003e Still Echoes in Baseball Lore",
+      "link": "https://www.nytimes.com/2009/07/05/sports/baseball/05disco.html",
+      "displayLink": "www.nytimes.com",
+      "snippet": "Jul 4, 2009 ... “It was a great promotion,” he said, chuckling over the telephone from Arizona, \nwhere he works for the Diamondbacks. “We're still talking about ...",
+      "htmlSnippet": "Jul 4, 2009 \u003cb\u003e...\u003c/b\u003e “It was a great \u003cb\u003epromotion\u003c/b\u003e,” he said, chuckling over the telephone from Arizona, \u003cbr\u003e\nwhere he works for the Diamondbacks. “We&#39;re still talking about&nbsp;...",
+      "formattedUrl": "https://www.nytimes.com/2009/07/05/sports/baseball/05disco.html",
+      "htmlFormattedUrl": "https://www.nytimes.com/2009/07/05/sports/baseball/05disco.html",
+      "pagemap": {
+        "cse_thumbnail": [
+          {
+            "width": "290",
+            "height": "174",
+            "src": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcRd1I7y6wGdX_9iR_RgyDyTjgS3WK93HmXCDquoWLh9gIyMGY3m9d37WHGL"
+          }
+        ],
+        "metatags": [
+          {
+            "viewport": "width=device-width, initial-scale=1, maximum-scale=1",
+            "sourceapp": "nyt-v5",
+            "applicationname": "article",
+            "al:android:url": "nytimes://reader/id/1194841340508",
+            "al:android:package": "com.nytimes.android",
+            "al:android:app_name": "NYTimes",
+            "twitter:app:name:googleplay": "NYTimes",
+            "twitter:app:id:googleplay": "com.nytimes.android",
+            "twitter:app:url:googleplay": "nytimes://reader/id/1194841340508",
+            "al:iphone:url": "nytimes://www.nytimes.com/2009/07/05/sports/baseball/05disco.html",
+            "al:iphone:app_store_id": "284862083",
+            "al:iphone:app_name": "NYTimes",
+            "al:ipad:url": "nytimes://www.nytimes.com/2009/07/05/sports/baseball/05disco.html",
+            "al:ipad:app_store_id": "357066198",
+            "al:ipad:app_name": "NYTimes",
+            "hdl_p": "The Night Disco Went Up In Smoke",
+            "genre": "News",
+            "articleid": "1194841340508",
+            "usageterms": "https://help.nytimes.com/hc/en-us/articles/115014893968-Terms-of-sale",
+            "hdl": "White Sox’ ‘Disco Demolition’ Promotion Still Echoes in Baseball Lore",
+            "pdate": "20090704",
+            "utime": "20141109072336",
+            "ptime": "20090704005523",
+            "displaydate": "July 4, 2009",
+            "dat": "July 4, 2009",
+            "lp": "The White Sox’ Disco Demolition Night seemed like a simple, fun way to drive up attendance, but things quickly went awry 30 years ago at Comiskey Park.",
+            "msapplication-starturl": "http://www.nytimes.com",
+            "cre": "The New York Times",
+            "slug": "05disco",
+            "article:collection": "https://static01.nyt.com/services/json/sectionfronts/sports/baseball/index.jsonp",
+            "sectionfront_jsonp": "https://static01.nyt.com/services/json/sectionfronts/sports/baseball/index.jsonp",
+            "og:url": "https://www.nytimes.com/2009/07/05/sports/baseball/05disco.html",
+            "og:type": "article",
+            "og:title": "White Sox’ ‘Disco Demolition’ Promotion Still Echoes in Baseball Lore",
+            "og:description": "The White Sox’ Disco Demolition Night seemed like a simple, fun way to drive up attendance, but things quickly went awry 30 years ago at Comiskey Park.",
+            "article:published": "2009-07-04T00:55:23-04:00",
+            "article:modified": "2014-11-09T07:23:36-05:00",
+            "article:section": "Baseball",
+            "article:section-taxonomy-id": "DE2B278B-2783-4506-AAD5-C15A5BB6DA1A",
+            "article:top-level-section": "sports",
+            "fb:app_id": "9869919170",
+            "twitter:url": "https://www.nytimes.com/2009/07/05/sports/baseball/05disco.html",
+            "twitter:title": "White Sox’ ‘Disco Demolition’ Promotion Still Echoes in Baseball Lore",
+            "twitter:description": "The White Sox’ Disco Demolition Night seemed like a simple, fun way to drive up attendance, but things quickly went awry 30 years ago at Comiskey Park.",
+            "author": "Joe Lapointe",
+            "tone": "news",
+            "byl": "By JOE LAPOINTE",
+            "pt": "article",
+            "cg": "sports",
+            "scg": "baseball"
+          }
+        ],
+        "newsarticle": [
+          {
+            "alternativeheadline": "The Night Disco Went Up In Smoke",
+            "description": "The White Sox’ Disco Demolition Night seemed like a simple, fun way to drive up attendance, but things quickly went awry 30 years ago at Comiskey Park.",
+            "genre": "News",
+            "identifier": "1194841340508",
+            "usageterms": "https://help.nytimes.com/hc/en-us/articles/115014893968-Terms-of-sale",
+            "inlanguage": "en-US",
+            "datepublished": "2009-07-04T00:55:23-04:00",
+            "datemodified": "2014-11-09T07:23:36-05:00",
+            "articlesection": "Baseball",
+            "thumbnailurl": "https://static01.nyt.com/images/2009/07/05/sports/disco75.jpg",
+            "headline": "The Night Disco Went Up in Smoke",
+            "printedition": "New York edition",
+            "copyrightnotice": "© 2019 The New York Times Company",
+            "copyrightyear": "2019"
+          }
+        ],
+        "imageobject": [
+          {
+            "url": "https://static01.nyt.com/images/2009/07/05/sports/disco600.jpg",
+            "height": "360",
+            "width": "600",
+            "caption": "Guards were deployed outside the ballpark to deal with gate crashers, but fans inside found it easy to get on the field. Credit Fred Jewell/Associated Press",
+            "description": "Guards were deployed outside the ballpark to deal with gate crashers, but fans inside found it easy to get on the field. Credit Fred Jewell/Associated Press",
+            "copyrightholder": "Credit Fred Jewell/Associated Press"
+          },
+          {
+            "url": "https://static01.nyt.com/images/2009/07/05/sports/disco650.jpg",
+            "height": "370",
+            "width": "650",
+            "caption": "Promoters detonated a bin of disco records in center field at Comiskey Park. After the explosion is when the trouble began. Credit Paul Natkin/Associated Press",
+            "description": "Promoters detonated a bin of disco records in center field at Comiskey Park. After the explosion is when the trouble began. Credit Paul Natkin/Associated Press",
+            "copyrightholder": "Credit Paul Natkin/Associated Press"
+          }
+        ],
+        "person": [
+          {
+            "name": "JOE LAPOINTE"
+          }
+        ],
+        "organization": [
+          {
+            "name": "The New York Times Company",
+            "tickersymbol": "NYSE NYT"
+          }
+        ],
+        "cse_image": [
+          {
+            "src": "https://static01.nyt.com/images/2009/07/05/sports/disco600.jpg"
+          }
+        ]
+      }
+    },
+    {
+      "kind": "customsearch#result",
+      "title": "Hiring and Promotion - The New York Times",
+      "htmlTitle": "Hiring and \u003cb\u003ePromotion\u003c/b\u003e - The New York Times",
+      "link": "http://www.nytimes.com/topic/subject/hiring-and-promotion",
+      "displayLink": "www.nytimes.com",
+      "snippet": "News about hiring and promotion. Commentary and archival information about \nhiring and promotion from The New York Times.",
+      "htmlSnippet": "News about hiring and \u003cb\u003epromotion\u003c/b\u003e. Commentary and archival information about \u003cbr\u003e\nhiring and \u003cb\u003epromotion\u003c/b\u003e from The New York Times.",
+      "formattedUrl": "www.nytimes.com/topic/subject/hiring-and-promotion",
+      "htmlFormattedUrl": "www.nytimes.com/topic/subject/hiring-and-\u003cb\u003epromotion\u003c/b\u003e",
+      "pagemap": {
+        "cse_thumbnail": [
+          {
+            "width": "225",
+            "height": "225",
+            "src": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTIaslvIiFbKBs_uuu2JfwDtS3XU4dXkPi_KnpEsuZ3HhblZ9pC4Fn5xbc"
+          }
+        ],
+        "metatags": [
+          {
+            "viewport": "width=device-width, initial-scale=1, maximum-scale=1",
+            "sourceapp": "nyt-v5",
+            "applicationname": "collection",
+            "nyt-collection:identifier": "Hiring and Promotion",
+            "cn": "Hiring and Promotion",
+            "nyt-collection:type": "timestopic",
+            "ct": "timestopic",
+            "nyt-collection:display-name": "Hiring and Promotion",
+            "nyt-collection:tagline": "News about Hiring and Promotion, including commentary and archival articles published in The New York Times.",
+            "pt": "collection",
+            "asset_id": "1125003615926",
+            "slug": "Hiring and Promotion",
+            "og:description": "News about hiring and promotion. Commentary and archival information about hiring and promotion from The New York Times.",
+            "og:title": "Hiring and Promotion",
+            "twitter:title": "Hiring and Promotion",
+            "news_keywords": "Times Topics",
+            "og:image": "https://static.nytimes.com/images/icons/t_logo_291_black.png",
+            "twitter:image": "https://static.nytimes.com/images/icons/t_logo_291_black.png",
+            "collection:section": "timestopics",
+            "collection:parentsection": "timestopics",
+            "nyt-collection:url": "https://www.nytimes.com/topic/subject/hiring-and-promotion",
+            "nyt-collection:uri": "/topic/subject/hiring-and-promotion",
+            "og:url": "http://www.nytimes.com/topic/subject/hiring-and-promotion",
+            "twitter:url": "http://www.nytimes.com/topic/subject/hiring-and-promotion",
+            "og:type": "article",
+            "fb:app_id": "9869919170",
+            "dfp-ad-unit-path": "timestopics/hiringandpromotion/topic",
+            "dfp-amazon-enabled": "false",
+            "collection:language": "en"
+          }
+        ],
+        "newsarticle": [
+          {
+            "headline": "What to Do When You Think You’re About to Get Fired",
+            "description": "Whether you’re worried about getting the boot or getting a pink slip, here are some tips to protect yourself before the ax falls.",
+            "author": "By WHITSON GORDON",
+            "thumbnailurl": "https://static01.nyt.com/images/2019/01/04/autossell/04sl_fired/03sl_fired-mediumThreeByTwo210.jpg",
+            "datemodified": "2019-01-02"
+          },
+          {
+            "headline": "Julie Sweet of Accenture Could See Her Future. So She Quit Her Job.",
+            "description": "Now, as Accenture’s chief executive of North America, Ms. Sweet helps major companies figure out the future. She is also working on creating true gender equality at the office.",
+            "author": "By DAVID GELLES",
+            "thumbnailurl": "https://static01.nyt.com/images/2019/01/06/business/06CORNEROFFICE-lede/06CORNEROFFICE-lede-mediumThreeByTwo210-v3.jpg",
+            "datemodified": "2019-01-02"
+          },
+          {
+            "headline": "What to Do About an Overly Critical Boss",
+            "description": "Starting a new job, an employee is already preparing to quit because of a supervisor who repeatedly levels unfair critiques and then apologizes.",
+            "author": "By ROB WALKER",
+            "thumbnailurl": "https://static01.nyt.com/images/2018/12/31/business/31workologist-color/merlin_148558194_3a6a9261-1320-430a-a104-b3e301685324-mediumThreeByTwo210.jpg",
+            "datemodified": "2018-12-29"
+          },
+          {
+            "headline": "Hiring People With Disabilities Is Good Business",
+            "description": "Microsoft, Bank of America and CVS are just a few big companies that profit from their proactive employment practices.",
+            "author": "By TED KENNEDY JR",
+            "thumbnailurl": "https://static01.nyt.com/images/2018/12/27/opinion/27disability/27disability-mediumThreeByTwo210.jpg",
+            "datemodified": "2018-12-27"
+          },
+          {
+            "headline": "7 Successful People Dish on Their Worst Job Interviews (and What They Learned)",
+            "description": "We’ve all got one of *those* stories.",
+            "author": "By JEN DOLL",
+            "thumbnailurl": "https://static01.nyt.com/images/2018/12/17/smarter-living/17sl-interviews-1/18sl-interviews-1-mediumThreeByTwo210.jpg",
+            "datemodified": "2018-12-18"
+          },
+          {
+            "headline": "I Got Rejected 101 Times",
+            "description": "Being told no is inevitable in most creative endeavors. But maybe I could win by losing.",
+            "author": "By EMILY WINTER",
+            "thumbnailurl": "https://static01.nyt.com/images/2018/12/16/opinion/sunday/16winter/16winter-mediumThreeByTwo210.jpg",
+            "datemodified": "2018-12-14"
+          },
+          {
+            "headline": "When a Manager in Another Department Ignores Your Emails",
+            "description": "An employee looking to make a switch gets no response and wonders if it’s because he’s the wrong “type.” Here’s how to stop brooding and take useful action.",
+            "author": "By ROB WALKER",
+            "thumbnailurl": "https://static01.nyt.com/images/2018/12/15/business/15workologist/15workologist-mediumThreeByTwo210.jpg",
+            "datemodified": "2018-12-14"
+          },
+          {
+            "headline": "A.I. as Talent Scout: Unorthodox Hires, and Maybe Lower Pay",
+            "description": "A form of artificial intelligence is being used to surface job candidates with the attributes of a perfect fit, even without conventional credentials.",
+            "author": "By NOAM SCHEIBER",
+            "thumbnailurl": "https://static01.nyt.com/images/2018/12/07/business/07hiring/07hiring-mediumThreeByTwo210-v2.jpg",
+            "datemodified": "2018-12-07"
+          },
+          {
+            "headline": "Late to Launch: The Post-Collegiate Struggle",
+            "description": "Despite a low unemployment rate, many young adults lack job prospects that mesh with their idealized vision of the post-college world.",
+            "author": "By JULIE HALPERT",
+            "thumbnailurl": "https://static01.nyt.com/images/2018/11/30/well/00WELL-YOUNGADULTS/00WELL-YOUNGADULTS-mediumThreeByTwo210.jpg",
+            "datemodified": "2018-12-04"
+          },
+          {
+            "headline": "‘I Don’t Really Want to Work for Facebook.’ So Say Some Computer Science Students.",
+            "description": "A job at Facebook is plum. But at a recent university hackathon, some young engineers showed a changing attitude toward working at the social network.",
+            "author": "By NELLIE BOWLES",
+            "thumbnailurl": "https://static01.nyt.com/images/2018/11/16/business/16FBRECRUITING05/merlin_146347956_e928e338-3a96-4972-9710-04aa3bd73e3b-mediumThreeByTwo210.jpg",
+            "datemodified": "2018-11-15"
+          },
+          {
+            "headline": "When a New Colleague Sees Showing Up as Optional",
+            "description": "Working remotely is popular and often useful. But it can cause friction when there is disagreement over how regularly an employee should actually be in the office.",
+            "author": "By ROB WALKER",
+            "thumbnailurl": "https://static01.nyt.com/images/2018/10/14/business/14Workologist-illo/merlin_145163883_5a6348d1-e3d7-496e-8d36-265de3e8e691-mediumThreeByTwo210.jpg",
+            "datemodified": "2018-10-12"
+          },
+          {
+            "headline": "Need a Handbag or a Tie to Land Your First Job? Borrow One With a Library Card",
+            "description": "A new program at the New York Public Library lets job-seekers — particularly teenagers and young adults — check out accessories to wear to interviews.",
+            "author": "By MELISSA GOMEZ",
+            "thumbnailurl": "https://static01.nyt.com/images/2018/10/08/nyregion/00xp-library2/00xp-library2-mediumThreeByTwo210.jpg",
+            "datemodified": "2018-10-09"
+          },
+          {
+            "headline": "At This Theater, All of the Directors Will Be Women",
+            "description": "Anna Bergmann begins her role as the playhouse director of the Badisches State Theater in Germany with an all-female-directed season.",
+            "author": "By SALLY McGRANE",
+            "thumbnailurl": "https://static01.nyt.com/images/2018/10/01/arts/10women-directors2/28women-directors2-mediumThreeByTwo210-v2.jpg",
+            "datemodified": "2018-09-27"
+          },
+          {
+            "headline": "Lawyers Say They Face Persistent Racial and Gender Bias at Work",
+            "description": "A study found that women and people of color in the legal profession felt they were held to higher standards than white men and received fewer opportunities.",
+            "author": "By KAREN ZRAICK",
+            "thumbnailurl": "https://static01.nyt.com/images/2018/09/07/business/07xp-lawyer1-print/03lawfirm-web3-mediumThreeByTwo210.jpg",
+            "datemodified": "2018-09-06"
+          },
+          {
+            "headline": "8 Fast-Food Chains Will End ‘No-Poach’ Policies",
+            "description": "The restaurants have pledged to end a practice that prohibited workers from switching jobs within the individual chains.",
+            "author": "By RACHEL ABRAMS",
+            "thumbnailurl": "https://static01.nyt.com/images/2018/08/21/business/21nopoach/21nopoach-mediumThreeByTwo210.jpg",
+            "datemodified": "2018-08-20"
+          },
+          {
+            "headline": "5 Pearls of Wisdom About College for Students Starting Their First Year",
+            "description": "Readers who are college graduates offer advice to incoming freshmen who wonder if degrees are worth the hype.",
+            "author": "By LELA MOORE",
+            "thumbnailurl": "https://static01.nyt.com/images/2017/08/03/multimedia/30readers-collegetour-copy/30readers-collegetour-copy-mediumThreeByTwo210-v3.jpg",
+            "datemodified": "2018-08-19"
+          },
+          {
+            "headline": "You’re Ready to Quit. How Much Notice Do You Owe?",
+            "description": "An employee worries that she has promised to give four weeks’ notice to her current boss if she leaves for a new job, but that may be too long for a future employer. Here’s how to finesse...",
+            "author": "By ROB WALKER",
+            "thumbnailurl": "https://static01.nyt.com/images/2018/08/19/business/19Skybox2/merlin_142352361_0f9d777b-6da3-4f34-8c7d-16a7a79b09ad-mediumThreeByTwo210.jpg",
+            "datemodified": "2018-08-17"
+          },
+          {
+            "headline": "5 Takeaways From Elon Musk’s Interview With The Times About Tesla",
+            "description": "The Tesla chief executive addressed a wide range of issues, including the search for a chief operating officer and his tweet that sent the company’s shares soaring.",
+            "author": "By PRASHANT S. RAO",
+            "thumbnailurl": "https://static01.nyt.com/images/2018/08/18/business/18musk-takeaways-sub/18musk-takeaways-sub-mediumThreeByTwo210.jpg",
+            "datemodified": "2018-08-17"
+          },
+          {
+            "headline": "Talking About Failure Is Crucial for Growth. Here's How to Do It Right.",
+            "description": "Research shows that talking about failure makes for happier, more productive workers.",
+            "author": "By OSET BABUR",
+            "thumbnailurl": "https://static01.nyt.com/images/2018/08/19/autossell/19sl_failures1/19sl_failures1-mediumThreeByTwo210.jpg",
+            "datemodified": "2018-08-17"
+          },
+          {
+            "headline": "How to Be an Ace Salary Negotiator (Even if You Hate Conflict)",
+            "description": "Here’s how to fight for a better salary when you loathe uncomfortable conversations.",
+            "author": "By A.C. SHILTON",
+            "thumbnailurl": "https://static01.nyt.com/images/2018/08/09/autossell/09sl-negotiation/merlin_138577476_62aee6af-48ce-416d-a6c0-f865e5da607a-mediumThreeByTwo210.jpg",
+            "datemodified": "2018-08-10"
+          },
+          {
+            "headline": "What to Do When You Think You’re About to Get Fired",
+            "description": "Whether you’re worried about getting the boot or getting a pink slip, here are some tips to protect yourself before the ax falls.",
+            "author": "By WHITSON GORDON",
+            "thumbnailurl": "https://static01.nyt.com/images/2019/01/04/autossell/04sl_fired/03sl_fired-mediumThreeByTwo210.jpg",
+            "datemodified": "2019-01-02"
+          },
+          {
+            "headline": "Julie Sweet of Accenture Could See Her Future. So She Quit Her Job.",
+            "description": "Now, as Accenture’s chief executive of North America, Ms. Sweet helps major companies figure out the future. She is also working on creating true gender equality at the office.",
+            "author": "By DAVID GELLES",
+            "thumbnailurl": "https://static01.nyt.com/images/2019/01/06/business/06CORNEROFFICE-lede/06CORNEROFFICE-lede-mediumThreeByTwo210-v3.jpg",
+            "datemodified": "2019-01-02"
+          },
+          {
+            "headline": "What to Do About an Overly Critical Boss",
+            "description": "Starting a new job, an employee is already preparing to quit because of a supervisor who repeatedly levels unfair critiques and then apologizes.",
+            "author": "By ROB WALKER",
+            "thumbnailurl": "https://static01.nyt.com/images/2018/12/31/business/31workologist-color/merlin_148558194_3a6a9261-1320-430a-a104-b3e301685324-mediumThreeByTwo210.jpg",
+            "datemodified": "2018-12-29"
+          },
+          {
+            "headline": "Hiring People With Disabilities Is Good Business",
+            "description": "Microsoft, Bank of America and CVS are just a few big companies that profit from their proactive employment practices.",
+            "author": "By TED KENNEDY JR",
+            "thumbnailurl": "https://static01.nyt.com/images/2018/12/27/opinion/27disability/27disability-mediumThreeByTwo210.jpg",
+            "datemodified": "2018-12-27"
+          },
+          {
+            "headline": "7 Successful People Dish on Their Worst Job Interviews (and What They Learned)",
+            "description": "We’ve all got one of *those* stories.",
+            "author": "By JEN DOLL",
+            "thumbnailurl": "https://static01.nyt.com/images/2018/12/17/smarter-living/17sl-interviews-1/18sl-interviews-1-mediumThreeByTwo210.jpg",
+            "datemodified": "2018-12-18"
+          },
+          {
+            "headline": "I Got Rejected 101 Times",
+            "description": "Being told no is inevitable in most creative endeavors. But maybe I could win by losing.",
+            "author": "By EMILY WINTER",
+            "thumbnailurl": "https://static01.nyt.com/images/2018/12/16/opinion/sunday/16winter/16winter-mediumThreeByTwo210.jpg",
+            "datemodified": "2018-12-14"
+          },
+          {
+            "headline": "When a Manager in Another Department Ignores Your Emails",
+            "description": "An employee looking to make a switch gets no response and wonders if it’s because he’s the wrong “type.” Here’s how to stop brooding and take useful action.",
+            "author": "By ROB WALKER",
+            "thumbnailurl": "https://static01.nyt.com/images/2018/12/15/business/15workologist/15workologist-mediumThreeByTwo210.jpg",
+            "datemodified": "2018-12-14"
+          },
+          {
+            "headline": "A.I. as Talent Scout: Unorthodox Hires, and Maybe Lower Pay",
+            "description": "A form of artificial intelligence is being used to surface job candidates with the attributes of a perfect fit, even without conventional credentials.",
+            "author": "By NOAM SCHEIBER",
+            "thumbnailurl": "https://static01.nyt.com/images/2018/12/07/business/07hiring/07hiring-mediumThreeByTwo210-v2.jpg",
+            "datemodified": "2018-12-07"
+          },
+          {
+            "headline": "Late to Launch: The Post-Collegiate Struggle",
+            "description": "Despite a low unemployment rate, many young adults lack job prospects that mesh with their idealized vision of the post-college world.",
+            "author": "By JULIE HALPERT",
+            "thumbnailurl": "https://static01.nyt.com/images/2018/11/30/well/00WELL-YOUNGADULTS/00WELL-YOUNGADULTS-mediumThreeByTwo210.jpg",
+            "datemodified": "2018-12-04"
+          },
+          {
+            "headline": "‘I Don’t Really Want to Work for Facebook.’ So Say Some Computer Science Students.",
+            "description": "A job at Facebook is plum. But at a recent university hackathon, some young engineers showed a changing attitude toward working at the social network.",
+            "author": "By NELLIE BOWLES",
+            "thumbnailurl": "https://static01.nyt.com/images/2018/11/16/business/16FBRECRUITING05/merlin_146347956_e928e338-3a96-4972-9710-04aa3bd73e3b-mediumThreeByTwo210.jpg",
+            "datemodified": "2018-11-15"
+          },
+          {
+            "headline": "When a New Colleague Sees Showing Up as Optional",
+            "description": "Working remotely is popular and often useful. But it can cause friction when there is disagreement over how regularly an employee should actually be in the office.",
+            "author": "By ROB WALKER",
+            "thumbnailurl": "https://static01.nyt.com/images/2018/10/14/business/14Workologist-illo/merlin_145163883_5a6348d1-e3d7-496e-8d36-265de3e8e691-mediumThreeByTwo210.jpg",
+            "datemodified": "2018-10-12"
+          },
+          {
+            "headline": "Need a Handbag or a Tie to Land Your First Job? Borrow One With a Library Card",
+            "description": "A new program at the New York Public Library lets job-seekers — particularly teenagers and young adults — check out accessories to wear to interviews.",
+            "author": "By MELISSA GOMEZ",
+            "thumbnailurl": "https://static01.nyt.com/images/2018/10/08/nyregion/00xp-library2/00xp-library2-mediumThreeByTwo210.jpg",
+            "datemodified": "2018-10-09"
+          },
+          {
+            "headline": "At This Theater, All of the Directors Will Be Women",
+            "description": "Anna Bergmann begins her role as the playhouse director of the Badisches State Theater in Germany with an all-female-directed season.",
+            "author": "By SALLY McGRANE",
+            "thumbnailurl": "https://static01.nyt.com/images/2018/10/01/arts/10women-directors2/28women-directors2-mediumThreeByTwo210-v2.jpg",
+            "datemodified": "2018-09-27"
+          },
+          {
+            "headline": "Lawyers Say They Face Persistent Racial and Gender Bias at Work",
+            "description": "A study found that women and people of color in the legal profession felt they were held to higher standards than white men and received fewer opportunities.",
+            "author": "By KAREN ZRAICK",
+            "thumbnailurl": "https://static01.nyt.com/images/2018/09/07/business/07xp-lawyer1-print/03lawfirm-web3-mediumThreeByTwo210.jpg",
+            "datemodified": "2018-09-06"
+          },
+          {
+            "headline": "8 Fast-Food Chains Will End ‘No-Poach’ Policies",
+            "description": "The restaurants have pledged to end a practice that prohibited workers from switching jobs within the individual chains.",
+            "author": "By RACHEL ABRAMS",
+            "thumbnailurl": "https://static01.nyt.com/images/2018/08/21/business/21nopoach/21nopoach-mediumThreeByTwo210.jpg",
+            "datemodified": "2018-08-20"
+          },
+          {
+            "headline": "5 Pearls of Wisdom About College for Students Starting Their First Year",
+            "description": "Readers who are college graduates offer advice to incoming freshmen who wonder if degrees are worth the hype.",
+            "author": "By LELA MOORE",
+            "thumbnailurl": "https://static01.nyt.com/images/2017/08/03/multimedia/30readers-collegetour-copy/30readers-collegetour-copy-mediumThreeByTwo210-v3.jpg",
+            "datemodified": "2018-08-19"
+          },
+          {
+            "headline": "You’re Ready to Quit. How Much Notice Do You Owe?",
+            "description": "An employee worries that she has promised to give four weeks’ notice to her current boss if she leaves for a new job, but that may be too long for a future employer. Here’s how to finesse...",
+            "author": "By ROB WALKER",
+            "thumbnailurl": "https://static01.nyt.com/images/2018/08/19/business/19Skybox2/merlin_142352361_0f9d777b-6da3-4f34-8c7d-16a7a79b09ad-mediumThreeByTwo210.jpg",
+            "datemodified": "2018-08-17"
+          },
+          {
+            "headline": "5 Takeaways From Elon Musk’s Interview With The Times About Tesla",
+            "description": "The Tesla chief executive addressed a wide range of issues, including the search for a chief operating officer and his tweet that sent the company’s shares soaring.",
+            "author": "By PRASHANT S. RAO",
+            "thumbnailurl": "https://static01.nyt.com/images/2018/08/18/business/18musk-takeaways-sub/18musk-takeaways-sub-mediumThreeByTwo210.jpg",
+            "datemodified": "2018-08-17"
+          },
+          {
+            "headline": "Talking About Failure Is Crucial for Growth. Here's How to Do It Right.",
+            "description": "Research shows that talking about failure makes for happier, more productive workers.",
+            "author": "By OSET BABUR",
+            "thumbnailurl": "https://static01.nyt.com/images/2018/08/19/autossell/19sl_failures1/19sl_failures1-mediumThreeByTwo210.jpg",
+            "datemodified": "2018-08-17"
+          },
+          {
+            "headline": "How to Be an Ace Salary Negotiator (Even if You Hate Conflict)",
+            "description": "Here’s how to fight for a better salary when you loathe uncomfortable conversations.",
+            "author": "By A.C. SHILTON",
+            "thumbnailurl": "https://static01.nyt.com/images/2018/08/09/autossell/09sl-negotiation/merlin_138577476_62aee6af-48ce-416d-a6c0-f865e5da607a-mediumThreeByTwo210.jpg",
+            "datemodified": "2018-08-10"
+          }
+        ],
+        "organization": [
+          {
+            "name": "The New York Times Company",
+            "tickersymbol": "NYSE NYT"
+          }
+        ],
+        "collectionpage": [
+          {
+            "name": "Hiring and Promotion",
+            "about": "News about Hiring and Promotion, including commentary and archival articles published in The New York Times."
+          }
+        ],
+        "cse_image": [
+          {
+            "src": "https://static.nytimes.com/images/icons/t_logo_291_black.png"
+          }
+        ]
+      }
+    }
+  ]
+}

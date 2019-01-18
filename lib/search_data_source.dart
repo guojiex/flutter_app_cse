@@ -54,36 +54,51 @@ abstract class SearchDataSource {
   Future<List<SearchResult>> search(String query, {String searchType});
 }
 
+class _StaticSearchResponse {
+  final String assetPath;
+  final String searchType;
+  String searchResponseJsonString;
+
+  _StaticSearchResponse(
+      {this.assetPath, this.searchType, this.searchResponseJsonString});
+}
+
+
 class FakeSearchDataSource implements SearchDataSource {
-  String jsonString;
-  static const String _webSearchAssetPath =
-      'res/sampledata/nytimes_sample_data.json';
-  static const String _imageSearchAssetPath =
-      'res/sampledata/nytimes_image_sample_data.json';
 
-  FakeSearchDataSource({this.jsonString});
+  final Map<String, _StaticSearchResponse> searchResponses = {
+    'web': _StaticSearchResponse(
+        assetPath: 'res/sampledata/nytimes_sample_data.json'),
+    'image': _StaticSearchResponse(
+        assetPath: 'res/sampledata/nytimes_sample_data.json',
+        searchType: 'image'),
+    'promotion': _StaticSearchResponse(
+        assetPath: 'res/sampledata/nytimes_with_promotion.json'),
+  };
 
-  FakeSearchDataSource.loadWebSearchResultFromAsset() {
-    this._initFromAsset(_webSearchAssetPath);
+
+  FakeSearchDataSource() {
+    searchResponses.keys.forEach((key) {
+      loadAssetToSearchResponse(key, searchResponses[key].assetPath);
+    });
   }
 
-  FakeSearchDataSource.loadImageSearchResultFromAsset() {
-    this._initFromAsset(_imageSearchAssetPath);
-  }
-
-  void _initFromAsset(String assetPath) {
-    loadAsset(assetPath).then((loadedStr) => this.jsonString = loadedStr);
-  }
-
-  Future<String> loadAsset(String assetPath) async {
-    return await rootBundle.loadString(assetPath);
+  void loadAssetToSearchResponse(String searchKey, String assetPath) async {
+    searchResponses[searchKey].searchResponseJsonString =
+    await rootBundle.loadString(assetPath);
   }
 
   @override
   Future<List<SearchResult>> search(String query, {String searchType}) async {
-    Map searchMap = jsonDecode(jsonString);
-    customsearch.Search search = customsearch.Search.fromJson(searchMap);
     var results = List<SearchResult>();
+    if (!searchResponses.containsKey(query)) {
+      return results;
+    }
+    if (searchResponses[query].searchType != searchType) {
+      return results;
+    }
+    Map searchMap = jsonDecode(searchResponses[query].searchResponseJsonString);
+    customsearch.Search search = customsearch.Search.fromJson(searchMap);
     search.items.forEach(
             (item) => results.add(SearchResult.escapeLineBreakInSnippet(item)));
     return Set<SearchResult>.from(results).toList();
