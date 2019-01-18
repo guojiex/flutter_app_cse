@@ -10,7 +10,7 @@ import 'package:english_words/english_words.dart';
 
 /// A wrapper class for [customsearch.Result].
 /// [SearchResult] will use the landing page link to measure if two results are
-/// the same. This is useful for deduplicate image search result.
+/// the same. This is useful for deduplicating image search result.
 class SearchResult {
   final customsearch.Result result;
 
@@ -69,9 +69,8 @@ class SearchResults {
   SearchResults.empty();
 
   SearchResults(customsearch.Search search) {
-    search.items.forEach(
-            (item) =>
-            searchResults.add(SearchResult.escapeLineBreakInSnippet(item)));
+    search.items.forEach((item) =>
+        searchResults.add(SearchResult.escapeLineBreakInSnippet(item)));
   }
 }
 
@@ -119,7 +118,6 @@ class FakeSearchDataSource implements SearchDataSource {
     if (searchResponses[query].searchType != searchType) {
       return SearchResults.empty();
     }
-    var results = List<SearchResult>();
     Map searchMap = jsonDecode(searchResponses[query].searchResponseJsonString);
     customsearch.Search search = customsearch.Search.fromJson(searchMap);
     return SearchResults(search);
@@ -143,7 +141,6 @@ class CustomSearchDataSource implements SearchDataSource {
     if (query.isEmpty) {
       return SearchResults.empty();
     }
-    var results = List<SearchResult>();
     customsearch.Search search =
     await this.api.cse.list(query, cx: this.cx, searchType: searchType);
     searchCount += 1;

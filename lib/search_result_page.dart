@@ -168,7 +168,7 @@ enum WebSearchLayout { simple, CSE }
 
 class CustomSearchSearchDelegate extends SearchDelegate<SearchResult> {
   SearchDataSource dataSource;
-  AutoCompleteDataSource autoCompleteDataSource;
+  AutoCompleteDataSource autoCompleteDataSource = CommonEnglishWordAutoCompleteDataSource();
   SearchType searchType;
 
   CustomSearchSearchDelegate(
@@ -183,7 +183,6 @@ class CustomSearchSearchDelegate extends SearchDelegate<SearchResult> {
 
   CustomSearchSearchDelegate.fakeStaticSource() {
     this.dataSource = FakeSearchDataSource();
-    this.autoCompleteDataSource = CommonEnglishWordAutoCompleteDataSource();
     this.searchType = SearchType.web;
   }
   @override
@@ -251,11 +250,8 @@ class CustomSearchSearchDelegate extends SearchDelegate<SearchResult> {
     );
   }
 
-  int buildResultCount = 0;
   @override
   Widget buildResults(BuildContext context) {
-    buildResultCount += 1;
-    print(buildResultCount);
     return FutureBuilder<SearchResults>(
       future: dataSource.search(query,
           searchType: this.searchType == SearchType.web ? null : 'image'),

@@ -12,8 +12,9 @@ class _CustomWebSearchDemoState extends State<CustomWebSearchDemo> {
       .fakeStaticSource();
 
 //  final CustomSearchSearchDelegate _delegate = new CustomSearchSearchDelegate(
-//      dataSource: CustomSearchDataSource(cx: '', apiKey: ''),
-//      autoCompleteDataSource: CommonEnglishWordAutoCompleteDataSource());
+//      dataSource: CustomSearchDataSource(
+//          cx: '',
+//          apiKey: ''));
   final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
 
   void triggerShowSearch() async {
