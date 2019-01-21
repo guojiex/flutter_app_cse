@@ -9,8 +9,6 @@ import "package:googleapis_auth/auth_io.dart" as auth;
 import 'package:googleapis/customsearch/v1.dart' as customsearch;
 import 'package:english_words/english_words.dart';
 
-import 'shared_constant.dart';
-
 /// A wrapper class for [customsearch.Result].
 /// [SearchResult] will use the landing page link to measure if two results are
 /// the same. This is useful for deduplicating image search result.
@@ -68,6 +66,8 @@ class NextPage {
 }
 
 /// A wrapper class to aggregate all the search result fields that we need.
+///
+/// And deduplicate results.
 class SearchResults {
   List<SearchResult> searchResults = List<SearchResult>();
   List<Promotion> promotions = List<Promotion>();
@@ -78,6 +78,7 @@ class SearchResults {
     var results = new List<SearchResult>();
     search.items.forEach((item) =>
         results.add(SearchResult.escapeLineBreakInSnippet(item)));
+    // Deduplicate search result.
     this.searchResults = Set<SearchResult>.from(results).toList();
   }
 }
