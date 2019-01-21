@@ -163,12 +163,22 @@ class WebSearchResultCard extends StatelessWidget {
   }
 }
 
+class NoResultCard extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return new ListTile(
+      title: new Text('No Result.'),
+    );
+  }
+}
+
 enum SearchType { web, image }
 enum WebSearchLayout { simple, CSE }
 
 class CustomSearchSearchDelegate extends SearchDelegate<SearchResult> {
   SearchDataSource dataSource;
-  AutoCompleteDataSource autoCompleteDataSource = CommonEnglishWordAutoCompleteDataSource();
+  AutoCompleteDataSource autoCompleteDataSource =
+  CommonEnglishWordAutoCompleteDataSource();
   SearchType searchType;
 
   CustomSearchSearchDelegate(
@@ -265,6 +275,15 @@ class CustomSearchSearchDelegate extends SearchDelegate<SearchResult> {
             return Text('Awaiting result...');
           case ConnectionState.done:
             if (snapshot.hasError) return Text('Error: ${snapshot.error}');
+            if (snapshot.data.searchResults.isEmpty) {
+              return GridView.count(
+                crossAxisCount: 1,
+                mainAxisSpacing: 4.0,
+                crossAxisSpacing: 4.0,
+                padding: const EdgeInsets.all(4.0),
+                children: [new NoResultCard()],
+              );
+            }
             switch (this.searchType) {
               case SearchType.image:
                 return GridView.count(

@@ -50,6 +50,9 @@ class SearchResult {
           : result.image.contextLink.hashCode;
 }
 
+/// A wrapper class to generate search request. To make caching possible.
+class SearchRequest {}
+
 class Promotion {
   final customsearch.Promotion promotion;
 
