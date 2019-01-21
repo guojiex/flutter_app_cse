@@ -9,6 +9,8 @@ import "package:googleapis_auth/auth_io.dart" as auth;
 import 'package:googleapis/customsearch/v1.dart' as customsearch;
 import 'package:english_words/english_words.dart';
 
+import 'shared_constant.dart';
+
 /// A wrapper class for [customsearch.Result].
 /// [SearchResult] will use the landing page link to measure if two results are
 /// the same. This is useful for deduplicating image search result.
@@ -73,8 +75,10 @@ class SearchResults {
   SearchResults.empty();
 
   SearchResults(customsearch.Search search) {
+    var results = new List<SearchResult>();
     search.items.forEach((item) =>
-        searchResults.add(SearchResult.escapeLineBreakInSnippet(item)));
+        results.add(SearchResult.escapeLineBreakInSnippet(item)));
+    this.searchResults = Set<SearchResult>.from(results).toList();
   }
 }
 
@@ -97,7 +101,7 @@ class FakeSearchDataSource implements SearchDataSource {
     'web': _StaticSearchResponse(
         assetPath: 'res/sampledata/nytimes_sample_data.json'),
     'image': _StaticSearchResponse(
-        assetPath: 'res/sampledata/nytimes_sample_data.json',
+        assetPath: 'res/sampledata/nytimes_image_sample_data.json',
         searchType: 'image'),
     'promotion': _StaticSearchResponse(
         assetPath: 'res/sampledata/nytimes_with_promotion.json'),
@@ -147,8 +151,6 @@ class CustomSearchDataSource implements SearchDataSource {
     }
     customsearch.Search search =
     await this.api.cse.list(query, cx: this.cx, searchType: searchType);
-    searchCount += 1;
-    print("search count: $searchCount");
     return SearchResults(search);
   }
 }

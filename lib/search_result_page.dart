@@ -1,179 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app_cse/search_data_source.dart';
-import 'package:url_launcher/url_launcher.dart';
 
-class ImageSearchResultCard extends StatelessWidget {
-  ImageSearchResultCard({this.searchResult, this.searchDelegate});
-
-  final SearchResult searchResult;
-  final SearchDelegate<SearchResult> searchDelegate;
-
-  @override
-  Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () async {
-        if (await canLaunch(searchResult.result.image.contextLink)) {
-          await launch(searchResult.result.image.contextLink);
-        }
-      },
-      child: GridTile(
-        child: Image.network(this.searchResult.result.link, fit: BoxFit.cover),
-        footer: GridTileBar(
-            backgroundColor: Colors.black45,
-            title: FittedBox(
-              fit: BoxFit.scaleDown,
-              alignment: Alignment.centerLeft,
-              child: Text(this.searchResult.result.title),
-            )),
-      ),
-    );
-  }
-}
-
-class WebSearchResultCard extends StatelessWidget {
-  const WebSearchResultCard({this.searchResult,
-    this.searchDelegate,
-    this.webSearchLayout = WebSearchLayout.CSE});
-
-  final SearchResult searchResult;
-  final SearchDelegate<SearchResult> searchDelegate;
-  final WebSearchLayout webSearchLayout;
-
-  Widget _generateTitleTile(BuildContext context) {
-    final ThemeData theme = Theme.of(context);
-    return ListTile(
-      title: Padding(
-        padding: EdgeInsets.only(top: 6.0),
-        child: Text(
-          this.searchResult.result.title,
-          style: theme.textTheme.headline.copyWith(
-              fontSize: 15.0, fontWeight: FontWeight.bold, color: Colors.blue),
-        ),
-      ),
-      subtitle: new Text(
-        this.searchResult.result.link,
-        style:
-        theme.textTheme.body1.copyWith(fontSize: 14.0, color: Colors.green),
-      ),
-    );
-  }
-
-  Widget _generateBodyTile(BuildContext context) {
-    final ThemeData theme = Theme.of(context);
-    bool haveThumbnail = this.searchResult.result.pagemap['thumbnail'] != null;
-    if (!haveThumbnail) {
-      return Container(
-        padding: const EdgeInsets.only(
-          left: 14.0,
-          bottom: 8.0,
-        ),
-        child: Container(
-            padding: const EdgeInsets.only(right: 10.0),
-            child: Text(
-              this.searchResult.result.snippet,
-              style: theme.textTheme.body1,
-              textAlign: TextAlign.left,
-            )),
-      );
-    } else {
-      return Container(
-        padding: const EdgeInsets.only(
-          left: 15.0,
-          bottom: 8.0,
-        ),
-        child: new Row(children: [
-          Image.network(
-              this.searchResult.result.pagemap['thumbnail'][0]['src']),
-          Expanded(
-              child: Container(
-                  padding: const EdgeInsets.only(left: 10.0, right: 12.0),
-                  child: Text(
-                    this.searchResult.result.snippet,
-                    style: theme.textTheme.body1,
-                    textAlign: TextAlign.left,
-                  ))),
-        ]),
-      );
-    }
-  }
-
-  Widget _buildSimpleLayout(BuildContext context) {
-    final ThemeData theme = Theme.of(context);
-    return new Card(
-        child: new Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: new ListTile(
-            leading: this.searchResult.result.pagemap['thumbnail'] != null
-                ? new Image.network(
-                this.searchResult.result.pagemap['thumbnail'][0]['src'])
-                : null,
-            title: new Text(
-              this.searchResult.result.title,
-              style: theme.textTheme.headline
-                  .copyWith(fontSize: 12.0, fontWeight: FontWeight.bold),
-            ),
-            subtitle: new Text(
-              this.searchResult.result.snippet,
-              style: theme.textTheme.body1.copyWith(fontSize: 12.0),
-            ),
-          ),
-        ));
-  }
-
-  Widget _buildCSELayout(BuildContext context) {
-    return new Container(
-      decoration: new BoxDecoration(boxShadow: [
-        new BoxShadow(
-          color: Colors.grey,
-          blurRadius: 1.0,
-        ),
-      ]),
-      child: new Card(
-        child: Column(
-          children: [
-            _generateTitleTile(context),
-            new Divider(color: Colors.black26),
-            _generateBodyTile(context),
-          ],
-        ),
-      ),
-    );
-  }
-
-  Widget _buildFromLayout(BuildContext context) {
-    switch (this.webSearchLayout) {
-      case WebSearchLayout.simple:
-        return _buildSimpleLayout(context);
-      case WebSearchLayout.CSE:
-        return _buildCSELayout(context);
-      default:
-        return new Text('Invalid Layout For WebSearchResult!');
-    }
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return new GestureDetector(
-        onTap: () async {
-          if (await canLaunch(searchResult.result.link)) {
-            await launch(searchResult.result.link);
-          }
-        },
-        child: _buildFromLayout(context));
-  }
-}
-
-class NoResultCard extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return new ListTile(
-      title: new Text('No Result.'),
-    );
-  }
-}
-
-enum SearchType { web, image }
-enum WebSearchLayout { simple, CSE }
+import 'component/no_result_card.dart';
+import 'component/web_search_result_card.dart';
+import 'component/image_search_result_card.dart';
+import 'shared_constant.dart';
 
 class CustomSearchSearchDelegate extends SearchDelegate<SearchResult> {
   SearchDataSource dataSource;
@@ -195,6 +26,12 @@ class CustomSearchSearchDelegate extends SearchDelegate<SearchResult> {
     this.dataSource = FakeSearchDataSource();
     this.searchType = SearchType.web;
   }
+
+  CustomSearchSearchDelegate.fakeStaticSourceImageSearch() {
+    this.dataSource = FakeSearchDataSource();
+    this.searchType = SearchType.image;
+  }
+
   @override
   ThemeData appBarTheme(BuildContext context) {
     final ThemeData theme = Theme.of(context);
@@ -294,16 +131,14 @@ class CustomSearchSearchDelegate extends SearchDelegate<SearchResult> {
                     children: List.generate(snapshot.data.searchResults.length,
                             (index) {
                           return new ImageSearchResultCard(
-                              searchResult: snapshot.data.searchResults[index],
-                              searchDelegate: this);
+                              searchResult: snapshot.data.searchResults[index]);
                         }));
               case SearchType.web:
                 return ListView.builder(
                     itemCount: snapshot.data.searchResults.length,
                     itemBuilder: (BuildContext context, int index) {
                       return new WebSearchResultCard(
-                          searchResult: snapshot.data.searchResults[index],
-                          searchDelegate: this);
+                          searchResult: snapshot.data.searchResults[index]);
                     });
               default:
                 print('should not reach here!');
