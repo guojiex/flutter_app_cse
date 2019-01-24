@@ -51,7 +51,7 @@ class _CustomWebSearchDemoState extends State<CustomWebSearchDemo> {
         ),
         actions: <Widget>[
           new IconButton(
-            tooltip: 'Image Search',
+            tooltip: 'Search',
             icon: const Icon(Icons.search),
             onPressed: triggerShowSearch,
           ),

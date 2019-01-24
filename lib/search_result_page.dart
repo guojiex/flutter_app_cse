@@ -8,28 +8,33 @@ import 'shared_constant.dart';
 
 class CustomSearchSearchDelegate extends SearchDelegate<SearchResult> {
   SearchDataSource dataSource;
-  AutoCompleteDataSource autoCompleteDataSource =
-  CommonEnglishWordAutoCompleteDataSource();
+  AutoCompleteDataSource autoCompleteDataSource;
   SearchType searchType;
 
   CustomSearchSearchDelegate(
       {this.dataSource,
-      this.autoCompleteDataSource,
+        this.autoCompleteDataSource =
+        const CommonEnglishWordAutoCompleteDataSource(),
       this.searchType = SearchType.web});
 
   CustomSearchSearchDelegate.imageSearch(
       {this.dataSource,
-        this.autoCompleteDataSource,
+        this.autoCompleteDataSource =
+        const CommonEnglishWordAutoCompleteDataSource(),
         this.searchType = SearchType.image});
 
   CustomSearchSearchDelegate.fakeStaticSource() {
     this.dataSource = FakeSearchDataSource();
     this.searchType = SearchType.web;
+    this.autoCompleteDataSource =
+    const CommonEnglishWordAutoCompleteDataSource();
   }
 
   CustomSearchSearchDelegate.fakeStaticSourceImageSearch() {
     this.dataSource = FakeSearchDataSource();
     this.searchType = SearchType.image;
+    this.autoCompleteDataSource =
+    const CommonEnglishWordAutoCompleteDataSource();
   }
 
   @override
@@ -74,6 +79,7 @@ class CustomSearchSearchDelegate extends SearchDelegate<SearchResult> {
               tooltip: 'Clear',
               icon: const Icon(Icons.clear),
               onPressed: () async {
+                close(context, null);
                 await showSearch<SearchResult>(
                   context: context,
                   delegate: this,
