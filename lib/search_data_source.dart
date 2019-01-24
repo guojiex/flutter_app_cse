@@ -120,8 +120,6 @@ class FakeSearchDataSource implements SearchDataSource {
     await rootBundle.loadString(assetPath);
   }
 
-  int count = 0;
-
   @override
   Future<SearchResults> search(String query, {String searchType}) async {
     if (!searchResponses.containsKey(query)) {
@@ -132,18 +130,18 @@ class FakeSearchDataSource implements SearchDataSource {
     }
     SearchQuery searchQuery =
     SearchQuery(query, this.cx, searchType: searchType);
-    var cachedResponse = await _cache.get(searchQuery);
-    if (cachedResponse != null) {
-      return cachedResponse;
+
+    if (!_cache.isKeyInFlightOrInCache(searchQuery)) {
+      _cache.markAsInFlight(searchQuery);
+    } else {
+      return await _cache.get(searchQuery);
     }
+
     Map searchMap = jsonDecode(searchResponses[query].searchResponseJsonString);
     customsearch.Search search = customsearch.Search.fromJson(searchMap);
 
-    print('count: $count');
-    count++;
-
     var result = SearchResults(search);
-    await _cache.set(searchQuery, result);
+    _cache.set(searchQuery, result);
     return result;
   }
 }
@@ -307,7 +305,6 @@ class CustomSearchDataSource implements SearchDataSource {
   final String cx;
   final String apiKey;
   customsearch.CustomsearchApi api;
-  int searchCount = 0;
   final ExpireCache<SearchQuery, SearchResults> _cache =
   ExpireCache<SearchQuery, SearchResults>();
 
@@ -324,16 +321,14 @@ class CustomSearchDataSource implements SearchDataSource {
     SearchQuery searchQuery =
     SearchQuery(query, this.cx, searchType: searchType);
 
-    final cachedResponse = await _cache.get(searchQuery);
-    if (cachedResponse != null) {
-      return cachedResponse;
+    if (!_cache.isKeyInFlightOrInCache(searchQuery)) {
+      _cache.markAsInFlight(searchQuery);
+    } else {
+      return await _cache.get(searchQuery);
     }
 
-    print('count: $searchCount');
-    searchCount++;
-
     final result = await searchQuery.runSearch(this.api);
-    await _cache.set(searchQuery, result);
+    _cache.set(searchQuery, result);
     return result;
   }
 }
