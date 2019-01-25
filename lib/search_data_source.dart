@@ -95,6 +95,12 @@ class _StaticSearchResponse {
       {this.assetPath, this.searchType, this.searchResponseJsonString});
 }
 
+/// A fake search data source, that reads data from flutter assests.
+///
+/// Choose to do the caching in this class, rather than in the
+/// [SearchDelegate.showResults]. Because this is controllable by developer,
+/// we don't know if the implementation detail about [SearchDelegate] will
+/// change or not.
 class FakeSearchDataSource implements SearchDataSource {
   final Map<String, _StaticSearchResponse> searchResponses = {
     'web': _StaticSearchResponse(
@@ -301,6 +307,11 @@ class SearchQuery {
 }
 
 /// The search data source that uses Custom Search API.
+///
+// Choose to do the caching in this class, rather than in the
+// [SearchDelegate.showResults]. Because this is controllable by developer,
+// we don't know if the implementation detail about [SearchDelegate] will
+// change or not.
 class CustomSearchDataSource implements SearchDataSource {
   final String cx;
   final String apiKey;
