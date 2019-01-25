@@ -8,7 +8,6 @@ import 'package:flutter/services.dart' show rootBundle;
 import "package:googleapis_auth/auth_io.dart" as auth;
 import 'package:googleapis/customsearch/v1.dart' as customsearch;
 import 'package:english_words/english_words.dart';
-import 'package:async/async.dart';
 
 /// A wrapper class for [customsearch.Result].
 /// [SearchResult] will use the landing page link to measure if two results are
