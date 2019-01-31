@@ -11,7 +11,7 @@ import 'package:english_words/english_words.dart';
 
 /// A wrapper class for [customsearch.Result].
 /// [SearchResult] will use the landing page link to measure if two results are
-/// the same. This is useful for deduplicating image search result.
+/// the same. This is useful to deduplicate image search result.
 class SearchResult {
   final customsearch.Result result;
 
