@@ -247,10 +247,10 @@ class SearchQuery {
 
 /// Abstract class for Search Data Source.
 abstract class SearchDataSource {
-  Future<SearchResults> search(String query, {String searchType});
+  String cx;
 
   /// Use an existing searchQuery to search.
-  Future<SearchResults> searchBySearchQuery(SearchQuery searchQuery);
+  Future<SearchResults> search(SearchQuery searchQuery);
 }
 
 class _StaticSearchResponse {
@@ -280,7 +280,9 @@ class FakeSearchDataSource implements SearchDataSource {
   };
   final ExpireCache<SearchQuery, SearchResults> _cache =
   ExpireCache<SearchQuery, SearchResults>();
-  final String cx = 'fake_cx';
+
+  @override
+  String cx='fake_cx';
 
   FakeSearchDataSource() {
     searchResponses.keys.forEach((key) {
@@ -294,32 +296,7 @@ class FakeSearchDataSource implements SearchDataSource {
   }
 
   @override
-  Future<SearchResults> search(String query, {String searchType}) async {
-    if (!searchResponses.containsKey(query)) {
-      return SearchResults.empty();
-    }
-    if (searchResponses[query].searchType != searchType) {
-      return SearchResults.empty();
-    }
-    SearchQuery searchQuery =
-    SearchQuery(query, this.cx, searchType: searchType);
-
-    if (!_cache.isKeyInFlightOrInCache(searchQuery)) {
-      _cache.markAsInFlight(searchQuery);
-    } else {
-      return await _cache.get(searchQuery);
-    }
-
-    Map searchMap = jsonDecode(searchResponses[query].searchResponseJsonString);
-    customsearch.Search search = customsearch.Search.fromJson(searchMap);
-
-    var result = SearchResults(search);
-    _cache.set(searchQuery, result);
-    return result;
-  }
-
-  @override
-  Future<SearchResults> searchBySearchQuery(SearchQuery searchQuery) async {
+  Future<SearchResults> search(SearchQuery searchQuery) async {
     if (!searchResponses.containsKey(searchQuery.q)) {
       return SearchResults.empty();
     }
@@ -344,12 +321,11 @@ class FakeSearchDataSource implements SearchDataSource {
 
 /// The search data source that uses Custom Search API.
 ///
-// Choose to do the caching in this class, rather than in the
-// [SearchDelegate.showResults]. Because this is controllable by developer,
-// we don't know if the implementation detail about [SearchDelegate] will
-// change or not.
+/// Choose to do the caching in this class, rather than in the
+/// [SearchDelegate.showResults]. Because this is controllable by developer,
+/// we don't know if the implementation detail about [SearchDelegate] will
+/// change or not.
 class CustomSearchDataSource implements SearchDataSource {
-  final String cx;
   final String apiKey;
   customsearch.CustomsearchApi api;
   final ExpireCache<SearchQuery, SearchResults> _cache =
@@ -361,26 +337,10 @@ class CustomSearchDataSource implements SearchDataSource {
   }
 
   @override
-  Future<SearchResults> search(String query, {String searchType}) async {
-    if (query.isEmpty) {
-      return SearchResults.empty();
-    }
-    SearchQuery searchQuery =
-    SearchQuery(query, this.cx, searchType: searchType);
-
-    if (!_cache.isKeyInFlightOrInCache(searchQuery)) {
-      _cache.markAsInFlight(searchQuery);
-    } else {
-      return await _cache.get(searchQuery);
-    }
-
-    final result = await searchQuery.runSearch(this.api);
-    _cache.set(searchQuery, result);
-    return result;
-  }
+  String cx;
 
   @override
-  Future<SearchResults> searchBySearchQuery(SearchQuery searchQuery) async {
+  Future<SearchResults> search(SearchQuery searchQuery) async {
     if (searchQuery.q.isEmpty) {
       return SearchResults.empty();
     }

@@ -26,7 +26,7 @@ class PaginationTab extends StatelessWidget {
           children: paginationTabType == PaginationTabType.nextPage
               ? <Widget>[
                   new Text(
-                    '         Next Page',
+                    '       Next Page',
                     style: theme.textTheme.headline
                         .copyWith(fontSize: 15.0, fontWeight: FontWeight.bold),
                   ),

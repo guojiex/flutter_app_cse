@@ -107,8 +107,8 @@ class CustomSearchSearchDelegate extends SearchDelegate<SearchResult> {
   @override
   Widget buildResults(BuildContext context) {
     return FutureBuilder<SearchResults>(
-      future: dataSource.search(query,
-          searchType: this.searchType == SearchType.web ? null : 'image'),
+      future: dataSource.search(SearchQuery(query, dataSource.cx,
+          searchType: this.searchType == SearchType.web ? null : 'image')),
       // a previously-obtained Future<List<SearchResult>> or null
       builder: (BuildContext context, AsyncSnapshot<SearchResults> snapshot) {
         switch (snapshot.connectionState) {
@@ -142,7 +142,7 @@ class CustomSearchSearchDelegate extends SearchDelegate<SearchResult> {
                           if (index == snapshot.data.searchResults.length) {
                             return PaginationTab.nextPage();
                           }
-                          if (index == snapshot.data.searchResults.length+1) {
+                          if (index == snapshot.data.searchResults.length + 1) {
                             return PaginationTab.previousPage();
                           }
                           return new ImageSearchResultCard(
@@ -157,7 +157,7 @@ class CustomSearchSearchDelegate extends SearchDelegate<SearchResult> {
                       if (index == snapshot.data.searchResults.length) {
                         return PaginationTab.nextPage();
                       }
-                      if (index == snapshot.data.searchResults.length+1) {
+                      if (index == snapshot.data.searchResults.length + 1) {
                         return PaginationTab.previousPage();
                       }
                       return new WebSearchResultCard(
