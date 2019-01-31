@@ -4,8 +4,8 @@ import 'package:flutter_app_cse/CustomSearchPage.dart';
 void main() => runApp(SearchDemoApp());
 
 class SearchDemoApp extends StatelessWidget {
-  CustomSearchDemo webSearchDemo =
-  CustomSearchDemo(CustomSearchDemoType.staticWebSearch);
+  final CustomSearchDemo webSearchDemo =
+      CustomSearchDemo(CustomSearchDemoType.staticWebSearch);
 
   @override
   Widget build(BuildContext context) {

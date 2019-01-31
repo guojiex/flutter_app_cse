@@ -57,9 +57,16 @@ class Promotion {
 }
 
 class NextPage {
-  final customsearch.Query query;
+  /// The next page result's start index, from the whole
+  final int startIndex;
+  final int count;
 
-  NextPage(this.query);
+  NextPage.fromQuery(this.startIndex, this.count);
+
+  @override
+  String toString() {
+    return 'NextPage{startIndex: $startIndex, count: $count}';
+  }
 }
 
 /// A wrapper class to aggregate all the search result fields that we need.
@@ -68,6 +75,7 @@ class NextPage {
 class SearchResults {
   List<SearchResult> searchResults = List<SearchResult>();
   List<Promotion> promotions = List<Promotion>();
+  NextPage nextPage;
 
   SearchResults.empty();
 
@@ -77,77 +85,9 @@ class SearchResults {
             (item) => results.add(SearchResult.escapeLineBreakInSnippet(item)));
     // Deduplicate search result.
     this.searchResults = Set<SearchResult>.from(results).toList();
-  }
-}
-
-/// Abstract class for Search Data Source.
-abstract class SearchDataSource {
-  Future<SearchResults> search(String query, {String searchType});
-}
-
-class _StaticSearchResponse {
-  final String assetPath;
-  final String searchType;
-  String searchResponseJsonString;
-
-  _StaticSearchResponse(
-      {this.assetPath, this.searchType, this.searchResponseJsonString});
-}
-
-/// A fake search data source, that reads data from flutter assests.
-///
-/// Choose to do the caching in this class, rather than in the
-/// [SearchDelegate.showResults]. Because this is controllable by developer,
-/// we don't know if the implementation detail about [SearchDelegate] will
-/// change or not.
-class FakeSearchDataSource implements SearchDataSource {
-  final Map<String, _StaticSearchResponse> searchResponses = {
-    'web': _StaticSearchResponse(
-        assetPath: 'res/sampledata/nytimes_sample_data.json'),
-    'image': _StaticSearchResponse(
-        assetPath: 'res/sampledata/nytimes_image_sample_data.json',
-        searchType: 'image'),
-    'promotion': _StaticSearchResponse(
-        assetPath: 'res/sampledata/nytimes_with_promotion.json'),
-  };
-  final ExpireCache<SearchQuery, SearchResults> _cache =
-  ExpireCache<SearchQuery, SearchResults>();
-  final String cx = 'fake_cx';
-
-  FakeSearchDataSource() {
-    searchResponses.keys.forEach((key) {
-      loadAssetToSearchResponse(key, searchResponses[key].assetPath);
-    });
-  }
-
-  void loadAssetToSearchResponse(String searchKey, String assetPath) async {
-    searchResponses[searchKey].searchResponseJsonString =
-    await rootBundle.loadString(assetPath);
-  }
-
-  @override
-  Future<SearchResults> search(String query, {String searchType}) async {
-    if (!searchResponses.containsKey(query)) {
-      return SearchResults.empty();
-    }
-    if (searchResponses[query].searchType != searchType) {
-      return SearchResults.empty();
-    }
-    SearchQuery searchQuery =
-    SearchQuery(query, this.cx, searchType: searchType);
-
-    if (!_cache.isKeyInFlightOrInCache(searchQuery)) {
-      _cache.markAsInFlight(searchQuery);
-    } else {
-      return await _cache.get(searchQuery);
-    }
-
-    Map searchMap = jsonDecode(searchResponses[query].searchResponseJsonString);
-    customsearch.Search search = customsearch.Search.fromJson(searchMap);
-
-    var result = SearchResults(search);
-    _cache.set(searchQuery, result);
-    return result;
+    final nextPageQuery = search.queries['nextPage'][0];
+    this.nextPage = new NextPage.fromQuery(nextPageQuery.startIndex,nextPageQuery.count);
+    print(this.nextPage);
   }
 }
 
@@ -305,6 +245,103 @@ class SearchQuery {
       fields.hashCode;
 }
 
+/// Abstract class for Search Data Source.
+abstract class SearchDataSource {
+  Future<SearchResults> search(String query, {String searchType});
+
+  /// Use an existing searchQuery to search.
+  Future<SearchResults> searchBySearchQuery(SearchQuery searchQuery);
+}
+
+class _StaticSearchResponse {
+  final String assetPath;
+  final String searchType;
+  String searchResponseJsonString;
+
+  _StaticSearchResponse(
+      {this.assetPath, this.searchType, this.searchResponseJsonString});
+}
+
+/// A fake search data source, that reads data from flutter assests.
+///
+/// Choose to do the caching in this class, rather than in the
+/// [SearchDelegate.showResults]. Because this is controllable by developer,
+/// we don't know if the implementation detail about [SearchDelegate] will
+/// change or not.
+class FakeSearchDataSource implements SearchDataSource {
+  final Map<String, _StaticSearchResponse> searchResponses = {
+    'web': _StaticSearchResponse(
+        assetPath: 'res/sampledata/nytimes_sample_data.json'),
+    'image': _StaticSearchResponse(
+        assetPath: 'res/sampledata/nytimes_image_sample_data.json',
+        searchType: 'image'),
+    'promotion': _StaticSearchResponse(
+        assetPath: 'res/sampledata/nytimes_with_promotion.json'),
+  };
+  final ExpireCache<SearchQuery, SearchResults> _cache =
+  ExpireCache<SearchQuery, SearchResults>();
+  final String cx = 'fake_cx';
+
+  FakeSearchDataSource() {
+    searchResponses.keys.forEach((key) {
+      loadAssetToSearchResponse(key, searchResponses[key].assetPath);
+    });
+  }
+
+  void loadAssetToSearchResponse(String searchKey, String assetPath) async {
+    searchResponses[searchKey].searchResponseJsonString =
+    await rootBundle.loadString(assetPath);
+  }
+
+  @override
+  Future<SearchResults> search(String query, {String searchType}) async {
+    if (!searchResponses.containsKey(query)) {
+      return SearchResults.empty();
+    }
+    if (searchResponses[query].searchType != searchType) {
+      return SearchResults.empty();
+    }
+    SearchQuery searchQuery =
+    SearchQuery(query, this.cx, searchType: searchType);
+
+    if (!_cache.isKeyInFlightOrInCache(searchQuery)) {
+      _cache.markAsInFlight(searchQuery);
+    } else {
+      return await _cache.get(searchQuery);
+    }
+
+    Map searchMap = jsonDecode(searchResponses[query].searchResponseJsonString);
+    customsearch.Search search = customsearch.Search.fromJson(searchMap);
+
+    var result = SearchResults(search);
+    _cache.set(searchQuery, result);
+    return result;
+  }
+
+  @override
+  Future<SearchResults> searchBySearchQuery(SearchQuery searchQuery) async {
+    if (!searchResponses.containsKey(searchQuery.q)) {
+      return SearchResults.empty();
+    }
+    if (searchResponses[searchQuery.q].searchType != searchQuery.searchType) {
+      return SearchResults.empty();
+    }
+
+    if (!_cache.isKeyInFlightOrInCache(searchQuery)) {
+      _cache.markAsInFlight(searchQuery);
+    } else {
+      return await _cache.get(searchQuery);
+    }
+
+    Map searchMap = jsonDecode(searchResponses[searchQuery.q].searchResponseJsonString);
+    customsearch.Search search = customsearch.Search.fromJson(searchMap);
+
+    var result = SearchResults(search);
+    _cache.set(searchQuery, result);
+    return result;
+  }
+}
+
 /// The search data source that uses Custom Search API.
 ///
 // Choose to do the caching in this class, rather than in the
@@ -330,6 +367,23 @@ class CustomSearchDataSource implements SearchDataSource {
     }
     SearchQuery searchQuery =
     SearchQuery(query, this.cx, searchType: searchType);
+
+    if (!_cache.isKeyInFlightOrInCache(searchQuery)) {
+      _cache.markAsInFlight(searchQuery);
+    } else {
+      return await _cache.get(searchQuery);
+    }
+
+    final result = await searchQuery.runSearch(this.api);
+    _cache.set(searchQuery, result);
+    return result;
+  }
+
+  @override
+  Future<SearchResults> searchBySearchQuery(SearchQuery searchQuery) async {
+    if (searchQuery.q.isEmpty) {
+      return SearchResults.empty();
+    }
 
     if (!_cache.isKeyInFlightOrInCache(searchQuery)) {
       _cache.markAsInFlight(searchQuery);

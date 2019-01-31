@@ -4,6 +4,7 @@ import 'package:flutter_app_cse/search_data_source.dart';
 import 'component/no_result_card.dart';
 import 'component/web_search_result_card.dart';
 import 'component/image_search_result_card.dart';
+import 'component/pagination_tab.dart';
 import 'shared_constant.dart';
 
 class CustomSearchSearchDelegate extends SearchDelegate<SearchResult> {
@@ -13,28 +14,28 @@ class CustomSearchSearchDelegate extends SearchDelegate<SearchResult> {
 
   CustomSearchSearchDelegate(
       {this.dataSource,
-        this.autoCompleteDataSource =
-        const CommonEnglishWordAutoCompleteDataSource(),
+      this.autoCompleteDataSource =
+          const CommonEnglishWordAutoCompleteDataSource(),
       this.searchType = SearchType.web});
 
   CustomSearchSearchDelegate.imageSearch(
       {this.dataSource,
-        this.autoCompleteDataSource =
-        const CommonEnglishWordAutoCompleteDataSource(),
-        this.searchType = SearchType.image});
+      this.autoCompleteDataSource =
+          const CommonEnglishWordAutoCompleteDataSource(),
+      this.searchType = SearchType.image});
 
   CustomSearchSearchDelegate.fakeStaticSource() {
     this.dataSource = FakeSearchDataSource();
     this.searchType = SearchType.web;
     this.autoCompleteDataSource =
-    const CommonEnglishWordAutoCompleteDataSource();
+        const CommonEnglishWordAutoCompleteDataSource();
   }
 
   CustomSearchSearchDelegate.fakeStaticSourceImageSearch() {
     this.dataSource = FakeSearchDataSource();
     this.searchType = SearchType.image;
     this.autoCompleteDataSource =
-    const CommonEnglishWordAutoCompleteDataSource();
+        const CommonEnglishWordAutoCompleteDataSource();
   }
 
   @override
@@ -129,20 +130,36 @@ class CustomSearchSearchDelegate extends SearchDelegate<SearchResult> {
             }
             switch (this.searchType) {
               case SearchType.image:
-                return GridView.count(
-                    crossAxisCount: 1,
-                    mainAxisSpacing: 4.0,
-                    crossAxisSpacing: 4.0,
-                    padding: const EdgeInsets.all(4.0),
-                    children: List.generate(snapshot.data.searchResults.length,
-                            (index) {
+                return Row(
+                  children: <Widget>[
+                    GridView.count(
+                        crossAxisCount: 1,
+                        mainAxisSpacing: 4.0,
+                        crossAxisSpacing: 4.0,
+                        padding: const EdgeInsets.all(4.0),
+                        children: List.generate(
+                            snapshot.data.searchResults.length + 2, (index) {
+                          if (index == snapshot.data.searchResults.length) {
+                            return PaginationTab.nextPage();
+                          }
+                          if (index == snapshot.data.searchResults.length+1) {
+                            return PaginationTab.previousPage();
+                          }
                           return new ImageSearchResultCard(
                               searchResult: snapshot.data.searchResults[index]);
-                        }));
+                        })),
+                  ],
+                );
               case SearchType.web:
                 return ListView.builder(
-                    itemCount: snapshot.data.searchResults.length,
+                    itemCount: snapshot.data.searchResults.length + 2,
                     itemBuilder: (BuildContext context, int index) {
+                      if (index == snapshot.data.searchResults.length) {
+                        return PaginationTab.nextPage();
+                      }
+                      if (index == snapshot.data.searchResults.length+1) {
+                        return PaginationTab.previousPage();
+                      }
                       return new WebSearchResultCard(
                           searchResult: snapshot.data.searchResults[index]);
                     });
