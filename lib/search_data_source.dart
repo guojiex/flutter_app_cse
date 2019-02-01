@@ -44,10 +44,9 @@ class SearchResult {
   }
 
   @override
-  int get hashCode =>
-      result.image == null
-          ? result.link.hashCode
-          : result.image.contextLink.hashCode;
+  int get hashCode => result.image == null
+      ? result.link.hashCode
+      : result.image.contextLink.hashCode;
 }
 
 class Promotion {
@@ -82,16 +81,19 @@ class SearchResults {
   SearchResults(customsearch.Search search) {
     var results = new List<SearchResult>();
     search.items.forEach(
-            (item) => results.add(SearchResult.escapeLineBreakInSnippet(item)));
+        (item) => results.add(SearchResult.escapeLineBreakInSnippet(item)));
     // Deduplicate search result.
     this.searchResults = Set<SearchResult>.from(results).toList();
     final nextPageQuery = search.queries['nextPage'][0];
-    this.nextPage = new NextPage.fromQuery(nextPageQuery.startIndex,nextPageQuery.count);
+    this.nextPage =
+        new NextPage.fromQuery(nextPageQuery.startIndex, nextPageQuery.count);
     print(this.nextPage);
   }
 }
 
 /// A wrapper class for search request, to make caching search request possible.
+
+@immutable
 class SearchQuery {
   String q;
   String c2coff;
@@ -131,35 +133,35 @@ class SearchQuery {
 
   SearchQuery(this.q, this.cx,
       {this.c2coff,
-        this.cr,
-        this.dateRestrict,
-        this.exactTerms,
-        this.excludeTerms,
-        this.fileType,
-        this.filter,
-        this.gl,
-        this.googlehost,
-        this.highRange,
-        this.hl,
-        this.hq,
-        this.imgColorType,
-        this.imgDominantColor,
-        this.imgSize,
-        this.imgType,
-        this.linkSite,
-        this.lowRange,
-        this.lr,
-        this.num,
-        this.orTerms,
-        this.relatedSite,
-        this.rights,
-        this.safe,
-        this.searchType,
-        this.siteSearch,
-        this.siteSearchFilter,
-        this.sort,
-        this.start,
-        this.fields});
+      this.cr,
+      this.dateRestrict,
+      this.exactTerms,
+      this.excludeTerms,
+      this.fileType,
+      this.filter,
+      this.gl,
+      this.googlehost,
+      this.highRange,
+      this.hl,
+      this.hq,
+      this.imgColorType,
+      this.imgDominantColor,
+      this.imgSize,
+      this.imgType,
+      this.linkSite,
+      this.lowRange,
+      this.lr,
+      this.num,
+      this.orTerms,
+      this.relatedSite,
+      this.rights,
+      this.safe,
+      this.searchType,
+      this.siteSearch,
+      this.siteSearchFilter,
+      this.sort,
+      this.start,
+      this.fields});
 
   Future<SearchResults> runSearch(customsearch.CustomsearchApi api) async {
     return SearchResults(
@@ -174,40 +176,40 @@ class SearchQuery {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-          other is SearchQuery &&
-              runtimeType == other.runtimeType &&
-              q == other.q &&
-              c2coff == other.c2coff &&
-              cr == other.cr &&
-              cx == other.cx &&
-              dateRestrict == other.dateRestrict &&
-              exactTerms == other.exactTerms &&
-              excludeTerms == other.excludeTerms &&
-              fileType == other.fileType &&
-              filter == other.filter &&
-              gl == other.gl &&
-              googlehost == other.googlehost &&
-              highRange == other.highRange &&
-              hl == other.hl &&
-              hq == other.hq &&
-              imgColorType == other.imgColorType &&
-              imgDominantColor == other.imgDominantColor &&
-              imgSize == other.imgSize &&
-              imgType == other.imgType &&
-              linkSite == other.linkSite &&
-              lowRange == other.lowRange &&
-              lr == other.lr &&
-              num == other.num &&
-              orTerms == other.orTerms &&
-              relatedSite == other.relatedSite &&
-              rights == other.rights &&
-              safe == other.safe &&
-              searchType == other.searchType &&
-              siteSearch == other.siteSearch &&
-              siteSearchFilter == other.siteSearchFilter &&
-              sort == other.sort &&
-              start == other.start &&
-              fields == other.fields;
+      other is SearchQuery &&
+          runtimeType == other.runtimeType &&
+          q == other.q &&
+          c2coff == other.c2coff &&
+          cr == other.cr &&
+          cx == other.cx &&
+          dateRestrict == other.dateRestrict &&
+          exactTerms == other.exactTerms &&
+          excludeTerms == other.excludeTerms &&
+          fileType == other.fileType &&
+          filter == other.filter &&
+          gl == other.gl &&
+          googlehost == other.googlehost &&
+          highRange == other.highRange &&
+          hl == other.hl &&
+          hq == other.hq &&
+          imgColorType == other.imgColorType &&
+          imgDominantColor == other.imgDominantColor &&
+          imgSize == other.imgSize &&
+          imgType == other.imgType &&
+          linkSite == other.linkSite &&
+          lowRange == other.lowRange &&
+          lr == other.lr &&
+          num == other.num &&
+          orTerms == other.orTerms &&
+          relatedSite == other.relatedSite &&
+          rights == other.rights &&
+          safe == other.safe &&
+          searchType == other.searchType &&
+          siteSearch == other.siteSearch &&
+          siteSearchFilter == other.siteSearchFilter &&
+          sort == other.sort &&
+          start == other.start &&
+          fields == other.fields;
 
   @override
   int get hashCode =>
@@ -243,6 +245,72 @@ class SearchQuery {
       sort.hashCode ^
       start.hashCode ^
       fields.hashCode;
+
+  SearchQuery copyWith(
+      {String q,
+      String cx,
+      String c2coff,
+      String cr,
+      String dateRestrict,
+      String exactTerms,
+      String excludeTerms,
+      String fileType,
+      String filter,
+      String gl,
+      String googlehost,
+      String highRange,
+      String hl,
+      String hq,
+      String imgColorType,
+      String imgDominantColor,
+      String imgSize,
+      String imgType,
+      String linkSite,
+      String lowRange,
+      String lr,
+      int num,
+      String orTerms,
+      String relatedSite,
+      String rights,
+      String safe,
+      String searchType,
+      String siteSearch,
+      String siteSearchFilter,
+      String sort,
+      String start,
+      String fields}) {
+    return SearchQuery(q ?? this.q, cx ?? this.cx,
+        c2coff: c2coff ?? this.c2coff,
+        cr: cr ?? this.cr,
+        dateRestrict: dateRestrict ?? this.dateRestrict,
+        exactTerms: exactTerms ?? this.exactTerms,
+        excludeTerms: excludeTerms ?? this.excludeTerms,
+        fileType: fileType ?? this.fileType,
+        filter: filter ?? this.filter,
+        gl: gl ?? this.gl,
+        googlehost: googlehost ?? this.googlehost,
+        highRange: highRange ?? this.highRange,
+        hl: hl ?? this.hl,
+        hq: hq ?? this.hq,
+        imgColorType: imgColorType ?? this.imgColorType,
+        imgDominantColor: imgDominantColor ?? this.imgDominantColor,
+        imgSize: imgSize ?? this.imgSize,
+        imgType: imgType ?? this.imgType,
+        linkSite: linkSite ?? this.linkSite,
+        lowRange: lowRange ?? this.lowRange,
+        lr: lr ?? this.lr,
+        num: num ?? this.num,
+        orTerms: orTerms ?? this.orTerms,
+        relatedSite: relatedSite ?? this.relatedSite,
+        rights: rights ?? this.rights,
+        safe: safe ?? this.safe,
+        searchType: searchType ?? this.searchType,
+        siteSearch: siteSearch ?? this.siteSearch,
+        siteSearchFilter: siteSearchFilter ?? this.siteSearchFilter,
+        sort: sort ?? this.sort,
+        start: start ?? this.start,
+        fields: fields ?? this.fields);
+  }
 }
 
 /// Abstract class for Search Data Source.
@@ -279,10 +347,10 @@ class FakeSearchDataSource implements SearchDataSource {
         assetPath: 'res/sampledata/nytimes_with_promotion.json'),
   };
   final ExpireCache<SearchQuery, SearchResults> _cache =
-  ExpireCache<SearchQuery, SearchResults>();
+      ExpireCache<SearchQuery, SearchResults>();
 
   @override
-  String cx='fake_cx';
+  String cx = 'fake_cx';
 
   FakeSearchDataSource() {
     searchResponses.keys.forEach((key) {
@@ -292,7 +360,7 @@ class FakeSearchDataSource implements SearchDataSource {
 
   void loadAssetToSearchResponse(String searchKey, String assetPath) async {
     searchResponses[searchKey].searchResponseJsonString =
-    await rootBundle.loadString(assetPath);
+        await rootBundle.loadString(assetPath);
   }
 
   @override
@@ -310,7 +378,8 @@ class FakeSearchDataSource implements SearchDataSource {
       return await _cache.get(searchQuery);
     }
 
-    Map searchMap = jsonDecode(searchResponses[searchQuery.q].searchResponseJsonString);
+    Map searchMap =
+        jsonDecode(searchResponses[searchQuery.q].searchResponseJsonString);
     customsearch.Search search = customsearch.Search.fromJson(searchMap);
 
     var result = SearchResults(search);
@@ -329,7 +398,7 @@ class CustomSearchDataSource implements SearchDataSource {
   final String apiKey;
   customsearch.CustomsearchApi api;
   final ExpireCache<SearchQuery, SearchResults> _cache =
-  ExpireCache<SearchQuery, SearchResults>();
+      ExpireCache<SearchQuery, SearchResults>();
 
   CustomSearchDataSource({@required this.cx, @required this.apiKey}) {
     var client = auth.clientViaApiKey(apiKey);
