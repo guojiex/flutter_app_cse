@@ -58,13 +58,12 @@ class Promotion {
 class NextPage {
   /// The next page result's start index, from the whole
   final int startIndex;
-  final int count;
 
-  NextPage.fromQuery(this.startIndex, this.count);
+  NextPage.fromQuery(this.startIndex);
 
   @override
   String toString() {
-    return 'NextPage{startIndex: $startIndex, count: $count}';
+    return 'NextPage{startIndex: $startIndex';
   }
 }
 
@@ -74,7 +73,7 @@ class NextPage {
 class SearchResults {
   List<SearchResult> searchResults = List<SearchResult>();
   List<Promotion> promotions = List<Promotion>();
-  NextPage nextPage;
+  SearchQuery nextPage;
 
   SearchResults.empty();
 
@@ -84,10 +83,6 @@ class SearchResults {
         (item) => results.add(SearchResult.escapeLineBreakInSnippet(item)));
     // Deduplicate search result.
     this.searchResults = Set<SearchResult>.from(results).toList();
-    final nextPageQuery = search.queries['nextPage'][0];
-    this.nextPage =
-        new NextPage.fromQuery(nextPageQuery.startIndex, nextPageQuery.count);
-    print(this.nextPage);
   }
 }
 
@@ -163,9 +158,15 @@ class SearchQuery {
       this.start,
       this.fields});
 
+  /// Run custom search on this [SearchQuery].
   Future<SearchResults> runSearch(customsearch.CustomsearchApi api) async {
-    return SearchResults(
-        await api.cse.list(q, cx: cx, searchType: this.searchType));
+    var search = await api.cse.list(q, cx: cx, searchType: this.searchType);
+    var result = SearchResults(search);
+    if (search.queries['nextPage'] != null) {
+      result.nextPage = this
+          .copyWith(start: search.queries['nextPage'][0].startIndex.toString());
+    }
+    return result;
   }
 
   @override
@@ -245,6 +246,10 @@ class SearchQuery {
       sort.hashCode ^
       start.hashCode ^
       fields.hashCode;
+
+  SearchQuery getNextPageQuery(NextPage nextPage) {
+    return this.copyWith(start: nextPage.startIndex.toString());
+  }
 
   SearchQuery copyWith(
       {String q,
@@ -383,6 +388,10 @@ class FakeSearchDataSource implements SearchDataSource {
     customsearch.Search search = customsearch.Search.fromJson(searchMap);
 
     var result = SearchResults(search);
+    if (search.queries['nextPage'] != null) {
+      result.nextPage = searchQuery.copyWith(
+          start: search.queries['nextPage'][0].startIndex.toString());
+    }
     _cache.set(searchQuery, result);
     return result;
   }

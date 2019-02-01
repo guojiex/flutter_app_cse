@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app_cse/shared_constant.dart';
 
-enum PaginationTabType { nextPage, previousPage }
 
 class PaginationTab extends StatelessWidget {
   final PaginationTabType paginationTabType;
 
   PaginationTab.nextPage() : paginationTabType = PaginationTabType.nextPage;
-
 
   PaginationTab.previousPage(): paginationTabType = PaginationTabType.previousPage;
 
