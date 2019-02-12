@@ -130,26 +130,25 @@ class CustomSearchSearchDelegate extends SearchDelegate<SearchResult> {
             }
             switch (this.searchType) {
               case SearchType.image:
-                return Row(
-                  children: <Widget>[
-                    GridView.count(
-                        crossAxisCount: 1,
-                        mainAxisSpacing: 4.0,
-                        crossAxisSpacing: 4.0,
-                        padding: const EdgeInsets.all(4.0),
-                        children: List.generate(
-                            snapshot.data.searchResults.length + 2, (index) {
-                          if (index == snapshot.data.searchResults.length) {
-                            return PaginationTab.nextPage();
-                          }
-                          if (index == snapshot.data.searchResults.length + 1) {
-                            return PaginationTab.previousPage();
-                          }
-                          return new ImageSearchResultCard(
-                              searchResult: snapshot.data.searchResults[index]);
-                        })),
-                  ],
-                );
+                return GridView.count(
+                    crossAxisCount: 1,
+                    mainAxisSpacing: 4.0,
+                    crossAxisSpacing: 4.0,
+                    padding: const EdgeInsets.all(4.0),
+                    children: List.generate(
+                        snapshot.data.searchResults.length + 2, (index) {
+                      if (index == snapshot.data.searchResults.length) {
+                        return Container(
+                          child: PaginationTab.nextPage(),
+                        );
+                      }
+                      if (index == snapshot.data.searchResults.length + 1) {
+                        return PaginationTab.previousPage();
+                      }
+                      return new ImageSearchResultCard(
+                          searchResult: snapshot.data.searchResults[index]);
+                    }));
+
               case SearchType.web:
                 return ListView.builder(
                     itemCount: snapshot.data.searchResults.length + 2,
@@ -160,7 +159,7 @@ class CustomSearchSearchDelegate extends SearchDelegate<SearchResult> {
                       if (index == snapshot.data.searchResults.length + 1) {
                         return PaginationTab.previousPage();
                       }
-                      return new WebSearchResultCard(
+                      return WebSearchResultCard(
                           searchResult: snapshot.data.searchResults[index]);
                     });
               default:

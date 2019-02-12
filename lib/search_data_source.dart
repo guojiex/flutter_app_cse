@@ -164,7 +164,7 @@ class SearchQuery {
     var result = SearchResults(search);
     if (search.queries['nextPage'] != null) {
       result.nextPage = this
-          .copyWith(start: search.queries['nextPage'][0].startIndex.toString());
+          .copyWith(start: search.queries['nextPage'][0].startIndex);
     }
     return result;
   }
@@ -248,7 +248,7 @@ class SearchQuery {
       fields.hashCode;
 
   SearchQuery getNextPageQuery(NextPage nextPage) {
-    return this.copyWith(start: nextPage.startIndex.toString());
+    return this.copyWith(start: nextPage.startIndex);
   }
 
   SearchQuery copyWith(
@@ -282,7 +282,7 @@ class SearchQuery {
       String siteSearch,
       String siteSearchFilter,
       String sort,
-      String start,
+      int start,
       String fields}) {
     return SearchQuery(q ?? this.q, cx ?? this.cx,
         c2coff: c2coff ?? this.c2coff,
@@ -369,20 +369,18 @@ class FakeSearchDataSource implements SearchDataSource {
   }
 
   @override
-  Future<SearchResults> search(SearchQuery searchQuery) async {
+  Future<SearchResults> search(final SearchQuery searchQuery) async {
     if (!searchResponses.containsKey(searchQuery.q)) {
       return SearchResults.empty();
     }
     if (searchResponses[searchQuery.q].searchType != searchQuery.searchType) {
       return SearchResults.empty();
     }
-
     if (!_cache.isKeyInFlightOrInCache(searchQuery)) {
       _cache.markAsInFlight(searchQuery);
     } else {
       return await _cache.get(searchQuery);
     }
-
     Map searchMap =
         jsonDecode(searchResponses[searchQuery.q].searchResponseJsonString);
     customsearch.Search search = customsearch.Search.fromJson(searchMap);
@@ -390,7 +388,7 @@ class FakeSearchDataSource implements SearchDataSource {
     var result = SearchResults(search);
     if (search.queries['nextPage'] != null) {
       result.nextPage = searchQuery.copyWith(
-          start: search.queries['nextPage'][0].startIndex.toString());
+          start: search.queries['nextPage'][0].startIndex);
     }
     _cache.set(searchQuery, result);
     return result;
@@ -418,11 +416,10 @@ class CustomSearchDataSource implements SearchDataSource {
   String cx;
 
   @override
-  Future<SearchResults> search(SearchQuery searchQuery) async {
+  Future<SearchResults> search(final SearchQuery searchQuery) async {
     if (searchQuery.q.isEmpty) {
       return SearchResults.empty();
     }
-
     if (!_cache.isKeyInFlightOrInCache(searchQuery)) {
       _cache.markAsInFlight(searchQuery);
     } else {

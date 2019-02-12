@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app_cse/shared_constant.dart';
 
-
 class PaginationTab extends StatelessWidget {
   final PaginationTabType paginationTabType;
 
   PaginationTab.nextPage() : paginationTabType = PaginationTabType.nextPage;
 
-  PaginationTab.previousPage(): paginationTabType = PaginationTabType.previousPage;
+  PaginationTab.previousPage()
+      : paginationTabType = PaginationTabType.previousPage;
 
   @override
   Widget build(BuildContext context) {
@@ -19,9 +19,10 @@ class PaginationTab extends StatelessWidget {
             blurRadius: 1.0,
           ),
         ]),
-        child: new Card(
-            child: new ListTile(
-                title: Row(
+        child: GestureDetector(
+            child: new Card(
+                child: new ListTile(
+                    title: Row(
           children: paginationTabType == PaginationTabType.nextPage
               ? <Widget>[
                   new Text(
@@ -40,6 +41,6 @@ class PaginationTab extends StatelessWidget {
                   ),
                 ],
           mainAxisAlignment: MainAxisAlignment.center,
-        ))));
+        )))));
   }
 }
