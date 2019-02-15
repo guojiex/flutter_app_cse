@@ -55,18 +55,6 @@ class Promotion {
   Promotion(this.promotion);
 }
 
-class NextPage {
-  /// The next page result's start index, from the whole
-  final int startIndex;
-
-  NextPage.fromQuery(this.startIndex);
-
-  @override
-  String toString() {
-    return 'NextPage{startIndex: $startIndex';
-  }
-}
-
 /// A wrapper class to aggregate all the search result fields that we need.
 ///
 /// And deduplicate results.
@@ -246,10 +234,6 @@ class SearchQuery {
       sort.hashCode ^
       start.hashCode ^
       fields.hashCode;
-
-  SearchQuery getNextPageQuery(NextPage nextPage) {
-    return this.copyWith(start: nextPage.startIndex);
-  }
 
   SearchQuery copyWith(
       {String q,
