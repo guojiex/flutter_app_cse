@@ -386,8 +386,11 @@ class FakeSearchDataSource implements SearchDataSource {
 /// we don't know if the implementation detail about [SearchDelegate] will
 /// change or not.
 class CustomSearchDataSource implements SearchDataSource {
+  /// CSE api key.
   final String apiKey;
   customsearch.CustomsearchApi api;
+
+  /// FIFO TTL cache to cache search result.
   final ExpireCache<SearchQuery, SearchResults> _cache =
       ExpireCache<SearchQuery, SearchResults>();
 

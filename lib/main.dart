@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app_cse/CustomSearchPage.dart';
+import 'package:flutter_app_cse/custom_search_demo_page.dart';
 
 void main() => runApp(SearchDemoApp());
 
 class SearchDemoApp extends StatelessWidget {
-  final CustomSearchDemo webSearchDemo =
-      CustomSearchDemo(CustomSearchDemoType.staticWebSearch);
+  final CustomSearchDemoPage webSearchDemo =
+  CustomSearchDemoPage(CustomSearchDemoType.webSearch);
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +15,7 @@ class SearchDemoApp extends StatelessWidget {
         routes: {
           '/websearch': (context) => webSearchDemo,
           '/imagesearch': (context) =>
-              CustomSearchDemo(CustomSearchDemoType.staticImageSearch),
+              CustomSearchDemoPage(CustomSearchDemoType.imageSearch),
         },
         title: 'Custom Search Engine Flutter Demo');
   }

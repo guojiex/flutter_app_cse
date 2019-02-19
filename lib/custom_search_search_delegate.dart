@@ -104,11 +104,9 @@ class CustomSearchSearchDelegate extends SearchDelegate<SearchResult> {
     );
   }
 
-  @override
-  Widget buildResults(BuildContext context) {
+  Widget buildResultsFromQuery(BuildContext context, SearchQuery searchQuery) {
     return FutureBuilder<SearchResults>(
-      future: dataSource.search(SearchQuery(query, dataSource.cx,
-          searchType: this.searchType == SearchType.web ? null : 'image')),
+      future: dataSource.search(searchQuery),
       // a previously-obtained Future<List<SearchResult>> or null
       builder: (BuildContext context, AsyncSnapshot<SearchResults> snapshot) {
         switch (snapshot.connectionState) {
@@ -139,11 +137,14 @@ class CustomSearchSearchDelegate extends SearchDelegate<SearchResult> {
                         snapshot.data.searchResults.length + 2, (index) {
                       if (index == snapshot.data.searchResults.length) {
                         return Container(
-                          child: PaginationTab.nextPage(),
+                          child: PaginationTab.nextPage(() {
+                            this.buildResultsFromQuery(
+                                context, snapshot.data.nextPage);
+                          }),
                         );
                       }
                       if (index == snapshot.data.searchResults.length + 1) {
-                        return PaginationTab.previousPage();
+                        return PaginationTab.previousPage(() {});
                       }
                       return new ImageSearchResultCard(
                           searchResult: snapshot.data.searchResults[index]);
@@ -154,10 +155,13 @@ class CustomSearchSearchDelegate extends SearchDelegate<SearchResult> {
                     itemCount: snapshot.data.searchResults.length + 2,
                     itemBuilder: (BuildContext context, int index) {
                       if (index == snapshot.data.searchResults.length) {
-                        return PaginationTab.nextPage();
+                        return PaginationTab.nextPage(() {
+                          this.buildResultsFromQuery(
+                              context, snapshot.data.nextPage);
+                        });
                       }
                       if (index == snapshot.data.searchResults.length + 1) {
-                        return PaginationTab.previousPage();
+                        return PaginationTab.previousPage(() {});
                       }
                       return WebSearchResultCard(
                           searchResult: snapshot.data.searchResults[index]);
@@ -169,6 +173,14 @@ class CustomSearchSearchDelegate extends SearchDelegate<SearchResult> {
         return null; // unreachable
       },
     );
+  }
+
+  @override
+  Widget buildResults(BuildContext context) {
+    return this.buildResultsFromQuery(
+        context,
+        SearchQuery(query, dataSource.cx,
+            searchType: this.searchType == SearchType.web ? null : 'image'));
   }
 }
 

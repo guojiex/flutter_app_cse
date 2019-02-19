@@ -3,10 +3,12 @@ import 'package:flutter_app_cse/shared_constant.dart';
 
 class PaginationTab extends StatelessWidget {
   final PaginationTabType paginationTabType;
+  final Function onTapCallback;
 
-  PaginationTab.nextPage() : paginationTabType = PaginationTabType.nextPage;
+  PaginationTab.nextPage(this.onTapCallback)
+      : paginationTabType = PaginationTabType.nextPage;
 
-  PaginationTab.previousPage()
+  PaginationTab.previousPage(this.onTapCallback)
       : paginationTabType = PaginationTabType.previousPage;
 
   @override
@@ -20,27 +22,30 @@ class PaginationTab extends StatelessWidget {
           ),
         ]),
         child: GestureDetector(
+            onTap: () {
+              onTapCallback();
+            },
             child: new Card(
                 child: new ListTile(
                     title: Row(
-          children: paginationTabType == PaginationTabType.nextPage
-              ? <Widget>[
-                  new Text(
-                    '       Next Page',
-                    style: theme.textTheme.headline
-                        .copyWith(fontSize: 15.0, fontWeight: FontWeight.bold),
-                  ),
-                  new Icon(Icons.arrow_right)
-                ]
-              : <Widget>[
-                  Icon(Icons.arrow_left),
-                  Text(
-                    'Previous Page',
-                    style: theme.textTheme.headline
-                        .copyWith(fontSize: 15.0, fontWeight: FontWeight.bold),
-                  ),
-                ],
-          mainAxisAlignment: MainAxisAlignment.center,
-        )))));
+                      children: paginationTabType == PaginationTabType.nextPage
+                          ? <Widget>[
+                        new Text(
+                          '       Next Page',
+                          style: theme.textTheme.headline.copyWith(
+                              fontSize: 15.0, fontWeight: FontWeight.bold),
+                        ),
+                        new Icon(Icons.arrow_right)
+                      ]
+                          : <Widget>[
+                        Icon(Icons.arrow_left),
+                        Text(
+                          'Previous Page',
+                          style: theme.textTheme.headline.copyWith(
+                              fontSize: 15.0, fontWeight: FontWeight.bold),
+                        ),
+                      ],
+                      mainAxisAlignment: MainAxisAlignment.center,
+                    )))));
   }
 }

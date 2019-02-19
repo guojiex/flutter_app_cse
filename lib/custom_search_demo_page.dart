@@ -1,47 +1,55 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app_cse/search_data_source.dart';
-import 'package:flutter_app_cse/search_result_page.dart';
+import 'package:flutter_app_cse/custom_search_search_delegate.dart';
 import 'package:tuple/tuple.dart';
 
+/// Different types of Search Demo Page.
 enum CustomSearchDemoType {
+  /// Type 'web' to get static search result.
   staticWebSearch,
+
+  /// Type 'image' to get static image search result.
   staticImageSearch,
+
+  /// Search for web.
   webSearch,
+
+  /// Search for image.
   imageSearch
 }
 
-class CustomSearchDemo extends StatefulWidget {
+class CustomSearchDemoPage extends StatefulWidget {
   final customSearchDemoType;
 
-  CustomSearchDemo(this.customSearchDemoType);
+  CustomSearchDemoPage(this.customSearchDemoType);
 
   @override
-  _CustomSearchDemoState createState() {
+  _CustomSearchDemoPageState createState() {
     switch (this.customSearchDemoType) {
       case CustomSearchDemoType.staticWebSearch:
-        return _CustomSearchDemoState.fakeStaticSource();
+        return _CustomSearchDemoPageState.fakeStaticSource();
       case CustomSearchDemoType.staticImageSearch:
-        return _CustomSearchDemoState.fakeStaticSourceImageSearch();
+        return _CustomSearchDemoPageState.fakeStaticSourceImageSearch();
       case CustomSearchDemoType.webSearch:
-        return _CustomSearchDemoState.customWebSearch();
+        return _CustomSearchDemoPageState.customWebSearch();
       case CustomSearchDemoType.imageSearch:
-        return _CustomSearchDemoState.customImageSearch();
+        return _CustomSearchDemoPageState.customImageSearch();
       default:
         return null;
     }
   }
 }
 
-class _CustomSearchDemoState extends State<CustomSearchDemo> {
+class _CustomSearchDemoPageState extends State<CustomSearchDemoPage> {
   CustomSearchSearchDelegate delegate;
   String hintText;
 
   /// used to generate display name and route to other pages, in the left drawer.
   List<Tuple2<String, String>> otherRoutes;
 
-  _CustomSearchDemoState(this.delegate, this.hintText);
+  _CustomSearchDemoPageState(this.delegate, this.hintText);
 
-  _CustomSearchDemoState.fakeStaticSource() {
+  _CustomSearchDemoPageState.fakeStaticSource() {
     this.delegate = CustomSearchSearchDelegate.fakeStaticSource();
     this.hintText = 'Static Google Custom Web Search';
     otherRoutes = [
@@ -49,7 +57,7 @@ class _CustomSearchDemoState extends State<CustomSearchDemo> {
     ];
   }
 
-  _CustomSearchDemoState.fakeStaticSourceImageSearch() {
+  _CustomSearchDemoPageState.fakeStaticSourceImageSearch() {
     this.delegate = CustomSearchSearchDelegate.fakeStaticSourceImageSearch();
     this.hintText = 'Static Google Custom Image Search';
     otherRoutes = [
@@ -57,18 +65,22 @@ class _CustomSearchDemoState extends State<CustomSearchDemo> {
     ];
   }
 
-  _CustomSearchDemoState.customImageSearch() {
+  _CustomSearchDemoPageState.customImageSearch() {
     this.delegate = new CustomSearchSearchDelegate.imageSearch(
-        dataSource: CustomSearchDataSource(cx: '', apiKey: ''));
+        dataSource: CustomSearchDataSource(
+            cx: '',
+            apiKey: ''));
     this.hintText = 'Google Custom Image Search';
     otherRoutes = [
       Tuple2<String, String>('Custom Web Search Demo', '/websearch')
     ];
   }
 
-  _CustomSearchDemoState.customWebSearch() {
+  _CustomSearchDemoPageState.customWebSearch() {
     this.delegate = new CustomSearchSearchDelegate(
-        dataSource: CustomSearchDataSource(cx: '', apiKey: ''));
+        dataSource: CustomSearchDataSource(
+            cx: '',
+            apiKey: ''));
     this.hintText = 'Google Custom Web Search';
     otherRoutes = [
       Tuple2<String, String>('Custom Image Search Demo', '/imagesearch')
