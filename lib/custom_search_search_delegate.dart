@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app_cse/search_data_source.dart';
 
-import 'component/no_result_card.dart';
-import 'component/web_search_result_card.dart';
-import 'component/image_search_result_card.dart';
-import 'component/pagination_tab.dart';
+import 'ui/no_result_card.dart';
+import 'ui/web_search_result_card.dart';
+import 'ui/image_search_result_card.dart';
+import 'ui/pagination_tab.dart';
 import 'shared_constant.dart';
 
 class CustomSearchSearchDelegate extends SearchDelegate<SearchResult> {

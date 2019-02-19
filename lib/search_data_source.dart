@@ -3,6 +3,7 @@ import 'dart:async';
 import 'dart:convert';
 import 'package:expire_cache/expire_cache.dart';
 import 'package:flutter/material.dart';
+import 'package:rxdart/rxdart.dart';
 import 'package:flutter/services.dart' show rootBundle;
 
 import "package:googleapis_auth/auth_io.dart" as auth;
@@ -75,44 +76,43 @@ class SearchResults {
 }
 
 /// A wrapper class for search request, to make caching search request possible.
-
 @immutable
 class SearchQuery {
-  String q;
-  String c2coff;
-  String cr;
-  String cx;
-  String dateRestrict;
-  String exactTerms;
-  String excludeTerms;
-  String fileType;
-  String filter;
-  String gl;
-  String googlehost;
-  String highRange;
-  String hl;
-  String hq;
-  String imgColorType;
-  String imgDominantColor;
-  String imgSize;
-  String imgType;
-  String linkSite;
-  String lowRange;
-  String lr;
-  int num;
-  String orTerms;
-  String relatedSite;
-  String rights;
-  String safe;
-  String searchType;
-  String siteSearch;
-  String siteSearchFilter;
-  String sort;
-  int start;
+  final String q;
+  final String c2coff;
+  final String cr;
+  final String cx;
+  final String dateRestrict;
+  final String exactTerms;
+  final String excludeTerms;
+  final String fileType;
+  final String filter;
+  final String gl;
+  final String googlehost;
+  final String highRange;
+  final String hl;
+  final String hq;
+  final String imgColorType;
+  final String imgDominantColor;
+  final String imgSize;
+  final String imgType;
+  final String linkSite;
+  final String lowRange;
+  final String lr;
+  final int num;
+  final String orTerms;
+  final String relatedSite;
+  final String rights;
+  final String safe;
+  final String searchType;
+  final String siteSearch;
+  final String siteSearchFilter;
+  final String sort;
+  final int start;
 
   /// Used to get partial response, see:
   /// https://developers.google.com/custom-search/v1/performance#partial
-  String fields;
+  final String fields;
 
   SearchQuery(this.q, this.cx,
       {this.c2coff,
@@ -151,8 +151,8 @@ class SearchQuery {
     var search = await api.cse.list(q, cx: cx, searchType: this.searchType);
     var result = SearchResults(search);
     if (search.queries['nextPage'] != null) {
-      result.nextPage = this
-          .copyWith(start: search.queries['nextPage'][0].startIndex);
+      result.nextPage =
+          this.copyWith(start: search.queries['nextPage'][0].startIndex);
     }
     return result;
   }
@@ -371,8 +371,8 @@ class FakeSearchDataSource implements SearchDataSource {
 
     var result = SearchResults(search);
     if (search.queries['nextPage'] != null) {
-      result.nextPage = searchQuery.copyWith(
-          start: search.queries['nextPage'][0].startIndex);
+      result.nextPage =
+          searchQuery.copyWith(start: search.queries['nextPage'][0].startIndex);
     }
     _cache.set(searchQuery, result);
     return result;
