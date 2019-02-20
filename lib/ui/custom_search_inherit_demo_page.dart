@@ -42,8 +42,8 @@ class CustomSearchInheritDemoPage extends InheritedWidget {
   CustomSearchInheritDemoPage.customImageSearch() {
     this.delegate = new CustomSearchSearchDelegate.imageSearch(
         dataSource: CustomSearchDataSource(
-            cx: '013098254965507895640:0l32iqt_8jq',
-            apiKey: 'AIzaSyBH1-sOQYYag1Oz8ziDBet0rJMIz-AgmfA'));
+            cx: '',
+            apiKey: ''));
     this.hintText = 'Google Custom Image Search';
     this.searchType = SearchType.imageSearch;
     otherRoutes = [
@@ -54,8 +54,8 @@ class CustomSearchInheritDemoPage extends InheritedWidget {
   CustomSearchInheritDemoPage.customWebSearch() {
     this.delegate = new CustomSearchSearchDelegate(
         dataSource: CustomSearchDataSource(
-            cx: '013098254965507895640:0l32iqt_8jq',
-            apiKey: 'AIzaSyBH1-sOQYYag1Oz8ziDBet0rJMIz-AgmfA'));
+            cx: '',
+            apiKey: ''));
     this.hintText = 'Google Custom Web Search';
     this.searchType = SearchType.webSearch;
     otherRoutes = [
