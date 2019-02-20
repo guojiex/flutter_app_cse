@@ -138,8 +138,7 @@ class CustomSearchSearchDelegate extends SearchDelegate<SearchResult> {
                       if (index == snapshot.data.searchResults.length) {
                         return Container(
                           child: PaginationTab.nextPage(() {
-                            this.buildResultsFromQuery(
-                                context, snapshot.data.nextPage);
+                            this.showResults(context);
                           }),
                         );
                       }
