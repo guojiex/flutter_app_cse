@@ -114,6 +114,92 @@ class CustomSearchSearchDelegate extends SearchDelegate<SearchResult> {
             return Text('Press button to start.');
           case ConnectionState.active:
           case ConnectionState.waiting:
+            return Align(
+                alignment: Alignment.center,
+                child: CircularProgressIndicator());
+          case ConnectionState.done:
+            if (snapshot.hasError) return Text('Error: ${snapshot.error}');
+            if (snapshot.data.searchResults.isEmpty) {
+              return GridView.count(
+                crossAxisCount: 1,
+                mainAxisSpacing: 4.0,
+                crossAxisSpacing: 4.0,
+                padding: const EdgeInsets.all(4.0),
+                children: [new NoResultCard()],
+              );
+            }
+            switch (this.searchType) {
+              case SearchType.image:
+                return GridView.count(
+                    crossAxisCount: 1,
+                    mainAxisSpacing: 4.0,
+                    crossAxisSpacing: 4.0,
+                    padding: const EdgeInsets.all(4.0),
+                    children: List.generate(
+                        snapshot.data.searchResults.length + 2, (index) {
+                      if (index == snapshot.data.searchResults.length) {
+                        return Container(
+                          child: PaginationTab.nextPage(() {
+                            // TODO: Fillin the callback.
+                          }),
+                        );
+                      }
+                      if (index == snapshot.data.searchResults.length + 1) {
+                        return PaginationTab.previousPage(() {
+                          // TODO: Fillin the callback.
+                        });
+                      }
+                      return new ImageSearchResultCard(
+                          searchResult: snapshot.data.searchResults[index]);
+                    }));
+
+              case SearchType.web:
+                return ListView.builder(
+                    itemCount: snapshot.data.searchResults.length + 2,
+                    itemBuilder: (BuildContext context, int index) {
+                      if (index == snapshot.data.searchResults.length) {
+                        return PaginationTab.nextPage(() {
+                          // TODO: Fillin the callback.
+                        });
+                      }
+                      if (index == snapshot.data.searchResults.length + 1) {
+                        return PaginationTab.previousPage(() {
+                          // TODO: Fillin the callback.
+                        });
+                      }
+                      return WebSearchResultCard(
+                          searchResult: snapshot.data.searchResults[index]);
+                    });
+              default:
+                print('should not reach here!');
+            }
+        }
+        return null; // unreachable
+      },
+    );
+  }
+
+  @override
+  Widget buildResults(BuildContext context) {
+    return this.buildResultsFromQuery(
+        context,
+        SearchQuery(query, dataSource.cx,
+            searchType: this.searchType == SearchType.web ? null : 'image'));
+  }
+}
+
+class CustomSearchInfiniteSearchDelegate extends CustomSearchSearchDelegate {
+  @override
+  Widget buildResultsFromQuery(BuildContext context, SearchQuery searchQuery) {
+    return FutureBuilder<SearchResults>(
+      future: dataSource.search(searchQuery),
+      // a previously-obtained Future<List<SearchResult>> or null
+      builder: (BuildContext context, AsyncSnapshot<SearchResults> snapshot) {
+        switch (snapshot.connectionState) {
+          case ConnectionState.none:
+            return Text('Press button to start.');
+          case ConnectionState.active:
+          case ConnectionState.waiting:
             return Text('Awaiting result...');
           case ConnectionState.done:
             if (snapshot.hasError) return Text('Error: ${snapshot.error}');
@@ -172,14 +258,6 @@ class CustomSearchSearchDelegate extends SearchDelegate<SearchResult> {
         return null; // unreachable
       },
     );
-  }
-
-  @override
-  Widget buildResults(BuildContext context) {
-    return this.buildResultsFromQuery(
-        context,
-        SearchQuery(query, dataSource.cx,
-            searchType: this.searchType == SearchType.web ? null : 'image'));
   }
 }
 
