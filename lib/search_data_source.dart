@@ -3,7 +3,6 @@ import 'dart:async';
 import 'dart:convert';
 import 'package:expire_cache/expire_cache.dart';
 import 'package:flutter/material.dart';
-import 'package:rxdart/rxdart.dart';
 import 'package:flutter/services.dart' show rootBundle;
 
 import "package:googleapis_auth/auth_io.dart" as auth;
@@ -148,7 +147,38 @@ class SearchQuery {
 
   /// Run custom search on this [SearchQuery].
   Future<SearchResults> runSearch(customsearch.CustomsearchApi api) async {
-    var search = await api.cse.list(q, cx: cx, searchType: this.searchType);
+    var search = await api.cse.list(q,
+        cx: cx,
+        searchType: this.searchType,
+        c2coff: this.c2coff,
+        cr: this.cr,
+        dateRestrict: this.dateRestrict,
+        exactTerms: this.exactTerms,
+        excludeTerms: this.excludeTerms,
+        fileType: this.fileType,
+        filter: this.filter,
+        gl: this.gl,
+        googlehost: this.googlehost,
+        highRange: this.highRange,
+        hl: this.hl,
+        hq: this.hq,
+        imgColorType: this.imgColorType,
+        imgDominantColor: this.imgDominantColor,
+        imgSize: this.imgSize,
+        imgType: this.imgType,
+        linkSite: this.linkSite,
+        lowRange: this.lowRange,
+        lr: this.lr,
+        num: this.num,
+        orTerms: this.orTerms,
+        relatedSite: this.relatedSite,
+        rights: this.rights,
+        safe: this.safe,
+        siteSearch: this.siteSearch,
+        siteSearchFilter: this.siteSearchFilter,
+        sort: this.sort,
+        start: this.start,
+        $fields: this.fields);
     var result = SearchResults(search);
     if (search.queries['nextPage'] != null) {
       result.nextPage =
@@ -407,6 +437,7 @@ class CustomSearchDataSource implements SearchDataSource {
     if (searchQuery.q.isEmpty) {
       return SearchResults.empty();
     }
+
     if (!_cache.isKeyInFlightOrInCache(searchQuery)) {
       _cache.markAsInFlight(searchQuery);
     } else {

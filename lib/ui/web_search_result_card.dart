@@ -54,11 +54,15 @@ class WebSearchResultCard extends StatelessWidget {
           bottom: 8.0,
         ),
         child: new Row(children: [
-          Image.network(
-              this.searchResult.result.pagemap['thumbnail'][0]['src']),
           Expanded(
+              flex: 1,
+              child: Image.network(
+                  this.searchResult.result.pagemap['thumbnail'][0]['src'])
+          ),
+          Expanded(
+              flex: 4,
               child: Container(
-                  padding: const EdgeInsets.only(left: 10.0, right: 12.0),
+                  padding: const EdgeInsets.only(left: 8.0, right: 8.0),
                   child: Text(
                     this.searchResult.result.snippet,
                     style: theme.textTheme.body1,

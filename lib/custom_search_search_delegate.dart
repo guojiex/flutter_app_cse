@@ -104,6 +104,63 @@ class CustomSearchSearchDelegate extends SearchDelegate<SearchResult> {
     );
   }
 
+  Widget buildResultPage(BuildContext context, SearchResults searchResults) {
+    if (searchResults.searchResults.isEmpty) {
+      return GridView.count(
+        crossAxisCount: 1,
+        mainAxisSpacing: 4.0,
+        crossAxisSpacing: 4.0,
+        padding: const EdgeInsets.all(4.0),
+        children: [new NoResultCard()],
+      );
+    }
+    switch (this.searchType) {
+      case SearchType.image:
+        return GridView.count(
+            crossAxisCount: 1,
+            mainAxisSpacing: 4.0,
+            crossAxisSpacing: 4.0,
+            padding: const EdgeInsets.all(4.0),
+            children:
+            List.generate(searchResults.searchResults.length + 2, (index) {
+              if (index == searchResults.searchResults.length) {
+                return Container(
+                  child: PaginationTab.nextPage(() {
+                    // TODO: Fillin the callback.
+                  }),
+                );
+              }
+              if (index == searchResults.searchResults.length + 1) {
+                return PaginationTab.previousPage(() {
+                  // TODO: Fillin the callback.
+                });
+              }
+              return new ImageSearchResultCard(
+                  searchResult: searchResults.searchResults[index]);
+            }));
+
+      case SearchType.web:
+        return ListView.builder(
+            itemCount: searchResults.searchResults.length + 2,
+            itemBuilder: (BuildContext context, int index) {
+              if (index == searchResults.searchResults.length) {
+                return PaginationTab.nextPage(() {
+                  // TODO: Fillin the callback.
+                });
+              }
+              if (index == searchResults.searchResults.length + 1) {
+                return PaginationTab.previousPage(() {
+                  // TODO: Fillin the callback.
+                });
+              }
+              return WebSearchResultCard(
+                  searchResult: searchResults.searchResults[index]);
+            });
+      default:
+        print('should not reach here!');
+    }
+  }
+
   Widget buildResultsFromQuery(BuildContext context, SearchQuery searchQuery) {
     return FutureBuilder<SearchResults>(
       future: dataSource.search(searchQuery),
@@ -114,65 +171,21 @@ class CustomSearchSearchDelegate extends SearchDelegate<SearchResult> {
             return Text('Press button to start.');
           case ConnectionState.active:
           case ConnectionState.waiting:
-            return Align(
-                alignment: Alignment.center,
-                child: CircularProgressIndicator());
+            return SizedBox(
+              height: MediaQuery
+                  .of(context)
+                  .size
+                  .height * 2,
+              child: Align(
+                  alignment: Alignment.topCenter,
+                  child: Padding(
+                    padding: EdgeInsets.only(top: 5.0),
+                    child: CircularProgressIndicator(),
+                  )),
+            );
           case ConnectionState.done:
             if (snapshot.hasError) return Text('Error: ${snapshot.error}');
-            if (snapshot.data.searchResults.isEmpty) {
-              return GridView.count(
-                crossAxisCount: 1,
-                mainAxisSpacing: 4.0,
-                crossAxisSpacing: 4.0,
-                padding: const EdgeInsets.all(4.0),
-                children: [new NoResultCard()],
-              );
-            }
-            switch (this.searchType) {
-              case SearchType.image:
-                return GridView.count(
-                    crossAxisCount: 1,
-                    mainAxisSpacing: 4.0,
-                    crossAxisSpacing: 4.0,
-                    padding: const EdgeInsets.all(4.0),
-                    children: List.generate(
-                        snapshot.data.searchResults.length + 2, (index) {
-                      if (index == snapshot.data.searchResults.length) {
-                        return Container(
-                          child: PaginationTab.nextPage(() {
-                            // TODO: Fillin the callback.
-                          }),
-                        );
-                      }
-                      if (index == snapshot.data.searchResults.length + 1) {
-                        return PaginationTab.previousPage(() {
-                          // TODO: Fillin the callback.
-                        });
-                      }
-                      return new ImageSearchResultCard(
-                          searchResult: snapshot.data.searchResults[index]);
-                    }));
-
-              case SearchType.web:
-                return ListView.builder(
-                    itemCount: snapshot.data.searchResults.length + 2,
-                    itemBuilder: (BuildContext context, int index) {
-                      if (index == snapshot.data.searchResults.length) {
-                        return PaginationTab.nextPage(() {
-                          // TODO: Fillin the callback.
-                        });
-                      }
-                      if (index == snapshot.data.searchResults.length + 1) {
-                        return PaginationTab.previousPage(() {
-                          // TODO: Fillin the callback.
-                        });
-                      }
-                      return WebSearchResultCard(
-                          searchResult: snapshot.data.searchResults[index]);
-                    });
-              default:
-                print('should not reach here!');
-            }
+            return buildResultPage(context, snapshot.data);
         }
         return null; // unreachable
       },
@@ -188,76 +201,116 @@ class CustomSearchSearchDelegate extends SearchDelegate<SearchResult> {
   }
 }
 
+class KeepAliveFutureBuilder extends StatefulWidget {
+  final Future future;
+  final AsyncWidgetBuilder builder;
+
+  KeepAliveFutureBuilder({this.future, this.builder});
+
+  @override
+  _KeepAliveFutureBuilderState createState() => _KeepAliveFutureBuilderState();
+}
+
+class _KeepAliveFutureBuilderState extends State<KeepAliveFutureBuilder>
+    with AutomaticKeepAliveClientMixin {
+  @override
+  Widget build(BuildContext context) {
+    return FutureBuilder(
+      future: widget.future,
+      builder: widget.builder,
+    );
+  }
+
+  @override
+  bool get wantKeepAlive => true;
+}
+
+/// A SearchDelegate that will render the result page as infinite scroll view.
 class CustomSearchInfiniteSearchDelegate extends CustomSearchSearchDelegate {
+  CustomSearchInfiniteSearchDelegate({dataSource,
+    autoCompleteDataSource = const CommonEnglishWordAutoCompleteDataSource(),
+    searchType = SearchType.web})
+      : super(
+      dataSource: dataSource,
+      autoCompleteDataSource: autoCompleteDataSource,
+      searchType: searchType);
+
+  CustomSearchInfiniteSearchDelegate.imageSearch({dataSource,
+    autoCompleteDataSource = const CommonEnglishWordAutoCompleteDataSource(),
+    searchType = SearchType.image})
+      : super.imageSearch(
+      dataSource: dataSource,
+      autoCompleteDataSource: autoCompleteDataSource,
+      searchType: searchType);
+
+  CustomSearchInfiniteSearchDelegate.fakeStaticSource()
+      : super.fakeStaticSource();
+
+  CustomSearchInfiniteSearchDelegate.fakeStaticSourceImageSearch()
+      : super.fakeStaticSourceImageSearch();
+
+  Widget _buildWebSearchResultPage(SearchResults searchResults) {
+    return ListView(
+        shrinkWrap: true,
+        primary: false,
+        children: searchResults.searchResults.map((searchResult) {
+          return WebSearchResultCard(searchResult: searchResult);
+        }).toList());
+  }
+
+  /// A cached searchresults, for nextPage usage.
+  SearchResults currentSearchResults;
+
+  @override
+  void close(BuildContext context, SearchResult result) {
+    this.currentSearchResults = null;
+    super.close(context, result);
+  }
+
   @override
   Widget buildResultsFromQuery(BuildContext context, SearchQuery searchQuery) {
-    return FutureBuilder<SearchResults>(
-      future: dataSource.search(searchQuery),
-      // a previously-obtained Future<List<SearchResult>> or null
-      builder: (BuildContext context, AsyncSnapshot<SearchResults> snapshot) {
-        switch (snapshot.connectionState) {
-          case ConnectionState.none:
-            return Text('Press button to start.');
-          case ConnectionState.active:
-          case ConnectionState.waiting:
-            return Text('Awaiting result...');
-          case ConnectionState.done:
-            if (snapshot.hasError) return Text('Error: ${snapshot.error}');
-            if (snapshot.data.searchResults.isEmpty) {
-              return GridView.count(
-                crossAxisCount: 1,
-                mainAxisSpacing: 4.0,
-                crossAxisSpacing: 4.0,
-                padding: const EdgeInsets.all(4.0),
-                children: [new NoResultCard()],
+    switch (this.searchType) {
+      case SearchType.image:
+        return null;
+      case SearchType.web:
+        return ListView.builder(
+            itemCount:
+            99, // Custom Search API will not return more than 100 results.
+            itemBuilder: (BuildContext context, int index) {
+              return FutureBuilder(
+                future: this.currentSearchResults == null
+                    ? dataSource.search(searchQuery)
+                    : dataSource.search(currentSearchResults.nextPage),
+                builder: (context, snapshot) {
+                  switch (snapshot.connectionState) {
+                    case ConnectionState.none:
+                      return Text('Press button to start.');
+                    case ConnectionState.active:
+                    case ConnectionState.waiting:
+                      return SizedBox(
+                        height: MediaQuery
+                            .of(context)
+                            .size
+                            .height * 2,
+                        child: Align(
+                            alignment: Alignment.topCenter,
+                            child: Padding(
+                              padding: EdgeInsets.only(top: 5.0),
+                              child: CircularProgressIndicator(),
+                            )),
+                      );
+                    case ConnectionState.done:
+                      if (snapshot.hasError) {
+                        return Text('Error: ${snapshot.error}');
+                      } else {
+                        this.currentSearchResults = snapshot.data;
+                        return _buildWebSearchResultPage(snapshot.data);
+                      }
+                  }
+                },
               );
-            }
-            switch (this.searchType) {
-              case SearchType.image:
-                return GridView.count(
-                    crossAxisCount: 1,
-                    mainAxisSpacing: 4.0,
-                    crossAxisSpacing: 4.0,
-                    padding: const EdgeInsets.all(4.0),
-                    children: List.generate(
-                        snapshot.data.searchResults.length + 2, (index) {
-                      if (index == snapshot.data.searchResults.length) {
-                        return Container(
-                          child: PaginationTab.nextPage(() {
-                            this.showResults(context);
-                          }),
-                        );
-                      }
-                      if (index == snapshot.data.searchResults.length + 1) {
-                        return PaginationTab.previousPage(() {});
-                      }
-                      return new ImageSearchResultCard(
-                          searchResult: snapshot.data.searchResults[index]);
-                    }));
-
-              case SearchType.web:
-                return ListView.builder(
-                    itemCount: snapshot.data.searchResults.length + 2,
-                    itemBuilder: (BuildContext context, int index) {
-                      if (index == snapshot.data.searchResults.length) {
-                        return PaginationTab.nextPage(() {
-                          this.buildResultsFromQuery(
-                              context, snapshot.data.nextPage);
-                        });
-                      }
-                      if (index == snapshot.data.searchResults.length + 1) {
-                        return PaginationTab.previousPage(() {});
-                      }
-                      return WebSearchResultCard(
-                          searchResult: snapshot.data.searchResults[index]);
-                    });
-              default:
-                print('should not reach here!');
-            }
-        }
-        return null; // unreachable
-      },
-    );
+            });
+    }
   }
 }
 

@@ -77,7 +77,7 @@ class _CustomSearchDemoPageState extends State<CustomSearchDemoPage> {
   }
 
   _CustomSearchDemoPageState.customWebSearch() {
-    this.delegate = new CustomSearchSearchDelegate(
+    this.delegate = new CustomSearchInfiniteSearchDelegate(
         dataSource: CustomSearchDataSource(
             cx: '',
             apiKey: ''));
