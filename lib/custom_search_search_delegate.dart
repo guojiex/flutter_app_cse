@@ -185,6 +185,7 @@ class CustomSearchSearchDelegate extends SearchDelegate<SearchResult> {
             );
           case ConnectionState.done:
             if (snapshot.hasError) return Text('Error: ${snapshot.error}');
+            print('done');
             return buildResultPage(context, snapshot.data);
         }
         return null; // unreachable
@@ -271,7 +272,7 @@ class CustomSearchInfiniteSearchDelegate extends CustomSearchSearchDelegate {
   Widget buildResultsFromQuery(BuildContext context, SearchQuery searchQuery) {
     switch (this.searchType) {
       case SearchType.image:
-        return null;
+        return GridView.builder(gridDelegate: null, itemBuilder: null);
       case SearchType.web:
         return ListView.builder(
             itemCount:

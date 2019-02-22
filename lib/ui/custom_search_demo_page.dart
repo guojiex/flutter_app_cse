@@ -66,9 +66,9 @@ class _CustomSearchDemoPageState extends State<CustomSearchDemoPage> {
   }
 
   _CustomSearchDemoPageState.customImageSearch() {
-    this.delegate = new CustomSearchSearchDelegate.imageSearch(
+    this.delegate = new CustomSearchInfiniteSearchDelegate.imageSearch(
         dataSource: CustomSearchDataSource(
-            cx: '',
+            cx: '013098254965507895640:wyytcpldjbw',
             apiKey: ''));
     this.hintText = 'Google Custom Image Search';
     otherRoutes = [
@@ -79,7 +79,7 @@ class _CustomSearchDemoPageState extends State<CustomSearchDemoPage> {
   _CustomSearchDemoPageState.customWebSearch() {
     this.delegate = new CustomSearchInfiniteSearchDelegate(
         dataSource: CustomSearchDataSource(
-            cx: '',
+            cx: '013098254965507895640:0l32iqt_8jq',
             apiKey: ''));
     this.hintText = 'Google Custom Web Search';
     otherRoutes = [

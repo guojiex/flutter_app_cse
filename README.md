@@ -22,7 +22,11 @@ samples, guidance on mobile development, and a full API reference.
 
 ### demo
 
-![demo_gif](/res/imgs/examples/20190114.gif)
+Infinite web search result page:
+
+![infinite_result_page](/res/imgs/examples/20190222.gif)
+
+![demo_gif](/res/imgs/examples/20190220.gif)
 
 ### new CSE websearch layout
 
