@@ -7,6 +7,11 @@ import 'ui/image_search_result_card.dart';
 import 'ui/pagination_tab.dart';
 import 'shared_constant.dart';
 
+/// A [SearchDelegate] for search using CSE API.
+///
+/// Please use [CustomSearchInfiniteSearchDelegate] until the nextPage/previousPage
+/// TODO is done.
+/// TODO: Complete the nextPage/previousPage button with callback.
 class CustomSearchSearchDelegate extends SearchDelegate<SearchResult> {
   SearchDataSource dataSource;
   AutoCompleteDataSource autoCompleteDataSource;
@@ -259,6 +264,21 @@ class CustomSearchInfiniteSearchDelegate extends CustomSearchSearchDelegate {
         }).toList());
   }
 
+  Widget _buildImageSearchResultPage(SearchResults searchResults) {
+    return GridView.builder(
+        shrinkWrap: true,
+        primary: false,
+        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: 1,
+        ),
+        itemCount: searchResults.searchResults.length,
+        physics: const AlwaysScrollableScrollPhysics(),
+        itemBuilder: (BuildContext context, int index) {
+          return ImageSearchResultCard(
+              searchResult: searchResults.searchResults[index]);
+        });
+  }
+
   /// A cached searchresults, for nextPage usage.
   SearchResults currentSearchResults;
 
@@ -272,7 +292,37 @@ class CustomSearchInfiniteSearchDelegate extends CustomSearchSearchDelegate {
   Widget buildResultsFromQuery(BuildContext context, SearchQuery searchQuery) {
     switch (this.searchType) {
       case SearchType.image:
-        return GridView.builder(gridDelegate: null, itemBuilder: null);
+        return FutureBuilder(
+            future: this.currentSearchResults == null
+                ? dataSource.search(searchQuery)
+                : dataSource.search(currentSearchResults.nextPage),
+            builder: (context, snapshot) {
+              switch (snapshot.connectionState) {
+                case ConnectionState.none:
+                  return Text('Press button to start.');
+                case ConnectionState.active:
+                case ConnectionState.waiting:
+                  return SizedBox(
+                    height: MediaQuery
+                        .of(context)
+                        .size
+                        .height * 2,
+                    child: Align(
+                        alignment: Alignment.topCenter,
+                        child: Padding(
+                          padding: EdgeInsets.only(top: 5.0),
+                          child: CircularProgressIndicator(),
+                        )),
+                  );
+                case ConnectionState.done:
+                  if (snapshot.hasError) {
+                    return Text('Error: ${snapshot.error}');
+                  } else {
+                    this.currentSearchResults = snapshot.data;
+                    return _buildImageSearchResultPage(snapshot.data);
+                  }
+              }
+            });
       case SearchType.web:
         return ListView.builder(
             itemCount:
