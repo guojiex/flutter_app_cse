@@ -27,7 +27,3 @@ Infinite web search result page:
 ![infinite_result_page](/res/imgs/examples/20190222.gif)
 
 ![demo_gif](/res/imgs/examples/20190220.gif)
-
-### new CSE websearch layout
-
-![cse_websearch_layout_gif](/res/imgs/examples/20190116.gif)
