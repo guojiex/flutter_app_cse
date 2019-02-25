@@ -446,7 +446,7 @@ class CustomSearchDataSource implements SearchDataSource {
 
     final result = await searchQuery.runSearch(this.api);
     _cache.set(searchQuery, result);
-    print(result.searchResults.length);
+    print('here');
     return result;
   }
 }

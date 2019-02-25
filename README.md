@@ -22,8 +22,4 @@ samples, guidance on mobile development, and a full API reference.
 
 ### demo
 
-Infinite web search result page:
-
-![infinite_result_page](/res/imgs/examples/20190222.gif)
-
-![demo_gif](/res/imgs/examples/20190220.gif)
+![demo_on_youtube](https://youtu.be/9UqpQzVNe0Y)
