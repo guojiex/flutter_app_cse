@@ -20,6 +20,6 @@ samples, guidance on mobile development, and a full API reference.
 
 ## Example
 
-### demo
+### watch demo on youtube.
 
-![demo_on_youtube](https://youtu.be/9UqpQzVNe0Y)
+[![demo_on_youtube](http://i3.ytimg.com/vi/9UqpQzVNe0Y/hqdefault.jpg)](https://youtu.be/9UqpQzVNe0Y)
