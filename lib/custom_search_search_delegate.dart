@@ -317,10 +317,9 @@ class CustomSearchInfiniteSearchDelegate extends CustomSearchSearchDelegate {
                 case ConnectionState.done:
                   if (snapshot.hasError) {
                     return Text('Error: ${snapshot.error}');
-                  } else {
-                    this.currentSearchResults = snapshot.data;
-                    return _buildImageSearchResultPage(snapshot.data);
                   }
+                  this.currentSearchResults = snapshot.data;
+                  return _buildImageSearchResultPage(snapshot.data);
               }
             });
       case SearchType.web:
@@ -353,10 +352,9 @@ class CustomSearchInfiniteSearchDelegate extends CustomSearchSearchDelegate {
                     case ConnectionState.done:
                       if (snapshot.hasError) {
                         return Text('Error: ${snapshot.error}');
-                      } else {
-                        this.currentSearchResults = snapshot.data;
-                        return _buildWebSearchResultPage(snapshot.data);
                       }
+                      this.currentSearchResults = snapshot.data;
+                      return _buildWebSearchResultPage(snapshot.data);
                   }
                 },
               );
