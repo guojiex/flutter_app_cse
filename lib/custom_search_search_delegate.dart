@@ -263,21 +263,6 @@ class CustomSearchInfiniteSearchDelegate extends CustomSearchSearchDelegate {
         }).toList());
   }
 
-  Widget _buildImageSearchResultPage(SearchResults searchResults) {
-    return GridView.builder(
-        shrinkWrap: true,
-        primary: false,
-        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 1,
-        ),
-        itemCount: searchResults.searchResults.length,
-        physics: const AlwaysScrollableScrollPhysics(),
-        itemBuilder: (BuildContext context, int index) {
-          return ImageSearchResultCard(
-              searchResult: searchResults.searchResults[index]);
-        });
-  }
-
   /// A cached [SearchResults], for nextPage usage.
   SearchResults currentSearchResults;
   int currentResultLength = 0;
