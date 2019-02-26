@@ -32,7 +32,9 @@ class WebSearchResultCard extends StatelessWidget {
 
   Widget _generateBodyTile(BuildContext context) {
     final ThemeData theme = Theme.of(context);
-    bool haveThumbnail = this.searchResult.result.pagemap['thumbnail'] != null;
+    bool haveThumbnail =
+        this.searchResult.result.pagemap['thumbnail'] != null ||
+            this.searchResult.result.pagemap['cse_thumbnail'] != null;
     if (!haveThumbnail) {
       return Container(
         padding: const EdgeInsets.only(
@@ -57,8 +59,10 @@ class WebSearchResultCard extends StatelessWidget {
           Expanded(
               flex: 1,
               child: Image.network(
-                  this.searchResult.result.pagemap['thumbnail'][0]['src'])
-          ),
+                  this.searchResult.result.pagemap['thumbnail'] != null
+                      ? this.searchResult.result.pagemap['thumbnail'][0]['src']
+                      : this.searchResult.result.pagemap['cse_thumbnail'][0]
+                  ['src'])),
           Expanded(
               flex: 4,
               child: Container(

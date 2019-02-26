@@ -66,6 +66,7 @@ class _CustomSearchDemoPageState extends State<CustomSearchDemoPage> {
   }
 
   _CustomSearchDemoPageState.customImageSearch() {
+    // Pokemon db.
     this.delegate = new CustomSearchInfiniteSearchDelegate.imageSearch(
         dataSource: CustomSearchDataSource(
             cx: '013098254965507895640:wyytcpldjbw',
@@ -77,9 +78,10 @@ class _CustomSearchDemoPageState extends State<CustomSearchDemoPage> {
   }
 
   _CustomSearchDemoPageState.customWebSearch() {
+    // Flutter
     this.delegate = new CustomSearchInfiniteSearchDelegate(
         dataSource: CustomSearchDataSource(
-            cx: '013098254965507895640:0l32iqt_8jq',
+            cx: '013098254965507895640:ebp1trsjo0a',
             apiKey: ''));
     this.hintText = 'Google Custom Web Search';
     otherRoutes = [

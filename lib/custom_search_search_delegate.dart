@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter_app_cse/search_data_source.dart';
 
 import 'ui/no_result_card.dart';
@@ -206,30 +207,6 @@ class CustomSearchSearchDelegate extends SearchDelegate<SearchResult> {
   }
 }
 
-class KeepAliveFutureBuilder extends StatefulWidget {
-  final Future future;
-  final AsyncWidgetBuilder builder;
-
-  KeepAliveFutureBuilder({this.future, this.builder});
-
-  @override
-  _KeepAliveFutureBuilderState createState() => _KeepAliveFutureBuilderState();
-}
-
-class _KeepAliveFutureBuilderState extends State<KeepAliveFutureBuilder>
-    with AutomaticKeepAliveClientMixin {
-  @override
-  Widget build(BuildContext context) {
-    return FutureBuilder(
-      future: widget.future,
-      builder: widget.builder,
-    );
-  }
-
-  @override
-  bool get wantKeepAlive => true;
-}
-
 /// A SearchDelegate that will render the result page as infinite scroll view.
 class CustomSearchInfiniteSearchDelegate extends CustomSearchSearchDelegate {
   CustomSearchInfiniteSearchDelegate({dataSource,
@@ -275,10 +252,14 @@ class CustomSearchInfiniteSearchDelegate extends CustomSearchSearchDelegate {
   }
 
   _loadNextPage() {
+
     dataSource.search(currentSearchResults.nextPage).then((value) {
       this.currentSearchResults = value;
       this.currentResultLength +=
           this.currentSearchResults.searchResults.length;
+      debugPrint(
+          'current result length ${this.currentSearchResults.searchResults
+              .length}');
     });
   }
 

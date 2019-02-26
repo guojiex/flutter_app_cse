@@ -62,6 +62,7 @@ class SearchResults {
   List<SearchResult> searchResults = List<SearchResult>();
   List<Promotion> promotions = List<Promotion>();
   SearchQuery nextPage;
+  SearchQuery previousPage;
 
   SearchResults.empty();
 
@@ -72,6 +73,12 @@ class SearchResults {
     // Deduplicate search result.
     this.searchResults = Set<SearchResult>.from(results).toList();
   }
+
+  @override
+  String toString() {
+    return 'SearchResults{searchResults: $searchResults, nextPage: $nextPage}';
+  }
+
 }
 
 /// A wrapper class for search request, to make caching search request possible.
@@ -183,6 +190,10 @@ class SearchQuery {
     if (search.queries['nextPage'] != null) {
       result.nextPage =
           this.copyWith(start: search.queries['nextPage'][0].startIndex);
+    }
+    if (search.queries['previousPage'] != null) {
+      result.previousPage =
+          this.copyWith(start: search.queries['previousPage'][0].startIndex);
     }
     return result;
   }
@@ -349,7 +360,7 @@ class _StaticSearchResponse {
       {this.assetPath, this.searchType, this.searchResponseJsonString});
 }
 
-/// A fake search data source, that reads data from flutter assests.
+/// A fake search data source, that reads data from flutter assets.
 ///
 /// Choose to do the caching in this class, rather than in the
 /// [SearchDelegate.showResults]. Because this is controllable by developer,
@@ -409,7 +420,7 @@ class FakeSearchDataSource implements SearchDataSource {
   }
 }
 
-/// The search data source that uses Custom Search API.
+/// Cached search data source that uses Custom Search API.
 ///
 /// Choose to do the caching in this class, rather than in the
 /// [SearchDelegate.showResults]. Because this is controllable by developer,
@@ -445,6 +456,7 @@ class CustomSearchDataSource implements SearchDataSource {
     }
 
     final result = await searchQuery.runSearch(this.api);
+    print('call search backend');
     _cache.set(searchQuery, result);
     return result;
   }
