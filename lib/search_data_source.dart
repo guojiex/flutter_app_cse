@@ -55,12 +55,25 @@ class Promotion {
   Promotion(this.promotion);
 }
 
+class Refinement {
+  String anchor;
+  String label;
+  String labelWithOp;
+
+  Refinement(customsearch.ContextFacets facet) {
+    this.anchor = facet.anchor;
+    this.labelWithOp = facet.labelWithOp;
+    this.label = facet.label;
+  }
+}
+
 /// A wrapper class to aggregate all the search result fields that we need.
 ///
 /// And deduplicate results.
 class SearchResults {
   List<SearchResult> searchResults = List<SearchResult>();
   List<Promotion> promotions = List<Promotion>();
+  List<Refinement> refinements = List<Refinement>();
   SearchQuery nextPage;
   SearchQuery previousPage;
 
@@ -72,11 +85,14 @@ class SearchResults {
         (item) => results.add(SearchResult.escapeLineBreakInSnippet(item)));
     // Deduplicate search result.
     this.searchResults = Set<SearchResult>.from(results).toList();
+    search.context.facets.forEach((listOfFacet) {
+      this.refinements.add(Refinement(listOfFacet[0]));
+    });
   }
 
   @override
   String toString() {
-    return 'SearchResults{searchResults: $searchResults, nextPage: $nextPage}';
+    return 'SearchResults{searchResults: $searchResults, refinements: $refinements, nextPage: $nextPage}';
   }
 
 }
@@ -456,8 +472,8 @@ class CustomSearchDataSource implements SearchDataSource {
     }
 
     final result = await searchQuery.runSearch(this.api);
-    print('call search backend');
     _cache.set(searchQuery, result);
+    print('call search backend');
     return result;
   }
 }

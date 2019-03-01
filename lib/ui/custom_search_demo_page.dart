@@ -15,7 +15,7 @@ enum CustomSearchDemoType {
   webSearch,
 
   /// Search for image.
-  imageSearch
+  imageSearch,
 }
 
 class CustomSearchDemoPage extends StatefulWidget {
@@ -78,16 +78,17 @@ class _CustomSearchDemoPageState extends State<CustomSearchDemoPage> {
   }
 
   _CustomSearchDemoPageState.customWebSearch() {
-    // Flutter
+    // New York Times with refinement.
     this.delegate = new CustomSearchInfiniteSearchDelegate(
         dataSource: CustomSearchDataSource(
-            cx: '013098254965507895640:ebp1trsjo0a',
+            cx: '013098254965507895640:zjg6lv-gsvg',
             apiKey: ''));
     this.hintText = 'Google Custom Web Search';
     otherRoutes = [
       Tuple2<String, String>('Custom Image Search Demo', '/imagesearch')
     ];
   }
+
 
   final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
 
