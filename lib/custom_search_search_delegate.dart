@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_app_cse/search_data_source.dart';
+import 'ui/search_result_page.dart';
 
 import 'ui/no_result_card.dart';
 import 'ui/web_search_result_card.dart';
@@ -288,6 +289,15 @@ class CustomSearchInfiniteSearchDelegate extends CustomSearchSearchDelegate {
                         return Text('Error: ${snapshot.error}');
                       }
                       this.currentSearchResults = snapshot.data;
+                      if (currentSearchResults.searchResults.isEmpty) {
+                        return GridView.count(
+                          crossAxisCount: 1,
+                          mainAxisSpacing: 4.0,
+                          crossAxisSpacing: 4.0,
+                          padding: const EdgeInsets.all(4.0),
+                          children: [new NoResultCard()],
+                        );
+                      }
                       return ImageSearchResultCard(
                           searchResult: this.currentSearchResults.searchResults[
                               index %
@@ -305,40 +315,6 @@ class CustomSearchInfiniteSearchDelegate extends CustomSearchSearchDelegate {
               searchResult: this.currentSearchResults.searchResults[
                   index % this.currentSearchResults.searchResults.length]);
         });
-  }
-
-  Widget _buildFloatingRefinementButtons(BuildContext context,
-      SearchResults searchResults) {
-    return Container(
-      height: 20.0,
-      child: Row(
-          children: [
-            Expanded(
-                flex: 1,
-                child: FloatingActionButton.extended(
-                  onPressed: () {
-                    print('All button click');
-                  },
-                  icon: new Icon(
-                    Icons.flag,
-                  ),
-                  label: new Text('All', maxLines: 1),
-                ))
-          ] +
-              searchResults.refinements.map((refinement) {
-                return Expanded(
-                    flex: 1,
-                    child: FloatingActionButton.extended(
-                      onPressed: () {
-                        print('${refinement.label} button click');
-                      },
-                      icon: new Icon(
-                        Icons.flag,
-                      ),
-                      label: new Text(refinement.label, maxLines: 1),
-                    ));
-              }).toList()),
-    );
   }
 
   Widget refinementBar;
@@ -367,59 +343,49 @@ class CustomSearchInfiniteSearchDelegate extends CustomSearchSearchDelegate {
     }
   }
 
-  Widget _buildWebListPage(BuildContext context, SearchQuery searchQuery) {
-    return ListView.builder(
-        itemCount:
-        9, // Custom Search API will not return more than 100 results.
-        itemBuilder: (BuildContext context, int index) {
-          return FutureBuilder(
-            future: this.currentSearchResults == null
-                ? dataSource.search(searchQuery)
-                : dataSource.search(currentSearchResults.nextPage),
-            builder: (context, snapshot) {
-              switch (snapshot.connectionState) {
-                case ConnectionState.none:
-                  return Text('Press button to start.');
-                case ConnectionState.active:
-                case ConnectionState.waiting:
-                  return SizedBox(
-                    height: MediaQuery
-                        .of(context)
-                        .size
-                        .height * 2,
-                    child: Align(
-                        alignment: Alignment.topCenter,
-                        child: Padding(
-                          padding: EdgeInsets.only(top: 5.0),
-                          child: CircularProgressIndicator(),
-                        )),
-                  );
-                case ConnectionState.done:
-                  if (snapshot.hasError) {
-                    return Text('Error: ${snapshot.error}');
-                  }
-                  this.currentSearchResults = snapshot.data;
-                  if (!snapshot.data.refinements.isEmpty) {
-                    if (this.refinementBar == null) {
-                      this.refinementBar = _buildFloatingRefinementButtons(
-                          context, snapshot.data);
-                    }
-                  }
-                  return _buildWebSearchResultSubList(
-                      snapshot.data, this.refinementBar);
-              }
-            },
-          );
-        });
-  }
-
   @override
   Widget buildResultsFromQuery(BuildContext context, SearchQuery searchQuery) {
     switch (this.searchType) {
       case SearchType.image:
         return _buildImageGridPage(context, searchQuery);
       case SearchType.web:
-        return _buildWebListPage(context, searchQuery);
+        return FutureBuilder(
+          future: dataSource.search(searchQuery),
+          builder: (context, snapshot) {
+            switch (snapshot.connectionState) {
+              case ConnectionState.none:
+                return Text('Press button to start.');
+              case ConnectionState.active:
+              case ConnectionState.waiting:
+                return SizedBox(
+                  height: MediaQuery
+                      .of(context)
+                      .size
+                      .height * 2,
+                  child: Align(
+                      alignment: Alignment.topCenter,
+                      child: Padding(
+                        padding: EdgeInsets.only(top: 5.0),
+                        child: CircularProgressIndicator(),
+                      )),
+                );
+              case ConnectionState.done:
+                if (snapshot.hasError) {
+                  return Text('Error: ${snapshot.error}');
+                }
+                if (snapshot.data.searchResults.isEmpty) {
+                  return GridView.count(
+                    crossAxisCount: 1,
+                    mainAxisSpacing: 4.0,
+                    crossAxisSpacing: 4.0,
+                    padding: const EdgeInsets.all(4.0),
+                    children: [new NoResultCard()],
+                  );
+                }
+                return SearchResultPage(dataSource, searchType, snapshot.data);
+            }
+          },
+        );
     }
   }
 }
