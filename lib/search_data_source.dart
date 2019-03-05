@@ -75,7 +75,9 @@ class SearchResults {
   List<Promotion> promotions = List<Promotion>();
   List<Refinement> refinements = List<Refinement>();
   SearchQuery nextPage;
-  SearchQuery previousPage;
+
+  // TODO: implement previousPage button.
+  // SearchQuery previousPage;
 
   SearchResults.empty();
 
@@ -206,10 +208,6 @@ class SearchQuery {
     if (search.queries['nextPage'] != null) {
       result.nextPage =
           this.copyWith(start: search.queries['nextPage'][0].startIndex);
-    }
-    if (search.queries['previousPage'] != null) {
-      result.previousPage =
-          this.copyWith(start: search.queries['previousPage'][0].startIndex);
     }
     return result;
   }
