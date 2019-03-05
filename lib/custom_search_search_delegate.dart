@@ -382,7 +382,8 @@ class CustomSearchInfiniteSearchDelegate extends CustomSearchSearchDelegate {
                     children: [new NoResultCard()],
                   );
                 }
-                return SearchResultPage(dataSource, searchType, snapshot.data);
+                return SearchResultPage(
+                    dataSource, searchType, snapshot.data, searchQuery);
             }
           },
         );
