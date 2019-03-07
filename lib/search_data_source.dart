@@ -449,7 +449,8 @@ class CustomSearchDataSource implements SearchDataSource {
   final ExpireCache<SearchQuery, SearchResults> _cache =
       ExpireCache<SearchQuery, SearchResults>();
 
-  CustomSearchDataSource({@required this.cx, @required this.apiKey}) {
+  CustomSearchDataSource({@required this.cx, @required this.apiKey})
+      :assert(apiKey.isNotEmpty) {
     var client = auth.clientViaApiKey(apiKey);
     this.api = new customsearch.CustomsearchApi(client);
   }

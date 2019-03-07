@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_app_cse/search_data_source.dart';
-import 'ui/search_result_page.dart';
+import 'ui/web_search_result_page.dart';
 
 import 'ui/no_result_card.dart';
 import 'ui/web_search_result_card.dart';
 import 'ui/image_search_result_card.dart';
 import 'ui/pagination_tab.dart';
+import 'ui/image_search_result_page.dart';
 import 'shared_constant.dart';
 
 /// A [SearchDelegate] for search using CSE API.
@@ -240,154 +241,59 @@ class CustomSearchInfiniteSearchDelegate extends CustomSearchSearchDelegate {
   void close(BuildContext context, SearchResult result) {
     this.currentSearchResults = null;
     this.currentResultLength = 0;
-    this.refinementBar = null;
     super.close(context, result);
   }
 
-  _loadNextPage() {
-    dataSource.search(currentSearchResults.nextPage).then((value) {
-      this.currentSearchResults = value;
-      this.currentResultLength +=
-          this.currentSearchResults.searchResults.length;
-      debugPrint(
-          'current result length ${this.currentSearchResults.searchResults
-              .length}');
-    });
-  }
-
-  Widget _buildImageGridPage(BuildContext context, SearchQuery searchQuery) {
-    return GridView.builder(
-        shrinkWrap: true,
-        primary: false,
-        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 1,
-        ),
-        itemCount: 99,
-        itemBuilder: (_, index) {
-          if (this.currentSearchResults == null) {
-            return FutureBuilder(
-                future: dataSource.search(searchQuery),
-                builder: (context, snapshot) {
-                  switch (snapshot.connectionState) {
-                    case ConnectionState.none:
-                    case ConnectionState.active:
-                    case ConnectionState.waiting:
-                      return SizedBox(
-                        height: MediaQuery
-                            .of(context)
-                            .size
-                            .height * 2,
-                        child: Align(
-                            alignment: Alignment.topCenter,
-                            child: Padding(
-                              padding: EdgeInsets.only(top: 5.0),
-                              child: CircularProgressIndicator(),
-                            )),
-                      );
-                    case ConnectionState.done:
-                      if (snapshot.hasError) {
-                        return Text('Error: ${snapshot.error}');
-                      }
-                      this.currentSearchResults = snapshot.data;
-                      if (currentSearchResults.searchResults.isEmpty) {
-                        return GridView.count(
-                          crossAxisCount: 1,
-                          mainAxisSpacing: 4.0,
-                          crossAxisSpacing: 4.0,
-                          padding: const EdgeInsets.all(4.0),
-                          children: [new NoResultCard()],
-                        );
-                      }
-                      return ImageSearchResultCard(
-                          searchResult: this.currentSearchResults.searchResults[
-                              index %
-                                  this
-                                      .currentSearchResults
-                                      .searchResults
-                                      .length]);
-                  }
-                });
-          }
-          if (index >= currentResultLength) {
-            this._loadNextPage();
-          }
-          return ImageSearchResultCard(
-              searchResult: this.currentSearchResults.searchResults[
-                  index % this.currentSearchResults.searchResults.length]);
-        });
-  }
-
-  Widget refinementBar;
-
-  Widget _buildWebSearchResultSubList(SearchResults searchResults,
-      Widget injectedBar) {
-    if (injectedBar != null) {
-      return Column(
-        children: <Widget>[
-          injectedBar,
-          ListView(
-              shrinkWrap: true,
-              primary: false,
-              children: searchResults.searchResults.map((searchResult) {
-                return WebSearchResultCard(searchResult: searchResult);
-              }).toList())
-        ],
-      );
-    } else {
-      return ListView(
-          shrinkWrap: true,
-          primary: false,
-          children: searchResults.searchResults.map((searchResult) {
-            return WebSearchResultCard(searchResult: searchResult);
-          }).toList());
-    }
+  Widget _buildSearchResultPage(BuildContext context, SearchQuery searchQuery) {
+    return FutureBuilder(
+      future: dataSource.search(searchQuery),
+      builder: (context, snapshot) {
+        switch (snapshot.connectionState) {
+          case ConnectionState.none:
+            return Text('Press button to start.');
+          case ConnectionState.active:
+          case ConnectionState.waiting:
+            return SizedBox(
+              height: MediaQuery
+                  .of(context)
+                  .size
+                  .height * 2,
+              child: Align(
+                  alignment: Alignment.topCenter,
+                  child: Padding(
+                    padding: EdgeInsets.only(top: 5.0),
+                    child: CircularProgressIndicator(),
+                  )),
+            );
+          case ConnectionState.done:
+            if (snapshot.hasError) {
+              return Text('Error: ${snapshot.error}');
+            }
+            if (snapshot.data.searchResults.isEmpty) {
+              return GridView.count(
+                crossAxisCount: 1,
+                mainAxisSpacing: 4.0,
+                crossAxisSpacing: 4.0,
+                padding: const EdgeInsets.all(4.0),
+                children: [new NoResultCard()],
+              );
+            }
+            switch (this.searchType) {
+              case SearchType.image:
+                return ImageSearchResultPage(
+                    dataSource, snapshot.data, searchQuery);
+              case SearchType.web:
+                return WebSearchResultPage(
+                    dataSource, snapshot.data, searchQuery);
+            }
+        }
+      },
+    );
   }
 
   @override
   Widget buildResultsFromQuery(BuildContext context, SearchQuery searchQuery) {
-    switch (this.searchType) {
-      case SearchType.image:
-        return _buildImageGridPage(context, searchQuery);
-      case SearchType.web:
-        return FutureBuilder(
-          future: dataSource.search(searchQuery),
-          builder: (context, snapshot) {
-            switch (snapshot.connectionState) {
-              case ConnectionState.none:
-                return Text('Press button to start.');
-              case ConnectionState.active:
-              case ConnectionState.waiting:
-                return SizedBox(
-                  height: MediaQuery
-                      .of(context)
-                      .size
-                      .height * 2,
-                  child: Align(
-                      alignment: Alignment.topCenter,
-                      child: Padding(
-                        padding: EdgeInsets.only(top: 5.0),
-                        child: CircularProgressIndicator(),
-                      )),
-                );
-              case ConnectionState.done:
-                if (snapshot.hasError) {
-                  return Text('Error: ${snapshot.error}');
-                }
-                if (snapshot.data.searchResults.isEmpty) {
-                  return GridView.count(
-                    crossAxisCount: 1,
-                    mainAxisSpacing: 4.0,
-                    crossAxisSpacing: 4.0,
-                    padding: const EdgeInsets.all(4.0),
-                    children: [new NoResultCard()],
-                  );
-                }
-                return SearchResultPage(
-                    dataSource, searchType, snapshot.data, searchQuery);
-            }
-          },
-        );
-    }
+    return _buildSearchResultPage(context, searchQuery);
   }
 }
 

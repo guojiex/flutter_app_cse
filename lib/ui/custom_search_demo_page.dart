@@ -66,10 +66,10 @@ class _CustomSearchDemoPageState extends State<CustomSearchDemoPage> {
   }
 
   _CustomSearchDemoPageState.customImageSearch() {
-    // Pokemon db.
+    // Pokemon db with refinement.
     this.delegate = new CustomSearchInfiniteSearchDelegate.imageSearch(
         dataSource: CustomSearchDataSource(
-            cx: '013098254965507895640:wyytcpldjbw',
+            cx: '013098254965507895640:g-r0nurxf2g',
             apiKey: ''));
     this.hintText = 'Google Custom Image Search';
     otherRoutes = [
