@@ -283,6 +283,7 @@ class CustomSearchInfiniteSearchDelegate extends CustomSearchSearchDelegate {
                 return ImageSearchResultPage(
                     dataSource, snapshot.data, searchQuery);
               case SearchType.web:
+                print('here');
                 return WebSearchResultPage(
                     dataSource, snapshot.data, searchQuery);
             }

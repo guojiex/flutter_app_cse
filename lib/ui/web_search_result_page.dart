@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
 import '../search_data_source.dart';
-import '../shared_constant.dart';
 import 'no_result_card.dart';
 import 'web_search_result_card.dart';
+import 'promotion_card.dart';
 
 @immutable
 class WebSearchResultPage extends StatefulWidget {
@@ -51,9 +51,16 @@ class _WebSearchResultPageState extends State<WebSearchResultPage>
     return ListView(
         shrinkWrap: true,
         primary: false,
-        children: searchResults.searchResults.map((searchResult) {
-          return WebSearchResultCard(searchResult: searchResult);
-        }).toList());
+        children: _buildWebResultWidgetList(searchResults));
+  }
+
+  List<Widget> _buildWebResultWidgetList(SearchResults searchResults) {
+    List<Widget> _results = new List<Widget>();
+    _results.addAll(searchResults.promotions
+        .map((promotion) => PromotionCard(promotion: promotion)));
+    _results.addAll(searchResults.searchResults.map(
+            (searchResult) => WebSearchResultCard(searchResult: searchResult)));
+    return _results;
   }
 
   Widget _buildWebListPage(BuildContext context) {

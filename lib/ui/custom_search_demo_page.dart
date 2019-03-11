@@ -16,6 +16,7 @@ enum CustomSearchDemoType {
 
   /// Search for image.
   imageSearch,
+  promotionWebSearch,
 }
 
 class CustomSearchDemoPage extends StatefulWidget {
@@ -34,6 +35,8 @@ class CustomSearchDemoPage extends StatefulWidget {
         return _CustomSearchDemoPageState.customWebSearch();
       case CustomSearchDemoType.imageSearch:
         return _CustomSearchDemoPageState.customImageSearch();
+      case CustomSearchDemoType.promotionWebSearch:
+        return _CustomSearchDemoPageState.customPromotionWebSearch();
       default:
         return null;
     }
@@ -73,7 +76,9 @@ class _CustomSearchDemoPageState extends State<CustomSearchDemoPage> {
             apiKey: ''));
     this.hintText = 'Google Custom Image Search';
     otherRoutes = [
-      Tuple2<String, String>('Custom Web Search Demo', '/websearch')
+      Tuple2<String, String>('Custom Web Search Demo', '/websearch'),
+      Tuple2<String, String>(
+          'Custom Web Search Promotion Demo', '/promotionwebsearch')
     ];
   }
 
@@ -85,10 +90,24 @@ class _CustomSearchDemoPageState extends State<CustomSearchDemoPage> {
             apiKey: ''));
     this.hintText = 'Google Custom Web Search';
     otherRoutes = [
-      Tuple2<String, String>('Custom Image Search Demo', '/imagesearch')
+      Tuple2<String, String>('Custom Image Search Demo', '/imagesearch'),
+      Tuple2<String, String>(
+          'Custom Web Search Promotion Demo', '/promotionwebsearch')
     ];
   }
 
+  _CustomSearchDemoPageState.customPromotionWebSearch() {
+    // flutter with promotion
+    this.delegate = new CustomSearchInfiniteSearchDelegate(
+        dataSource: CustomSearchDataSource(
+            cx: '013098254965507895640:ebp1trsjo0a',
+            apiKey: ''));
+    this.hintText = 'Google Custom Web Search with Promotion';
+    otherRoutes = [
+      Tuple2<String, String>('Custom Web Search Demo', '/websearch'),
+      Tuple2<String, String>('Custom Image Search Demo', '/imagesearch')
+    ];
+  }
 
   final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
 

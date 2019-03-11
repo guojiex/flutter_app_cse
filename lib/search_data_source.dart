@@ -49,10 +49,54 @@ class SearchResult {
       : result.image.contextLink.hashCode;
 }
 
-class Promotion {
-  final customsearch.Promotion promotion;
+class PromotionImage {
+  int height;
+  String source;
+  int width;
 
-  Promotion(this.promotion);
+  PromotionImage(customsearch.PromotionImage promotionImage) {
+    this.height = promotionImage.height;
+    this.width = promotionImage.width;
+    this.source = promotionImage.source;
+  }
+}
+
+class PromotionBodyLines {
+  String htmlTitle;
+  String link;
+  String title;
+  String url;
+
+  PromotionBodyLines(customsearch.PromotionBodyLines bodyLines) {
+    this.htmlTitle = bodyLines.htmlTitle;
+    this.link = bodyLines.link;
+    this.title = bodyLines.title;
+    this.url = bodyLines.url;
+  }
+}
+
+class Promotion {
+  String title;
+  String link;
+  String displayLink;
+  PromotionImage promotionImage;
+  List<PromotionBodyLines> promotionBodyLines = new List<PromotionBodyLines>();
+
+  Promotion(customsearch.Promotion promotion) {
+    print('here');
+    this.title = promotion.title;
+    this.link = promotion.link;
+    this.displayLink = promotion.displayLink;
+    this.promotionImage = PromotionImage(promotion.image);
+    promotion.bodyLines.forEach((bodyLines) =>
+        this.promotionBodyLines.add(PromotionBodyLines(bodyLines)));
+    print(this);
+  }
+
+  @override
+  String toString() {
+    return 'Promotion{title: $title, link: $link, displayLink: $displayLink, promotionImage: $promotionImage, promotionBodyLines: $promotionBodyLines}';
+  }
 }
 
 class Refinement {
@@ -85,18 +129,25 @@ class SearchResults {
     var results = new List<SearchResult>();
     search.items.forEach(
         (item) => results.add(SearchResult.escapeLineBreakInSnippet(item)));
+
     // Deduplicate search result.
     this.searchResults = Set<SearchResult>.from(results).toList();
-    search.context.facets.forEach((listOfFacet) {
-      this.refinements.add(Refinement(listOfFacet[0]));
-    });
+    print(search.context.facets);
+    if (search.context.facets != null) {
+      search.context.facets.forEach((listOfFacet) {
+        this.refinements.add(Refinement(listOfFacet[0]));
+      });
+    }
+    if (search.promotions != null) {
+      search.promotions
+          .forEach((promotion) => this.promotions.add(Promotion(promotion)));
+    }
   }
 
   @override
   String toString() {
     return 'SearchResults{searchResults: $searchResults, refinements: $refinements, nextPage: $nextPage}';
   }
-
 }
 
 /// A wrapper class for search request, to make caching search request possible.
@@ -450,7 +501,7 @@ class CustomSearchDataSource implements SearchDataSource {
       ExpireCache<SearchQuery, SearchResults>();
 
   CustomSearchDataSource({@required this.cx, @required this.apiKey})
-      :assert(apiKey.isNotEmpty) {
+      : assert(apiKey.isNotEmpty) {
     var client = auth.clientViaApiKey(apiKey);
     this.api = new customsearch.CustomsearchApi(client);
   }
@@ -469,7 +520,6 @@ class CustomSearchDataSource implements SearchDataSource {
     } else {
       return await _cache.get(searchQuery);
     }
-
     final result = await searchQuery.runSearch(this.api);
     _cache.set(searchQuery, result);
     print('call search backend');
