@@ -83,14 +83,12 @@ class Promotion {
   List<PromotionBodyLines> promotionBodyLines = new List<PromotionBodyLines>();
 
   Promotion(customsearch.Promotion promotion) {
-    print('here');
     this.title = promotion.title;
     this.link = promotion.link;
     this.displayLink = promotion.displayLink;
     this.promotionImage = PromotionImage(promotion.image);
     promotion.bodyLines.forEach((bodyLines) =>
         this.promotionBodyLines.add(PromotionBodyLines(bodyLines)));
-    print(this);
   }
 
   @override
@@ -129,10 +127,8 @@ class SearchResults {
     var results = new List<SearchResult>();
     search.items.forEach(
         (item) => results.add(SearchResult.escapeLineBreakInSnippet(item)));
-
     // Deduplicate search result.
     this.searchResults = Set<SearchResult>.from(results).toList();
-    print(search.context.facets);
     if (search.context.facets != null) {
       search.context.facets.forEach((listOfFacet) {
         this.refinements.add(Refinement(listOfFacet[0]));

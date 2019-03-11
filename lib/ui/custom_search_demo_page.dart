@@ -68,12 +68,14 @@ class _CustomSearchDemoPageState extends State<CustomSearchDemoPage> {
     ];
   }
 
+  static final APIKEY = '';
+
   _CustomSearchDemoPageState.customImageSearch() {
     // Pokemon db with refinement.
     this.delegate = new CustomSearchInfiniteSearchDelegate.imageSearch(
         dataSource: CustomSearchDataSource(
             cx: '013098254965507895640:g-r0nurxf2g',
-            apiKey: ''));
+            apiKey: APIKEY));
     this.hintText = 'Google Custom Image Search';
     otherRoutes = [
       Tuple2<String, String>('Custom Web Search Demo', '/websearch'),
@@ -87,7 +89,7 @@ class _CustomSearchDemoPageState extends State<CustomSearchDemoPage> {
     this.delegate = new CustomSearchInfiniteSearchDelegate(
         dataSource: CustomSearchDataSource(
             cx: '013098254965507895640:zjg6lv-gsvg',
-            apiKey: ''));
+            apiKey: APIKEY));
     this.hintText = 'Google Custom Web Search';
     otherRoutes = [
       Tuple2<String, String>('Custom Image Search Demo', '/imagesearch'),
@@ -101,7 +103,7 @@ class _CustomSearchDemoPageState extends State<CustomSearchDemoPage> {
     this.delegate = new CustomSearchInfiniteSearchDelegate(
         dataSource: CustomSearchDataSource(
             cx: '013098254965507895640:ebp1trsjo0a',
-            apiKey: ''));
+            apiKey: APIKEY));
     this.hintText = 'Google Custom Web Search with Promotion';
     otherRoutes = [
       Tuple2<String, String>('Custom Web Search Demo', '/websearch'),
