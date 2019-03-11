@@ -68,7 +68,7 @@ class _CustomSearchDemoPageState extends State<CustomSearchDemoPage> {
     ];
   }
 
-  static final APIKEY = '';
+  static const APIKEY = '';
 
   _CustomSearchDemoPageState.customImageSearch() {
     // Pokemon db with refinement.
