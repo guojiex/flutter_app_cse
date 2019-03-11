@@ -132,7 +132,7 @@ class _WebSearchResultPageState extends State<WebSearchResultPage>
     if (widget.withRefinementTabBar) {
       return Scaffold(
           appBar: new PreferredSize(
-            preferredSize: Size.fromHeight(kToolbarHeight),
+            preferredSize: Size.fromHeight(kToolbarHeight - 8),
             child: new Container(
               color: Colors.blue,
               child: new SafeArea(
