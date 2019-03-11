@@ -142,8 +142,9 @@ class SearchResults {
 
   @override
   String toString() {
-    return 'SearchResults{searchResults: $searchResults, refinements: $refinements, nextPage: $nextPage}';
+    return 'SearchResults{searchResults: $searchResults, promotions: $promotions, refinements: $refinements, nextPage: $nextPage}';
   }
+
 }
 
 /// A wrapper class for search request, to make caching search request possible.

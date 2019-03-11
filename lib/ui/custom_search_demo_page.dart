@@ -74,8 +74,7 @@ class _CustomSearchDemoPageState extends State<CustomSearchDemoPage> {
     // Pokemon db with refinement.
     this.delegate = new CustomSearchInfiniteSearchDelegate.imageSearch(
         dataSource: CustomSearchDataSource(
-            cx: '013098254965507895640:g-r0nurxf2g',
-            apiKey: APIKEY));
+            cx: '013098254965507895640:g-r0nurxf2g', apiKey: APIKEY));
     this.hintText = 'Google Custom Image Search';
     otherRoutes = [
       Tuple2<String, String>('Custom Web Search Demo', '/websearch'),
@@ -88,8 +87,7 @@ class _CustomSearchDemoPageState extends State<CustomSearchDemoPage> {
     // New York Times with refinement.
     this.delegate = new CustomSearchInfiniteSearchDelegate(
         dataSource: CustomSearchDataSource(
-            cx: '013098254965507895640:zjg6lv-gsvg',
-            apiKey: APIKEY));
+            cx: '013098254965507895640:zjg6lv-gsvg', apiKey: APIKEY));
     this.hintText = 'Google Custom Web Search';
     otherRoutes = [
       Tuple2<String, String>('Custom Image Search Demo', '/imagesearch'),
@@ -102,8 +100,7 @@ class _CustomSearchDemoPageState extends State<CustomSearchDemoPage> {
     // flutter with promotion
     this.delegate = new CustomSearchInfiniteSearchDelegate(
         dataSource: CustomSearchDataSource(
-            cx: '013098254965507895640:ebp1trsjo0a',
-            apiKey: APIKEY));
+            cx: '013098254965507895640:ebp1trsjo0a', apiKey: APIKEY));
     this.hintText = 'Google Custom Web Search with Promotion';
     otherRoutes = [
       Tuple2<String, String>('Custom Web Search Demo', '/websearch'),
@@ -195,13 +192,11 @@ class _CustomSearchDemoPageState extends State<CustomSearchDemoPage> {
         child: new Column(
           children: <Widget>[
                 const UserAccountsDrawerHeader(
-                  accountName: const Text('Zach Widget'),
-                  accountEmail: const Text('zach.widget@example.com'),
+                  accountName: const Text('JG'),
+                  accountEmail: const Text('jiexing.jg@gmail.com'),
                   currentAccountPicture: const CircleAvatar(
-                    backgroundImage: const AssetImage(
-                      'shrine/vendors/zach.jpg',
-                      package: 'flutter_gallery_assets',
-                    ),
+                    backgroundImage: const NetworkImage(
+                        'https://avatars2.githubusercontent.com/u/5022480?s=400&u=4e1d662c77ac14e14f7a0387aca08728a22ee587&v=4'),
                   ),
                   margin: EdgeInsets.zero,
                 )

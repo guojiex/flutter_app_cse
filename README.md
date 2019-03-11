@@ -22,4 +22,4 @@ samples, guidance on mobile development, and a full API reference.
 
 ### watch demo on youtube.
 
-[![demo_on_youtube](https://img.youtube.com/vi/IW1yq-cZSxg/hqdefault.jpg)](https://youtu.be/IW1yq-cZSxg)
+[![demo_on_youtube](https://img.youtube.com/vi/80D_cu3ex1g/hqdefault.jpg)](https://youtu.be/80D_cu3ex1g)

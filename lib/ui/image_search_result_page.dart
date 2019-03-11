@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 
 import '../search_data_source.dart';
-import '../shared_constant.dart';
 import 'no_result_card.dart';
 import 'image_search_result_card.dart';
+import 'loading_progress_indicator.dart';
 
-@immutable
 class ImageSearchResultPage extends StatefulWidget {
   final SearchDataSource dataSource;
   final SearchResults initialSearchResult;
@@ -75,13 +74,7 @@ class _ImageSearchResultPageState extends State<ImageSearchResultPage>
             currentResultLength +=
                 this.currentSearchResults.searchResults.length;
             if (currentSearchResults.searchResults.isEmpty) {
-              return GridView.count(
-                crossAxisCount: 1,
-                mainAxisSpacing: 4.0,
-                crossAxisSpacing: 4.0,
-                padding: const EdgeInsets.all(4.0),
-                children: [new NoResultCard()],
-              );
+              return noResultCardInContainer(context);
             }
           }
           if (index >= currentResultLength) {
@@ -101,7 +94,7 @@ class _ImageSearchResultPageState extends State<ImageSearchResultPage>
     if (widget.withRefinementTabBar) {
       return Scaffold(
           appBar: new PreferredSize(
-            preferredSize: Size.fromHeight(kToolbarHeight),
+            preferredSize: Size.fromHeight(kToolbarHeight - 8),
             child: new Container(
               color: Colors.blue,
               child: new SafeArea(
@@ -137,27 +130,13 @@ class _ImageSearchResultPageState extends State<ImageSearchResultPage>
                         return Text('Press button to start.');
                       case ConnectionState.active:
                       case ConnectionState.waiting:
-                        return SizedBox(
-                          height: MediaQuery.of(context).size.height * 2,
-                          child: Align(
-                              alignment: Alignment.topCenter,
-                              child: Padding(
-                                padding: EdgeInsets.only(top: 5.0),
-                                child: CircularProgressIndicator(),
-                              )),
-                        );
+                        return loadingProgressIndicator(context);
                       case ConnectionState.done:
                         if (snapshot.hasError) {
                           return Text('Error: ${snapshot.error}');
                         }
                         if (snapshot.data.searchResults.isEmpty) {
-                          return GridView.count(
-                            crossAxisCount: 1,
-                            mainAxisSpacing: 4.0,
-                            crossAxisSpacing: 4.0,
-                            padding: const EdgeInsets.all(4.0),
-                            children: [new NoResultCard()],
-                          );
+                          return noResultCardInContainer(context);
                         }
                         return ImageSearchResultPage(
                           widget.dataSource,

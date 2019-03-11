@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../search_data_source.dart';
 import 'no_result_card.dart';
 import 'web_search_result_card.dart';
+import 'loading_progress_indicator.dart';
 import 'promotion_card.dart';
 
 @immutable
@@ -72,13 +73,7 @@ class _WebSearchResultPageState extends State<WebSearchResultPage>
           if (index == 0) {
             this.currentSearchResults = initialSearchResult;
             if (currentSearchResults.searchResults.isEmpty) {
-              return GridView.count(
-                crossAxisCount: 1,
-                mainAxisSpacing: 4.0,
-                crossAxisSpacing: 4.0,
-                padding: const EdgeInsets.all(4.0),
-                children: [new NoResultCard()],
-              );
+              return noResultCardInContainer(context);
             }
             return _buildWebSearchResultSubList(initialSearchResult);
           }
@@ -91,28 +86,14 @@ class _WebSearchResultPageState extends State<WebSearchResultPage>
                     return Text('Press button to start.');
                   case ConnectionState.active:
                   case ConnectionState.waiting:
-                    return SizedBox(
-                      height: MediaQuery.of(context).size.height * 2,
-                      child: Align(
-                          alignment: Alignment.topCenter,
-                          child: Padding(
-                            padding: EdgeInsets.only(top: 5.0),
-                            child: CircularProgressIndicator(),
-                          )),
-                    );
+                    return loadingProgressIndicator(context);
                   case ConnectionState.done:
                     if (snapshot.hasError) {
                       return Text('Error: ${snapshot.error}');
                     }
                     this.currentSearchResults = snapshot.data;
                     if (currentSearchResults.searchResults.isEmpty) {
-                      return GridView.count(
-                        crossAxisCount: 1,
-                        mainAxisSpacing: 4.0,
-                        crossAxisSpacing: 4.0,
-                        padding: const EdgeInsets.all(4.0),
-                        children: [new NoResultCard()],
-                      );
+                      return noResultCardInContainer(context);
                     }
                     return _buildWebSearchResultSubList(snapshot.data);
                 }
@@ -158,7 +139,6 @@ class _WebSearchResultPageState extends State<WebSearchResultPage>
                     .firstWhere((element) => element.label == tab.text);
                 final query =
                     widget.searchQuery.q + " " + currentRefinement.labelWithOp;
-                print(query);
                 return FutureBuilder(
                   future: widget.dataSource
                       .search(widget.searchQuery.copyWith(q: query)),
@@ -168,30 +148,13 @@ class _WebSearchResultPageState extends State<WebSearchResultPage>
                         return Text('Press button to start.');
                       case ConnectionState.active:
                       case ConnectionState.waiting:
-                        return SizedBox(
-                          height: MediaQuery
-                              .of(context)
-                              .size
-                              .height * 2,
-                          child: Align(
-                              alignment: Alignment.topCenter,
-                              child: Padding(
-                                padding: EdgeInsets.only(top: 5.0),
-                                child: CircularProgressIndicator(),
-                              )),
-                        );
+                        return loadingProgressIndicator(context);
                       case ConnectionState.done:
                         if (snapshot.hasError) {
                           return Text('Error: ${snapshot.error}');
                         }
                         if (snapshot.data.searchResults.isEmpty) {
-                          return GridView.count(
-                            crossAxisCount: 1,
-                            mainAxisSpacing: 4.0,
-                            crossAxisSpacing: 4.0,
-                            padding: const EdgeInsets.all(4.0),
-                            children: [new NoResultCard()],
-                          );
+                          return noResultCardInContainer(context);
                         }
                         return WebSearchResultPage(
                           widget.dataSource,

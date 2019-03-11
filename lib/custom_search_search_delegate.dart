@@ -8,6 +8,7 @@ import 'ui/web_search_result_card.dart';
 import 'ui/image_search_result_card.dart';
 import 'ui/pagination_tab.dart';
 import 'ui/image_search_result_page.dart';
+import 'ui/loading_progress_indicator.dart';
 import 'shared_constant.dart';
 
 /// A [SearchDelegate] for search using CSE API.
@@ -114,13 +115,7 @@ class CustomSearchSearchDelegate extends SearchDelegate<SearchResult> {
 
   Widget buildResultPage(BuildContext context, SearchResults searchResults) {
     if (searchResults.searchResults.isEmpty) {
-      return GridView.count(
-        crossAxisCount: 1,
-        mainAxisSpacing: 4.0,
-        crossAxisSpacing: 4.0,
-        padding: const EdgeInsets.all(4.0),
-        children: [new NoResultCard()],
-      );
+      return noResultCardInContainer(context);
     }
     switch (this.searchType) {
       case SearchType.image:
@@ -172,25 +167,13 @@ class CustomSearchSearchDelegate extends SearchDelegate<SearchResult> {
   Widget buildResultsFromQuery(BuildContext context, SearchQuery searchQuery) {
     return FutureBuilder<SearchResults>(
       future: dataSource.search(searchQuery),
-      // a previously-obtained Future<List<SearchResult>> or null
       builder: (BuildContext context, AsyncSnapshot<SearchResults> snapshot) {
         switch (snapshot.connectionState) {
           case ConnectionState.none:
             return Text('Press button to start.');
           case ConnectionState.active:
           case ConnectionState.waiting:
-            return SizedBox(
-              height: MediaQuery
-                  .of(context)
-                  .size
-                  .height * 2,
-              child: Align(
-                  alignment: Alignment.topCenter,
-                  child: Padding(
-                    padding: EdgeInsets.only(top: 5.0),
-                    child: CircularProgressIndicator(),
-                  )),
-            );
+            return loadingProgressIndicator(context);
           case ConnectionState.done:
             if (snapshot.hasError) return Text('Error: ${snapshot.error}');
             return buildResultPage(context, snapshot.data);
@@ -233,17 +216,6 @@ class CustomSearchInfiniteSearchDelegate extends CustomSearchSearchDelegate {
   CustomSearchInfiniteSearchDelegate.fakeStaticSourceImageSearch()
       : super.fakeStaticSourceImageSearch();
 
-  /// A cached [SearchResults], for nextPage usage.
-  SearchResults currentSearchResults;
-  int currentResultLength = 0;
-
-  @override
-  void close(BuildContext context, SearchResult result) {
-    this.currentSearchResults = null;
-    this.currentResultLength = 0;
-    super.close(context, result);
-  }
-
   Widget _buildSearchResultPage(BuildContext context, SearchQuery searchQuery) {
     return FutureBuilder(
       future: dataSource.search(searchQuery),
@@ -253,37 +225,19 @@ class CustomSearchInfiniteSearchDelegate extends CustomSearchSearchDelegate {
             return Text('Press button to start.');
           case ConnectionState.active:
           case ConnectionState.waiting:
-            return SizedBox(
-              height: MediaQuery
-                  .of(context)
-                  .size
-                  .height * 2,
-              child: Align(
-                  alignment: Alignment.topCenter,
-                  child: Padding(
-                    padding: EdgeInsets.only(top: 5.0),
-                    child: CircularProgressIndicator(),
-                  )),
-            );
+            return loadingProgressIndicator(context);
           case ConnectionState.done:
             if (snapshot.hasError) {
               return Text('Error: ${snapshot.error}');
             }
             if (snapshot.data.searchResults.isEmpty) {
-              return GridView.count(
-                crossAxisCount: 1,
-                mainAxisSpacing: 4.0,
-                crossAxisSpacing: 4.0,
-                padding: const EdgeInsets.all(4.0),
-                children: [new NoResultCard()],
-              );
+              return noResultCardInContainer(context);
             }
             switch (this.searchType) {
               case SearchType.image:
                 return ImageSearchResultPage(
                     dataSource, snapshot.data, searchQuery);
               case SearchType.web:
-                print('here');
                 return WebSearchResultPage(
                     dataSource, snapshot.data, searchQuery);
             }
