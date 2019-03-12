@@ -34,7 +34,8 @@ class WebSearchResultCard extends StatelessWidget {
     final ThemeData theme = Theme.of(context);
     bool haveThumbnail = this.searchResult.result.pagemap != null &&
         (this.searchResult.result.pagemap['thumbnail'] != null ||
-            this.searchResult.result.pagemap['cse_thumbnail'] != null);
+            this.searchResult.result.pagemap['cse_thumbnail'] != null ||
+            this.searchResult.result.pagemap['cse_image'] != null);
     if (!haveThumbnail) {
       return Container(
         padding: const EdgeInsets.only(
@@ -50,19 +51,17 @@ class WebSearchResultCard extends StatelessWidget {
             )),
       );
     } else {
+      var imageLink = this.searchResult.result.pagemap['thumbnail'] != null
+          ? this.searchResult.result.pagemap['thumbnail'][0]['src']
+          : this.searchResult.result.pagemap['cse_thumbnail'][0]['src'];
+      imageLink ??= this.searchResult.result.pagemap['cse_image'][0]['src'];
       return Container(
         padding: const EdgeInsets.only(
           left: 15.0,
           bottom: 8.0,
         ),
         child: new Row(children: [
-          Expanded(
-              flex: 1,
-              child: Image.network(
-                  this.searchResult.result.pagemap['thumbnail'] != null
-                      ? this.searchResult.result.pagemap['thumbnail'][0]['src']
-                      : this.searchResult.result.pagemap['cse_thumbnail'][0]
-                  ['src'])),
+          Expanded(flex: 1, child: Image.network(imageLink)),
           Expanded(
               flex: 4,
               child: Container(

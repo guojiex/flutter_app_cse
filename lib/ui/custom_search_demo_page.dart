@@ -16,7 +16,11 @@ enum CustomSearchDemoType {
 
   /// Search for image.
   imageSearch,
+
   promotionWebSearch,
+
+  // Search for image or web.
+  mixSearch,
 }
 
 class CustomSearchDemoPage extends StatefulWidget {
@@ -37,6 +41,8 @@ class CustomSearchDemoPage extends StatefulWidget {
         return _CustomSearchDemoPageState.customImageSearch();
       case CustomSearchDemoType.promotionWebSearch:
         return _CustomSearchDemoPageState.customPromotionWebSearch();
+      case CustomSearchDemoType.mixSearch:
+        return _CustomSearchDemoPageState.customMixSearch();
       default:
         return null;
     }
@@ -79,7 +85,8 @@ class _CustomSearchDemoPageState extends State<CustomSearchDemoPage> {
     otherRoutes = [
       Tuple2<String, String>('Custom Web Search Demo', '/websearch'),
       Tuple2<String, String>(
-          'Custom Web Search Promotion Demo', '/promotionwebsearch')
+          'Custom Web Search Promotion Demo', '/promotionwebsearch'),
+      Tuple2<String, String>('Custom Mix Search Demo', '/mixsearch')
     ];
   }
 
@@ -92,7 +99,8 @@ class _CustomSearchDemoPageState extends State<CustomSearchDemoPage> {
     otherRoutes = [
       Tuple2<String, String>('Custom Image Search Demo', '/imagesearch'),
       Tuple2<String, String>(
-          'Custom Web Search Promotion Demo', '/promotionwebsearch')
+          'Custom Web Search Promotion Demo', '/promotionwebsearch'),
+      Tuple2<String, String>('Custom Mix Search Demo', '/mixsearch')
     ];
   }
 
@@ -104,7 +112,22 @@ class _CustomSearchDemoPageState extends State<CustomSearchDemoPage> {
     this.hintText = 'Google Custom Web Search with Promotion';
     otherRoutes = [
       Tuple2<String, String>('Custom Web Search Demo', '/websearch'),
-      Tuple2<String, String>('Custom Image Search Demo', '/imagesearch')
+      Tuple2<String, String>('Custom Image Search Demo', '/imagesearch'),
+      Tuple2<String, String>('Custom Mix Search Demo', '/mixsearch')
+    ];
+  }
+
+  _CustomSearchDemoPageState.customMixSearch() {
+    // Pokemon db with refinement.
+    this.delegate = new CustomSearchInfiniteSearchDelegate.mixSearch(
+        dataSource: CustomSearchDataSource(
+            cx: '013098254965507895640:g-r0nurxf2g', apiKey: APIKEY));
+    this.hintText = 'Google Custom Mix Search';
+    otherRoutes = [
+      Tuple2<String, String>('Custom Web Search Demo', '/websearch'),
+      Tuple2<String, String>('Custom Image Search Demo', '/imagesearch'),
+      Tuple2<String, String>(
+          'Custom Web Search Promotion Demo', '/promotionwebsearch')
     ];
   }
 

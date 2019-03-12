@@ -46,6 +46,7 @@ class _ImageSearchResultPageState extends State<ImageSearchResultPage>
     currentSearchResults = null;
     this.currentSearchResults = null;
     this._refinementTabs.clear();
+    this.currentResultLength = 0;
     _tabController?.dispose();
     super.dispose();
   }
@@ -120,7 +121,6 @@ class _ImageSearchResultPageState extends State<ImageSearchResultPage>
                     .firstWhere((element) => element.label == tab.text);
                 final query =
                     widget.searchQuery.q + " " + currentRefinement.labelWithOp;
-                print(query);
                 return FutureBuilder(
                   future: widget.dataSource
                       .search(widget.searchQuery.copyWith(q: query)),

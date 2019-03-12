@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_app_cse/search_data_source.dart';
-import 'ui/web_search_result_page.dart';
 
+import 'ui/mix_search_result_page.dart';
+import 'ui/web_search_result_page.dart';
 import 'ui/no_result_card.dart';
 import 'ui/web_search_result_card.dart';
 import 'ui/image_search_result_card.dart';
@@ -19,30 +20,30 @@ import 'shared_constant.dart';
 class CustomSearchSearchDelegate extends SearchDelegate<SearchResult> {
   SearchDataSource dataSource;
   AutoCompleteDataSource autoCompleteDataSource;
-  SearchType searchType;
+  SearchResultPageType searchResultPageType;
 
   CustomSearchSearchDelegate(
       {this.dataSource,
       this.autoCompleteDataSource =
           const CommonEnglishWordAutoCompleteDataSource(),
-      this.searchType = SearchType.web});
+        this.searchResultPageType = SearchResultPageType.web});
 
   CustomSearchSearchDelegate.imageSearch(
       {this.dataSource,
       this.autoCompleteDataSource =
           const CommonEnglishWordAutoCompleteDataSource(),
-      this.searchType = SearchType.image});
+        this.searchResultPageType = SearchResultPageType.image});
 
   CustomSearchSearchDelegate.fakeStaticSource() {
     this.dataSource = FakeSearchDataSource();
-    this.searchType = SearchType.web;
+    this.searchResultPageType = SearchResultPageType.web;
     this.autoCompleteDataSource =
         const CommonEnglishWordAutoCompleteDataSource();
   }
 
   CustomSearchSearchDelegate.fakeStaticSourceImageSearch() {
     this.dataSource = FakeSearchDataSource();
-    this.searchType = SearchType.image;
+    this.searchResultPageType = SearchResultPageType.image;
     this.autoCompleteDataSource =
         const CommonEnglishWordAutoCompleteDataSource();
   }
@@ -117,8 +118,8 @@ class CustomSearchSearchDelegate extends SearchDelegate<SearchResult> {
     if (searchResults.searchResults.isEmpty) {
       return noResultCardInContainer(context);
     }
-    switch (this.searchType) {
-      case SearchType.image:
+    switch (this.searchResultPageType) {
+      case SearchResultPageType.image:
         return GridView.count(
             crossAxisCount: 1,
             mainAxisSpacing: 4.0,
@@ -142,7 +143,7 @@ class CustomSearchSearchDelegate extends SearchDelegate<SearchResult> {
                   searchResult: searchResults.searchResults[index]);
             }));
 
-      case SearchType.web:
+      case SearchResultPageType.web:
         return ListView.builder(
             itemCount: searchResults.searchResults.length + 2,
             itemBuilder: (BuildContext context, int index) {
@@ -188,7 +189,9 @@ class CustomSearchSearchDelegate extends SearchDelegate<SearchResult> {
     return this.buildResultsFromQuery(
         context,
         SearchQuery(query, dataSource.cx,
-            searchType: this.searchType == SearchType.web ? null : 'image'));
+            searchType: this.searchResultPageType == SearchResultPageType.image
+                ? 'image'
+                : null));
   }
 }
 
@@ -196,19 +199,27 @@ class CustomSearchSearchDelegate extends SearchDelegate<SearchResult> {
 class CustomSearchInfiniteSearchDelegate extends CustomSearchSearchDelegate {
   CustomSearchInfiniteSearchDelegate({dataSource,
     autoCompleteDataSource = const CommonEnglishWordAutoCompleteDataSource(),
-    searchType = SearchType.web})
+    searchType = SearchResultPageType.web})
       : super(
       dataSource: dataSource,
       autoCompleteDataSource: autoCompleteDataSource,
-      searchType: searchType);
+      searchResultPageType: searchType);
 
   CustomSearchInfiniteSearchDelegate.imageSearch({dataSource,
     autoCompleteDataSource = const CommonEnglishWordAutoCompleteDataSource(),
-    searchType = SearchType.image})
+    searchType = SearchResultPageType.image})
       : super.imageSearch(
       dataSource: dataSource,
       autoCompleteDataSource: autoCompleteDataSource,
-      searchType: searchType);
+      searchResultPageType: searchType);
+
+  CustomSearchInfiniteSearchDelegate.mixSearch({dataSource,
+    autoCompleteDataSource = const CommonEnglishWordAutoCompleteDataSource(),
+    searchType = SearchResultPageType.mix})
+      : super(
+      dataSource: dataSource,
+      autoCompleteDataSource: autoCompleteDataSource,
+      searchResultPageType: searchType);
 
   CustomSearchInfiniteSearchDelegate.fakeStaticSource()
       : super.fakeStaticSource();
@@ -217,6 +228,7 @@ class CustomSearchInfiniteSearchDelegate extends CustomSearchSearchDelegate {
       : super.fakeStaticSourceImageSearch();
 
   Widget _buildSearchResultPage(BuildContext context, SearchQuery searchQuery) {
+    print(searchQuery);
     return FutureBuilder(
       future: dataSource.search(searchQuery),
       builder: (context, snapshot) {
@@ -233,12 +245,15 @@ class CustomSearchInfiniteSearchDelegate extends CustomSearchSearchDelegate {
             if (snapshot.data.searchResults.isEmpty) {
               return noResultCardInContainer(context);
             }
-            switch (this.searchType) {
-              case SearchType.image:
+            switch (this.searchResultPageType) {
+              case SearchResultPageType.image:
                 return ImageSearchResultPage(
                     dataSource, snapshot.data, searchQuery);
-              case SearchType.web:
+              case SearchResultPageType.web:
                 return WebSearchResultPage(
+                    dataSource, snapshot.data, searchQuery);
+              case SearchResultPageType.mix:
+                return MixSearchResultPage(
                     dataSource, snapshot.data, searchQuery);
             }
         }

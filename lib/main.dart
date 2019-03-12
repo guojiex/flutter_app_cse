@@ -18,6 +18,8 @@ class SearchDemoApp extends StatelessWidget {
               CustomSearchDemoPage(CustomSearchDemoType.imageSearch),
           '/promotionwebsearch': (context) =>
               CustomSearchDemoPage(CustomSearchDemoType.promotionWebSearch),
+          '/mixsearch': (context) =>
+              CustomSearchDemoPage(CustomSearchDemoType.mixSearch),
         },
         title: 'Custom Search Engine Flutter Demo');
   }

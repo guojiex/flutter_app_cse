@@ -124,9 +124,12 @@ class SearchResults {
   SearchResults.empty();
 
   SearchResults(customsearch.Search search) {
+    if (int.parse(search.searchInformation.totalResults) == 0) {
+      return;
+    }
     var results = new List<SearchResult>();
     search.items.forEach(
-        (item) => results.add(SearchResult.escapeLineBreakInSnippet(item)));
+            (item) => results.add(SearchResult.escapeLineBreakInSnippet(item)));
     // Deduplicate search result.
     this.searchResults = Set<SearchResult>.from(results).toList();
     if (search.context.facets != null) {
@@ -144,7 +147,6 @@ class SearchResults {
   String toString() {
     return 'SearchResults{searchResults: $searchResults, promotions: $promotions, refinements: $refinements, nextPage: $nextPage}';
   }
-
 }
 
 /// A wrapper class for search request, to make caching search request possible.

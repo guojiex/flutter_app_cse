@@ -4,7 +4,7 @@ import 'package:url_launcher/url_launcher.dart';
 import 'package:http/http.dart' as http;
 import 'dart:typed_data';
 
-/// Result card for iamge search. Will try to load image. If failed, fall back to
+/// Result card for image search. Will try to load image. If failed, fall back to
 /// try thumbnail image.
 class ImageSearchResultCard extends StatelessWidget {
   ImageSearchResultCard({@required this.searchResult});
