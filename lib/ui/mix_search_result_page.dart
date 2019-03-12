@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:bubble_tab_indicator/bubble_tab_indicator.dart';
 
 import '../search_data_source.dart';
 import 'web_search_result_page.dart';
@@ -47,9 +48,17 @@ class _MixSearchResultPageState extends State<MixSearchResultPage>
               child: Column(
                 children: <Widget>[
                   new TabBar(
+                    indicatorSize: TabBarIndicatorSize.tab,
+                    indicator: new BubbleTabIndicator(
+                      indicatorHeight: 30.0,
+                      indicatorColor: Colors.white,
+                      tabBarIndicatorSize: TabBarIndicatorSize.tab,
+                    ),
                     isScrollable: true,
                     controller: _tabController,
                     tabs: _searchTypeTabs,
+                    labelColor: Colors.black,
+                    unselectedLabelColor: Colors.black38,
                   ),
                 ],
               ),

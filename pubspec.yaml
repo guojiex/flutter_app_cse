@@ -29,6 +29,7 @@ dependencies:
   url_launcher: ^4.0.3
   expire_cache: ^1.0.6
   tuple: ^1.0.2
+  bubble_tab_indicator: ^0.1.4
 
 dev_dependencies:
   flutter_driver:
