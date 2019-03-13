@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:bubble_tab_indicator/bubble_tab_indicator.dart';
 
 import '../search_data_source.dart';
 import 'no_result_card.dart';
@@ -102,9 +103,17 @@ class _ImageSearchResultPageState extends State<ImageSearchResultPage>
                 child: Column(
                   children: <Widget>[
                     new TabBar(
+                      indicatorSize: TabBarIndicatorSize.tab,
+                      indicator: new BubbleTabIndicator(
+                        indicatorHeight: 30.0,
+                        indicatorColor: Colors.white,
+                        tabBarIndicatorSize: TabBarIndicatorSize.tab,
+                      ),
                       isScrollable: true,
                       controller: _tabController,
                       tabs: _refinementTabs,
+                      labelColor: Colors.blue,
+                      unselectedLabelColor: Colors.white70,
                     ),
                   ],
                 ),
