@@ -106,10 +106,11 @@ class _CustomSearchDemoPageState extends State<CustomSearchDemoPage> {
 
   _CustomSearchDemoPageState.customPromotionWebSearch() {
     // flutter with promotion
+    // Trigger promotion by searching for flutter.*
     this.delegate = new CustomSearchInfiniteSearchDelegate(
         dataSource: CustomSearchDataSource(
             cx: '013098254965507895640:ebp1trsjo0a', apiKey: APIKEY));
-    this.hintText = 'Google Custom Web Search with Promotion';
+    this.hintText = 'Custom Web Search with Promotion';
     otherRoutes = [
       Tuple2<String, String>('Custom Web Search Demo', '/websearch'),
       Tuple2<String, String>('Custom Image Search Demo', '/imagesearch'),

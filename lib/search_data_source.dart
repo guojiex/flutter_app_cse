@@ -75,6 +75,7 @@ class PromotionBodyLines {
   }
 }
 
+/// A wrapper class for [customsearch.Promotion].
 class Promotion {
   String title;
   String link;
@@ -97,6 +98,7 @@ class Promotion {
   }
 }
 
+/// A wrapper class for [customsearch.ContextFacets].
 class Refinement {
   String anchor;
   String label;
@@ -110,7 +112,6 @@ class Refinement {
 }
 
 /// A wrapper class to aggregate all the search result fields that we need.
-///
 /// And deduplicate results.
 class SearchResults {
   List<SearchResult> searchResults = List<SearchResult>();
