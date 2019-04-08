@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app_cse/search_data_source.dart';
-import 'package:flutter_app_cse/custom_search_search_delegate.dart';
+import 'package:flutter_app_cse/model/search_data_source.dart';
+import 'package:flutter_app_cse/model/custom_search_search_delegate.dart';
 import 'package:tuple/tuple.dart';
 
 /// Different types of Search Demo Page.

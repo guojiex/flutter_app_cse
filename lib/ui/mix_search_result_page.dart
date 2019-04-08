@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:bubble_tab_indicator/bubble_tab_indicator.dart';
 
-import '../search_data_source.dart';
+import 'package:flutter_app_cse/model/search_data_source.dart';
 import 'web_search_result_page.dart';
 import 'image_search_result_page.dart';
 import 'loading_progress_indicator.dart';

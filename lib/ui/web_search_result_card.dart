@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app_cse/shared_constant.dart';
-import 'package:flutter_app_cse/search_data_source.dart';
+import 'package:flutter_app_cse/model/search_data_source.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class WebSearchResultCard extends StatelessWidget {

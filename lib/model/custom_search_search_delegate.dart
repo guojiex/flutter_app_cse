@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart';
-import 'package:flutter_app_cse/search_data_source.dart';
+import 'package:flutter_app_cse/model/search_data_source.dart';
 
-import 'ui/mix_search_result_page.dart';
-import 'ui/web_search_result_page.dart';
-import 'ui/no_result_card.dart';
-import 'ui/web_search_result_card.dart';
-import 'ui/image_search_result_card.dart';
-import 'ui/pagination_tab.dart';
-import 'ui/image_search_result_page.dart';
-import 'ui/loading_progress_indicator.dart';
-import 'shared_constant.dart';
+import '../ui/mix_search_result_page.dart';
+import '../ui/web_search_result_page.dart';
+import '../ui/no_result_card.dart';
+import '../ui/web_search_result_card.dart';
+import '../ui/image_search_result_card.dart';
+import '../ui/pagination_tab.dart';
+import '../ui/image_search_result_page.dart';
+import '../ui/loading_progress_indicator.dart';
+import '../shared_constant.dart';
 
 /// A [SearchDelegate] for search using CSE API.
 ///
