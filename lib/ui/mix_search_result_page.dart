@@ -6,6 +6,8 @@ import 'web_search_result_page.dart';
 import 'image_search_result_page.dart';
 import 'loading_progress_indicator.dart';
 
+/// A kind of search page that will show both web and image in the same page.
+/// It will show the web and image tab as refinement, on the top level tabs.
 class MixSearchResultPage extends StatefulWidget {
   final SearchDataSource dataSource;
   final SearchResults initialSearchResult;

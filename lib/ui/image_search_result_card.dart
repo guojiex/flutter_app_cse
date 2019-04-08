@@ -4,6 +4,8 @@ import 'package:url_launcher/url_launcher.dart';
 import 'package:http/http.dart' as http;
 import 'dart:typed_data';
 
+import 'loading_progress_indicator.dart';
+
 /// Result card for image search. Will try to load image. If failed, fall back to
 /// try thumbnail image.
 class ImageSearchResultCard extends StatelessWidget {
@@ -11,7 +13,7 @@ class ImageSearchResultCard extends StatelessWidget {
 
   final SearchResult searchResult;
 
-  Widget buildGridTileWithImage(BuildContext context, Uint8List imageData) {
+  Widget _buildGridTileWithImage(BuildContext context, Uint8List imageData) {
     return GridTile(
         child: Image.memory(imageData, fit: BoxFit.cover),
         footer: GridTileBar(
@@ -23,7 +25,7 @@ class ImageSearchResultCard extends StatelessWidget {
             )));
   }
 
-  Widget buildGridTileWithThumbnailLink(BuildContext context,
+  Widget _buildGridTileWithThumbnailLink(BuildContext context,
       String thumbnailLink) {
     return GridTile(
         child: Image.network(thumbnailLink, fit: BoxFit.cover),
@@ -45,18 +47,7 @@ class ImageSearchResultCard extends StatelessWidget {
           case ConnectionState.none:
           case ConnectionState.active:
           case ConnectionState.waiting:
-            return SizedBox(
-              height: MediaQuery
-                  .of(context)
-                  .size
-                  .height * 2,
-              child: Align(
-                  alignment: Alignment.topCenter,
-                  child: Padding(
-                    padding: EdgeInsets.only(top: 5.0),
-                    child: CircularProgressIndicator(),
-                  )),
-            );
+            return loadingProgressIndicator(context);
           case ConnectionState.done:
             if (snapshot.hasError) {
               return Text('Error: ${snapshot.error}');
@@ -68,8 +59,8 @@ class ImageSearchResultCard extends StatelessWidget {
                 }
               },
               child: snapshot.data.statusCode == 200
-                  ? buildGridTileWithImage(context, snapshot.data.bodyBytes)
-                  : buildGridTileWithThumbnailLink(
+                  ? _buildGridTileWithImage(context, snapshot.data.bodyBytes)
+                  : _buildGridTileWithThumbnailLink(
                   context, searchResult.result.image.thumbnailLink),
             );
         }

@@ -76,29 +76,6 @@ class WebSearchResultCard extends StatelessWidget {
     }
   }
 
-  Widget _buildSimpleLayout(BuildContext context) {
-    final ThemeData theme = Theme.of(context);
-    return new Card(
-        child: new Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: new ListTile(
-        leading: this.searchResult.result.pagemap['thumbnail'] != null
-            ? new Image.network(
-                this.searchResult.result.pagemap['thumbnail'][0]['src'])
-            : null,
-        title: new Text(
-          this.searchResult.result.title,
-          style: theme.textTheme.headline
-              .copyWith(fontSize: 12.0, fontWeight: FontWeight.bold),
-        ),
-        subtitle: new Text(
-          this.searchResult.result.snippet,
-          style: theme.textTheme.body1.copyWith(fontSize: 12.0),
-        ),
-      ),
-    ));
-  }
-
   Widget _buildCSELayout(BuildContext context) {
     return new Container(
       decoration: new BoxDecoration(boxShadow: [
@@ -119,17 +96,6 @@ class WebSearchResultCard extends StatelessWidget {
     );
   }
 
-  Widget _buildFromLayout(BuildContext context) {
-    switch (this.webSearchLayout) {
-      case WebSearchLayout.simple:
-        return _buildSimpleLayout(context);
-      case WebSearchLayout.CSE:
-        return _buildCSELayout(context);
-      default:
-        return new Text('Invalid Layout For WebSearchResult!');
-    }
-  }
-
   @override
   Widget build(BuildContext context) {
     return new GestureDetector(
@@ -138,6 +104,6 @@ class WebSearchResultCard extends StatelessWidget {
             await launch(searchResult.result.link);
           }
         },
-        child: _buildFromLayout(context));
+        child: _buildCSELayout(context));
   }
 }
