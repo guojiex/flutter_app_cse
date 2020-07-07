@@ -25,8 +25,9 @@ enum CustomSearchDemoType {
 
 class CustomSearchDemoPage extends StatefulWidget {
   final customSearchDemoType;
+  final String apiKey;
 
-  CustomSearchDemoPage(this.customSearchDemoType);
+  CustomSearchDemoPage(this.customSearchDemoType, this.apiKey);
 
   @override
   _CustomSearchDemoPageState createState() {
@@ -36,13 +37,13 @@ class CustomSearchDemoPage extends StatefulWidget {
       case CustomSearchDemoType.staticImageSearch:
         return _CustomSearchDemoPageState.fakeStaticSourceImageSearch();
       case CustomSearchDemoType.webSearch:
-        return _CustomSearchDemoPageState.customWebSearch();
+        return _CustomSearchDemoPageState.customWebSearch(apiKey);
       case CustomSearchDemoType.imageSearch:
-        return _CustomSearchDemoPageState.customImageSearch();
+        return _CustomSearchDemoPageState.customImageSearch(apiKey);
       case CustomSearchDemoType.promotionWebSearch:
-        return _CustomSearchDemoPageState.customPromotionWebSearch();
+        return _CustomSearchDemoPageState.customPromotionWebSearch(apiKey);
       case CustomSearchDemoType.mixSearch:
-        return _CustomSearchDemoPageState.customMixSearch();
+        return _CustomSearchDemoPageState.customMixSearch(apiKey);
       default:
         return null;
     }
@@ -52,6 +53,7 @@ class CustomSearchDemoPage extends StatefulWidget {
 class _CustomSearchDemoPageState extends State<CustomSearchDemoPage> {
   CustomSearchSearchDelegate delegate;
   String hintText;
+  String apiKey;
 
   /// used to generate display name and route to other pages, in the left drawer.
   List<Tuple2<String, String>> otherRoutes;
@@ -74,13 +76,11 @@ class _CustomSearchDemoPageState extends State<CustomSearchDemoPage> {
     ];
   }
 
-  static const APIKEY = '';
-
-  _CustomSearchDemoPageState.customImageSearch() {
+  _CustomSearchDemoPageState.customImageSearch(String apiKey) {
     // Pokemon db with refinement.
     this.delegate = new CustomSearchInfiniteSearchDelegate.imageSearch(
         dataSource: CustomSearchDataSource(
-            cx: '013098254965507895640:g-r0nurxf2g', apiKey: APIKEY));
+            cx: '013098254965507895640:g-r0nurxf2g', apiKey: apiKey));
     this.hintText = 'Google Custom Image Search';
     otherRoutes = [
       Tuple2<String, String>('Custom Web Search Demo', '/websearch'),
@@ -90,11 +90,11 @@ class _CustomSearchDemoPageState extends State<CustomSearchDemoPage> {
     ];
   }
 
-  _CustomSearchDemoPageState.customWebSearch() {
+  _CustomSearchDemoPageState.customWebSearch(String apiKey) {
     // New York Times with refinement.
     this.delegate = new CustomSearchInfiniteSearchDelegate(
         dataSource: CustomSearchDataSource(
-            cx: '013098254965507895640:zjg6lv-gsvg', apiKey: APIKEY));
+            cx: '013098254965507895640:zjg6lv-gsvg', apiKey: apiKey));
     this.hintText = 'Google Custom Web Search';
     otherRoutes = [
       Tuple2<String, String>('Custom Image Search Demo', '/imagesearch'),
@@ -104,12 +104,12 @@ class _CustomSearchDemoPageState extends State<CustomSearchDemoPage> {
     ];
   }
 
-  _CustomSearchDemoPageState.customPromotionWebSearch() {
+  _CustomSearchDemoPageState.customPromotionWebSearch(String apiKey) {
     // flutter with promotion
     // Trigger promotion by searching for flutter.*
     this.delegate = new CustomSearchInfiniteSearchDelegate(
         dataSource: CustomSearchDataSource(
-            cx: '013098254965507895640:ebp1trsjo0a', apiKey: APIKEY));
+            cx: '013098254965507895640:ebp1trsjo0a', apiKey: apiKey));
     this.hintText = 'Custom Web Search with Promotion';
     otherRoutes = [
       Tuple2<String, String>('Custom Web Search Demo', '/websearch'),
@@ -118,11 +118,11 @@ class _CustomSearchDemoPageState extends State<CustomSearchDemoPage> {
     ];
   }
 
-  _CustomSearchDemoPageState.customMixSearch() {
+  _CustomSearchDemoPageState.customMixSearch(String apiKey) {
     // Pokemon db with refinement.
     this.delegate = new CustomSearchInfiniteSearchDelegate.mixSearch(
         dataSource: CustomSearchDataSource(
-            cx: '013098254965507895640:g-r0nurxf2g', apiKey: APIKEY));
+            cx: '013098254965507895640:g-r0nurxf2g', apiKey: apiKey));
     this.hintText = 'Google Custom Mix Search';
     otherRoutes = [
       Tuple2<String, String>('Custom Web Search Demo', '/websearch'),
