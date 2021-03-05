@@ -20,6 +20,9 @@ For help getting started with Flutter, view our
 samples, guidance on mobile development, and a full API reference.
 
 ## Example
+### watch demo on bilibili
+
+[![demo_on_bilibili](https://img.youtube.com/vi/80D_cu3ex1g/hqdefault.jpg)](https://www.bilibili.com/video/BV1t4411e7rU)
 
 ### watch demo on youtube.
 
